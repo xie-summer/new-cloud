@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.invoke.mapper.material.MaterialConsumptionMapper">
+    <resultMap id="BaseResultMap" type="com.invoke.model.material.MaterialConsumption">
+        <!--
+          WARNING - @mbg.generated
+        -->
+        <id column="ID" jdbcType="INTEGER" property="id" />
+        <result column="TAGNAME" jdbcType="VARCHAR" property="tagname" />
+        <result column="MAT_CODE" jdbcType="VARCHAR" property="matCode" />
+        <result column="MAT_NAME" jdbcType="VARCHAR" property="matName" />
+        <result column="CON_WEIGHT" jdbcType="NUMERIC" property="conWeight" />
+        <result column="CON_UNIT" jdbcType="VARCHAR" property="conUnit" />
+        <result column="CON_TIME" jdbcType="TIMESTAMP" property="conTime" />
+        <result column="SYS_TIME" jdbcType="TIMESTAMP" property="sysTime" />
+        <result column="NOTES" jdbcType="VARCHAR" property="notes" />
+        <result column="DELETE_FLAG" jdbcType="INTEGER" property="deleteFlag" />
+        <result column="RESERVED_INTEGER_1" jdbcType="INTEGER" property="reservedInteger1" />
+        <result column="RESERVED_INTEGER_2" jdbcType="INTEGER" property="reservedInteger2" />
+        <result column="RESERVED_DATE_1" jdbcType="TIMESTAMP" property="reservedDate1" />
+        <result column="RESERVED_DATE_2" jdbcType="TIMESTAMP" property="reservedDate2" />
+        <result column="OP_NAME" jdbcType="VARCHAR" property="opName" />
+        <result column="RESERVED_VARCHAR_2" jdbcType="VARCHAR" property="reservedVarchar2" />
+        <result column="RESERVED_VARCHAR_3" jdbcType="VARCHAR" property="reservedVarchar3" />
+        <result column="FACTORY_ID" jdbcType="VARCHAR" property="factoryId" />
+    </resultMap>
+</mapper>

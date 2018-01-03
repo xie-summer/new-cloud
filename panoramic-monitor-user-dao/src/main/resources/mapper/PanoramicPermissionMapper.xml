@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.monitor.mapper.permission.PanoramicPermissionMapper">
+  <resultMap id="BaseResultMap" type="com.monitor.model.permission.PanoramicPermission">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="url" jdbcType="VARCHAR" property="url" />
+    <result column="menu_id" jdbcType="INTEGER" property="menuId" />
+    <result column="status" jdbcType="INTEGER" property="status" />
+    <result column="menu_title" jdbcType="VARCHAR" property="menuTitle" />
+    <result column="role_names" jdbcType="VARCHAR" property="roleNames" />
+    <result column="target" jdbcType="VARCHAR" property="target" />
+    <result column="dispaly" jdbcType="VARCHAR" property="dispaly" />
+  </resultMap>
+</mapper>

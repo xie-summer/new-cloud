@@ -1,0 +1,68 @@
+server:
+  port: 60001
+  servlet-path: /
+security:
+  user:
+    name: user
+    password: user
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://user:user@panoramic.neweplatform.com:8761/eureka/,http://user:user@panoramic.neweplatform.com:8762/eureka/   # 指定注册中心的地址
+  instance:
+    preferIpAddress: true
+#    hostname : discovery   # 指定主机名时候通过主机名访问,否则通过ip地址
+spring:
+  application:
+    name: monitor-invoke    # 项目名称尽量用小写
+#  datasource:                           # 指定数据源
+#    platform: mysql                # 指定数据源类型
+
+    # 数据库参数  #如果有配置,按照这个配置优先,如果没有按照db.properties配置
+dev:
+  spring:
+    datasource:
+      url: jdbc:mysql://114.55.129.76:3306/xinyi_1.5?useUnicode=true&characterEncoding=utf-8
+      username: root
+      password: newgrading
+      driverClassName: com.mysql.jdbc.Driver
+       # 参数
+      initialSize: 5
+      minIdle: 5
+      maxActive: 20
+      maxWait: 60000
+      timeBetweenEvictionRunsMillis: 60000
+      minEvictableIdleTimeMillis: 300000
+      validationQuery: SELECT 1 FROM DUAL
+      testWhileIdle: true
+      testOnBorrow: false
+      testOnReturn: false
+      poolPreparedStatements: true
+      maxPoolPreparedStatementPerConnectionSize: 20
+      filters: stat,wall,log4j
+      connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=5000
+
+custom:
+  datasource:
+    names: sqlserver
+    sqlserver:
+      driverClassName: com.microsoft.sqlserver.jdbc.SQLServerDriver
+      url: jdbc:sqlserver://139.196.151.137:1433;databaseName=fhadmin
+      username: sa
+      password: new_Grading_Data_8621
+## 日志配置
+logging:
+  level:
+    root: INFO
+    org.hibernate: INFO
+    org.hibernate.type.descriptor.sql.BasicBinder: TRACE
+    org.hibernate.type.descriptor.sql.BasicExtractor: TRACE
+    com.itmuch.youran.persistence: ERROR
+prikey: MIICdgIBADANBgkqhkiG9w0BAQEFAASCAmAwggJcAgEAAoGBAOq30rck7L3FshHVYWJK59sTToGMAn7WfYdrFN60AmPPyiMcIFXe3ZAxf7SWNbaQOPUz/xYr+oAXUBK17bykS/E2+Xa74wdN2VNbc7cZIggAjP9tGN0qhYTclbtC3pchcU8TVccrlVUN2lzJDLBHhPBDBFXzsQx9Vwtm2qjf2GcrAgMBAAECgYEAsHnz4aXOpkTNRSFVbiz5tLsIbNjTS4CDs1ysvWFE5rzls45DNa0yk2bUKPhDfHdli99DbO02FDbzCo5lKE+zlEHaC/WTp6guEe7jj5dwMl3shBZmgITCTk1/MQ46gGRG4RRADbQT/Y7tENp/GF3y9oJyJ+LmHFvfdEjSuY1/QzECQQD6aKqYFO8wuhLhy1fTvjMwlzok0szT9wTp+l6E7Ct9+csvdwaYjJrGsr6kUv+6YUwieSJ41lVtGnRy1oXEQG2TAkEA7/V35kYG+FMwYq/DOrBNaomRQGJVAOLzGRoK2dkjAkpoUAfzk4TTQ0KdJJ3T6mzF/6IQY+1oFDD42kNKJklfCQJARiya0i/bsC4VKI3RuRcuRUm8E6G3oRcym1d8sYd10MH1/QFAKfQNU+23m1lfLR4jNe34iSCXpBGr3JrdtdfQXQJAXgWRkGHZ800tRU3XMlTIULlMd6zP38QNOsWwgMGK7SfYjZs//opp+Q3N4v4QfedXAZ4vy+fHAzpZF7SMBkpzeQJALlMaKKeqKvPr8abXSRjW8u6s8tHaHX6CRV/1fGDX1bkUByqdFMO5CqIHn7isK2dHXI42bJVz63/d2Aax3lTbkA==
+pubkey: MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDqt9K3JOy9xbIR1WFiSufbE06BjAJ+1n2HaxTetAJjz8ojHCBV3t2QMX+0ljW2kDj1M/8WK/qAF1ASte28pEvxNvl2u+MHTdlTW3O3GSIIAIz/bRjdKoWE3JW7Qt6XIXFPE1XHK5VVDdpcyQywR4TwQwRV87EMfVcLZtqo39hnKwIDAQAB
+
+# 热发布插件
+#spring:
+# devtools:
+#    restart:
+#      additional-paths: src/main/java吧

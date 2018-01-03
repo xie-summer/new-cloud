@@ -1,0 +1,71 @@
+server:
+  port: 4000
+  servlet-path: /
+
+security:
+  user:
+    name: user
+    password: user
+
+quartzConfig: quartz-dev.properties
+feign:  # 必须配置开启断路器,默认false
+   hystrix:
+     enabled: true
+ribbon:
+  OkToRetryOnAllOperations: true
+  MaxAutoRetriesNextServer: 0
+  MaxAutoRetries: 0
+  eureka:
+    enabled: true         # 默认为true。如果设置为false，Ribbon将不会从Eureka中获得服务列表，而是使用静态配置的服务列表。静态服务列表可使用：<client>.ribbon.listOfServers来指定。参考：http://projects.spring.io/spring-cloud/docs/1.0.3/spring-cloud.html#spring-cloud-ribbon-without-eureka
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://user:user@test.neweplatform.com:8761/eureka/,http://user:user@test.neweplatform.com:8762/eureka/   # 指定注册中心的地址
+  instance:
+    preferIpAddress: true
+#    hostname : discovery   # 指定主机名时候通过主机名访问,否则通过ip地址
+spring:
+  application:
+    name: monitor-service-task    # 项目名称尽量用小写
+  datasource:
+    url: jdbc:mysql://test.neweplatform.com:3306/scheduled-task?useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true
+    username: root
+    password: root
+    driverClassName: com.mysql.jdbc.Driver
+    initialSize: 5
+    minIdle: 5
+    maxActive: 20
+    maxWait: 60000
+    timeBetweenEvictionRunsMillis: 60000
+    minEvictableIdleTimeMillis: 300000
+    validationQuery: SELECT 1 FROM DUAL
+    testWhileIdle: true
+    testOnBorrow: false
+    testOnReturn: false
+    poolPreparedStatements: true
+    maxPoolPreparedStatementPerConnectionSize: 20
+    filters: stat,log4j
+    connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=5000
+
+# 日志配置
+logging:
+  level:
+    root: INFO
+    org.hibernate: INFO
+    org.hibernate.type.descriptor.sql.BasicBinder: TRACE
+    org.hibernate.type.descriptor.sql.BasicExtractor: TRACE
+    com.itmuch.youran.persistence: ERROR
+    com.jalja.org.spring.simple.dao.FeignUserClient: DEBUG
+    
+# 热发布插件
+#spring:
+#    devtools:
+#        restart:
+#            #热部署生效
+#          enabled: true
+#            #设置重启的目录
+#            #additional-paths: src/main/java
+#            #classpath目录下的WEB-INF文件夹内容修改不重启
+#          exclude: WEB-INF/**
+

@@ -1,0 +1,48 @@
+server:
+  port: 8888         # 指定该zuul实例的端口
+security:
+  user:
+    name: user
+    password: user
+spring:
+  application:
+    name: monitor-zuul    # 项目名称尽量用小写
+hystrix.command.default.execution.isolation.thread.timeoutInMilliseconds: 300000
+ribbon:
+    ConnectTimeout: 60000
+    ReadTimeout: 120000
+zuul:
+  routes:
+    manages:
+      path: /manage/**
+      serviceId: monitor-manage
+      sensitive-headers: Cookie,Set-Cookie
+    invokes:
+      path: /invoke/**
+      serviceId: monitor-invoke
+      sensitive-headers: Cookie,Set-Cookie
+    users:
+      path: /users/**
+      serviceId: monitor-user
+      sensitive-headers: Cookie,Set-Cookie
+    tasks:
+      path: /scheduled-task/**
+      serviceId: monitor-scheduled-task
+      sensitive-headers: Cookie,Set-Cookie
+    risks:
+      path: /risk-warning/**
+      serviceId: monitor-risk-warning
+      sensitive-headers: Cookie,Set-Cookie
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://user:user@test.neweplatform.com:8761/eureka/,http://user:user@test.neweplatform.com:8762/eureka/   # 指定注册中心的地址
+  instance:
+    preferIpAddress: true
+#    hostname : discovery   # 指定主机名时候通过主机名访问,否则通过ip地址
+#spring:
+# devtools:
+#    restart:
+#      additional-paths: src/main/java
+# 参考文档：http://projects.spring.io/spring-cloud/docs/1.0.3/spring-cloud.html#_standalone_mode
+# 参考文档：http://my.oschina.net/buwei/blog/618756

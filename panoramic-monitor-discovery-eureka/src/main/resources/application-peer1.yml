@@ -1,0 +1,29 @@
+spring:
+  profiles: peer1                                 # 指定profile=peer1
+server:
+  port: 8761
+spring:
+  application:
+    name: monitor-eureka    # 项目名称尽量用小写
+security:
+  user:
+    name: user
+    password: user
+eureka:
+  instance:
+    lease-expiration-duration-in-seconds: 30
+    lease-renewal-interval-in-seconds: 10
+    hostname: discovery    # 指定该Eureka实例的主机名
+  server:
+    enable-self-preservation: false			# 设为false，关闭自我保护
+    eviction-interval-timer-in-ms: 4000    # 清理间隔（单位毫秒，默认是60*1000）
+  client:
+    healthcheck:
+          enabled: true
+    registerWithEureka: false
+    fetchRegistry: false
+    serviceUrl:
+      defaultZone: http://user:user@${eureka.instance.hostname}:${server.port}/eureka/                           # 指定当profile=peer1时，主机名
+#      将peer1自己注册到peer2这个Eureka上面去
+#      将peer2自己注册到peer1这个Eureka上面去
+

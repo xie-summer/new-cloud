@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.monitor.mapper.qcdata.QcDataMapper">
+    <resultMap id="BaseResultMap" type="com.monitor.model.qcdata.QcData">
+        <!--
+          WARNING - @mbg.generated
+        -->
+        <id column="id" jdbcType="INTEGER" property="id"/>
+        <result column="name" jdbcType="VARCHAR" property="name"/>
+        <result column="value" jdbcType="VARCHAR" property="value"/>
+        <result column="date" jdbcType="TIMESTAMP" property="date"/>
+        <result column="sys_date" jdbcType="TIMESTAMP" property="sysDate"/>
+        <result column="class_no" jdbcType="INTEGER" property="classNo"/>
+        <result column="type" jdbcType="VARCHAR" property="type"/>
+        <result column="event_level" jdbcType="VARCHAR" property="eventLevel"/>
+        <result column="task_item_name" jdbcType="VARCHAR" property="taskItemName"/>
+    </resultMap>
+</mapper>

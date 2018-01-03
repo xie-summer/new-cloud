@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.monitor.model.materialintoinventory.PanoramicMaterialIntoInventory">
+  <resultMap id="BaseResultMap" type="com.monitor.model.materialintoinventory.PanoramicMaterialIntoInventory">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="code" jdbcType="VARCHAR" property="code" />
+    <result column="in_out_time" jdbcType="TIMESTAMP" property="inOutTime" />
+    <result column="value" jdbcType="DOUBLE" property="value" />
+    <result column="mat_type" jdbcType="INTEGER" property="matType" />
+    <result column="in_out_type" jdbcType="INTEGER" property="inOutType" />
+    <result column="operator" jdbcType="VARCHAR" property="operator" />
+    <result column="f_id" jdbcType="VARCHAR" property="fId" />
+    <result column="dtime" jdbcType="TIMESTAMP" property="dtime" />
+    <result column="ctime" jdbcType="TIMESTAMP" property="ctime" />
+    <result column="utime" jdbcType="TIMESTAMP" property="utime" />
+  </resultMap>
+</mapper>
