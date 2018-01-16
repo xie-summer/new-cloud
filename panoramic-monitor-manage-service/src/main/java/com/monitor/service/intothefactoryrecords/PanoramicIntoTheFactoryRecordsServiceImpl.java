@@ -44,7 +44,7 @@ public class PanoramicIntoTheFactoryRecordsServiceImpl extends AbstractService<P
     @Transactional(propagation = Propagation.NOT_SUPPORTED, rollbackFor = Exception.class)
     public List<PanoramicIntoTheFactoryRecords> listByDate(String date) {
         Condition condition = new Condition(PanoramicIntoTheFactoryRecords.class, false);
-        condition.createCriteria().andCondition(" delete_flag=1  and status=1 and date_format(snapshot_time,'%Y%m%d') = date_format('" + date + "','%Y%m%d')  and err_msg is not null");
+        condition.createCriteria().andCondition(" delete_flag=1  and status=1 and date_format(snapshot_time,'%Y%m%d') = date_format('" + date + "','%Y%m%d')");
         condition.setOrderByClause(" snapshot_time desc ");
         List<PanoramicIntoTheFactoryRecords> factoryRecords = intoTheFactoryRecordsMapper.selectByCondition(condition);
         return factoryRecords;

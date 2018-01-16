@@ -11,7 +11,12 @@ hystrix.command.default.execution.isolation.thread.timeoutInMilliseconds: 300000
 ribbon:
     ConnectTimeout: 60000
     ReadTimeout: 120000
+    eager-load:
+      enabled: true
 zuul:
+  ribbon:
+    eager-load:
+      enabled: true
   routes:
     manages:
       path: /manage/**

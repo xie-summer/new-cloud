@@ -43,4 +43,11 @@ public interface PanoramicSparePartsIntoInventoryService extends Service<Panoram
 	 */
 	List<PanoramicSparePartsIntoInventoryDto> findMonthlyMaxValue(String date);
 	
+	/**
+	 * 指定日期的备品备件入出库量
+	 * @param date
+	 * @param type
+	 * @return
+	 */
+	List<PanoramicSparePartsIntoInventory> listDayInventory(String date,String type);
 }

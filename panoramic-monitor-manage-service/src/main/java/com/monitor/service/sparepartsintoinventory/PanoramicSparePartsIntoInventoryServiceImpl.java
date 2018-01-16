@@ -6,6 +6,7 @@ import com.monitor.mapper.sparepartsintoinventory.PanoramicSparePartsIntoInvento
 import com.monitor.model.sparepartsintoinventory.PanoramicSparePartsIntoInventory;
 import com.cloud.core.AbstractService;
 import com.cloud.core.ServiceException;
+import com.cloud.util.MathUtil;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -29,9 +30,8 @@ public class PanoramicSparePartsIntoInventoryServiceImpl extends AbstractService
     private PanoramicSparePartsIntoInventoryMapper panoramicSparePartsIntoInventoryMapper;
 
     private final int INT_MAX_5 = 5;
-    private final int INT_MAX_6 = 6;
     private List<PanoramicSparePartsIntoInventoryDto> findWeeklySummary(String date,String inouttype) {
-    	//入库记录数据库查询
+    			//入库记录数据库查询
     			List<PanoramicSparePartsIntoInventoryDto> dbResult = panoramicSparePartsIntoInventoryMapper.findWeeklySummary(date, inouttype);
     			List<PanoramicSparePartsIntoInventoryDto> result = new ArrayList<PanoramicSparePartsIntoInventoryDto>();
     			PanoramicSparePartsIntoInventoryDto temp = new PanoramicSparePartsIntoInventoryDto();
@@ -48,25 +48,15 @@ public class PanoramicSparePartsIntoInventoryServiceImpl extends AbstractService
     						temp.setSummary(dbResult.get(i).getSummary());
     						result.add(temp);
     					} else {
-    						summary += dbResult.get(i).getSummary();
+    						summary = MathUtil.add(summary,dbResult.get(i).getSummary());
     					}
-    					countSummary += dbResult.get(i).getSummary();
+    					countSummary = MathUtil.add(countSummary,dbResult.get(i).getSummary());
     				}
     				
     				if (dbResult.size() > INT_MAX_5) {
     					temp = new PanoramicSparePartsIntoInventoryDto();
     					temp.setName("其他");
     					temp.setSummary(summary);
-    					result.add(temp);
-    				}
-    			}
-    			
-    			//余下内容设置
-    			if (result.size() <= INT_MAX_5) {
-    				for(int i = result.size() - 1; i < INT_MAX_6; i++) {
-    					temp = new PanoramicSparePartsIntoInventoryDto();
-    					temp.setName("");
-    					temp.setSummary(0.0);
     					result.add(temp);
     				}
     			}
@@ -108,4 +98,13 @@ public class PanoramicSparePartsIntoInventoryServiceImpl extends AbstractService
 		List<PanoramicSparePartsIntoInventoryDto> valueResult = panoramicSparePartsIntoInventoryMapper.findMonthlyMaxValue(date);
 		return valueResult;
 	}
+
+	@Override
+	public List<PanoramicSparePartsIntoInventory> listDayInventory(String date, String type) {
+		List<PanoramicSparePartsIntoInventory> valueResult = panoramicSparePartsIntoInventoryMapper
+				.listDayInventory(date, type);
+		return valueResult;
+	}
+	
+	
 }

@@ -73,6 +73,11 @@ public class PanoramicSparePartsIntoInventory {
     private Date utime;
 
     /**
+     * 单位
+     */
+    private String unit;
+
+    /**
      * 删除时间
      */
     private Date dtime;
@@ -273,6 +278,24 @@ public class PanoramicSparePartsIntoInventory {
      */
     public void setUtime(Date utime) {
         this.utime = utime;
+    }
+
+    /**
+     * 获取单位
+     *
+     * @return unit - 单位
+     */
+    public String getUnit() {
+        return unit;
+    }
+
+    /**
+     * 设置单位
+     *
+     * @param unit 单位
+     */
+    public void setUnit(String unit) {
+        this.unit = unit;
     }
 
     /**

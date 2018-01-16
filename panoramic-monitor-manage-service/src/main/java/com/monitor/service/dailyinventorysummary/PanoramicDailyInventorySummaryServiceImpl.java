@@ -3,17 +3,21 @@ package com.monitor.service.dailyinventorysummary;
 import com.cloud.core.AbstractService;
 import com.cloud.core.ServiceException;
 import com.cloud.util.DateUtil;
+import com.cloud.util.MathUtil;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
 import com.monitor.api.dailyinventorysummary.PanoramicDailyInventorySummaryService;
 import com.monitor.api.materialthresholdconfiguration.PanoramicMaterialThresholdConfigurationService;
 import com.monitor.api.productmaterials.PanoramicProductMaterialsService;
 import com.monitor.api.rawmaterials.PanoramicRawMaterialsService;
+import com.monitor.api.realtimeconsumptiongather.PanoramicRealTimeConsumptionGatherService;
 import com.monitor.mapper.dailyinventorysummary.PanoramicDailyInventorySummaryMapper;
+import com.monitor.mapper.realtimeconsumptiongather.PanoramicRealTimeConsumptionGatherMapper;
 import com.monitor.model.dailyinventorysummary.PanoramicDailyInventorySummary;
 import com.monitor.model.materialthresholdconfiguration.PanoramicMaterialThresholdConfiguration;
 import com.monitor.model.productmaterials.PanoramicProductMaterials;
 import com.monitor.model.rawmaterials.PanoramicRawMaterials;
+import com.monitor.model.realtimeconsumptiongather.PanoramicRealTimeConsumptionGather;
 import com.monitor.support.ExceptionRecordStatusEnum;
 import com.monitor.support.ThresholdConfigConstant;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -47,31 +51,30 @@ public class PanoramicDailyInventorySummaryServiceImpl extends AbstractService<P
     @Autowired
     @Qualifier("productMaterialsService")
     private PanoramicProductMaterialsService productMaterialsService;
+    @Autowired
+    @Qualifier("realTimeConsumptionGatherService")
+    private PanoramicRealTimeConsumptionGatherService realTimeConsumptionGatherService;
 
     @Override
     @Transactional(propagation = Propagation.NOT_SUPPORTED, rollbackFor = Exception.class)
     public Integer countUsable(String code, String date) {
-        Double avg = 0.0;
-        boolean flag = false;
-        List<PanoramicDailyInventorySummary> recordList = dailyInventorySummaryMapper.findNumberdayData(code, 7, date);
-        if (null == recordList || recordList.size() == 0) {
-            recordList = dailyInventorySummaryMapper.findNumberdayData(code, 30, date);
-            if (null == recordList || recordList.size() == 0) {
-                return 0;
-            }
-            flag = true;
-        }
-        final Double[] sum = {0.0};
-        recordList.forEach(e -> {
-            sum[0] += e.getValue();
-        });
-        avg = flag ? sum[0] / 30 : sum[0] / 7;
-
-        PanoramicDailyInventorySummary summary = queryByDateAndCode(code, date);
-        if (Optional.ofNullable(summary).isPresent()) {
-            return Integer.parseInt(new java.text.DecimalFormat("0").format(summary.getValue() / avg));
-        }
-        return 0;
+    		//最近7天历史消耗量数据值获取
+    		List<PanoramicRealTimeConsumptionGather> sum = realTimeConsumptionGatherService.findNumberdayData(code, 7, date);
+    		double sumSingle = 0.0;
+    		
+    		if (null != sum && sum.size() != 0) {
+    			//当前仓库存量值获取
+        		PanoramicDailyInventorySummary summary = queryByDateAndCode(code, date);
+        		if (Optional.ofNullable(summary).isPresent()) {
+        		  for(int i = 0;i < sum.size();i++) {
+        			  sumSingle = MathUtil.add(sumSingle, sum.get(i).getValue());
+        		  }
+              return Integer.parseInt(new java.text.DecimalFormat("0").format(summary.getValue() / sumSingle * sum.size()));
+        		}
+        		return null;
+    		} else {
+    			return null;
+    		}
     }
 
     @Override
@@ -155,7 +158,7 @@ public class PanoramicDailyInventorySummaryServiceImpl extends AbstractService<P
     public PanoramicDailyInventorySummary queryByDateAndCode(String code, String date) {
         Condition condition = new Condition(PanoramicDailyInventorySummary.class, false);
         condition.createCriteria()
-                .andCondition(" code ='" + code + "' and f_id=2 and delete_flag=1 and utime > '"
+                .andCondition(" code ='" + code + "' and f_id=2 and delete_flag=1 and utime >= '"
                         + DateUtil.parseTimestamp(date, "yyyy-MM-dd") + "' and  utime < '"
                         + DateUtil.parseTimestamp(DateUtil.getSpecifiedDayBefor(date, -1), "yyyy-MM-dd") + "'");
         condition.setOrderByClause(" utime desc ");
@@ -168,12 +171,23 @@ public class PanoramicDailyInventorySummaryServiceImpl extends AbstractService<P
     public List<PanoramicDailyInventorySummary> listByDateAndCode(String date) {
         Condition condition = new Condition(PanoramicDailyInventorySummary.class, false);
         condition.createCriteria()
-                .andCondition(" f_id=2 and delete_flag=1 and utime > '" + DateUtil.parseTimestamp(date, "yyyy-MM-dd")
+                .andCondition(" f_id=2 and delete_flag=1 and utime >= '" + DateUtil.parseTimestamp(date, "yyyy-MM-dd")
                         + "' and  utime < '"
                         + DateUtil.parseTimestamp(DateUtil.getSpecifiedDayBefor(date, -1), "yyyy-MM-dd") + "'");
         condition.setOrderByClause(" utime desc ");
         List<PanoramicDailyInventorySummary> recordList = dailyInventorySummaryMapper.selectByCondition(condition);
         return recordList;
+    }
+
+    @Override
+    public List<PanoramicDailyInventorySummary> listByDateAndCode(String date, List<String> codeList) {
+        List<PanoramicDailyInventorySummary> records = Lists.newArrayList();
+        codeList.forEach((String e) -> {
+            PanoramicDailyInventorySummary dailyInventorySummary = this.queryByDateAndCode(e,
+                    date);
+            records.add(dailyInventorySummary);
+        });
+        return records;
     }
 
     @Override

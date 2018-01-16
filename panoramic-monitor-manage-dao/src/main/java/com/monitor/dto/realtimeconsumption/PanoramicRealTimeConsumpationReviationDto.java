@@ -1,10 +1,13 @@
 package com.monitor.dto.realtimeconsumption;
 
+import lombok.Data;
+
 /**
  * 实时消耗偏差
  * @author gang
  *
  */
+@Data
 public class PanoramicRealTimeConsumpationReviationDto {
 
 	/**
@@ -21,28 +24,4 @@ public class PanoramicRealTimeConsumpationReviationDto {
 	 * 偏差对比
 	 */
 	private double consumptionReviation;
-
-	public double getRealtimeConsumption() {
-		return realtimeConsumption;
-	}
-
-	public void setRealtimeConsumption(double realtimeConsumption) {
-		this.realtimeConsumption = realtimeConsumption;
-	}
-
-	public double getProductmaterialStock() {
-		return productmaterialStock;
-	}
-
-	public void setProductmaterialStock(double productmaterialStock) {
-		this.productmaterialStock = productmaterialStock;
-	}
-
-	public double getConsumptionReviation() {
-		return consumptionReviation;
-	}
-
-	public void setConsumptionReviation(double consumptionReviation) {
-		this.consumptionReviation = consumptionReviation;
-	}
 }

@@ -1,5 +1,7 @@
 package com.monitor.dto.dataverification;
 
+import lombok.Data;
+
 import java.io.Serializable;
 
 /**
@@ -7,6 +9,7 @@ import java.io.Serializable;
  * @author gang
  *
  */
+@Data
 public class PanoramicDataVerificationDto implements Serializable{
 
 	private static final long serialVersionUID = 1L;
@@ -14,41 +17,39 @@ public class PanoramicDataVerificationDto implements Serializable{
 	/**
 	 * 采集计量
 	 */
-	private double valueAuto;
+	private String valueAuto;
 	
 	/**
 	 * 出入库计量
 	 */
-	private double valueManual;
+	private String valueManual;
 	
 	/**
 	 * 偏差
 	 */
-	private double bias;
-	
-	public double getValueAuto() {
+	private String bias;
+
+	public String getValueAuto() {
 		return valueAuto;
 	}
-	
-	public void setValueAuto(double valueAuto) {
+
+	public void setValueAuto(String valueAuto) {
 		this.valueAuto = valueAuto;
 	}
-	
-	public double getValueManual() {
+
+	public String getValueManual() {
 		return valueManual;
 	}
-	
-	public void setValueManual(double valueManual) {
+
+	public void setValueManual(String valueManual) {
 		this.valueManual = valueManual;
 	}
-	
-	public double getBias() {
+
+	public String getBias() {
 		return bias;
 	}
-	
-	public void setBias(double bias) {
+
+	public void setBias(String bias) {
 		this.bias = bias;
 	}
-	
-	
 }

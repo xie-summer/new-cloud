@@ -66,7 +66,7 @@ public class PanoramicIntoTheFactoryRecordsController extends AbstractAnnotation
         return ResultCode.getSuccessReturn(records);
     }
 
-    @ApiOperation(value = "异常出厂信息查询接口", notes = "分页查询所有异常出厂信息")
+    @ApiOperation(value = "出厂信息查询接口", notes = "分页查询所有出厂信息")
     @GetMapping("/{date}/{page}/{size}")
     public ResultCode<PageInfo<PanoramicIntoTheFactoryRecords>> listByDate(@PathVariable("date") String date, @PathVariable("page") Integer page, @PathVariable("size") Integer size) {
         PageHelper.startPage(page, size);

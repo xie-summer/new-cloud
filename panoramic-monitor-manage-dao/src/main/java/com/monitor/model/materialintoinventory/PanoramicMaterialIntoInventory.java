@@ -39,6 +39,18 @@ public class PanoramicMaterialIntoInventory {
     private Double value;
 
     /**
+     * 责任人
+     */
+    @Column(name = "person_liable")
+    private String personLiable;
+
+    /**
+     * 责任人单位
+     */
+    @Column(name = "in_out_company")
+    private String inOutCompany;
+
+    /**
      * 物料类型1是原料0是产品
      */
     @Column(name = "mat_type")
@@ -75,6 +87,11 @@ public class PanoramicMaterialIntoInventory {
      * 修改时间
      */
     private Date utime;
+
+    /**
+     * 抓取数据使用的标记
+     */
+    private String tag;
 
     /**
      * 获取ID
@@ -164,6 +181,42 @@ public class PanoramicMaterialIntoInventory {
      */
     public void setValue(Double value) {
         this.value = value;
+    }
+
+    /**
+     * 获取责任人
+     *
+     * @return person_liable - 责任人
+     */
+    public String getPersonLiable() {
+        return personLiable;
+    }
+
+    /**
+     * 设置责任人
+     *
+     * @param personLiable 责任人
+     */
+    public void setPersonLiable(String personLiable) {
+        this.personLiable = personLiable;
+    }
+
+    /**
+     * 获取责任人单位
+     *
+     * @return in_out_company - 责任人单位
+     */
+    public String getInOutCompany() {
+        return inOutCompany;
+    }
+
+    /**
+     * 设置责任人单位
+     *
+     * @param inOutCompany 责任人单位
+     */
+    public void setInOutCompany(String inOutCompany) {
+        this.inOutCompany = inOutCompany;
     }
 
     /**
@@ -290,5 +343,23 @@ public class PanoramicMaterialIntoInventory {
      */
     public void setUtime(Date utime) {
         this.utime = utime;
+    }
+
+    /**
+     * 获取抓取数据使用的标记
+     *
+     * @return tag - 抓取数据使用的标记
+     */
+    public String getTag() {
+        return tag;
+    }
+
+    /**
+     * 设置抓取数据使用的标记
+     *
+     * @param tag 抓取数据使用的标记
+     */
+    public void setTag(String tag) {
+        this.tag = tag;
     }
 }

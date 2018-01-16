@@ -10,8 +10,6 @@
     <result column="name" jdbcType="VARCHAR" property="name" />
     <result column="code" jdbcType="VARCHAR" property="code" />
     <result column="value" jdbcType="DOUBLE" property="value" />
-    <result column="balance_amount" jdbcType="DOUBLE" property="balanceAmount" />
-    <result column="balance_unit_price" jdbcType="DOUBLE" property="balanceUnitPrice" />
     <result column="unit" jdbcType="VARCHAR" property="unit" />
     <result column="delete_flag" jdbcType="INTEGER" property="deleteFlag" />
     <result column="category" jdbcType="INTEGER" property="category" />

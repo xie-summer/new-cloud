@@ -32,6 +32,13 @@ public interface PanoramicDailyInventorySummaryService extends Service<Panoramic
      */
     List<PanoramicDailyInventorySummary> listByDateAndCode(String date);
 
+    /** 根据日期查询当前时间所有库存
+     * @param date
+     * @param codeList
+     * @return
+     */
+    List<PanoramicDailyInventorySummary> listByDateAndCode(String date,List<String> codeList);
+
     /**
      * 根据code校验数据高低状态
      *

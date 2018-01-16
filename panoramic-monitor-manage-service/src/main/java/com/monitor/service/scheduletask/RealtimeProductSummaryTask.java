@@ -1,18 +1,18 @@
 package com.monitor.service.scheduletask;
 
-import com.cloud.util.DateUtil;
-import com.cloud.util.LoggerUtils;
-import com.cloud.util.TLogger;
-import com.monitor.api.productmaterials.PanoramicProductMaterialsService;
-import com.monitor.model.productmaterials.PanoramicProductMaterials;
+import java.util.List;
+
 import org.quartz.Job;
 import org.quartz.JobExecutionContext;
 import org.quartz.JobExecutionException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.stereotype.Component;
 
-import java.util.List;
+import com.cloud.util.DateUtil;
+import com.cloud.util.LoggerUtils;
+import com.cloud.util.TLogger;
+import com.monitor.api.productmaterials.PanoramicProductMaterialsService;
+import com.monitor.model.productmaterials.PanoramicProductMaterials;
 
 /**
  * 产品实时汇总定时任务

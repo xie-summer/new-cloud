@@ -25,7 +25,7 @@ public interface PanoramicSparePartsIntoInventoryMapper extends Mapper<Panoramic
 	 * @return
 	 */
 	@Select("SELECT\n" + 
-			"	name AS name ,\n" + 
+			"	name ,\n" +
 			"	round(sum(amount_price),2) AS summary\n" + 
 			"FROM\n" + 
 			"	panoramic_spare_parts_into_inventory\n" + 
@@ -48,7 +48,7 @@ public interface PanoramicSparePartsIntoInventoryMapper extends Mapper<Panoramic
 	 * @return
 	 */
 	@Select("SELECT\n" + 
-			"	name as name,\n" + 
+			"	name,\n" +
 			"	round(sum(case when in_out_type  = 0 then amount_price else 0 end),2) as summary\n" + 
 			"FROM\n" + 
 			"	panoramic_spare_parts_into_inventory\n" + 
@@ -71,7 +71,7 @@ public interface PanoramicSparePartsIntoInventoryMapper extends Mapper<Panoramic
 	 * @return
 	 */
 	@Select("SELECT\n" + 
-			"	name as name,\n" + 
+			"	name,\n" +
 			"	round(sum(case when in_out_type  = 0 then value else 0 end),2) as summary\n" + 
 			"FROM\n" + 
 			"	panoramic_spare_parts_into_inventory\n" + 
@@ -87,4 +87,26 @@ public interface PanoramicSparePartsIntoInventoryMapper extends Mapper<Panoramic
 			"	summary DESC\n" + 
 			"LIMIT 5")
 	List<PanoramicSparePartsIntoInventoryDto> findMonthlyMaxValue(@Param("date") String date);
+
+	/**
+	 * 指定日期的备品备件入出库量
+	 * @param date
+	 * @param type
+	 * @return
+	 */
+	@Select("SELECT\n" + 
+			"	value,\n" +
+			"	amount_price as amountPrice,\n" + 
+			"	name,\n" +
+			"	unit,\n" + 
+			"	in_out_time as inOutTime\n" + 
+			"FROM\n" + 
+			"	panoramic_spare_parts_into_inventory\n" + 
+			"WHERE\n" + 
+			"	DATE_FORMAT(in_out_time , \"%Y-%m-%d\") = #{date}\n" + 
+			"AND in_out_type = #{type}\n" + 
+			"ORDER BY\n" + 
+			"	in_out_time\n" + 
+			"")
+	List<PanoramicSparePartsIntoInventory> listDayInventory(@Param("date") String date, @Param("type") String type);
 }

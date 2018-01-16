@@ -5,6 +5,8 @@ security:
   user:
     name: user
     password: user
+  basic:
+    enabled: false
 eureka:
   client:
     serviceUrl:
@@ -27,7 +29,7 @@ spring:
 dev:
   spring:
     datasource:
-      url: jdbc:mysql://test.neweplatform.com:3306/risk?useUnicode=true&characterEncoding=utf-8
+      url: jdbc:mysql://test.neweplatform.com:8066/risk?useUnicode=true&characterEncoding=utf-8
       username: root
       password: root
       driverClassName: com.mysql.jdbc.Driver
@@ -55,6 +57,16 @@ logging:
     org.hibernate.type.descriptor.sql.BasicExtractor: TRACE
     com.itmuch.youran.persistence: ERROR
 
+Email:
+  Config:
+    protocol: smtp
+    host: smtp.exmail.qq.com
+    port: 465
+    address: risk-warning@newhope-data.com
+    password: Nhd@1234
+    needSSL : true
+    mailContent : 您好，%s%s%s  %s = %s 超出阈值(%s,%s),触发%d级预警  请登录PC端 192.168.1.105:8088 查看预警处理结果
+    
 
 # 热发布插件
 

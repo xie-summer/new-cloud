@@ -1,7 +1,7 @@
 package com.risk.warning.mapper;
 
 import com.cloud.core.Mapper;
-import com.risk.warning.model.PanoramicSystemConfigurationNew;
+import com.risk.warning.model.PanoramicSystemConfigurationnew;
 
 import java.util.List;
 
@@ -11,9 +11,9 @@ import org.springframework.stereotype.Repository;
 /**
  * @author summer
  */
-@Repository("panoramicSystemConfigurationMappernew")
-public interface PanoramicSystemConfigurationNewMapper extends Mapper<PanoramicSystemConfigurationNew> {
+@Repository("systemConfigurationnewMapper")
+public interface PanoramicSystemConfigurationnewMapper extends Mapper<PanoramicSystemConfigurationnew> {
 
     @Select(" Select * from panoramic_system_configurationnew where Available = 1 ")
-    List<PanoramicSystemConfigurationNew> GetStrToSql();
+    List<PanoramicSystemConfigurationnew> getStrToSql();
 }

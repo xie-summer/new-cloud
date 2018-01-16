@@ -1,11 +1,8 @@
 package com.monitor.api.productofflinemeasurement;
 
-import java.util.List;
 
 import com.cloud.core.Service;
-import com.monitor.dto.productmaterials.PanoramicProductMaterialsDto;
 import com.monitor.model.productofflinemeasurement.PanoramicProductOfflineMeasurement;
-import com.monitor.model.realtimeconsumption.PanoramicRealTimeConsumption;
 
 
 /**
@@ -13,19 +10,11 @@ import com.monitor.model.realtimeconsumption.PanoramicRealTimeConsumption;
 * 2017/12/29.
 */
 public interface PanoramicProductOfflineMeasurementService extends Service<PanoramicProductOfflineMeasurement> {
-	
+		    
     /**
-     * 磷钙实时汇总定时任务
-     * @param date
+     * 产品下线数据定时任务汇总
      * @return
      */
-	List<PanoramicProductMaterialsDto> findCalciumphosphateByDate(String date);
-    
-    /**
-     * 普钙实时汇总定时任务
-     * @param date
-     * @return
-     */
-	List<PanoramicProductMaterialsDto> findCalciumsuperphosphateByDate(String date);
+	void productOfflineMeasurementSummaryTask();
 
 }

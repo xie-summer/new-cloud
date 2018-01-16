@@ -39,7 +39,7 @@ public class PanoramicRealTimeConsumptionGatherController {
         return ResultCode.getSuccessReturn(gather);
     }
 
-    @ApiOperation(value = "数据校验-磷矿查询接口", notes = "根据时间和code查询每日数据校验查询数据(每日累计消耗量和记录值)")
+    @ApiOperation(value = "每日数据校验查询", notes = "根据时间和code查询每日数据校验查询数据(每日累计消耗量和记录值)")
     @GetMapping("/day/statistics/{date}/{code}")
     public ResultCode<PanoramicRealTimeConsumptionGatherDto> listDayStatisticsByDate(@PathVariable String date,
                                                                                      @PathVariable String code) {

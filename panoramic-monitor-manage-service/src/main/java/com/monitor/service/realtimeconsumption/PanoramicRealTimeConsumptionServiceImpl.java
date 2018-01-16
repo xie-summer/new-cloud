@@ -64,7 +64,7 @@ public class PanoramicRealTimeConsumptionServiceImpl extends AbstractService<Pan
                 sumValue[0] += e.getValue();
                 record.setUtime(e.getUtime());
                 record.setDtime(null);
-                record.setOperator(e.getOperator());
+                record.setOperator("auto_task");
                 record.setfId(e.getfId());
                 record.setName(e.getName());
                 record.setDeleteFlag(e.getDeleteFlag());
@@ -75,7 +75,7 @@ public class PanoramicRealTimeConsumptionServiceImpl extends AbstractService<Pan
         PanoramicRealTimeConsumptionGather selectOne = realTimeConsumptionGatherMapper.selectByGatherTime(code, date);
         Optional<PanoramicRealTimeConsumptionGather> one = Optional.ofNullable(selectOne);
         if (one.isPresent()) {
-        	selectOne.setValue(sumValue[0] / 1000.0);
+        	selectOne.setValue(sumValue[0] );
         	selectOne.setUtime(DateUtil.getCurFullTimestamp());
         	selectOne.setCtime(selectOne.getUtime());
         	selectOne.setOperator("auto_task_update");
@@ -95,7 +95,7 @@ public class PanoramicRealTimeConsumptionServiceImpl extends AbstractService<Pan
             gather.setUnit(record.getUnit());
             gather.setDtime(record.getDtime());
             gather.setUtime(gather.getCtime());
-            gather.setValue(sumValue[0] / 1000.0);
+            gather.setValue(sumValue[0] );
             realTimeConsumptionGatherMapper.insert(gather);
         }
 

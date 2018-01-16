@@ -29,7 +29,7 @@ spring:
   application:
     name: monitor-service-task    # 项目名称尽量用小写
   datasource:
-    url: jdbc:mysql://test.neweplatform.com:3306/scheduled-task?useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true
+    url: jdbc:mysql://test.neweplatform.com:8066/scheduled-task?useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true
     username: root
     password: root
     driverClassName: com.mysql.jdbc.Driver

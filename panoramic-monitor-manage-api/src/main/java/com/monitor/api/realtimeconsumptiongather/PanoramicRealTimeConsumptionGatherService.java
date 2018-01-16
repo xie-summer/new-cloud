@@ -6,6 +6,8 @@ import com.monitor.model.realtimeconsumptiongather.PanoramicRealTimeConsumptionG
 
 import java.util.List;
 
+import org.apache.ibatis.annotations.Param;
+
 
 /**
  * @author summer
@@ -39,4 +41,13 @@ public interface PanoramicRealTimeConsumptionGatherService extends Service<Panor
      * @return
      */
     PanoramicRealTimeConsumptionGatherDto queryDayStatisticsByDate(String date, String code);
+    
+    /**
+     * 查询N天内消化总量
+     * @param code
+     * @param number
+     * @param date
+     * @return
+     */
+    List<PanoramicRealTimeConsumptionGather> findNumberdayData(String code,Integer number,String date);
 }

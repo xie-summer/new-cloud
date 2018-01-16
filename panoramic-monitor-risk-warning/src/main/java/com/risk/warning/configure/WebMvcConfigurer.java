@@ -117,7 +117,10 @@ public class WebMvcConfigurer extends WebMvcConfigurerAdapter {
 	// 解决跨域问题
 	@Override
 	public void addCorsMappings(CorsRegistry registry) {
-		registry.addMapping("/**").maxAge(3000).allowCredentials(false);
+        registry.addMapping("/**").allowedOrigins("*").allowedMethods("GET", "POST", "OPTIONS", "PUT")
+        .allowedHeaders("Content-Type", "X-Requested-With", "accept", "Origin", "Access-Control-Request-Method",
+                "Access-Control-Request-Headers")
+        .allowCredentials(false).maxAge(3600);
 	}
 
 	@Override

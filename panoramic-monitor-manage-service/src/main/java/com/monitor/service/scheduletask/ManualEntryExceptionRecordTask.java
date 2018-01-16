@@ -1,15 +1,15 @@
 package com.monitor.service.scheduletask;
 
-import com.cloud.util.DateUtil;
-import com.cloud.util.LoggerUtils;
-import com.cloud.util.TLogger;
-import com.monitor.api.inventoryentry.PanoramicInventoryEntryService;
 import org.quartz.Job;
 import org.quartz.JobExecutionContext;
 import org.quartz.JobExecutionException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.stereotype.Component;
+
+import com.cloud.util.DateUtil;
+import com.cloud.util.LoggerUtils;
+import com.cloud.util.TLogger;
+import com.monitor.api.inventoryentry.PanoramicInventoryEntryService;
 
 /**
  * @author summer

@@ -46,6 +46,24 @@ public interface ManageFeignHystrixClient {
     void regularlyRefreshTask();
 
     /**
+     * 获取预警数据
+     */
+    @RequestLine("POST /risk-warning/scan/warning/data/task")
+    void realTimeScanWarningDataTask();
+
+    /**
+     * 处理预警数据
+     */
+    @RequestLine("POST /risk-warning/deal/warning/data/task")
+    void realTimedealWarningDataTask();
+
+    /**
+     * 产品下线数据汇总定时更新
+     */
+    @RequestLine("POST /manage/product/offline/measurement/task")
+    void productOfflineMeausurementSummaryTask();
+    
+    /**
      * @author summer
      */
     @Component
@@ -87,5 +105,21 @@ public interface ManageFeignHystrixClient {
             return;
         }
 
+        @Override
+        public void realTimeScanWarningDataTask() {
+            DB_LOGGER.warn("扫描预警数据刷新-调度risk-warning服务发生异常，进入fallback方法{},扫描预警数据刷新失败");
+            return;
+        }
+        @Override
+        public void realTimedealWarningDataTask() {
+            DB_LOGGER.warn("扫描预警数据刷新-调度risk-warning服务发生异常，进入fallback方法{},扫描预警数据刷新失败");
+            return;
+        }
+        
+		@Override
+		public void productOfflineMeausurementSummaryTask() {
+			DB_LOGGER.warn("产品下线数据汇总刷新-调度risk-warning服务发生异常，进入fallback方法{},产品下线数据汇总刷新失败");
+            return;
+		}
     }
 }

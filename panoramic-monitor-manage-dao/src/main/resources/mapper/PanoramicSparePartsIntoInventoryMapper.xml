@@ -16,6 +16,7 @@
     <result column="f_id" jdbcType="INTEGER" property="fId" />
     <result column="ctime" jdbcType="TIMESTAMP" property="ctime" />
     <result column="utime" jdbcType="TIMESTAMP" property="utime" />
+    <result column="unit" jdbcType="VARCHAR" property="unit" />
     <result column="dtime" jdbcType="TIMESTAMP" property="dtime" />
   </resultMap>
 </mapper>

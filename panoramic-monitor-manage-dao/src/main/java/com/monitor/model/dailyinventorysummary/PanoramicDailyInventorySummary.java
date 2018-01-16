@@ -22,45 +22,23 @@ public class PanoramicDailyInventorySummary extends BaseObject {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-
-    public String gettId() {
-        return tId;
-    }
-
-    public void settId(String tId) {
-        this.tId = tId;
-    }
-
     /**
      * tid
      */
     @Column(name = "t_id")
     private String tId;
-
     /**
      * 物料名称
      */
     private String name;
-
     /**
      * 物料编码
      */
     private String code;
-
     /**
      * 库存量
      */
     private Double value;
-    /**
-     * 单价
-     */
-    @Column(name = "balance_unit_price")
-    private Double balanceUnitPrice;
-    /**
-     * 货值
-     */
-    @Column(name = "balance_amount")
-    private Double balanceAmount;
     /**
      * 单位
      */
@@ -96,6 +74,13 @@ public class PanoramicDailyInventorySummary extends BaseObject {
     @Column(name = "f_id")
     private String fId;
 
+    public String gettId() {
+        return tId;
+    }
+
+    public void settId(String tId) {
+        this.tId = tId;
+    }
 
     /**
      * @return
@@ -310,33 +295,6 @@ public class PanoramicDailyInventorySummary extends BaseObject {
         this.fId = fId;
     }
 
-    /**
-     * @return
-     */
-    public Double getBalanceUnitPrice() {
-        return balanceUnitPrice;
-    }
-
-    /**
-     * @param balanceUnitPrice
-     */
-    public void setBalanceUnitPrice(Double balanceUnitPrice) {
-        this.balanceUnitPrice = balanceUnitPrice;
-    }
-
-    /**
-     * @return
-     */
-    public Double getBalanceAmount() {
-        return balanceAmount;
-    }
-
-    /**
-     * @param balanceAmount
-     */
-    public void setBalanceAmount(Double balanceAmount) {
-        this.balanceAmount = balanceAmount;
-    }
 
     @Override
     public Serializable realId() {

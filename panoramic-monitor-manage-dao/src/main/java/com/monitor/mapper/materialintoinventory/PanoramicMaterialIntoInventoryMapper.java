@@ -1,5 +1,7 @@
 package com.monitor.mapper.materialintoinventory;
 
+import java.util.List;
+
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 import org.springframework.stereotype.Repository;
@@ -51,4 +53,45 @@ public interface PanoramicMaterialIntoInventoryMapper extends Mapper<PanoramicMa
 			"	'%Y-%m'\n" + 
 			")")
 	double getSummaryByLastMonth(@Param("date") String date);
+	
+	/**
+	 * 指定时间编码入出库类型查询入出库数据
+	 * @param code
+	 * @param type
+	 * @param date
+	 * @return
+	 */
+	@Select("SELECT\n" + 
+			"	in_out_time as inOutTime,\n" + 
+			"	round(VALUE , 2) as value,\n" + 
+			"	person_liable as personLiable,\n" + 
+			"	in_out_company as inOutCompany\n" + 
+			"FROM\n" + 
+			"	panoramic_material_into_inventory\n" + 
+			"WHERE\n" + 
+			"	in_out_type = #{type}\n" + 
+			"AND CODE = #{code}\n" + 
+			"AND DATE_FORMAT(in_out_time , '%Y-%m-%d') = #{date}\n" + 
+			"ORDER BY\n" + 
+			"	in_out_time")
+	List<PanoramicMaterialIntoInventory> findMaterialValue(
+			@Param("code") String code,@Param("type") String type,@Param("date") String date);
+	
+	/**
+	 * 指定时间入出库总量以及最后更新时间
+	 * @param code 
+	 * @param type
+	 * @param date
+	 * @return
+	 */
+	@Select("SELECT\n" + 
+			"	round(sum(VALUE),2) as value,\n" + 
+			"	max(utime) as utime\n" + 
+			"FROM\n" + 
+			"	panoramic_material_into_inventory\n" + 
+			"WHERE\n" + 
+			"	in_out_type = #{type}\n" + 
+			"AND CODE = #{code}\n" +
+			"AND DATE_FORMAT(in_out_time , '%Y-%m-%d') = #{date}")
+	PanoramicMaterialIntoInventory findSummaryByDate(@Param("code") String code, @Param("type") String type,@Param("date") String date);
 }

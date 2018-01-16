@@ -1,19 +1,26 @@
 package com.monitor.service.scheduletask;
 
-import com.cloud.core.AbstractService;
-import com.monitor.api.scheduletask.ScheduleTriggerService;
-import com.monitor.mapper.scheduletask.ScheduleTriggerMapper;
-import com.monitor.model.task.ScheduleTrigger;
-import org.quartz.*;
+import java.util.List;
+
+import org.quartz.CronScheduleBuilder;
+import org.quartz.CronTrigger;
+import org.quartz.Job;
+import org.quartz.JobBuilder;
+import org.quartz.JobDetail;
+import org.quartz.JobKey;
+import org.quartz.Scheduler;
+import org.quartz.TriggerBuilder;
+import org.quartz.TriggerKey;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.scheduling.annotation.Scheduled;
-import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Service;
 
-import java.util.List;
+import com.cloud.core.AbstractService;
+import com.monitor.api.scheduletask.ScheduleTriggerService;
+import com.monitor.mapper.scheduletask.ScheduleTriggerMapper;
+import com.monitor.model.task.ScheduleTrigger;
 
 /**
  * @author summer

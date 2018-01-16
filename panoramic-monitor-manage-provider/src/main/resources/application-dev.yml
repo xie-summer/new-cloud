@@ -24,8 +24,8 @@ spring:
 dev:
   spring:
     datasource:
-      masterurl: jdbc:mysql://test.neweplatform.com:3306/panoramic?useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true
-      slaveurl: jdbc:mysql://test.neweplatform.com:3306/panoramic?useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true
+      masterurl: jdbc:mysql://test.neweplatform.com:8066/panoramic?useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true
+      slaveurl: jdbc:mysql://test.neweplatform.com:8066/panoramic?useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true
       username: root
       password: root
       driverClassName: com.mysql.jdbc.Driver

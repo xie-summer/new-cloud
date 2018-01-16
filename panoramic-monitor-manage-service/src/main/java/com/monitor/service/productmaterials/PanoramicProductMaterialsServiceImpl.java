@@ -1,29 +1,26 @@
 package com.monitor.service.productmaterials;
 
+import java.util.List;
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
+
 import com.cloud.core.AbstractService;
 import com.cloud.core.ServiceException;
 import com.cloud.util.DateUtil;
 import com.cloud.util.LoggerUtils;
 import com.cloud.util.TLogger;
 import com.monitor.api.productmaterials.PanoramicProductMaterialsService;
-import com.monitor.dto.productmaterials.PanoramicProductMaterialsDto;
-import com.monitor.dto.realtimeconsumption.PanoramicRealTimeConsumptionDto;
 import com.monitor.mapper.productmaterials.PanoramicProductMaterialsMapper;
-import com.monitor.mapper.realtimeconsumption.PanoramicRealTimeConsumptionMapper;
 import com.monitor.mapper.realtimeconsumptiongather.PanoramicRealTimeConsumptionGatherMapper;
 import com.monitor.model.productmaterials.PanoramicProductMaterials;
 import com.monitor.model.realtimeconsumptiongather.PanoramicRealTimeConsumptionGather;
-import com.monitor.service.scheduletask.RealtimeProductSummaryTask;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Propagation;
-import org.springframework.transaction.annotation.Transactional;
-import tk.mybatis.mapper.entity.Condition;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Optional;
+import tk.mybatis.mapper.entity.Condition;
 
 
 /**

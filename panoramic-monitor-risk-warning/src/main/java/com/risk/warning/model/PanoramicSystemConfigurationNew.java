@@ -7,64 +7,142 @@ import java.io.Serializable;
 import java.util.Date;
 
 /**
- * @author summer
+ * @author 
  */
 @Table(name = "panoramic_system_configurationNew")
-public class PanoramicSystemConfigurationNew extends BaseObject {
+public class PanoramicSystemConfigurationnew extends BaseObject {
     /**
      *
      */
     private static final long serialVersionUID = 1L;
+    
     /**
      * ID
      */
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    /**
-     * SubID
-     */
-    private Integer subid;
+    
     /**
      * WarnType
+     * 1：阈值预警
      */
-    private Integer warntype;
+    private Integer warn_type;
+    
+    /**
+     * WarningName
+     */
+    private String warning_name;
+    
+    /**
+     * FactoryName
+     */
+    private String factory_name;
+    
+    /**
+     * SectionName
+     */
+    private String section_name;
+    
+    /**
+     * DeviceName
+     */
+    private String device_name;
+    
+    /**
+     * StrSub
+     */
+    private String str_sub;
+    
     /**
      * SourceName
      */
-    private String subname;
+    private String sub_name;
+    
     /**
      * MaxValue
      */
-    private Integer maxvalue;
+    private Double max_value;
+    
     /**
      * MinValue
      */
-    private Integer minvalue;
+    private Double min_value;
     
-    private String databaseaddress;
-    private String databasename;
-    private String databasetable;
-    private String databasetype;
-    private String strevent;
+
+    /**
+     * DataBaseAddress
+     */
+    private String data_base_address;
+
+    /**
+     * DataBaseName
+     */
+    private String data_base_name;
+
+    /**
+     * DataBaseTable
+     */
+    private String data_base_table;
+
+    /**
+     * DataBaseType
+     */
+    private String data_base_type;
+
+    /**
+     * StrEvent
+     */
+    private String str_event;
     
-    private String checkfield;
-    /**
-     * CheckCondition
-     */
-    private String checkcondition;
-    /**
-     * CheckValue
-     */
-    private Integer checkvalue;
     /**
      * Available
      */
     private Boolean available;
+    
     /**
      * intervaltime
      */
-    private Integer intervaltime;
+    private Integer interval_time;
+    
+    /**
+     * StrSubEvent
+     */
+    private String str_sub_event;
+    
+    /**
+     * StrSubEventName
+     */
+    private String str_sub_event_name;
+    
+    /**
+     * StrSubEventValue
+     */
+    private String str_sub_event_value;
+    
+    /**
+     * MaxLevel
+     */
+    private Integer max_level;
+    
+    /**
+     * LevelUpTime
+     */
+    private Integer level_up_Time;
+    
+    /**
+     * LogicType
+     */
+    private Integer logic_type;
+    
+    /**
+     * StrDateEvent
+     */
+    private String str_date_event;
+    /**
+     * StrDateEventType
+     */
+    private Integer str_date_event_type;
     
     
 
@@ -87,32 +165,12 @@ public class PanoramicSystemConfigurationNew extends BaseObject {
     } 
     
     /**
-     * 获取SubID
-     *
-     * @return subid - SubID
-     */
-    public Integer getSubId() {
-        return subid;
-    }
-
-
-
-    /**
-     * 设置SubID
-     *
-     * @param subid SubID
-     */
-    public void setSubId(Integer subid) {
-        this.subid = subid;
-    } 
-    
-    /**
      * 获取WarnType
      *
-     * @return warntype - WarnType
+     * @return warn_type - WarnType
      */
     public Integer getWarnType() {
-    	return warntype;    	
+    	return warn_type;    	
     }
     
 
@@ -122,16 +180,36 @@ public class PanoramicSystemConfigurationNew extends BaseObject {
      * @param warntype WarnType
      */
     public void setWarnType(Integer warntype) {
-        this.warntype = warntype;
+        this.warn_type = warntype;
+    } 
+    
+    /**
+     * 获取StrSub
+     *
+     * @return str_sub - StrSub
+     */
+    public String getStrSub() {
+        return str_sub;
+    }
+
+
+
+    /**
+     * 设置StrSub
+     *
+     * @param strsub StrSub
+     */
+    public void setStrSub(String strsub) {
+        this.str_sub = strsub;
     } 
     
     /**
      * 获取SubName
      *
-     * @return subname - SubName
+     * @return sub_name - SubName
      */
     public String getSubName() {
-    	return subname;    	
+    	return sub_name;    	
     }
     
 
@@ -141,16 +219,16 @@ public class PanoramicSystemConfigurationNew extends BaseObject {
      * @param subname SubName
      */
     public void setSourceName(String subname) {
-        this.subname = subname;
+        this.sub_name = subname;
     } 
     
     /**
      * 获取MaxValue
      *
-     * @return maxvalue - MaxValue
+     * @return max_value - MaxValue
      */
-    public Integer getMaxValue() {
-    	return maxvalue;    	
+    public Double getMaxValue() {
+    	return max_value;    	
     }
     
 
@@ -159,18 +237,18 @@ public class PanoramicSystemConfigurationNew extends BaseObject {
      *
      * @param maxvalue MaxValue
      */
-    public void setMaxValue(Integer maxvalue) {
-        this.maxvalue = maxvalue;
+    public void setMaxValue(Double maxvalue) {
+        this.max_value = maxvalue;
     } 
 
     
     /**
      * 获取MinValue
      *
-     * @return minvalue - MinValue
+     * @return min_value - MinValue
      */
-    public Integer getMinValue() {
-    	return minvalue;    	
+    public Double getMinValue() {
+    	return min_value;    	
     }
     
 
@@ -179,18 +257,18 @@ public class PanoramicSystemConfigurationNew extends BaseObject {
      *
      * @param minvalue MinValue
      */
-    public void setMinValue(Integer minvalue) {
-        this.minvalue = minvalue;
+    public void setMinValue(Double minvalue) {
+        this.min_value = minvalue;
     } 
     
 
     /**
      * 获取DataBaseAddress
      *
-     * @return databaseaddress - DataBaseAddress
+     * @return data_base_address - DataBaseAddress
      */
     public String getDataBaseAddress() {
-    	return databaseaddress;    	
+    	return data_base_address;    	
     }
     
 
@@ -200,17 +278,17 @@ public class PanoramicSystemConfigurationNew extends BaseObject {
      * @param databaseaddress DataBaseAddress
      */
     public void setDataBaseAddress(String databaseaddress) {
-        this.databaseaddress = databaseaddress;
+        this.data_base_address = databaseaddress;
     } 
     
 
     /**
      * 获取DataBaseName
      *
-     * @return databasename - DataBaseName
+     * @return data_base_name - DataBaseName
      */
     public String getDataBaseName() {
-    	return databasename;    	
+    	return data_base_name;    	
     }
     
 
@@ -220,17 +298,17 @@ public class PanoramicSystemConfigurationNew extends BaseObject {
      * @param databasename DataBaseName
      */
     public void setDataBaseName(String databasename) {
-        this.databasename = databasename;
+        this.data_base_name = databasename;
     } 
     
 
     /**
      * 获取DataBaseTable
      *
-     * @return databasetable - DataBaseTable
+     * @return data_base_table - DataBaseTable
      */
     public String getDataBaseTable() {
-    	return databasetable;    	
+    	return data_base_table;    	
     }
     
 
@@ -240,17 +318,17 @@ public class PanoramicSystemConfigurationNew extends BaseObject {
      * @param databasetable DataBaseTable
      */
     public void setDataBaseTable(String databasetable) {
-        this.databasetable = databasetable;
+        this.data_base_table = databasetable;
     } 
     
 
     /**
      * 获取DataBaseType
      *
-     * @return databasetype - DataBaseType
+     * @return data_base_type - DataBaseType
      */
     public String getDataBaseType() {
-    	return databasetype;    	
+    	return data_base_type;    	
     }
     
 
@@ -260,17 +338,17 @@ public class PanoramicSystemConfigurationNew extends BaseObject {
      * @param databasetype DataBaseType
      */
     public void setDataBaseType(String databasetype) {
-        this.databasetype = databasetype;
+        this.data_base_type = databasetype;
     } 
     
 
     /**
      * 获取StrEvent
      *
-     * @return strevent - StrEvent
+     * @return str_event - StrEvent
      */
     public String getStrEvent() {
-    	return strevent;    	
+    	return str_event;    	
     }
     
 
@@ -280,71 +358,9 @@ public class PanoramicSystemConfigurationNew extends BaseObject {
      * @param strevent StrEvent
      */
     public void setStrEvent(String strevent) {
-        this.strevent = strevent;
+        this.str_event = strevent;
     } 
     
-    
-    
-    /**
-     * 获取CheckField
-     *
-     * @return checkfield - CheckField
-     */
-    public String getCheckField() {
-    	return checkfield;    	
-    }
-    
-
-    /**
-     * 设置CheckField
-     *
-     * @param checkfield CheckField
-     */
-    public void setCheckField(String checkfield) {
-        this.checkfield = checkfield;
-    } 
-    
-
-    /**
-     * 获取CheckCondition
-     *
-     * @return checkcondition - CheckCondition
-     */
-    public String setCheckCondition() {
-    	return checkcondition;    	
-    }
-    
-
-    /**
-     * 设置CheckCondition
-     *
-     * @param checkcondition CheckCondition
-     */
-    public void setCheckCondition(String checkcondition) {
-        this.checkcondition = checkcondition;
-    } 
-    
-    
-    /**
-     * 获取CheckValue
-     *
-     * @return checkvalue - CheckValue
-     */
-    public Integer setCheckValue() {
-    	return checkvalue;    	
-    }
-    
-
-    /**
-     * 设置CheckValue
-     *
-     * @param checkvalue CheckValue
-     */
-    public void setCheckValue(Integer checkvalue) {
-        this.checkvalue = checkvalue;
-    }
-    
-
     /**
      * 获取Available
      *
@@ -366,23 +382,270 @@ public class PanoramicSystemConfigurationNew extends BaseObject {
 
 
     /**
-     * 获取Rate
+     * 获取Intervaltime
      *
-     * @return rate - Rate
+     * @return interval_time - Intervaltime
      */
-    public Integer setntervaltime() {
-    	return intervaltime;    	
+    public Integer getIntervaltime() {
+    	return interval_time;    	
     }
     
 
     /**
-     * 设置Rate
+     * 设置Intervaltime
      *
-     * @param rate Rate
+     * @param intervaltime Intervaltime
      */
     public void setIntervaltime(Integer intervaltime) {
-        this.intervaltime = intervaltime;
+        this.interval_time = intervaltime;
     } 
+    
+    
+    /**
+     * 获取StrSubEvent
+     *
+     * @return str_sub_event - StrSubEvent
+     */
+    public String getStrSubEvent() {
+    	return str_sub_event;    	
+    }
+    
+
+    /**
+     * 设置StrSubEvent
+     *
+     * @param strsubevent StrSubEvent
+     */
+    public void setStrSubEvent(String strsubevent) {
+        this.str_sub_event = strsubevent;
+    } 
+    
+    
+    /**
+     * 获取StrSubEventName
+     *
+     * @return str_sub_event_name - StrSubEventName
+     */
+    public String getStrSubEventName() {
+    	return str_sub_event_name;    	
+    }
+    
+
+    /**
+     * 设置StrSubEventName
+     *
+     * @param strsubeventname StrSubEventName
+     */
+    public void setStrSubEventName(String strsubeventname) {
+        this.str_sub_event_name = strsubeventname;
+    } 
+    
+    
+    /**
+     * 获取StrSubEventValue
+     *
+     * @return str_sub_event_value - StrSubEventValue
+     */
+    public String getStrSubEventValue() {
+    	return str_sub_event_value;    	
+    }
+    
+
+    /**
+     * 设置StrSubEventValue
+     *
+     * @param strsubeventvalue StrSubEventValue
+     */
+    public void setStrSubEventValue(String strsubeventvalue) {
+        this.str_sub_event_value = strsubeventvalue;
+    } 
+    
+
+    
+    
+    /**
+     * 获取WarningName
+     *
+     * @return warning_name - WarningName
+     */
+    public String getWarningName() {
+    	return warning_name;    	
+    }
+    
+
+    /**
+     * 设置WarningName
+     *
+     * @param warning_name WarningName
+     */
+    public void setWarningName(String warningname) {
+        this.warning_name = warningname;
+    } 
+    
+    /**
+     * 获取FactoryName
+     *
+     * @return factory_name - FactoryName
+     */
+    public String getFactoryName() {
+    	return factory_name;    	
+    }
+    
+
+    /**
+     * 设置FactoryName
+     *
+     * @param factoryname FactoryName
+     */
+    public void setFactoryName(String factoryname) {
+        this.factory_name = factoryname;
+    } 
+    
+    /**
+     * 获取SectionName
+     *
+     * @return section_name - SectionName
+     */
+    public String getSectionName() {
+    	return section_name;    	
+    }
+    
+
+    /**
+     * 设置SectionName
+     *
+     * @param sectionname SectionName
+     */
+    public void setSectionName(String sectionname) {
+        this.section_name = sectionname;
+    } 
+
+    /**
+     * 获取DeviceName
+     *
+     * @return device_name - DeviceName
+     */
+    public String getDeviceName() {
+    	return device_name;    	
+    }
+    
+
+    /**
+     * 设置DeviceName
+     *
+     * @param devicename DeviceName
+     */
+    public void setDeviceName(String devicename) {
+        this.device_name = devicename;
+    } 
+    
+
+
+
+    /**
+     * 获取MaxLevel
+     *
+     * @return max_level - MaxLevel
+     */
+    public Integer getMaxLevel() {
+    	return max_level;    	
+    }
+    
+
+    /**
+     * 设置MaxLevel
+     *
+     * @param maxlevel MaxLevel
+     */
+    public void setMaxLevel(Integer maxlevel) {
+        this.max_level = maxlevel;
+    } 
+    
+
+
+
+    /**
+     * 获取LevelUpTime
+     *
+     * @return level_up_Time - LevelUpTime
+     */
+    public Integer getLevelUpTime() {
+    	return level_up_Time;    	
+    }
+    
+
+    /**
+     * 设置LevelUpTime
+     *
+     * @param intervaltime LevelUpTime
+     */
+    public void setLevelUpTime(Integer leveluptime) {
+        this.level_up_Time = leveluptime;
+    } 
+
+
+
+    /**
+     * 获取LogicType
+     *
+     * @return logic_type - LogicType
+     */
+    public Integer getLogicType() {
+    	return logic_type;    	
+    }
+    
+
+
+    /**
+     * 设置LogicType
+     *
+     * @param logictype LogicType
+     */
+    public void setLogicType(Integer logictype) {
+        this.logic_type = logictype;
+    } 
+
+    /**
+     * 获取StrDateEvent
+     *
+     * @return str_date_event - StrDateEvent
+     */
+    public String getStrDateEvent() {
+    	return str_date_event;    	
+    }
+    
+
+    /**
+     * 设置StrDateEvent
+     *
+     * @param str_date_event StrDateEvent
+     */
+    public void setStrDateEvent(String strdateevent) {
+        this.str_date_event = strdateevent;
+    } 
+    
+
+
+
+    /**
+     * 获取StrDateEventType
+     *
+     * @return str_date_event_type - StrDateEventType
+     */
+    public Integer getStrDateEventType() {
+    	return str_date_event_type;    	
+    }
+    
+
+    /**
+     * 设置StrDateEventType
+     *
+     * @param strdateeventtype StrDateEventType
+     */
+    public void setStrDateEventType(Integer strdateeventtype) {
+        this.str_date_event_type = strdateeventtype;
+    } 
+    
     
     @Override
     public Serializable realId() {

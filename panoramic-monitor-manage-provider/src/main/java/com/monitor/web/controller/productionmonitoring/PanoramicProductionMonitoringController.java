@@ -52,12 +52,4 @@ public class PanoramicProductionMonitoringController {
     		Productionmonitoringinfo panoramicProductionMonitoring = productionMonitoringService.findByDate(date);
         return ResultCode.getSuccessReturn(panoramicProductionMonitoring);
     }
-    
-//    @GetMapping
-//    public ResultCode<PageInfo> list(Integer page, Integer size) {
-//        PageHelper.startPage(page, size);
-//        List<PanoramicProductionMonitoring> list = productionMonitoringService.findAll();
-//        PageInfo pageInfo = new PageInfo(list);
-//        return ResultCode.getSuccessReturn(pageInfo);
-//    }
 }

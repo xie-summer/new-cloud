@@ -26,6 +26,10 @@ public class DailyInventorySummaryServiceTask implements Job {
 	@Qualifier("dailyInventorySummaryService")
 	private PanoramicDailyInventorySummaryService dailyInventorySummaryService;
 
+	/**
+	 * @param context
+	 * @throws JobExecutionException
+	 */
 	@Override
 	public void execute(JobExecutionContext context) throws JobExecutionException {
 
