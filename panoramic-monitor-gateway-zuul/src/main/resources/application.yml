@@ -1,5 +1,5 @@
 spring:
   profiles:
-    active: dev-01
+    active: dev
 #      将peer1自己注册到peer2这个Eureka上面去
 #      将peer2自己注册到peer1这个Eureka上面去

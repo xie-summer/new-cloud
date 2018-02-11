@@ -1,0 +1,71 @@
+server:
+  port: 7000
+  servlet-path: /
+security:
+  user:
+    name: user
+    password: user
+  basic:
+    enabled: false
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://user:user@test.neweplatform.com:8761/eureka/,http://user:user@test.neweplatform.com:8762/eureka/   # 指定注册中心的地址
+  instance:
+    preferIpAddress: true
+#    hostname : discovery   # 指定主机名时候通过主机名访问,否则通过ip地址
+spring:
+  application:
+    name: monitor-user    # 项目名称尽量用小写
+  datasource:                           # 指定数据源
+    platform: mysql                # 指定数据源类型
+#    schema: classpath:schema.sql        # 指定数据库的建表脚本
+#    data: classpath:data.sql            # 指定数据库的insert脚本
+
+
+
+
+    # 数据库参数  #如果有配置,按照这个配置优先,如果没有按照db.properties配置
+dev:
+  spring:
+    datasource:
+      url: jdbc:mysql://test.neweplatform.com:8066/panoramic?useUnicode=true&characterEncoding=utf-8
+      username: root
+      password: root
+      driverClassName: com.mysql.jdbc.Driver
+       # 参数
+      initialSize: 5
+      minIdle: 5
+      maxActive: 20
+      maxWait: 60000
+      timeBetweenEvictionRunsMillis: 60000
+      minEvictableIdleTimeMillis: 300000
+      validationQuery: SELECT 1 FROM DUAL
+      testWhileIdle: true
+      testOnBorrow: false
+      testOnReturn: false
+      poolPreparedStatements: true
+      maxPoolPreparedStatementPerConnectionSize: 20
+      filters: stat,wall,log4j
+      connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=5000
+# 日志配置
+logging:
+  level:
+    root: INFO
+    org.hibernate: INFO
+    org.hibernate.type.descriptor.sql.BasicBinder: TRACE
+    org.hibernate.type.descriptor.sql.BasicExtractor: TRACE
+    com.itmuch.youran.persistence: ERROR
+#
+## 热发布插件
+#
+#spring:
+#    devtools:
+#        restart:
+#            #热部署生效
+#          enabled: true
+#            #设置重启的目录
+#            #additional-paths: src/main/java
+#            #classpath目录下的WEB-INF文件夹内容修改不重启
+#          exclude: WEB-INF/**
+

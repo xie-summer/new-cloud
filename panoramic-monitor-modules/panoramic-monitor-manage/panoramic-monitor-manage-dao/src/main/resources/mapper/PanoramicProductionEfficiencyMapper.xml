@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.monitor.mapper.productionefficiency.PanoramicProductionEfficiencyMapper">
+  <resultMap id="baseResultMap" type="com.monitor.model.productionefficiency.PanoramicProductionEfficiency">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="flights" jdbcType="VARCHAR" property="flights" />
+    <result column="calcium_phosphate_production" jdbcType="VARCHAR" property="calciumPhosphateProduction" />
+    <result column="failure_rate" jdbcType="VARCHAR" property="failureRate" />
+    <result column="calcium_phosphate_ore_consumption" jdbcType="VARCHAR" property="calciumPhosphateOreConsumption" />
+    <result column="calcium_phosphate_acid_consumption" jdbcType="VARCHAR" property="calciumPhosphateAcidConsumption" />
+    <result column="inspection_completion_rate" jdbcType="VARCHAR" property="inspectionCompletionRate" />
+    <result column="ctime" jdbcType="TIMESTAMP" property="ctime" />
+    <result column="utime" jdbcType="TIMESTAMP" property="utime" />
+    <result column="dtime" jdbcType="TIMESTAMP" property="dtime" />
+    <result column="operator" jdbcType="VARCHAR" property="operator" />
+  </resultMap>
+</mapper>

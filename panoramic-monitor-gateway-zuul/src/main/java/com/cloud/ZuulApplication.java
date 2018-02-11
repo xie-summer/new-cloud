@@ -1,6 +1,5 @@
 package com.cloud;
 
-import com.cloud.filter.ThrowExceptionFilter;
 import com.cloud.util.LoggerUtils;
 import com.cloud.util.TLogger;
 import org.springframework.boot.SpringApplication;
@@ -34,10 +33,6 @@ public class ZuulApplication {
         // }
     }
 
-    @Bean
-    public ThrowExceptionFilter throwExceptionFilter() {
-        return new ThrowExceptionFilter();
-    }
 //	@Bean
 //	public FilterRegistrationBean corsFilter() {
 //		UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();

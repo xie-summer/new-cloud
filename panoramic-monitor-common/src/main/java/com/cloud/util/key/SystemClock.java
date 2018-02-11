@@ -1,5 +1,7 @@
 package com.cloud.util.key;
 
+import net.sf.ehcache.util.NamedThreadFactory;
+
 import java.sql.Timestamp;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.ScheduledThreadPoolExecutor;
@@ -49,7 +51,7 @@ public class SystemClock {
     }
 
     private void scheduleClockUpdating() {
-        ScheduledExecutorService scheduler = new ScheduledThreadPoolExecutor(1, new NamedThreadFactory("System Clock", true));
+        ScheduledExecutorService scheduler = new ScheduledThreadPoolExecutor(1, new NamedThreadFactory("System Clock"));
         scheduler.scheduleAtFixedRate(new Runnable() {
             @Override
             public void run() {
