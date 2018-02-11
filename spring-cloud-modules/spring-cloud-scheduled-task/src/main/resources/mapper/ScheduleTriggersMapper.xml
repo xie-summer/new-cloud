@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cloud.mapper.ScheduleTriggerMapper">
+    <resultMap id="baseResultMap" type="com.cloud.model.ScheduleTrigger">
+        <!--
+          WARNING - @mbg.generated
+        -->
+        <id column="id" jdbcType="INTEGER" property="id"/>
+        <result column="cron" jdbcType="VARCHAR" property="cron"/>
+        <result column="status" jdbcType="VARCHAR" property="status"/>
+        <result column="job_Name" jdbcType="VARCHAR" property="jobName"/>
+        <result column="content" jdbcType="VARCHAR" property="content"/>
+        <result column="job_group" jdbcType="VARCHAR" property="jobGroup"/>
+    </resultMap>
+</mapper>
