@@ -589,13 +589,12 @@
 		<module>../panoramic-monitor-test</module>
 		<module>../panoramic-monitor-config-server</module>
 		<module>../panoramic-monitor-config-client</module>
-		<module>../panoramic-monitor-user</module>
-		<module>../panoramic-monitor-scheduled-task</module>
-		<module>../panoramic-monitor-risk-warning</module>
-		<module>../panoramic-monitor-manage</module>
-		<module>../panoramic-monitor-invoke</module>
+		<module>../panoramic-monitor-auth</module>
 		<module>../panoramic-monitor-doc</module>
 		<module>../panoramic-monitor-gateway-zuul</module>
+		<module>../panoramic-monitor-visual</module>
+		<module>../panoramic-monitor-modules</module>
+		<module>../spring-boot-starters-parent</module>
 
 	</modules>
 
@@ -668,4 +667,12 @@
 			</plugin>
 		</plugins>
 	</build>
+	<!-- 使用aliyun镜像 -->
+	<repositories>
+		<repository>
+			<id>aliyun</id>
+			<name>aliyun</name>
+			<url>http://maven.aliyun.com/nexus/content/groups/public</url>
+		</repository>
+	</repositories>
 </project>
