@@ -1,0 +1,4 @@
+# Auto Configure
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+com.itopener.ratelimiter.spring.boot.autoconfigure.RateLimiterAspectAutoConfiguration,\
+com.itopener.ratelimiter.spring.boot.autoconfigure.RateLimiterAutoConfiguration

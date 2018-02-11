@@ -1,0 +1,4 @@
+# Auto Configure
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+com.itopener.lock.redis.spring.boot.autoconfigure.DistributedLockAutoConfiguration,\
+com.itopener.lock.redis.spring.boot.autoconfigure.DistributedLockAspectConfiguration

@@ -1,0 +1,3 @@
+# Auto Configure
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+com.itopener.lock.redisson.spring.boot.autoconfigure.RedissonDistributedLockAspectConfiguration

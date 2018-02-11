@@ -1,0 +1,4 @@
+# Auto Configure
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+com.itopener.zuul.ratelimiter.spring.boot.common.ZuulRateLimiterAutoConfiguration,\
+com.itopener.zuul.ratelimiter.db.spring.boot.autoconfigure.ZuulRateLimiterDatabaseAutoConfiguration

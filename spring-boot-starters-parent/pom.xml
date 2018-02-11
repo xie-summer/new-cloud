@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>com.it.sunder</groupId>
+	<version>1.0-SNAPSHOT</version>
+	<artifactId>spring-boot-starters-parent</artifactId>
+	<name>spring-boot-starters-parent</name>
+	<url>http://maven.apache.org</url>
+	<packaging>pom</packaging>
+	<modules>
+		<module>druid-spring-boot-starter-parent</module>
+		<module>druidstat-spring-boot-starter-parent</module>
+		<module>lock-zk-spring-boot-starter-parent</module>
+		<module>tbschedule-spring-boot-starter-parent</module>
+		<module>lock-redis-spring-boot-starter-parent</module>
+		<module>elasticjob-spring-boot-starter-parent</module>
+		<module>zuul-route-spring-boot-starter-parent</module>
+		<module>eureka-spring-boot-starter-parent</module>
+		<module>hadoop-spring-boot-starter-parent</module>
+		<module>ratelimiter-spring-boot-starter-parent</module>
+		<module>zk-spring-boot-starter-parent</module>
+		<module>redisson-spring-boot-starter-parent</module>
+		<module>lock-redisson-spring-boot-starter-parent</module>
+		<module>sequence-spring-boot-starter-parent</module>
+		<module>cache-redis-caffeine-spring-boot-starter-parent</module>
+		<module>zuul-ratelimiter-spring-boot-starter-parent</module>
+		<module>stock-spring-boot-starter-parent</module>
+	</modules>
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<java.version>1.8</java.version>
+		<fastjson.version>1.2.31</fastjson.version>
+		<drools.version>6.5.0.Final</drools.version>
+		<curator-client.version>2.11.1</curator-client.version>
+		<pagehelper-starter.version>1.1.0</pagehelper-starter.version>
+		<mybatis-starter.version>1.2.0</mybatis-starter.version>
+		<sharding-jdbc.version>2.0.1</sharding-jdbc.version>
+		<druid.version>1.0.29</druid.version>
+		<tbschedule.version>3.3.3.2</tbschedule.version>
+		<spring-boot-admin.version>1.5.0</spring-boot-admin.version>
+		<spring-cloud.version>Dalston.RELEASE</spring-cloud.version>
+		<spring-data-hadoop.version>2.5.0.RELEASE</spring-data-hadoop.version>
+		<elastic-job.version>2.1.5</elastic-job.version>
+		<redisson.version>3.5.6</redisson.version>
+	</properties>
+
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>com.alibaba</groupId>
+				<artifactId>fastjson</artifactId>
+				<version>${fastjson.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>com.alibaba</groupId>
+				<artifactId>druid</artifactId>
+				<version>${druid.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>com.taobao.pamirs.schedule</groupId>
+				<artifactId>tbschedule</artifactId>
+				<version>${tbschedule.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>de.codecentric</groupId>
+				<artifactId>spring-boot-admin-server</artifactId>
+				<version>${spring-boot-admin.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>de.codecentric</groupId>
+				<artifactId>spring-boot-admin-server-ui</artifactId>
+				<version>${spring-boot-admin.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>de.codecentric</groupId>
+				<artifactId>spring-boot-admin-server-ui-login</artifactId>
+				<version>${spring-boot-admin.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>de.codecentric</groupId>
+				<artifactId>spring-boot-admin-starter-client</artifactId>
+				<version>${spring-boot-admin.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>org.kie</groupId>
+				<artifactId>kie-api</artifactId>
+				<version>${drools.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>org.kie</groupId>
+				<artifactId>kie-spring</artifactId>
+				<version>${drools.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>org.drools</groupId>
+				<artifactId>drools-core</artifactId>
+				<version>${drools.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>org.drools</groupId>
+				<artifactId>drools-compiler</artifactId>
+				<version>${drools.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>org.drools</groupId>
+				<artifactId>drools-templates</artifactId>
+				<version>${drools.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>org.mybatis.spring.boot</groupId>
+				<artifactId>mybatis-spring-boot-starter</artifactId>
+				<version>${mybatis-starter.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>com.github.pagehelper</groupId>
+				<artifactId>pagehelper-spring-boot-starter</artifactId>
+				<version>${pagehelper-starter.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>org.apache.curator</groupId>
+				<artifactId>curator-client</artifactId>
+				<version>${curator-client.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>org.springframework.cloud</groupId>
+				<artifactId>spring-cloud-dependencies</artifactId>
+				<version>${spring-cloud.version}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+
+			<dependency>
+				<groupId>io.shardingjdbc</groupId>
+				<artifactId>sharding-jdbc-core-spring-boot-starter</artifactId>
+				<version>${sharding-jdbc.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>io.shardingjdbc</groupId>
+				<artifactId>sharding-jdbc-core</artifactId>
+				<version>${sharding-jdbc.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>com.dangdang</groupId>
+				<artifactId>elastic-job-lite-spring</artifactId>
+				<version>${elastic-job.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>org.springframework.data</groupId>
+				<artifactId>spring-data-hadoop</artifactId>
+				<version>${spring-data-hadoop.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>org.redisson</groupId>
+				<artifactId>redisson</artifactId>
+				<version>${redisson.version}</version>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+	<repositories>
+		<repository>
+			<id>aliyun</id>
+			<name>aliyun</name>
+			<url>http://maven.aliyun.com/nexus/content/groups/public/</url>
+			<releases>
+				<enabled>true</enabled>
+			</releases>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+		</repository>
+		<repository>
+			<id>central</id>
+			<name>Maven Repository Switchboard</name>
+			<url>http://repo1.maven.org/maven2</url>
+			<releases>
+				<enabled>true</enabled>
+			</releases>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+		</repository>
+	</repositories>
+	<pluginRepositories>
+		<pluginRepository>
+			<id>central</id>
+			<url>https://repo1.maven.org/maven2</url>
+			<releases>
+				<enabled>true</enabled>
+			</releases>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+		</pluginRepository>
+	</pluginRepositories>
+	<build>
+		<plugins>
+			<!-- 要将源码放上去，要加入这个插 -->
+			<plugin>
+				<artifactId>maven-source-plugin</artifactId>
+				<configuration>
+					<attach>true</attach>
+				</configuration>
+				<executions>
+					<execution>
+						<phase>compile</phase>
+						<goals>
+							<goal>jar</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
+</project>
