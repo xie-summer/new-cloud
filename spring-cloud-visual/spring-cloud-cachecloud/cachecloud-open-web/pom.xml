@@ -186,19 +186,19 @@
         </dependency>
 
 		<dependency>
-			<groupId>com.sohu.tv</groupId>
+			<groupId>com.github.xie-summer</groupId>
 			<artifactId>cachecloud-open-client-basic</artifactId>
 			<version>${cachecloud-open-client-basic}</version>
 		</dependency>
 	
 		<dependency>
-			<groupId>com.sohu.tv</groupId>
+			<groupId>com.github.xie-summer</groupId>
 			<artifactId>cachecloud-jedis</artifactId>
 			<version>${cachecloud-jedis}</version>
 		</dependency>
 		
 		<dependency>
-			<groupId>com.sohu.tv</groupId>
+			<groupId>com.github.xie-summer</groupId>
 			<artifactId>cachecloud-open-common</artifactId>
 			<version>${cachecloud-open-common.version}</version>
 		</dependency>

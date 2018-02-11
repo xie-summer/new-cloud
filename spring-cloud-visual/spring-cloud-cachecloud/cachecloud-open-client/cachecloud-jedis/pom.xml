@@ -45,7 +45,7 @@
 		</dependency>
 
 		<dependency>
-			<groupId>com.sohu.tv</groupId>
+			<groupId>com.github.xie-summer</groupId>
 			<artifactId>cachecloud-open-client-basic</artifactId>
 			<version>1.0-SNAPSHOT</version>
 		</dependency>

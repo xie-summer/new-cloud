@@ -11,6 +11,8 @@
 		<packaging>pom</packaging>
     <groupId>com.github.xie-summer</groupId>
     <artifactId>spring-cloud-visual</artifactId>
-
+<modules>
+    <module>spring-cloud-cachecloud</module>
+</modules>
 
 </project>

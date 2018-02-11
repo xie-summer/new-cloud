@@ -32,7 +32,7 @@
 		</dependency>
 		
 		<dependency>
-			<groupId>com.sohu.tv</groupId>
+			<groupId>com.github.xie-summer</groupId>
 			<artifactId>cachecloud-open-client-basic</artifactId>
 			<version>${cachecloud-open-client-basic.version}</version>
 		</dependency>
