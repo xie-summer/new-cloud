@@ -10,7 +10,7 @@ import static org.springframework.cloud.netflix.zuul.filters.support.FilterConst
 import static org.springframework.cloud.netflix.zuul.filters.support.FilterConstants.SEND_RESPONSE_FILTER_ORDER;
 
 /**
- * @author lengleng
+ * @author summer
  * @date 2017/11/16
  * 网关日志拦截器
  */

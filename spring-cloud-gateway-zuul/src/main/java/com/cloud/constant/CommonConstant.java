@@ -1,7 +1,7 @@
 package com.cloud.constant;
 
 /**
- * @author lengleng
+ * @author summer
  * @date 2017/10/29
  */
 public interface CommonConstant {

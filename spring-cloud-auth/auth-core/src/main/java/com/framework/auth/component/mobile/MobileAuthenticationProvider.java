@@ -9,7 +9,7 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
 
 /**
- * @author lengleng
+ * @author summer
  * @date 2018/1/9
  * 手机号登录校验逻辑
  */

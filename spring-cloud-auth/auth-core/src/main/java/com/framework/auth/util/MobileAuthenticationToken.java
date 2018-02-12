@@ -7,7 +7,7 @@ import org.springframework.security.core.SpringSecurityCoreVersion;
 import java.util.Collection;
 
 /**
- * @author lengleng
+ * @author summer
  * @date 2018/1/9
  * 手机号登录令牌
  */

@@ -5,7 +5,7 @@ import lombok.Data;
 import java.util.List;
 
 /**
- * @author lengleng
+ * @author summer
  * @date 2018/1/19
  * 数据权限、参考guns实现
  */

@@ -7,7 +7,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
 /**
- * @author lengleng
+ * @author summer
  * @date 2017/10/31
  * 用户服务的fallback
  */

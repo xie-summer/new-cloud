@@ -9,7 +9,7 @@ import org.springframework.security.oauth2.provider.error.DefaultWebResponseExce
 import org.springframework.stereotype.Component;
 
 /**
- * @author lengleng
+ * @author summer
  * @date 2017/12/29
  * spring security 异常转化器
  * 默认的国际化的异常信息在 spring-security-code下messages_zh_CN

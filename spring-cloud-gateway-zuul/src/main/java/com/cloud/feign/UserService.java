@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
 /**
- * @author lengleng
+ * @author summer
  * @date 2017/10/31
  */
 @FeignClient(name = "pig-upms-service", fallback = UserServiceFallbackImpl.class)

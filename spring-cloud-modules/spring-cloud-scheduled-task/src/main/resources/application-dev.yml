@@ -27,7 +27,7 @@ eureka:
 #    hostname : discovery   # 指定主机名时候通过主机名访问,否则通过ip地址
 spring:
   application:
-    name: monitor-service-task    # 项目名称尽量用小写
+    name: monitor-scheduled-task    # 项目名称尽量用小写
   datasource:
     url: jdbc:mysql://test.neweplatform.com:8066/scheduled-task?useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true
     username: root

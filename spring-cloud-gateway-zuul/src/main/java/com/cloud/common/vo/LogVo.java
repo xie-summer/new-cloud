@@ -5,7 +5,7 @@ import com.github.pig.common.entity.SysLog;
 import java.io.Serializable;
 
 /**
- * @author lengleng
+ * @author summer
  * @date 2017/11/20
  */
 public class LogVo implements Serializable {

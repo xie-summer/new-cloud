@@ -13,7 +13,7 @@ import org.springframework.data.redis.serializer.JdkSerializationRedisSerializer
 import org.springframework.data.redis.serializer.StringRedisSerializer;
 
 /**
- * @author lengleng
+ * @author summer
  * @date 2017-12-31 22:59:37
  * 增强redis
  */

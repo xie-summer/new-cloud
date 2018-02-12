@@ -6,7 +6,7 @@ import java.time.LocalDateTime;
 
 
 /**
- * @author lengleng
+ * @author summer
  * @date 2017-12-18
  */
 public class ImageCode implements Serializable {

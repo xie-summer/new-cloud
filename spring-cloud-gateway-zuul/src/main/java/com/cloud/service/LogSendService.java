@@ -3,7 +3,7 @@ package com.cloud.service;
 import com.netflix.zuul.context.RequestContext;
 
 /**
- * @author lengleng
+ * @author summer
  * @date 2017/11/16
  */
 public interface LogSendService {

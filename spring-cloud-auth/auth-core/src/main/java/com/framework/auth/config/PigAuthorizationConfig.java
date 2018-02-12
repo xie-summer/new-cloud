@@ -21,7 +21,7 @@ import org.springframework.security.oauth2.provider.token.store.JwtAccessTokenCo
 import org.springframework.security.oauth2.provider.token.store.redis.RedisTokenStore;
 
 /**
- * @author lengleng
+ * @author summer
  * @date 2017/10/27
  * 认证服务器逻辑实现
  */

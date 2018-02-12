@@ -6,7 +6,7 @@ import org.apache.commons.lang.StringUtils;
 import java.util.Map;
 
 /**
- * @author lengleng
+ * @author summer
  * @date 2017/12/10
  */
 public class Query<T> extends Page<T> {

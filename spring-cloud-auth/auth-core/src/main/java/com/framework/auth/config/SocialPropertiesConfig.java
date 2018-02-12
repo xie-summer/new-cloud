@@ -3,7 +3,7 @@ package com.framework.auth.config;
 import lombok.Data;
 
 /**
- * @author lengleng
+ * @author summer
  * @date 2017/10/28
  * social 登录基础配置
  */

@@ -13,7 +13,7 @@ import springfox.documentation.spring.web.plugins.Docket;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 /**
- * @author lengleng
+ * @author summer
  * @date 2017/12/28
  * swagger 配置
  */

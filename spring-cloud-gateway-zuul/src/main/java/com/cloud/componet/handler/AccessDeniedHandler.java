@@ -19,7 +19,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 
 /**
- * @author lengleng
+ * @author summer
  * @date 2017/12/29
  * 授权拒绝处理器，覆盖默认的OAuth2AccessDeniedHandler
  * 包装失败信息到PigDeniedException

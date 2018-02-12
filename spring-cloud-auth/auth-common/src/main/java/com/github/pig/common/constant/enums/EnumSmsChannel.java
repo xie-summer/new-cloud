@@ -1,7 +1,7 @@
 package com.github.pig.common.constant.enums;
 
 /**
- * @author lengleng
+ * @author summer
  * @date 2018/1/16
  * 短信通道枚举
  */

@@ -1,13 +1,13 @@
 package com.framework.auth.feign.fallback;
 
-import com.github.pig.auth.feign.UserService;
+import com.framework.auth.feign.UserService;
 import com.github.pig.common.vo.UserVo;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
 /**
- * @author lengleng
+ * @author summer
  * @date 2017/10/31
  * 用户服务的fallback
  */

@@ -6,7 +6,7 @@ import java.util.Date;
 import java.util.List;
 
 /**
- * @author lengleng
+ * @author summer
  * @date 2017/10/29
  */
 public class UserVo implements Serializable {

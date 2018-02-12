@@ -8,7 +8,7 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.security.oauth2.config.annotation.web.configuration.EnableResourceServer;
 
 /**
- * @author lengleng
+ * @author summer
  *         获取用户信息也是通过这个应用实现
  *         这里既是认证服务器，也是资源服务器
  *         EnableResourceServer

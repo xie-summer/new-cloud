@@ -1,13 +1,13 @@
 package com.framework.auth.feign;
 
-import com.github.pig.auth.feign.fallback.UserServiceFallbackImpl;
+import com.framework.auth.feign.fallback.UserServiceFallbackImpl;
 import com.github.pig.common.vo.UserVo;
 import org.springframework.cloud.netflix.feign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
 /**
- * @author lengleng
+ * @author summer
  * @date 2017/10/31
  */
 @FeignClient(name = "pig-upms-service", fallback = UserServiceFallbackImpl.class)

@@ -13,7 +13,7 @@ import java.io.ByteArrayInputStream;
 import java.io.InputStream;
 
 /**
- * @author lengleng
+ * @author summer
  * @date 2018/1/25
  * Auth 模块异常回调
  */

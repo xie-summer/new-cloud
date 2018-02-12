@@ -1,0 +1,34 @@
+spring:
+  application:
+    name: cloud-gateway-zuul
+  profiles:
+    active: dev
+  cloud:
+    config:
+      fail-fast: true
+      discovery:
+        service-id: cloud-config-server
+        enabled: true
+      profile: ${spring.profiles.active}
+      label: ${spring.profiles.active}
+---
+spring:
+  profiles: dev
+eureka:
+  instance:
+    prefer-ip-address: true
+    lease-renewal-interval-in-seconds: 5
+    lease-expiration-duration-in-seconds: 20
+  client:
+    serviceUrl:
+      defaultZone: http://user:user@test.neweplatform.com:8761/eureka/,http://user:user@test.neweplatform.com:8762/eureka/
+
+---
+spring:
+  profiles: prd
+eureka:
+  instance:
+    prefer-ip-address: true
+  client:
+    serviceUrl:
+      defaultZone: http://user:user@test.neweplatform.com:8761/eureka/,http://user:user@test.neweplatform.com:8762/eureka/

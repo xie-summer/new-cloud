@@ -1,7 +1,7 @@
 package com.github.pig.common.constant;
 
 /**
- * @author lengleng
+ * @author summer
  * @date 2018/1/25
  * 服务名称
  */

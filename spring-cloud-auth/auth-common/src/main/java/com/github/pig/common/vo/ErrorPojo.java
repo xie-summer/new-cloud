@@ -5,7 +5,7 @@ import com.alibaba.fastjson.annotation.JSONField;
 import java.io.Serializable;
 
 /**
- * @author lengleng
+ * @author summer
  * @date 2017/12/25
  * spring boot 的异常对象
  */

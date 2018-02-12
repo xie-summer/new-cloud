@@ -1,7 +1,7 @@
 package com.cloud.support.exception;
 
 /**
- * @author lengleng
+ * @author summer
  * @date 😴2017年12月21日20:44:38
  */
 public class CheckedException extends RuntimeException {

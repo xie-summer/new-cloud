@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.security.Principal;
 
 /**
- * @author lengleng
+ * @author summer
  * @date 2017/10/26
  */
 @RestController

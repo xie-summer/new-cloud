@@ -6,7 +6,7 @@ security:
     password: user
 spring:
   application:
-    name: monitor-zuul    # 项目名称尽量用小写
+    name: cloud-gateway-zuul    # 项目名称尽量用小写
 hystrix.command.default.execution.isolation.thread.timeoutInMilliseconds: 300000
 ribbon:
     ConnectTimeout: 60000

@@ -3,7 +3,7 @@ package com.github.pig.common.bean.aop;
 import com.github.pig.common.constant.SecurityConstants;
 import com.github.pig.common.util.UserUtils;
 import com.github.pig.common.vo.UserVo;
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
@@ -20,7 +20,7 @@ import javax.servlet.http.HttpServletRequest;
 import java.util.Arrays;
 
 /**
- * @author lengleng
+ * @author summer
  * @date 2017/12/15
  * Controller 增强
  */

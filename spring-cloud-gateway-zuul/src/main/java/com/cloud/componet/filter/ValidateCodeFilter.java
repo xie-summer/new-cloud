@@ -24,7 +24,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 
 /**
- * @author lengleng
+ * @author summer
  * @date 2017-12-18
  * 验证码校验，true开启，false关闭校验
  * 更细化可以 clientId 进行区分

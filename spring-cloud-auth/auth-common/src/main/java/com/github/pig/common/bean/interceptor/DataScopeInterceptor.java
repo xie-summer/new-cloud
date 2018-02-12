@@ -22,7 +22,7 @@ import java.util.Map;
 import java.util.Properties;
 
 /**
- * @author lengleng
+ * @author summer
  * @date 2018/1/19
  * 数据权限插件，参考PaginationInterceptor
  */

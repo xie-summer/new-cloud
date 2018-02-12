@@ -25,7 +25,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 
 /**
- * @author lengleng
+ * @author summer
  * @date 2018年01月18日09:44:16
  * 社交登录成功，返回oauth token
  */
