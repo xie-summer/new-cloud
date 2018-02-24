@@ -12,7 +12,7 @@ import java.util.Set;
  * @author summer
  * @date 2017/10/31
  */
-@FeignClient(name = "pig-upms-service", fallback = MenuServiceFallbackImpl.class)
+@FeignClient(name = "monitor-manage", fallback = MenuServiceFallbackImpl.class)
 public interface MenuService {
     /**
      * 通过角色名查询菜单
