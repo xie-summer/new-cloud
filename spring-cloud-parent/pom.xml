@@ -12,13 +12,13 @@
 	<properties>
 		<dependency.container>provided</dependency.container>
 		<dependency.common>provided</dependency.common>
-		<spring-boot.version>1.5.4.RELEASE</spring-boot.version>
+		<spring-boot.version>1.5.9.RELEASE</spring-boot.version>
 		<mapstruct.version>1.1.0.Final</mapstruct.version>
 		<java.version>1.8</java.version>
 		<encoding.version>UTF-8</encoding.version>
 
-		<spring.boot.version>1.5.4.RELEASE</spring.boot.version>
-		<spring-cloud-dependencies.version>Dalston.SR2</spring-cloud-dependencies.version>
+		<spring.boot.version>1.5.9.RELEASE</spring.boot.version>
+		<spring-cloud-dependencies.version>Edgware.RELEASE</spring-cloud-dependencies.version>
 
 		<jackson2.version>2.6.5</jackson2.version>
 		<apache.httpcomponents.client.version>4.3.6</apache.httpcomponents.client.version>
@@ -583,20 +583,6 @@
 			<version>4.12</version>
 		</dependency>
 	</dependencies>
-	<modules>
-		<module>../spring-cloud-common</module>
-		<module>../spring-cloud-discovery-eureka</module>
-		<module>../spring-cloud-test</module>
-		<module>../spring-cloud-config-server</module>
-		<module>../spring-cloud-config-client</module>
-		<module>../spring-cloud-auth</module>
-		<module>../spring-cloud-doc</module>
-		<module>../spring-cloud-gateway-zuul</module>
-		<module>../spring-cloud-visual</module>
-		<module>../spring-cloud-modules</module>
-		<module>../spring-boot-starters-parent</module>
-
-	</modules>
 
 	<build>
 		<finalName>${project.artifactId}</finalName>
