@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<parent>
+		<artifactId>spring-cloud-parent</artifactId>
+		<groupId>com.github.xie-summer</groupId>
+		<version>1.0-SNAPSHOT</version>
+	</parent>
+	<modelVersion>4.0.0</modelVersion>
+
+	<artifactId>spring-cloud-transaction</artifactId>
+	<packaging>pom</packaging>
+	<modules>
+		<module>spring-cloud-transaction-pay-common</module>
+		<module>spring-cloud-transaction-pay-message</module>
+		<module>spring-cloud-transaction-pay-account</module>
+		<module>spring-cloud-transaction-pay-accounting</module>
+		<module>spring-cloud-transaction-pay-app-message</module>
+		<module>spring-cloud-transaction-pay-app-notify</module>
+		<module>spring-cloud-transaction-pay-app-queue</module>
+		<module>spring-cloud-transaction-pay-notify</module>
+		<module>spring-cloud-transaction-pay-point</module>
+		<module>spring-cloud-transaction-pay-trade</module>
+		<module>spring-cloud-transaction-pay-user</module>
+	</modules>
+	<properties>
+		<java.version>1.8</java.version>
+		<encoding.version>UTF-8</encoding.version>
+	</properties>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+				<configuration>
+					<fork>true</fork>
+				</configuration>
+				<executions>
+					<execution>
+						<goals>
+							<goal>repackage</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
+</project>
