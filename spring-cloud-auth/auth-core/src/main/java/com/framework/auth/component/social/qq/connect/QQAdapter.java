@@ -1,7 +1,7 @@
 package com.framework.auth.component.social.qq.connect;
 
-import com.github.pig.auth.component.social.qq.api.QQ;
-import com.github.pig.auth.component.social.qq.api.QQUserInfo;
+import com.framework.auth.component.social.qq.api.QQ;
+import com.framework.auth.component.social.qq.api.QQUserInfo;
 import org.springframework.social.connect.ApiAdapter;
 import org.springframework.social.connect.ConnectionValues;
 import org.springframework.social.connect.UserProfile;

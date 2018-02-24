@@ -17,8 +17,8 @@
         <encoding.version>UTF-8</encoding.version>
     </properties>
     <modules>
-        <module>auth-core</module>
         <module>auth-common</module>
+        <module>auth-core</module>
     </modules>
 
 </project>

@@ -29,11 +29,9 @@ public class AccessFilter extends ZuulFilter {
     public Object run() {
         RequestContext ctx = RequestContext.getCurrentContext();
         HttpServletRequest request = ctx.getRequest();
-        RequestContext ctx = RequestContext.getCurrentContext();
         ctx.set("startTime", System.currentTimeMillis());
         Object accessToken = request.getParameter("accessToken");
         if (accessToken == null) {
-
             ctx.setSendZuulResponse(false);
             ctx.setResponseStatusCode(401);
             return null;

@@ -1,8 +1,8 @@
 package com.framework.auth.component.mobile;
 
-import com.github.pig.auth.feign.UserService;
-import com.github.pig.auth.util.UserDetailsImpl;
-import com.github.pig.common.vo.UserVo;
+import com.auth.common.vo.UserVo;
+import com.framework.auth.feign.UserService;
+import com.framework.auth.util.UserDetailsImpl;
 import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.authentication.InternalAuthenticationServiceException;
 import org.springframework.security.core.Authentication;

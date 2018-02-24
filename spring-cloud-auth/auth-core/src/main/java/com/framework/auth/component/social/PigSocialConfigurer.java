@@ -1,6 +1,6 @@
 package com.framework.auth.component.social;
 
-import com.github.pig.common.constant.SecurityConstants;
+import com.auth.common.constant.SecurityConstants;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
 import org.springframework.social.security.SocialAuthenticationFilter;

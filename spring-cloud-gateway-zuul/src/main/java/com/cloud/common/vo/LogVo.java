@@ -1,6 +1,7 @@
 package com.cloud.common.vo;
 
-import com.github.pig.common.entity.SysLog;
+
+import com.cloud.common.entity.SysLog;
 
 import java.io.Serializable;
 

@@ -1,6 +1,6 @@
 package com.framework.auth.component.social.qq.connect;
 
-import com.github.pig.auth.component.social.qq.api.QQ;
+import com.framework.auth.component.social.qq.api.QQ;
 import org.springframework.social.connect.support.OAuth2ConnectionFactory;
 
 /**

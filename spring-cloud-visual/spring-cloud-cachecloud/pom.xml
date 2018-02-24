@@ -17,17 +17,17 @@
         <encoding.version>UTF-8</encoding.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <spring.version>4.2.4.RELEASE</spring.version>
-        <quartz.version>2.2.1</quartz.version>
-        <logback.version>1.1.1</logback.version>
-        <mysql.java.version>5.1.29</mysql.java.version>
-        <junit.version>4.11</junit.version>
+        <quartz.version>2.3.0</quartz.version>
+        <logback.version>1.1.11</logback.version>
+        <mysql.java.version>5.1.42</mysql.java.version>
+        <junit.version>4.12</junit.version>
         <servlet.api.version>3.1</servlet.api.version>
         <jetty.version>9.2.3.v20140905</jetty.version>
-        <mybatis.spring.version>1.2.3</mybatis.spring.version>
+        <mybatis.spring.version>1.3.0</mybatis.spring.version>
         <mybatis.version>3.2.8</mybatis.version>
         <jedis.version>2.8.0</jedis.version>
-        <jackson.version>2.3.2</jackson.version>
-        <httpcoponents.version>4.3.2</httpcoponents.version>
+        <jackson.version>2.6.5</jackson.version>
+        <httpcoponents.version>4.3.6</httpcoponents.version>
         <apache.commons.collections>4.0</apache.commons.collections>
         <maven.compiler.plugin>3.1</maven.compiler.plugin>
         <maven.compiler.target>1.7</maven.compiler.target>
@@ -39,12 +39,12 @@
         <guava.version>15.0</guava.version>
         <commons-lang.version>2.3</commons-lang.version>
         <json-lib.version>2.2.1</json-lib.version>
-        <slf4j.version>1.7.6</slf4j.version>
+        <slf4j.version>1.7.9</slf4j.version>
         <commons.configuration.version>1.6</commons.configuration.version>
         <velocity.version>1.7</velocity.version>
         <velocity-tool.version>2.0</velocity-tool.version>
         <velocity-tools-generic.version>2.1.0-SNAPSHOT</velocity-tools-generic.version>
-        <fastjson.version>1.2.28</fastjson.version>
+        <fastjson.version>1.2.29</fastjson.version>
         <maven.deloy.plugin>2.8.1</maven.deloy.plugin>
         <maven-source-plugin>2.2.1</maven-source-plugin>
         <maven-resources-plugin>2.6</maven-resources-plugin>

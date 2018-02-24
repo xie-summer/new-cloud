@@ -1,6 +1,6 @@
 package com.cloud.componet.fallback;
 
-import com.github.pig.common.constant.ServiceNameConstant;
+import com.auth.common.constant.ServiceNameConstant;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.cloud.netflix.zuul.filters.Route;
 import org.springframework.cloud.netflix.zuul.filters.RouteLocator;

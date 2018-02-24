@@ -1,9 +1,9 @@
 package com.cloud.service.impl;
 
 import com.baomidou.mybatisplus.toolkit.StringUtils;
-import com.github.pig.common.vo.MenuVo;
-import com.github.pig.gateway.feign.MenuService;
-import com.github.pig.gateway.service.PermissionService;
+import com.auth.common.vo.MenuVo;
+import com.cloud.feign.MenuService;
+import com.cloud.service.PermissionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;

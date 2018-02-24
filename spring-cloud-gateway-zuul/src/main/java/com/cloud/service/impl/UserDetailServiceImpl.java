@@ -1,6 +1,6 @@
 package com.cloud.service.impl;
 
-import com.github.pig.common.vo.UserVo;
+import com.auth.common.vo.UserVo;
 import com.github.pig.gateway.feign.UserService;
 import com.github.pig.gateway.util.UserDetailsImpl;
 import org.apache.commons.lang.StringUtils;

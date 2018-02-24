@@ -2,8 +2,8 @@ package com.framework.auth.serivce;
 
 import com.framework.auth.feign.UserService;
 import com.framework.auth.util.UserDetailsImpl;
-import com.github.pig.common.vo.SysRole;
-import com.github.pig.common.vo.UserVo;
+import com.auth.common.vo.SysRole;
+import com.auth.common.vo.UserVo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;

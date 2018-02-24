@@ -1,12 +1,13 @@
 package com.cloud.service.impl;
 
-import com.github.pig.common.constant.CommonConstant;
-import com.github.pig.common.constant.MqQueueConstant;
-import com.github.pig.common.entity.SysLog;
-import com.github.pig.common.util.UserUtils;
-import com.github.pig.common.vo.LogVo;
-import com.github.pig.gateway.service.LogSendService;
+import com.cloud.common.entity.SysLog;
+import com.cloud.common.vo.LogVo;
+import com.cloud.constant.CommonConstant;
+import com.cloud.service.LogSendService;
+import com.auth.common.constant.MqQueueConstant;
+import com.auth.common.util.UserUtils;
 import com.netflix.zuul.context.RequestContext;
+
 import com.xiaoleilu.hutool.http.HttpUtil;
 import com.xiaoleilu.hutool.io.IoUtil;
 import com.xiaoleilu.hutool.util.URLUtil;
@@ -17,6 +18,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.amqp.core.AmqpTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+
 
 import javax.servlet.http.HttpServletRequest;
 import java.io.ByteArrayInputStream;

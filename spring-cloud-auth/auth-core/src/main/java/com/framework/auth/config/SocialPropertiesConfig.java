@@ -7,7 +7,6 @@ import lombok.Data;
  * @date 2017/10/28
  * social 登录基础配置
  */
-@Data
 public class SocialPropertiesConfig {
     /**
      * 提供商
@@ -22,4 +21,27 @@ public class SocialPropertiesConfig {
      */
     private String clientSecret;
 
+    public String getProviderId() {
+        return providerId;
+    }
+
+    public void setProviderId(String providerId) {
+        this.providerId = providerId;
+    }
+
+    public String getClientId() {
+        return clientId;
+    }
+
+    public void setClientId(String clientId) {
+        this.clientId = clientId;
+    }
+
+    public String getClientSecret() {
+        return clientSecret;
+    }
+
+    public void setClientSecret(String clientSecret) {
+        this.clientSecret = clientSecret;
+    }
 }

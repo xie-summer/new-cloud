@@ -1,6 +1,6 @@
 package com.framework.auth.component.social.qq.config;
 
-import com.github.pig.auth.config.SocialPropertiesConfig;
+import com.framework.auth.config.SocialPropertiesConfig;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Configuration;
 

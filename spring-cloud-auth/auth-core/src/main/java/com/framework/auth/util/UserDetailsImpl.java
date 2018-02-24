@@ -1,8 +1,8 @@
 package com.framework.auth.util;
 
-import com.github.pig.common.constant.CommonConstant;
-import com.github.pig.common.vo.SysRole;
-import com.github.pig.common.vo.UserVo;
+import com.auth.common.constant.CommonConstant;
+import com.auth.common.vo.SysRole;
+import com.auth.common.vo.UserVo;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;

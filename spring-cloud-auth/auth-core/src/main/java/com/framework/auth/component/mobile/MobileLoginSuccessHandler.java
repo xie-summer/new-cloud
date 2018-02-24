@@ -2,7 +2,7 @@ package com.framework.auth.component.mobile;
 
 import com.alibaba.fastjson.JSONObject;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.github.pig.common.constant.CommonConstant;
+import com.auth.common.constant.CommonConstant;
 import com.xiaoleilu.hutool.util.MapUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

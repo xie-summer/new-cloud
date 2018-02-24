@@ -1,6 +1,6 @@
 package com.framework.auth.component.social.qq.config;
 
-import com.github.pig.auth.component.social.qq.connect.QQConnectionFactory;
+import com.framework.auth.component.social.qq.connect.QQConnectionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.social.SocialAutoConfigurerAdapter;
 import org.springframework.context.annotation.Configuration;

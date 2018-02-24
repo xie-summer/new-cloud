@@ -1,7 +1,7 @@
 package com.cloud.feign.fallback;
 
-import com.github.pig.common.vo.MenuVo;
-import com.github.pig.gateway.feign.MenuService;
+import com.auth.common.vo.MenuVo;
+import com.cloud.feign.MenuService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;

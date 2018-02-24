@@ -1,6 +1,6 @@
 package com.cloud.componet.filter;
 
-import com.github.pig.gateway.service.LogSendService;
+import com.cloud.service.LogSendService;
 import com.netflix.zuul.ZuulFilter;
 import com.netflix.zuul.context.RequestContext;
 import org.slf4j.Logger;

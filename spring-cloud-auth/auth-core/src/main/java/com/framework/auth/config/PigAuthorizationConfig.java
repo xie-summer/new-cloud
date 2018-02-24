@@ -1,8 +1,8 @@
 package com.framework.auth.config;
 
 import com.framework.auth.component.PigWebResponseExceptionTranslator;
-import com.github.pig.common.constant.CommonConstant;
-import com.github.pig.common.constant.SecurityConstants;
+import com.auth.common.constant.CommonConstant;
+import com.auth.common.constant.SecurityConstants;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

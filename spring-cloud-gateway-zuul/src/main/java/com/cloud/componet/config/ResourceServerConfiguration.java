@@ -1,8 +1,8 @@
 package com.cloud.componet.config;
 
-import com.github.pig.common.bean.config.FilterUrlsPropertiesConifg;
-import com.github.pig.gateway.componet.filter.ValidateCodeFilter;
-import com.github.pig.gateway.componet.handler.PigAccessDeniedHandler;
+import com.auth.common.bean.config.FilterUrlsPropertiesConifg;
+import com.cloud.componet.filter.ValidateCodeFilter;
+import com.cloud.componet.handler.AccessDeniedHandler;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
@@ -29,7 +29,7 @@ public class ResourceServerConfiguration extends ResourceServerConfigurerAdapter
     @Autowired
     private OAuth2WebSecurityExpressionHandler expressionHandler;
     @Autowired
-    private PigAccessDeniedHandler pigAccessDeniedHandler;
+    private AccessDeniedHandler accessDeniedHandler;
     @Autowired
     private ValidateCodeFilter validateCodeFilter;
 
@@ -50,7 +50,7 @@ public class ResourceServerConfiguration extends ResourceServerConfigurerAdapter
     @Override
     public void configure(ResourceServerSecurityConfigurer resources) {
         resources.expressionHandler(expressionHandler);
-        resources.accessDeniedHandler(pigAccessDeniedHandler);
+        resources.accessDeniedHandler(accessDeniedHandler);
     }
 
     /**

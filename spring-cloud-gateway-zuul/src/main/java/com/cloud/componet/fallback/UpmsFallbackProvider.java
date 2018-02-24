@@ -1,6 +1,6 @@
 package com.cloud.componet.fallback;
 
-import com.github.pig.common.constant.ServiceNameConstant;
+import com.auth.common.constant.ServiceNameConstant;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.cloud.netflix.zuul.filters.route.FallbackProvider;
 import org.springframework.http.HttpHeaders;

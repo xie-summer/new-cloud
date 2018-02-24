@@ -1,6 +1,6 @@
 package com.framework.auth.component.social;
 
-import com.github.pig.auth.component.social.qq.connect.PigConnectionSignUp;
+import com.framework.auth.component.social.qq.connect.PigConnectionSignUp;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

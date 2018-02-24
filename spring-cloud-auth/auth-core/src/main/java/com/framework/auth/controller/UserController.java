@@ -1,7 +1,7 @@
 package com.framework.auth.controller;
 
-import com.github.pig.common.constant.SecurityConstants;
-import com.github.pig.common.util.R;
+import com.auth.common.constant.SecurityConstants;
+import com.auth.common.util.R;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.data.redis.connection.RedisConnectionFactory;
@@ -10,8 +10,6 @@ import org.springframework.security.oauth2.provider.token.store.redis.RedisToken
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
-import java.security.Principal;
 
 /**
  * @author summer

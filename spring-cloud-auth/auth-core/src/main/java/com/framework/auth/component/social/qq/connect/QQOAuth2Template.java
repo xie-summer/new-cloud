@@ -2,6 +2,8 @@ package com.framework.auth.component.social.qq.connect;
 
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang.StringUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.http.converter.StringHttpMessageConverter;
 import org.springframework.social.oauth2.AccessGrant;
 import org.springframework.social.oauth2.OAuth2Template;
@@ -17,8 +19,8 @@ import java.nio.charset.Charset;
  * @email i@merryyou.cn
  * @since 1.0
  */
-@Slf4j
 public class QQOAuth2Template extends OAuth2Template {
+    private final Logger log = LoggerFactory.getLogger(QQOAuth2Template.class);
     public QQOAuth2Template(String clientId, String clientSecret, String authorizeUrl, String accessTokenUrl) {
         super(clientId, clientSecret, authorizeUrl, accessTokenUrl);
         setUseParametersForClientAuthentication(true);

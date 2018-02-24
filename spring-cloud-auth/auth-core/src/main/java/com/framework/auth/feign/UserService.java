@@ -1,7 +1,7 @@
 package com.framework.auth.feign;
 
 import com.framework.auth.feign.fallback.UserServiceFallbackImpl;
-import com.github.pig.common.vo.UserVo;
+import com.auth.common.vo.UserVo;
 import org.springframework.cloud.netflix.feign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
