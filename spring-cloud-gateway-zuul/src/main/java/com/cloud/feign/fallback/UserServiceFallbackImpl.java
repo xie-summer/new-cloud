@@ -1,7 +1,8 @@
 package com.cloud.feign.fallback;
 
-import com.auth.common.vo.UserVo;
+import com.cloud.common.vo.UserVo;
 import com.cloud.feign.UserService;
+import com.cloud.feign.UserServiceClient;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
@@ -12,7 +13,7 @@ import org.springframework.stereotype.Service;
  * 用户服务的fallback
  */
 @Service
-public class UserServiceFallbackImpl implements UserService {
+public class UserServiceFallbackImpl implements UserServiceClient {
     private Logger logger = LoggerFactory.getLogger(this.getClass());
 
     @Override

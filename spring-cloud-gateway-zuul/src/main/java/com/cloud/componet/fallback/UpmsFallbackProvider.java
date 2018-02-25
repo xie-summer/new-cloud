@@ -1,7 +1,9 @@
 package com.cloud.componet.fallback;
 
-import com.auth.common.constant.ServiceNameConstant;
+import com.cloud.constant.ServiceNameConstant;
 import lombok.extern.slf4j.Slf4j;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.cloud.netflix.zuul.filters.route.FallbackProvider;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
@@ -17,9 +19,9 @@ import java.io.InputStream;
  * @date 2018/1/25
  * UPMS 模块异常回调
  */
-@Slf4j
 @Component
 public class UpmsFallbackProvider implements FallbackProvider {
+    private Logger log = LoggerFactory.getLogger(this.getClass());
     @Override
     public ClientHttpResponse fallbackResponse(Throwable cause) {
         log.error("调用:{} 异常：{}", getRoute(), cause.getMessage());

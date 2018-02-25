@@ -3,9 +3,9 @@ package com.cloud.service.impl;
 import com.cloud.common.entity.SysLog;
 import com.cloud.common.vo.LogVo;
 import com.cloud.constant.CommonConstant;
+import com.cloud.constant.MqQueueConstant;
 import com.cloud.service.LogSendService;
-import com.auth.common.constant.MqQueueConstant;
-import com.auth.common.util.UserUtils;
+import com.cloud.util.UserUtils;
 import com.netflix.zuul.context.RequestContext;
 
 import com.xiaoleilu.hutool.http.HttpUtil;

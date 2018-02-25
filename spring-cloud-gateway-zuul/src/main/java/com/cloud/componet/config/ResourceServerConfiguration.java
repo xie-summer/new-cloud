@@ -1,6 +1,5 @@
 package com.cloud.componet.config;
 
-import com.auth.common.bean.config.FilterUrlsPropertiesConifg;
 import com.cloud.componet.filter.ValidateCodeFilter;
 import com.cloud.componet.handler.AccessDeniedHandler;
 import org.springframework.beans.factory.annotation.Autowired;

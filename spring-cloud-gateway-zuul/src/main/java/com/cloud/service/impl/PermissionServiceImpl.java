@@ -1,9 +1,9 @@
 package com.cloud.service.impl;
 
-import com.baomidou.mybatisplus.toolkit.StringUtils;
-import com.auth.common.vo.MenuVo;
-import com.cloud.feign.MenuService;
+import com.cloud.common.vo.MenuVo;
+import com.cloud.feign.MenuServiceClient;
 import com.cloud.service.PermissionService;
+import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -21,7 +21,7 @@ import java.util.Set;
 @Service("permissionService")
 public class PermissionServiceImpl implements PermissionService {
     @Autowired
-    private MenuService menuService;
+    private MenuServiceClient menuServiceClient;
 
     private AntPathMatcher antPathMatcher = new AntPathMatcher();
 
@@ -36,7 +36,7 @@ public class PermissionServiceImpl implements PermissionService {
         boolean hasPermission = false;
 
         if (principal != null) {
-            Set<MenuVo> urls = menuService.findMenuByRole(grantedAuthorityList.get(0).getAuthority());
+            Set<MenuVo> urls = menuServiceClient.findMenuByRole(grantedAuthorityList.get(0).getAuthority());
             for (MenuVo menu : urls) {
                 if (StringUtils.isNotEmpty(menu.getUrl()) && antPathMatcher.match(menu.getUrl(), request.getRequestURI())
                         && request.getMethod().equalsIgnoreCase(menu.getMethod())) {

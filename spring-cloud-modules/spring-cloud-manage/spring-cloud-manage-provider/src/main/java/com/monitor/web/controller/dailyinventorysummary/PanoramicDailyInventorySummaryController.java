@@ -5,7 +5,6 @@ import com.cloud.util.DateUtil;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.monitor.api.dailyinventorysummary.PanoramicDailyInventorySummaryService;
-import com.monitor.constant.DailyInventorySummaryCodeConstant;
 import com.monitor.model.dailyinventorysummary.PanoramicDailyInventorySummary;
 import com.monitor.web.controller.base.AbstractAnnotationController;
 import io.swagger.annotations.Api;
@@ -104,7 +103,7 @@ public class PanoramicDailyInventorySummaryController extends AbstractAnnotation
     public ResultCode<PageInfo<PanoramicDailyInventorySummary>> list(@PathVariable String date,
                                                                      @PathVariable Integer page, @PathVariable Integer size) {
         PageHelper.startPage(page, size);
-        List<PanoramicDailyInventorySummary> list = dailyInventorySummaryService.listByDateAndCode(date, DailyInventorySummaryCodeConstant.CODE_LIST);
+        List<PanoramicDailyInventorySummary> list = dailyInventorySummaryService.listByDateAndCode(date, null);
         PageInfo<PanoramicDailyInventorySummary> pageInfo = new PageInfo<>(list);
         return ResultCode.getSuccessReturn(pageInfo);
     }

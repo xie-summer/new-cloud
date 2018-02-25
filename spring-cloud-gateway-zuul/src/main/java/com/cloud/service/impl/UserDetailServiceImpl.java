@@ -1,8 +1,9 @@
 package com.cloud.service.impl;
 
-import com.auth.common.vo.UserVo;
-import com.github.pig.gateway.feign.UserService;
-import com.github.pig.gateway.util.UserDetailsImpl;
+import com.cloud.common.vo.UserVo;
+import com.cloud.feign.UserService;
+import com.cloud.feign.UserServiceClient;
+import com.cloud.util.UserDetailsImpl;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -19,7 +20,7 @@ import java.io.Serializable;
 @Service("userDetailService")
 public class UserDetailServiceImpl implements UserDetailsService, Serializable {
     @Autowired
-    private UserService userService;
+    private UserServiceClient userService;
 
     @Override
     public UserDetailsImpl loadUserByUsername(String username) throws UsernameNotFoundException {

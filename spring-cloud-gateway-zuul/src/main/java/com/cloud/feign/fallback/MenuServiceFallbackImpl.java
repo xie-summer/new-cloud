@@ -1,7 +1,8 @@
 package com.cloud.feign.fallback;
 
-import com.auth.common.vo.MenuVo;
+import com.cloud.common.vo.MenuVo;
 import com.cloud.feign.MenuService;
+import com.cloud.feign.MenuServiceClient;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
@@ -15,7 +16,7 @@ import java.util.Set;
  * https://github.com/spring-cloud/spring-cloud-netflix/issues/762
  */
 @Service
-public class MenuServiceFallbackImpl implements MenuService {
+public class MenuServiceFallbackImpl implements MenuServiceClient {
     private Logger logger = LoggerFactory.getLogger(this.getClass());
     @Override
     public Set<MenuVo> findMenuByRole(String role) {

@@ -10,7 +10,7 @@ import java.util.Date;
  * @author 
  */
 @Table(name = "panoramic_system_configurationNew")
-public class PanoramicSystemConfigurationnew extends BaseObject {
+public class PanoramicSystemConfigurationNew extends BaseObject {
     /**
      *
      */
