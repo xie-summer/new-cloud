@@ -10,7 +10,6 @@ import java.io.Serializable;
  *
  * @author xuegang
  */
-@Data
 public class PanoramicSparePartsIntoInventoryDto extends BaseObject {
 
     private static final long serialVersionUID = 1L;

@@ -63,10 +63,17 @@
         <swagger.version>2.7.0</swagger.version>
         <mysql.version>5.1.42</mysql.version>
         <druid.version>1.1.5</druid.version>
+        <mybatis-plus-boot-starter.version>2.1.9</mybatis-plus-boot-starter.version>
+        <kaptcha.version>0.0.9</kaptcha.version>
     </properties>
 
     <dependencyManagement>
         <dependencies>
+            <dependency>
+                <groupId>com.github.axet</groupId>
+                <artifactId>kaptcha</artifactId>
+                <version>${kaptcha.version}</version>
+            </dependency>
             <!--FastDFS-->
             <dependency>
                 <groupId>com.luhuiguo</groupId>
@@ -157,6 +164,11 @@
                 <groupId>tk.mybatis</groupId>
                 <artifactId>mapper</artifactId>
                 <version>3.3.9</version>
+            </dependency>
+            <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>mybatis-plus-boot-starter</artifactId>
+                <version>${mybatis-plus-boot-starter.version}</version>
             </dependency>
             <dependency>
                 <groupId>com.github.pagehelper</groupId>

@@ -16,7 +16,7 @@ import org.springframework.stereotype.Component;
  * @since 1.0
  */
 @Component
-public class PigSocialConfigurer extends SpringSocialConfigurer {
+public class CustomSocialConfigurer extends SpringSocialConfigurer {
     @Autowired
     private AuthenticationSuccessHandler socialLoginSuccessHandler;
     @Override

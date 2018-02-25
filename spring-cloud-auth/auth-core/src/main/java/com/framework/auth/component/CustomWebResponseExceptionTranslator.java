@@ -23,7 +23,7 @@ import org.springframework.stereotype.Component;
  * PasswordComparisonAuthenticator.badCredentials=坏的凭证
  */
 @Component
-public class PigWebResponseExceptionTranslator extends DefaultWebResponseExceptionTranslator {
+public class CustomWebResponseExceptionTranslator extends DefaultWebResponseExceptionTranslator {
 
     /**
      * @param e spring security内部异常

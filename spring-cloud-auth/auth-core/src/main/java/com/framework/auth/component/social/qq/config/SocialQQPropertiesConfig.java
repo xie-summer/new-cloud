@@ -10,6 +10,6 @@ import org.springframework.context.annotation.Configuration;
  * QQ登录参数配置
  */
 @Configuration
-@ConfigurationProperties(prefix = "pig.social.qq")
+@ConfigurationProperties(prefix = "cloud.social.qq")
 public class SocialQQPropertiesConfig extends SocialPropertiesConfig {
 }

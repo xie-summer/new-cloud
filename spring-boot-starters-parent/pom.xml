@@ -4,30 +4,12 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>com.github.xie-summer</groupId>
-	<version>1.0-SNAPSHOT</version>
+	<version>1.0.0-SNAPSHOT</version>
 	<artifactId>spring-boot-starters-parent</artifactId>
 	<name>spring-boot-starters-parent</name>
 	<url>http://maven.apache.org</url>
 	<packaging>pom</packaging>
-	<modules>
-		<module>druid-spring-boot-starter-parent</module>
-		<module>druidstat-spring-boot-starter-parent</module>
-		<module>lock-zk-spring-boot-starter-parent</module>
-		<module>tbschedule-spring-boot-starter-parent</module>
-		<module>lock-redis-spring-boot-starter-parent</module>
-		<module>elasticjob-spring-boot-starter-parent</module>
-		<module>zuul-route-spring-boot-starter-parent</module>
-		<module>eureka-spring-boot-starter-parent</module>
-		<module>hadoop-spring-boot-starter-parent</module>
-		<module>ratelimiter-spring-boot-starter-parent</module>
-		<module>zk-spring-boot-starter-parent</module>
-		<module>redisson-spring-boot-starter-parent</module>
-		<module>lock-redisson-spring-boot-starter-parent</module>
-		<module>sequence-spring-boot-starter-parent</module>
-		<module>cache-redis-caffeine-spring-boot-starter-parent</module>
-		<module>zuul-ratelimiter-spring-boot-starter-parent</module>
-		<module>stock-spring-boot-starter-parent</module>
-	</modules>
+
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -175,6 +157,25 @@
 			</dependency>
 		</dependencies>
 	</dependencyManagement>
+	<modules>
+		<module>druid-spring-boot-starter-parent</module>
+		<module>druidstat-spring-boot-starter-parent</module>
+		<module>lock-zk-spring-boot-starter-parent</module>
+		<module>tbschedule-spring-boot-starter-parent</module>
+		<module>lock-redis-spring-boot-starter-parent</module>
+		<module>elasticjob-spring-boot-starter-parent</module>
+		<module>zuul-route-spring-boot-starter-parent</module>
+		<module>eureka-spring-boot-starter-parent</module>
+		<module>hadoop-spring-boot-starter-parent</module>
+		<module>ratelimiter-spring-boot-starter-parent</module>
+		<module>zk-spring-boot-starter-parent</module>
+		<module>redisson-spring-boot-starter-parent</module>
+		<module>lock-redisson-spring-boot-starter-parent</module>
+		<module>sequence-spring-boot-starter-parent</module>
+		<module>cache-redis-caffeine-spring-boot-starter-parent</module>
+		<module>zuul-ratelimiter-spring-boot-starter-parent</module>
+		<module>stock-spring-boot-starter-parent</module>
+	</modules>
 	<repositories>
 		<repository>
 			<id>aliyun</id>
@@ -184,7 +185,7 @@
 				<enabled>true</enabled>
 			</releases>
 			<snapshots>
-				<enabled>false</enabled>
+				<enabled>true</enabled>
 			</snapshots>
 		</repository>
 		<repository>
@@ -195,7 +196,7 @@
 				<enabled>true</enabled>
 			</releases>
 			<snapshots>
-				<enabled>false</enabled>
+				<enabled>true</enabled>
 			</snapshots>
 		</repository>
 	</repositories>

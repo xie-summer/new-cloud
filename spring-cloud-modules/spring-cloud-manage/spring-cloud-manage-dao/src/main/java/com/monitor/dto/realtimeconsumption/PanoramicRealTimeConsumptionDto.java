@@ -8,7 +8,6 @@ import java.io.Serializable;
 /**
  * @author summer
  */
-@Data
 public class PanoramicRealTimeConsumptionDto extends BaseObject {
     /**
      *
@@ -29,6 +28,22 @@ public class PanoramicRealTimeConsumptionDto extends BaseObject {
 	public Serializable realId() {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+	public int getHour() {
+		return hour;
+	}
+
+	public void setHour(int hour) {
+		this.hour = hour;
+	}
+
+	public Double getValue() {
+		return value;
+	}
+
+	public void setValue(Double value) {
+		this.value = value;
 	}
    
 }
