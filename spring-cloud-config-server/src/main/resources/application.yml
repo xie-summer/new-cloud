@@ -10,7 +10,10 @@ spring:
     config:
       server:
         git:
-          uri: https://github.com/xie-summer/new-cloud-config.git
+          search-paths: config-repo
+          uri: https://github.com/xie-summer/new-cloud-config/
+          username: xie-summer                                          # git仓库的账号
+          password: www.5201314.qq.n
 ---
 spring:
   profiles: dev
@@ -21,7 +24,7 @@ eureka:
     lease-expiration-duration-in-seconds: 20
   client:
     serviceUrl:
-      defaultZone: http://user:user@eureka-server:1025/eureka
+      defaultZone: http://user:user@eureka-server:8761/eureka
 
 ---
 spring:
@@ -31,4 +34,4 @@ eureka:
     prefer-ip-address: true
   client:
     serviceUrl:
-      defaultZone: http://user:user@eureka-server:1025/eureka
+      defaultZone: http://user:user@eureka-server:8761/eureka

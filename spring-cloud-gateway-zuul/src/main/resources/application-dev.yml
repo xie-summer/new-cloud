@@ -18,7 +18,9 @@ zuul:
     eager-load:
       enabled: true
   routes:
+    monitor-manage: /manage/**
     manages:
+
       path: /manage/**
       serviceId: monitor-manage
       sensitive-headers: Cookie,Set-Cookie
