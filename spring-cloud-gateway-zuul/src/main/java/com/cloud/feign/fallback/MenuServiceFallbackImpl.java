@@ -15,7 +15,6 @@ import java.util.Set;
  * why add @Service when i up version ?
  * https://github.com/spring-cloud/spring-cloud-netflix/issues/762
  */
-@Service
 public class MenuServiceFallbackImpl implements MenuServiceClient {
     private Logger logger = LoggerFactory.getLogger(this.getClass());
     @Override

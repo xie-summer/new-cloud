@@ -1,7 +1,7 @@
 package com.framework.auth.component.mobile;
 
 import com.auth.common.vo.UserVo;
-import com.framework.auth.feign.UserService;
+import com.framework.auth.feign.UserServiceClient;
 import com.framework.auth.util.UserDetailsImpl;
 import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.authentication.InternalAuthenticationServiceException;
@@ -14,12 +14,12 @@ import org.springframework.security.core.AuthenticationException;
  * 手机号登录校验逻辑
  */
 public class MobileAuthenticationProvider implements AuthenticationProvider {
-    private UserService userService;
+    private UserServiceClient userServiceClient;
 
     @Override
     public Authentication authenticate(Authentication authentication) throws AuthenticationException {
         MobileAuthenticationToken mobileAuthenticationToken = (MobileAuthenticationToken) authentication;
-        UserVo userVo = userService.findUserByMobile((String) mobileAuthenticationToken.getPrincipal());
+        UserVo userVo = userServiceClient.findUserByMobile((String) mobileAuthenticationToken.getPrincipal());
 
         UserDetailsImpl userDetails = buildUserDeatils(userVo);
         if (userDetails == null) {
@@ -40,11 +40,11 @@ public class MobileAuthenticationProvider implements AuthenticationProvider {
         return MobileAuthenticationToken.class.isAssignableFrom(authentication);
     }
 
-    public UserService getUserService() {
-        return userService;
+    public UserServiceClient getUserServiceClient() {
+        return userServiceClient;
     }
 
-    public void setUserService(UserService userService) {
-        this.userService = userService;
+    public void setUserServiceClient(UserServiceClient userServiceClient) {
+        this.userServiceClient = userServiceClient;
     }
 }

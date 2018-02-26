@@ -1,6 +1,6 @@
 package com.framework.auth.feign.fallback;
 
-import com.framework.auth.feign.UserService;
+import com.framework.auth.feign.UserServiceClient;
 import com.auth.common.vo.UserVo;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -12,7 +12,7 @@ import org.springframework.stereotype.Service;
  * 用户服务的fallback
  */
 @Service
-public class UserServiceFallbackImpl implements UserService {
+public class UserServiceFallbackImpl implements UserServiceClient {
     private Logger logger = LoggerFactory.getLogger(this.getClass());
 
     @Override

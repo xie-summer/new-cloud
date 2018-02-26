@@ -10,7 +10,7 @@ spring:
     config:
       server:
         git:
-          uri: https://gitee.com/cqzqxq_lxh/pig-config.git
+          uri: https://github.com/xie-summer/new-cloud-config.git
 ---
 spring:
   profiles: dev
@@ -21,7 +21,7 @@ eureka:
     lease-expiration-duration-in-seconds: 20
   client:
     serviceUrl:
-      defaultZone: http://pig:gip6666@localhost:1025/eureka
+      defaultZone: http://user:user@eureka-server:1025/eureka
 
 ---
 spring:
@@ -31,4 +31,4 @@ eureka:
     prefer-ip-address: true
   client:
     serviceUrl:
-      defaultZone: http://pig:gip6666@pig-eureka:1025/eureka
+      defaultZone: http://user:user@eureka-server:1025/eureka

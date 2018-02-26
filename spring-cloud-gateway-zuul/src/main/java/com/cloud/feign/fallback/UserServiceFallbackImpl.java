@@ -12,7 +12,6 @@ import org.springframework.stereotype.Service;
  * @date 2017/10/31
  * 用户服务的fallback
  */
-@Service
 public class UserServiceFallbackImpl implements UserServiceClient {
     private Logger logger = LoggerFactory.getLogger(this.getClass());
 

@@ -1,6 +1,6 @@
 package com.framework.auth.serivce;
 
-import com.framework.auth.feign.UserService;
+import com.framework.auth.feign.UserServiceClient;
 import com.framework.auth.util.UserDetailsImpl;
 import com.auth.common.vo.SysRole;
 import com.auth.common.vo.UserVo;
@@ -26,11 +26,11 @@ import java.util.List;
 @Service("userDetailService")
 public class UserDetailServiceImpl implements UserDetailsService,SocialUserDetailsService, Serializable {
     @Autowired
-    private UserService userService;
+    private UserServiceClient userServiceClient;
 
     @Override
     public UserDetailsImpl loadUserByUsername(String username) throws UsernameNotFoundException {
-        UserVo userVo = userService.findUserByUsername(username);
+        UserVo userVo = userServiceClient.findUserByUsername(username);
         return new UserDetailsImpl(userVo);
     }
 
@@ -41,7 +41,7 @@ public class UserDetailServiceImpl implements UserDetailsService,SocialUserDetai
      */
     @Override
     public SocialUserDetails loadUserByUserId(String userId) throws UsernameNotFoundException {
-        UserVo userVo = userService.findUserByOpenId(userId);
+        UserVo userVo = userServiceClient.findUserByOpenId(userId);
         if (userVo == null){
             throw new UsernameNotFoundException("用户未绑定");
         }

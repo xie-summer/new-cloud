@@ -1,6 +1,6 @@
 package com.framework.auth.component.mobile;
 
-import com.framework.auth.feign.UserService;
+import com.framework.auth.feign.UserServiceClient;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.SecurityConfigurerAdapter;
@@ -20,7 +20,7 @@ public class MobileSecurityConfigurer extends SecurityConfigurerAdapter<DefaultS
     @Autowired
     private AuthenticationSuccessHandler mobileLoginSuccessHandler;
     @Autowired
-    private UserService userService;
+    private UserServiceClient userServiceClient;
 
     @Override
     public void configure(HttpSecurity http) throws Exception {
@@ -29,7 +29,7 @@ public class MobileSecurityConfigurer extends SecurityConfigurerAdapter<DefaultS
         mobileAuthenticationFilter.setAuthenticationSuccessHandler(mobileLoginSuccessHandler);
 
         MobileAuthenticationProvider mobileAuthenticationProvider = new MobileAuthenticationProvider();
-        mobileAuthenticationProvider.setUserService(userService);
+        mobileAuthenticationProvider.setUserServiceClient(userServiceClient);
         http.authenticationProvider(mobileAuthenticationProvider)
                 .addFilterAfter(mobileAuthenticationFilter, UsernamePasswordAuthenticationFilter.class);
     }

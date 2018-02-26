@@ -65,6 +65,14 @@
         <druid.version>1.1.5</druid.version>
         <mybatis-plus-boot-starter.version>2.1.9</mybatis-plus-boot-starter.version>
         <kaptcha.version>0.0.9</kaptcha.version>
+
+        <!--docker config-->
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <java.version>1.8</java.version>
+        <docker.repostory>registry.cn-hangzhou.aliyuncs.com</docker.repostory>
+        <docker.registry.name>viiso</docker.registry.name>
+
     </properties>
 
     <dependencyManagement>
@@ -602,6 +610,16 @@
 
     <build>
         <finalName>${project.artifactId}</finalName>
+        <resources><!-- 使用@@站位符，输出Dockerfile至docker文件夹 -->
+            <resource>
+                <directory>src/main/docker</directory>
+                <filtering>true</filtering>
+                <includes>
+                    <include>**/Dockerfile</include>
+                </includes>
+                <targetPath>../docker</targetPath>
+            </resource>
+        </resources>
         <pluginManagement>
             <plugins>
                 <plugin>
@@ -623,29 +641,76 @@
             </plugins>
         </pluginManagement>
         <plugins>
-            <!-- docker的maven插件，官网：https://github.com/spotify/docker-maven-plugin -->
             <plugin>
                 <groupId>com.spotify</groupId>
                 <artifactId>docker-maven-plugin</artifactId>
-                <version>0.4.12</version>
+                <version>0.4.13</version>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>build</goal>
+                        </goals>
+                    </execution>
+                    <execution>
+                        <id>tag-image</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>tag</goal>
+                        </goals>
+                        <configuration>
+                            <image>${docker.registry.name}/${project.artifactId}:${project.version}</image>
+                            <newName>${docker.repostory}/${docker.registry.name}/${project.artifactId}:${project.version}</newName>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>push-image</id>
+                        <phase>deploy</phase>
+                        <goals>
+                            <goal>push</goal>
+                        </goals>
+                        <configuration>
+                            <imageName>${docker.repostory}/${docker.registry.name}/${project.artifactId}:${project.version}</imageName>
+                        </configuration>
+                    </execution>
+                </executions>
                 <configuration>
-                    <!-- 注意imageName一定要是符合正则[a-z0-9-_.]的，否则构建不会成功 -->
-                    <!-- 详见：https://github.com/spotify/docker-maven-plugin Invalid repository
-                        name ... only [a-z0-9-_.] are allowed -->
-                    <imageName>${project.artifactId}</imageName>
-                    <!-- 指定Dockerfile所在的路径 -->
-                    <dockerDirectory>${project.basedir}/src/main/docker</dockerDirectory>
-                    <baseImage>java</baseImage>
-                    <entryPoint>["java", "-jar", "/${project.build.finalName}.jar"]</entryPoint>
+                    <!-- 私有仓库配置，需要settings.xml文件配合serverId对应的服务地址 -->
+                    <serverId>docker-aliyun</serverId>
+                    <registryUrl>registry.cn-hangzhou.aliyuncs.com</registryUrl>
+                    <!-- <forceTags>true</forceTags> -->
+                    <!--install阶段也上传，否则只有deploy阶段上传-->
+                    <pushImage>true</pushImage>
+                    <dockerDirectory>target/docker</dockerDirectory>
+                    <imageName>
+                        ${docker.repostory}/${docker.registry.name}/${project.artifactId}:${project.version}
+                    </imageName>
+                    <imageTags>
+                        <!--docker的tag为项目版本号、latest-->
+                        <!--<imageTag>${git.commit.id.abbrev}</imageTag>-->
+                        <imageTag>latest</imageTag>
+                    </imageTags>
                     <resources>
-                        <resource>
+                        <rescource><!-- 将打包文件放入dockerDirectory指定的位置 -->
                             <targetPath>/</targetPath>
                             <directory>${project.build.directory}</directory>
                             <include>${project.build.finalName}.jar</include>
-                        </resource>
+                        </rescource>
+                        <!-- 输出Dockerfile至docker文件夹,如果不使用占位符,可使用以下配置 -->
+                        <!--
+                        <resource>
+                               <directory>src/main/docker</directory>
+                               <filtering>true</filtering>
+                               <includes>
+                                   <include>**/Dockerfile</include>
+                               </includes>
+                               <targetPath>../docker</targetPath>
+                           </resource>
+                           -->
                     </resources>
                 </configuration>
             </plugin>
+
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>

@@ -11,9 +11,9 @@ import org.springframework.web.bind.annotation.PathVariable;
  * @author summer
  * @date 2017/10/31
  */
-@FeignClient(name = "upms-service", fallback = UserServiceFallbackImpl.class)
+@FeignClient(name = "monitor-user-service", fallback = UserServiceFallbackImpl.class)
 @Service
-public interface UserServiceClient extends UserService{
+public interface UserServiceClient extends UserService {
     /**
      * 通过用户名查询用户、角色信息
      *

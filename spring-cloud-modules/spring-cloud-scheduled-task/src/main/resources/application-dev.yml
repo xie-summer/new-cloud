@@ -21,15 +21,15 @@ ribbon:
 eureka:
   client:
     serviceUrl:
-      defaultZone: http://user:user@test.neweplatform.com:8761/eureka/,http://user:user@test.neweplatform.com:8762/eureka/   # 指定注册中心的地址
+      defaultZone: http://user:user@eureka-server:8761/eureka/,http://user:user@eureka-server:8762/eureka/   # 指定注册中心的地址
   instance:
     preferIpAddress: true
 #    hostname : discovery   # 指定主机名时候通过主机名访问,否则通过ip地址
 spring:
   application:
-    name: monitor-scheduled-task    # 项目名称尽量用小写
+    name: monitor-scheduled-task-service    # 项目名称尽量用小写
   datasource:
-    url: jdbc:mysql://test.neweplatform.com:8066/scheduled-task?useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true
+    url: jdbc:mysql://eureka-server:8066/scheduled-task?useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true
     username: root
     password: root
     driverClassName: com.mysql.jdbc.Driver
