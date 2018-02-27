@@ -113,7 +113,7 @@
             <scope>runtime</scope>
         </dependency>
         <!-- log 依赖包 start -->
-        <dependency>
+        <!-- <dependency>
             <groupId>log4j</groupId>
             <artifactId>log4j</artifactId>
         </dependency>
@@ -128,7 +128,7 @@
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-log4j12</artifactId>
-        </dependency>
+        </dependency> -->
         <!-- log 依赖包 end -->
         <dependency>
             <groupId>org.apache.httpcomponents</groupId>

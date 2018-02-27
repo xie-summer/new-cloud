@@ -14,13 +14,13 @@ import org.springframework.cloud.netflix.eureka.server.EnableEurekaServer;
 @SpringBootApplication
 @EnableEurekaServer
 public class EurekaApplication {
-//    private static final transient Logger DB_LOGGER = LoggerFactory.getLogger(EurekaApplication.class);
+    private static final transient Logger DB_LOGGER = LoggerFactory.getLogger(EurekaApplication.class);
 
     /**
      * @param args
      */
     public static void main(String[] args) {
         SpringApplication.run(EurekaApplication.class, args);
-//        DB_LOGGER.warn("EurekaApplication started successfully");
+        DB_LOGGER.warn("EurekaApplication started successfully");
     }
 }

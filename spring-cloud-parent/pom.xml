@@ -335,30 +335,30 @@
             </dependency>
             <!-- 基础依赖 end -->
             <!-- log 依赖包 start -->
-            <dependency>
-                <groupId>log4j</groupId>
-                <artifactId>log4j</artifactId>
-                <version>${log4j.version}</version>
-                <scope>${dependency.common}</scope>
-            </dependency>
-            <dependency>
-                <groupId>org.slf4j</groupId>
-                <artifactId>slf4j-api</artifactId>
-                <version>${slf4j.version}</version>
-                <scope>${dependency.common}</scope>
-            </dependency>
-            <dependency>
-                <groupId>org.slf4j</groupId>
-                <artifactId>slf4j-ext</artifactId>
-                <version>${slf4j.version}</version>
-                <scope>${dependency.common}</scope>
-            </dependency>
-            <dependency>
-                <groupId>org.slf4j</groupId>
-                <artifactId>slf4j-log4j12</artifactId>
-                <version>${slf4j.version}</version>
-                <scope>${dependency.common}</scope>
-            </dependency>
+            <!--<dependency>-->
+                <!--<groupId>log4j</groupId>-->
+                <!--<artifactId>log4j</artifactId>-->
+                <!--<version>${log4j.version}</version>-->
+                <!--<scope>${dependency.common}</scope>-->
+            <!--</dependency>-->
+            <!--<dependency>-->
+                <!--<groupId>org.slf4j</groupId>-->
+                <!--<artifactId>slf4j-api</artifactId>-->
+                <!--<version>${slf4j.version}</version>-->
+                <!--<scope>${dependency.common}</scope>-->
+            <!--</dependency>-->
+            <!--<dependency>-->
+                <!--<groupId>org.slf4j</groupId>-->
+                <!--<artifactId>slf4j-ext</artifactId>-->
+                <!--<version>${slf4j.version}</version>-->
+                <!--<scope>${dependency.common}</scope>-->
+            <!--</dependency>-->
+            <!--<dependency>-->
+                <!--<groupId>org.slf4j</groupId>-->
+                <!--<artifactId>slf4j-log4j12</artifactId>-->
+                <!--<version>${slf4j.version}</version>-->
+                <!--<scope>${dependency.common}</scope>-->
+            <!--</dependency>-->
             <!-- log 依赖 end -->
             <!-- xml 依赖 start -->
             <dependency>
