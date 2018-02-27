@@ -36,9 +36,14 @@
 			<artifactId>spring-cloud-starter-config</artifactId>
 		</dependency>
 		<dependency>
-			<groupId>org.springframework.cloud</groupId>
-			<artifactId>spring-cloud-starter-eureka</artifactId>
+			<groupId>ch.qos.logback</groupId>
+			<artifactId>logback-classic</artifactId>
+			<version>0.9.24</version>
 		</dependency>
+		<!--<dependency>-->
+			<!--<groupId>org.springframework.cloud</groupId>-->
+			<!--<artifactId>spring-cloud-starter-eureka</artifactId>-->
+		<!--</dependency>-->
 		   <!-- log 依赖包 start -->
         <!--<dependency>-->
             <!--<groupId>log4j</groupId>-->
