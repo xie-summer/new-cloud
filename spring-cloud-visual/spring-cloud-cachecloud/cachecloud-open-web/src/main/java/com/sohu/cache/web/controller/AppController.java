@@ -592,7 +592,7 @@ public class AppController extends BaseController {
                                  HttpServletResponse response, Model model, AppDesc appDesc, String memSize) {
         AppUser appUser = getUserInfo(request);
         if (appDesc != null) {
-            Timestamp now = new Timestamp(new Date().getTime());
+            Timestamp now = new Timestamp(System.currentTimeMillis());
             appDesc.setCreateTime(now);
             appDesc.setPassedTime(now);
             appDesc.setVerId(1);

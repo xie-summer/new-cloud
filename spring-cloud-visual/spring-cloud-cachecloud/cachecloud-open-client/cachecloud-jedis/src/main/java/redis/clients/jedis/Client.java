@@ -58,6 +58,7 @@ public class Client extends BinaryClient implements Commands {
     exists(bkeys);
   }
 
+  @Override
   public void del(final String... keys) {
     final byte[][] bkeys = new byte[keys.length][];
     for (int i = 0; i < keys.length; i++) {
@@ -1160,8 +1161,9 @@ public class Client extends BinaryClient implements Commands {
 
   private byte[][] getByteParams(String... params) {
     byte[][] p = new byte[params.length][];
-    for (int i = 0; i < params.length; i++)
-      p[i] = SafeEncoder.encode(params[i]);
+    for (int i = 0; i < params.length; i++) {
+        p[i] = SafeEncoder.encode(params[i]);
+    }
 
     return p;
   }

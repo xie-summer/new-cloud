@@ -69,9 +69,9 @@ public class PanoramicSystemWarningSrevice{
 	   				Boolean isAdd = true;
 	   				if(scheduletrigger == null || scheduletrigger.isEmpty()) {
 	   						for (ScheduleTrigger job : scheduletrigger) {
-                			   if(job.getId() == warningquery.getWarnConfigurationID()) {
+                			   if(job.getId().equals(warningquery.getWarnConfigurationID())) {
                 				   job.setExecutesql(warningquery.getQuerySql());
-                				   if(job.getIntervalTime() != warningquery.getIntervalTime()) {
+                				   if(!job.getIntervalTime().equals(warningquery.getIntervalTime())) {
                 					   int deltaTime =  warningquery.getIntervalTime() -job.getIntervalTime();
                 				        Calendar ca = Calendar.getInstance();
                 				        ca.setTime(job.getExecutetime());

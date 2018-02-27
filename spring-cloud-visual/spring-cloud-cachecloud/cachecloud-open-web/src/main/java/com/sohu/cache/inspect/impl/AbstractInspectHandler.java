@@ -40,6 +40,7 @@ public abstract class AbstractInspectHandler implements InspectHandler {
                 new NamedThreadFactory(getThreadPoolKey(), true)));
     }
 
+    @Override
     public void handle() {
         if (inspectorList == null || inspectorList.isEmpty()) {
             logger.warn("inspectorList is null");
@@ -74,6 +75,7 @@ public abstract class AbstractInspectHandler implements InspectHandler {
         }
     }
 
+    @Override
     public void setInspectorList(List<Inspector> inspectorList) {
         this.inspectorList = inspectorList;
     }

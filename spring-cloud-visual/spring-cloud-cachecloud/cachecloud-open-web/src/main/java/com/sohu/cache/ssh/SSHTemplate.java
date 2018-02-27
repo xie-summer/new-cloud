@@ -93,7 +93,8 @@ public class SSHTemplate {
     private String getResult(InputStream is) {
     	final StringBuilder buffer = new StringBuilder();
     	LineProcessor lp = new DefaultLineProcessor() {
-			public void process(String line, int lineNum) throws Exception {
+			@Override
+            public void process(String line, int lineNum) throws Exception {
 				if(lineNum > 1) {
 					buffer.append(System.lineSeparator());
 				}
@@ -211,7 +212,8 @@ public class SSHTemplate {
     	public Result executeCommand(final Session session, final String cmd, 
     			final int timoutMillis, final LineProcessor lineProcessor) throws Exception{
     		Future<Result> future = taskPool.submit(new Callable<Result>() {
-				public Result call() throws Exception {
+				@Override
+                public Result call() throws Exception {
 					session.execCommand(cmd);
 					//如果客户端需要进行行处理，则直接进行回调
 					if(lineProcessor != null) {
@@ -369,6 +371,7 @@ public class SSHTemplate {
 	}
 	
 	public static abstract class DefaultLineProcessor implements LineProcessor{
-		public void finish() {}
+		@Override
+        public void finish() {}
 	}
 }

@@ -140,13 +140,21 @@ public class JedisPool extends JedisPoolAbstract {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof JedisPool)) return false;
+        if (this == o) {
+            return true;
+        }
+        if (!(o instanceof JedisPool)) {
+            return false;
+        }
 
         JedisPool jedisPool = (JedisPool) o;
 
-        if (port != jedisPool.port) return false;
-        if (!host.equals(jedisPool.host)) return false;
+        if (port != jedisPool.port) {
+            return false;
+        }
+        if (!host.equals(jedisPool.host)) {
+            return false;
+        }
 
         return true;
     }

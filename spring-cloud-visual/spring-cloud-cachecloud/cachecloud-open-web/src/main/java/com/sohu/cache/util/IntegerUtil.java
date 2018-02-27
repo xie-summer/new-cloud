@@ -75,10 +75,11 @@ public class IntegerUtil {
 	public static Integer exceptionIfSmallerThan0( String originalStr )throws Exception{
 		try {
 			int num = Integer.parseInt( StringUtil.trimToEmpty( originalStr ) );
-			if( num > 0  )
-				return num;
-			else
-				throw new Exception();
+			if( num > 0  ) {
+                return num;
+            } else {
+                throw new Exception();
+            }
 		} catch ( Exception e ) {
 			throw new Exception( originalStr + " is smaller than 0, or it is a  invalid parameter " );
 		}
@@ -91,8 +92,9 @@ public class IntegerUtil {
 	 * @return false if num <=0  , true if num >0
 	 */
 	public static boolean isBiggerThan0( int num ){
-		if( 0>= num )
-			return false;
+		if( 0>= num ) {
+            return false;
+        }
 		return true;
 	}
 

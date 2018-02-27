@@ -155,8 +155,9 @@ public class RedisClusterReshard {
             } catch (Exception e) {
                 logger.error(e.getMessage(), e);
             } finally {
-                if (jedis != null)
+                if (jedis != null) {
                     jedis.close();
+                }
             }
         }
         return false;
@@ -313,8 +314,9 @@ public class RedisClusterReshard {
                     } catch (Exception e) {
                         logger.error(e.getMessage(), e);
                     } finally {
-                       if (jedis != null)
+                       if (jedis != null) {
                            jedis.close();
+                       }
                     }
                 }
                 return isOk;

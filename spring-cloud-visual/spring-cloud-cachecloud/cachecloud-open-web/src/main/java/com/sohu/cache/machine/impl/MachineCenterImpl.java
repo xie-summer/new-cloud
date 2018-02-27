@@ -140,9 +140,11 @@ public class MachineCenterImpl implements MachineCenter {
     }
     
     //异步执行任务
+    @Override
     public void asyncCollectMachineInfo(final long hostId, final long collectTime, final String ip) {
     	String key = "collect-machine-"+hostId+"-"+ip+"-"+collectTime;
 		asyncService.submitFuture(AsyncThreadPoolFactory.MACHINE_POOL, new KeyCallable<Boolean>(key) {
+            @Override
             public Boolean execute() {
                 try {
                 	collectMachineInfo(hostId, collectTime, ip);
@@ -240,9 +242,11 @@ public class MachineCenterImpl implements MachineCenter {
     }
     
     //异步执行任务
+    @Override
     public void asyncMonitorMachineStats(final long hostId, final String ip) {
     	String key = "monitor-machine-"+hostId+"-"+ip;
 		asyncService.submitFuture(AsyncThreadPoolFactory.MACHINE_POOL, new KeyCallable<Boolean>(key) {
+            @Override
             public Boolean execute() {
                 try {
                 	monitorMachineStats(hostId, ip);
@@ -450,8 +454,9 @@ public class MachineCenterImpl implements MachineCenter {
                     bufferedWriter.newLine();
                 }
             } finally {
-                if(bufferedWriter != null)
+                if(bufferedWriter != null) {
                     bufferedWriter.close();
+                }
             }
         } catch (IOException e) {
             logger.error("write redis config file error, ip: {}, filename: {}, content: {}, e", host, fileName, content, e);
@@ -562,6 +567,7 @@ public class MachineCenterImpl implements MachineCenter {
         return machineStats;
     }
     
+    @Override
     public List<InstanceStats> getMachineInstanceStatsByIp(String ip) {
         return instanceStatsDao.getInstanceStatsByIp(ip);
     }

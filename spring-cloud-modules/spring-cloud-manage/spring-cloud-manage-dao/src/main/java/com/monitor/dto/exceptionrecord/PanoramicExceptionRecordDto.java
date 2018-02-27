@@ -1,6 +1,5 @@
 package com.monitor.dto.exceptionrecord;
 
-import lombok.Data;
 
 import java.io.Serializable;
 import java.util.Date;
@@ -8,7 +7,6 @@ import java.util.Date;
 /**
  * @author summer
  */
-@Data
 public class PanoramicExceptionRecordDto implements Serializable {
     /**
      *

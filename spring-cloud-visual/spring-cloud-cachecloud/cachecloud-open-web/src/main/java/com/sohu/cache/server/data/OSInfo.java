@@ -20,7 +20,8 @@ public class OSInfo {
 	public void setIssue(String issue) {
 		this.issue = issue;
 	}
-	public String toString() {
+	@Override
+    public String toString() {
 		return "OSInfo [uname=" + uname + ", issue=" + issue + "]";
 	}
 	/**

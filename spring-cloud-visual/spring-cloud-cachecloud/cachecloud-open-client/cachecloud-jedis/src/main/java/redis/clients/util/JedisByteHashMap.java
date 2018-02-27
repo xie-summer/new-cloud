@@ -20,7 +20,9 @@ public class JedisByteHashMap implements Map<byte[], byte[]>, Cloneable, Seriali
 
   @Override
   public boolean containsKey(Object key) {
-    if (key instanceof byte[]) return internalMap.containsKey(new ByteArrayWrapper((byte[]) key));
+    if (key instanceof byte[]) {
+        return internalMap.containsKey(new ByteArrayWrapper((byte[]) key));
+    }
     return internalMap.containsKey(key);
   }
 
@@ -43,7 +45,9 @@ public class JedisByteHashMap implements Map<byte[], byte[]>, Cloneable, Seriali
 
   @Override
   public byte[] get(Object key) {
-    if (key instanceof byte[]) return internalMap.get(new ByteArrayWrapper((byte[]) key));
+    if (key instanceof byte[]) {
+        return internalMap.get(new ByteArrayWrapper((byte[]) key));
+    }
     return internalMap.get(key);
   }
 
@@ -80,7 +84,9 @@ public class JedisByteHashMap implements Map<byte[], byte[]>, Cloneable, Seriali
 
   @Override
   public byte[] remove(Object key) {
-    if (key instanceof byte[]) return internalMap.remove(new ByteArrayWrapper((byte[]) key));
+    if (key instanceof byte[]) {
+        return internalMap.remove(new ByteArrayWrapper((byte[]) key));
+    }
     return internalMap.remove(key);
   }
 
@@ -104,6 +110,7 @@ public class JedisByteHashMap implements Map<byte[], byte[]>, Cloneable, Seriali
       this.data = data;
     }
 
+    @Override
     public boolean equals(Object other) {
       if (!(other instanceof ByteArrayWrapper)) {
         return false;
@@ -111,6 +118,7 @@ public class JedisByteHashMap implements Map<byte[], byte[]>, Cloneable, Seriali
       return Arrays.equals(data, ((ByteArrayWrapper) other).data);
     }
 
+    @Override
     public int hashCode() {
       return Arrays.hashCode(data);
     }

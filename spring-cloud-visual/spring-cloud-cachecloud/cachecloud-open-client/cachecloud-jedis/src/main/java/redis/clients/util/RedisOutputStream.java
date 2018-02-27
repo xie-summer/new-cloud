@@ -40,10 +40,12 @@ public final class RedisOutputStream extends FilterOutputStream {
     buf[count++] = b;
   }
 
+  @Override
   public void write(final byte[] b) throws IOException {
     write(b, 0, b.length);
   }
 
+  @Override
   public void write(final byte b[], final int off, final int len) throws IOException {
     if (len >= buf.length) {
       flushBuffer();
@@ -108,7 +110,9 @@ public final class RedisOutputStream extends FilterOutputStream {
     int i;
     for (i = 0; i < strLen; i++) {
       char c = str.charAt(i);
-      if (!(c < 0x80)) break;
+      if (!(c < 0x80)) {
+          break;
+      }
       if (count == buf.length) {
         flushBuffer();
       }
@@ -178,8 +182,9 @@ public final class RedisOutputStream extends FilterOutputStream {
     }
 
     int size = 0;
-    while (value > sizeTable[size])
-      size++;
+    while (value > sizeTable[size]) {
+        size++;
+    }
 
     size++;
     if (size >= buf.length - count) {
@@ -202,13 +207,16 @@ public final class RedisOutputStream extends FilterOutputStream {
       r = value - ((q << 3) + (q << 1));
       buf[--charPos] = digits[r];
       value = q;
-      if (value == 0) break;
+      if (value == 0) {
+          break;
+      }
     }
     count += size;
 
     writeCrLf();
   }
 
+  @Override
   public void flush() throws IOException {
     flushBuffer();
     out.flush();

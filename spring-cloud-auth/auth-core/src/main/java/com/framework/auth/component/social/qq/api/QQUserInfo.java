@@ -1,6 +1,5 @@
 package com.framework.auth.component.social.qq.api;
 
-import lombok.Data;
 
 /**
  * qq互联：http://wiki.connect.qq.com/get_user_info

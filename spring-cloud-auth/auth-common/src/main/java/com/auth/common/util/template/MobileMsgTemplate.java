@@ -1,6 +1,5 @@
 package com.auth.common.util.template;
 
-import lombok.Data;
 
 import java.io.Serializable;
 

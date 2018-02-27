@@ -175,8 +175,9 @@ public class StringUtil {
      */
     public static List< String > findAllByRegex( String originalStr, String regex ) {
 
-        if ( StringUtil.isBlank( originalStr ) || StringUtil.isBlank( regex ) )
+        if ( StringUtil.isBlank( originalStr ) || StringUtil.isBlank( regex ) ) {
             return null;
+        }
 
         List< String > targetStrList = new ArrayList< String >();
         final Pattern patternOfTargetStr = Pattern.compile( regex, Pattern.CANON_EQ );
@@ -202,8 +203,9 @@ public class StringUtil {
      */
     public static String findFirstByRegex( String originalStr, String regex ) {
 
-        if ( StringUtil.isBlank( originalStr ) || StringUtil.isBlank( regex ) )
+        if ( StringUtil.isBlank( originalStr ) || StringUtil.isBlank( regex ) ) {
             return EMPTY_STRING;
+        }
 
         final Pattern patternOfTargetStr = Pattern.compile( regex, Pattern.CANON_EQ );
         final Matcher matcherOfTargetStr = patternOfTargetStr.matcher( originalStr );
@@ -268,11 +270,13 @@ public class StringUtil {
      */
     public static boolean isBlank( String... originalStrArray ) {
 
-        if ( null == originalStrArray || 0 == originalStrArray.length )
+        if ( null == originalStrArray || 0 == originalStrArray.length ) {
             return true;
+        }
         for ( int i = 0; i < originalStrArray.length; i++ ) {
-            if ( isBlank( originalStrArray[i] ) )
+            if ( isBlank( originalStrArray[i] ) ) {
                 return true;
+            }
         }
         return false;
     }
@@ -336,8 +340,9 @@ public class StringUtil {
 
     public static String replaceAll( String originalStr, String replacement, String... regexArray ) {
 
-        if ( 0 == regexArray.length )
+        if ( 0 == regexArray.length ) {
             return originalStr;
+        }
 
         for ( String regex : regexArray ) {
             originalStr = StringUtil.replaceAll( originalStr, replacement, regex );
@@ -358,12 +363,14 @@ public class StringUtil {
      */
     public static String replaceLast( String originalStr, String regex, String replacement ) {
 
-        if ( StringUtil.isBlank( originalStr ) )
+        if ( StringUtil.isBlank( originalStr ) ) {
             return EMPTY_STRING;
+        }
 
         int index = originalStr.lastIndexOf( regex );
-        if ( -1 == index )
+        if ( -1 == index ) {
             return originalStr;
+        }
 
         // 鍏堝瓨鍌ㄨ繖涓猧ndex涔嬪墠鐨勬墍鏈塻tr
         String temp = originalStr.substring( 0, index );
@@ -389,15 +396,18 @@ public class StringUtil {
      */
     public static String replaceSequenced( String originalStr, Object... replacementParams ) {
 
-        if ( StringUtil.isBlank( originalStr ) )
+        if ( StringUtil.isBlank( originalStr ) ) {
             return EMPTY_STRING;
-        if ( null == replacementParams || 0 == replacementParams.length )
+        }
+        if ( null == replacementParams || 0 == replacementParams.length ) {
             return originalStr;
+        }
 
         for ( int i = 0; i < replacementParams.length; i++ ) {
             String elementOfParams = replacementParams[i] + EmptyObjectConstant.EMPTY_STRING;
-            if ( StringUtil.trimToEmpty( elementOfParams ).equalsIgnoreCase( "null" ) )
+            if ( StringUtil.trimToEmpty( elementOfParams ).equalsIgnoreCase( "null" ) ) {
                 elementOfParams = EmptyObjectConstant.EMPTY_STRING;
+            }
             originalStr = originalStr.replace( "{" + i + "}", StringUtil.trimToEmpty( elementOfParams ) );
         }
 
@@ -430,12 +440,15 @@ public class StringUtil {
      * @return "閾舵椂..."
      */
     public static String subStringIfTooLong( String originalStr, int maxLength, String suffix ) {
-        if ( StringUtil.isBlank( originalStr ) )
+        if ( StringUtil.isBlank( originalStr ) ) {
             return EmptyObjectConstant.EMPTY_STRING;
-        if ( maxLength < 0 )
+        }
+        if ( maxLength < 0 ) {
             maxLength = 0;
-        if ( originalStr.length() > maxLength )
+        }
+        if ( originalStr.length() > maxLength ) {
             return originalStr.substring( 0, maxLength ) + StringUtil.trimToEmpty( suffix );
+        }
         return originalStr;
     }
 
@@ -447,10 +460,12 @@ public class StringUtil {
      * @return "" or String without empty str.
      */
     public static String trimToEmpty( String originalStr ) {
-        if ( null == originalStr || originalStr.isEmpty() )
+        if ( null == originalStr || originalStr.isEmpty() ) {
             return EMPTY_STRING;
-        if ( originalStr.equals( BaseConstant.WORD_SEPARATOR ) )
+        }
+        if ( originalStr.equals( BaseConstant.WORD_SEPARATOR ) ) {
             return originalStr;
+        }
         return originalStr.trim();
     }
 
@@ -464,8 +479,9 @@ public class StringUtil {
      * @return
      */
     public static String urlEncode( String s, String enc ) {
-        if ( StringUtil.isBlank( s ) )
+        if ( StringUtil.isBlank( s ) ) {
             return StringUtil.trimToEmpty( s );
+        }
         try {
             return java.net.URLEncoder.encode( trimToEmpty( s ), enc );
         } catch ( UnsupportedEncodingException e ) {
@@ -483,8 +499,9 @@ public class StringUtil {
      * @return
      */
     public static String urlEncode( String s ) {
-        if ( StringUtil.isBlank( s ) )
+        if ( StringUtil.isBlank( s ) ) {
             return StringUtil.trimToEmpty( s );
+        }
         return urlEncode( trimToEmpty( s ), "UTF-8" );
     }
 

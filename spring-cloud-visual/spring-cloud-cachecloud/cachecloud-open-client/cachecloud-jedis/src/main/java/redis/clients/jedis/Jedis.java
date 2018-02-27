@@ -87,6 +87,7 @@ public class Jedis extends BinaryJedis implements JedisCommands, MultiKeyCommand
    *          key if it already exist. EX|PX, expire time units: EX = seconds; PX = milliseconds
    * @return Status code reply
    */
+  @Override
   public String set(final String key, final String value, final SetParams params) {
     checkIsInMultiOrPipeline();
     client.set(key, value, params);
@@ -115,6 +116,7 @@ public class Jedis extends BinaryJedis implements JedisCommands, MultiKeyCommand
    * @return Integer reply, specifically: an integer greater than 0 if one or more keys were removed
    *         0 if none of the specified key existed
    */
+  @Override
   public Long exists(final String... keys) {
     checkIsInMultiOrPipeline();
     client.exists(keys);
@@ -1490,7 +1492,9 @@ public class Jedis extends BinaryJedis implements JedisCommands, MultiKeyCommand
     String newscore = client.getBulkReply();
 
     // with nx / xx options it could return null now
-    if (newscore == null) return null;
+    if (newscore == null) {
+        return null;
+    }
 
     return Double.valueOf(newscore);
   }
@@ -2775,11 +2779,13 @@ public class Jedis extends BinaryJedis implements JedisCommands, MultiKeyCommand
 
     String[] params = new String[keyCount + args.size()];
 
-    for (int i = 0; i < keyCount; i++)
-      params[i] = keys.get(i);
+    for (int i = 0; i < keyCount; i++) {
+        params[i] = keys.get(i);
+    }
 
-    for (int i = 0; i < argCount; i++)
-      params[keyCount + i] = args.get(i);
+    for (int i = 0; i < argCount; i++) {
+        params[keyCount + i] = args.get(i);
+    }
 
     return params;
   }
@@ -2804,7 +2810,9 @@ public class Jedis extends BinaryJedis implements JedisCommands, MultiKeyCommand
   }
 
   private Object evalResult(Object result) {
-    if (result instanceof byte[]) return SafeEncoder.encode((byte[]) result);
+    if (result instanceof byte[]) {
+        return SafeEncoder.encode((byte[]) result);
+    }
 
     if (result instanceof List<?>) {
       List<?> list = (List<?>) result;
@@ -2844,8 +2852,9 @@ public class Jedis extends BinaryJedis implements JedisCommands, MultiKeyCommand
     List<Long> result = client.getIntegerMultiBulkReply();
     List<Boolean> exists = new ArrayList<Boolean>();
 
-    for (Long value : result)
-      exists.add(value == 1);
+    for (Long value : result) {
+        exists.add(value == 1);
+    }
 
     return exists;
   }
@@ -3520,6 +3529,7 @@ public class Jedis extends BinaryJedis implements JedisCommands, MultiKeyCommand
 
   }
 
+  @Override
   public String clusterFailoverForce() {
     checkIsInMultiOrPipeline();
     client.clusterFailoverForce();

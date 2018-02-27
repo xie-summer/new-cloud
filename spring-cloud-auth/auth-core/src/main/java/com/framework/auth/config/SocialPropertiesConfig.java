@@ -1,6 +1,5 @@
 package com.framework.auth.config;
 
-import lombok.Data;
 
 /**
  * @author summer

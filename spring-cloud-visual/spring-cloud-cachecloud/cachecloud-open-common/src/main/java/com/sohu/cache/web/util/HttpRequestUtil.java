@@ -169,8 +169,9 @@ public final class HttpRequestUtil {
                     String message = String.format("'%s'='%s'", name, value);
                     throw new RuntimeException(message, e);
                 }
-                if (iter.hasNext())
+                if (iter.hasNext()) {
                     params.append("&");
+                }
             }
         }
         return params.toString();

@@ -70,10 +70,12 @@ public class SSHUtil {
         systemPerformanceEntity.setIp(ip);
         
         sshTemplate.execute(ip, port, userName, password, new SSHCallback() {
-			public Result call(SSHSession session) {
+			@Override
+            public Result call(SSHSession session) {
 				//解析top命令
 				session.executeCommand(COMMAND_TOP, new DefaultLineProcessor() {
-					public void process(String line, int lineNum) throws Exception {
+					@Override
+                    public void process(String line, int lineNum) throws Exception {
 		                if (lineNum > 5) {
 		                    return;
 		                }
@@ -105,7 +107,8 @@ public class SSHUtil {
 					private String freeMem;
 					private String buffersMem;
 					private String cachedMem;
-					public void process(String line, int lineNum) throws Exception {
+					@Override
+                    public void process(String line, int lineNum) throws Exception {
 						if (line.contains(MEM_TOTAL)) {
 		            		totalMem = matchMemLineNumber(line).trim();
 		            	} else if (line.contains(MEM_FREE)) {
@@ -116,7 +119,8 @@ public class SSHUtil {
 		            		cachedMem = matchMemLineNumber(line).trim();
 		            	}
 					}
-					public void finish() {
+					@Override
+                    public void finish() {
 						if (!StringUtil.isBlank(totalMem, freeMem, buffersMem)) {
 							Long totalMemLong = NumberUtils.toLong(totalMem);
 							Long freeMemLong = NumberUtils.toLong(freeMem);
@@ -141,7 +145,8 @@ public class SSHUtil {
 	             * */
 				session.executeCommand(COMMAND_DF_LH, new LineProcessor() {
 					private Map<String, String> diskUsageMap = new HashMap<String, String>();
-					public void process(String line, int lineNum) throws Exception {
+					@Override
+                    public void process(String line, int lineNum) throws Exception {
 						if(lineNum == 1) {
 							return;
 						}
@@ -153,7 +158,8 @@ public class SSHUtil {
 		                	diskUsageMap.put(mountedOn, diskUsage);
 		                }
 					}
-					public void finish() {
+					@Override
+                    public void finish() {
 						systemPerformanceEntity.setDiskUsageMap(diskUsageMap);
 					}
 				});
@@ -186,7 +192,8 @@ public class SSHUtil {
         port = IntegerUtil.defaultIfSmallerThan0(port, ConstUtils.SSH_PORT_DEFAULT);
         
         Result rst = sshTemplate.execute(ip, port, username, password, new SSHCallback() {
-			public Result call(SSHSession session) {
+			@Override
+            public Result call(SSHSession session) {
 				return session.executeCommand(command);
 			}
 		});
@@ -209,7 +216,8 @@ public class SSHUtil {
     public static boolean scpFileToRemote(String ip, int port, String username, 
     		String password, final String localPath, final String remoteDir) throws SSHException{
     	Result rst = sshTemplate.execute(ip, port, username, password, new SSHCallback() {
-			public Result call(SSHSession session) {
+			@Override
+            public Result call(SSHSession session) {
 				return session.scpToDir(localPath, remoteDir, "0644");
 			}
 		});

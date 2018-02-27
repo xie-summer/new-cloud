@@ -9,6 +9,7 @@ import redis.clients.util.Sharded;
 
 public class JedisShardInfo extends ShardInfo<Jedis> {
 
+  @Override
   public String toString() {
     return host + ":" + port + "*" + getWeight();
   }

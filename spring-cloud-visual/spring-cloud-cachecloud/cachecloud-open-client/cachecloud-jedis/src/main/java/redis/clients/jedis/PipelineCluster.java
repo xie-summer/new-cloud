@@ -33,6 +33,7 @@ public class PipelineCluster extends JedisCluster {
     public String set(final String key, final byte[] value) {
         final byte[] keyByte = SafeEncoder.encode(key);
         return new JedisClusterCommand<String>(connectionHandler, maxRedirections) {
+            @Override
             public String execute(Jedis connection) {
                 return connection.set(keyByte, value);
             }
@@ -69,6 +70,7 @@ public class PipelineCluster extends JedisCluster {
                           final byte[] value) {
         final byte[] keyByte = SafeEncoder.encode(key);
         return new JedisClusterCommand<Boolean>(connectionHandler, maxRedirections) {
+            @Override
             public Boolean execute(Jedis connection) {
                 return connection.setbit(keyByte, offset, value);
             }
@@ -78,6 +80,7 @@ public class PipelineCluster extends JedisCluster {
     public Long setrange(final String key, final long offset, final byte[] value) {
         final byte[] keyByte = SafeEncoder.encode(key);
         return new JedisClusterCommand<Long>(connectionHandler, maxRedirections) {
+            @Override
             public Long execute(Jedis connection) {
                 return connection.setrange(keyByte, offset, value);
             }
@@ -87,6 +90,7 @@ public class PipelineCluster extends JedisCluster {
     public byte[] getrangeBytes(final String key, final long startOffset, final long endOffset) {
         final byte[] keyByte = SafeEncoder.encode(key);
         return new JedisClusterCommand<byte[]>(connectionHandler, maxRedirections) {
+            @Override
             public byte[] execute(Jedis connection) {
                 return connection.getrange(keyByte, startOffset, endOffset);
             }
@@ -96,6 +100,7 @@ public class PipelineCluster extends JedisCluster {
     public byte[] getSetBytes(final String key, final byte[] value) {
         final byte[] keyByte = SafeEncoder.encode(key);
         return new JedisClusterCommand<byte[]>(connectionHandler, maxRedirections) {
+            @Override
             public byte[] execute(Jedis connection) {
                 return connection.getSet(keyByte, value);
             }
@@ -105,6 +110,7 @@ public class PipelineCluster extends JedisCluster {
     public Long setnx(final String key, final byte[] value) {
         final byte[] keyByte = SafeEncoder.encode(key);
         return new JedisClusterCommand<Long>(connectionHandler, maxRedirections) {
+            @Override
             public Long execute(Jedis connection) {
                 return connection.setnx(keyByte, value);
             }
@@ -114,6 +120,7 @@ public class PipelineCluster extends JedisCluster {
     public String setex(final String key, final int seconds, final byte[] value) {
         final byte[] keyByte = SafeEncoder.encode(key);
         return new JedisClusterCommand<String>(connectionHandler, maxRedirections) {
+            @Override
             public String execute(Jedis connection) {
                 return connection.setex(keyByte, seconds, value);
             }
@@ -123,6 +130,7 @@ public class PipelineCluster extends JedisCluster {
     public byte[] substrBytes(final String key, final int start, final int end) {
         final byte[] keyByte = SafeEncoder.encode(key);
         return new JedisClusterCommand<byte[]>(connectionHandler, maxRedirections) {
+            @Override
             public byte[] execute(Jedis connection) {
                 return connection.substr(keyByte, start, end);
             }
@@ -132,6 +140,7 @@ public class PipelineCluster extends JedisCluster {
     public Long hset(final String key, final String field, final byte[] value) {
         final byte[] keyByte = SafeEncoder.encode(key);
         return new JedisClusterCommand<Long>(connectionHandler, maxRedirections) {
+            @Override
             public Long execute(Jedis connection) {
                 return connection.hset(keyByte, SafeEncoder.encode(field), value);
             }
@@ -141,6 +150,7 @@ public class PipelineCluster extends JedisCluster {
     public byte[] hgetBytes(final String key, final String field) {
         final byte[] keyByte = SafeEncoder.encode(key);
         return new JedisClusterCommand<byte[]>(connectionHandler, maxRedirections) {
+            @Override
             public byte[] execute(Jedis connection) {
                 return connection.hget(keyByte, SafeEncoder.encode(field));
             }
@@ -150,6 +160,7 @@ public class PipelineCluster extends JedisCluster {
     public Long hsetnx(final String key, final String field, final byte[] value) {
         final byte[] keyByte = SafeEncoder.encode(key);
         return new JedisClusterCommand<Long>(connectionHandler, maxRedirections) {
+            @Override
             public Long execute(Jedis connection) {
                 return connection.hsetnx(keyByte, SafeEncoder.encode(field), value);
             }
@@ -159,6 +170,7 @@ public class PipelineCluster extends JedisCluster {
     public String hmsetBytes(final String key, final Map<byte[], byte[]> hash) {
         final byte[] keyByte = SafeEncoder.encode(key);
         return new JedisClusterCommand<String>(connectionHandler, maxRedirections) {
+            @Override
             public String execute(Jedis connection) {
                 return connection.hmset(keyByte, hash);
             }
@@ -168,6 +180,7 @@ public class PipelineCluster extends JedisCluster {
     public List<byte[]> hmget(final String key, final byte[]... fields) {
         final byte[] keyByte = SafeEncoder.encode(key);
         return new JedisClusterCommand<List<byte[]>>(connectionHandler, maxRedirections) {
+            @Override
             public List<byte[]> execute(Jedis connection) {
                 return connection.hmget(keyByte, fields);
             }
@@ -177,6 +190,7 @@ public class PipelineCluster extends JedisCluster {
     public Set<byte[]> hkeysBytes(final String key) {
         final byte[] keyByte = SafeEncoder.encode(key);
         return new JedisClusterCommand<Set<byte[]>>(connectionHandler, maxRedirections) {
+            @Override
             public Set<byte[]> execute(Jedis connection) {
                 return connection.hkeys(SafeEncoder.encode(key));
             }
@@ -186,6 +200,7 @@ public class PipelineCluster extends JedisCluster {
     public List<byte[]> hvalsBytes(final String key) {
         final byte[] keyByte = SafeEncoder.encode(key);
         return new JedisClusterCommand<List<byte[]>>(connectionHandler, maxRedirections) {
+            @Override
             public List<byte[]> execute(Jedis connection) {
                 return connection.hvals(keyByte);
             }
@@ -195,6 +210,7 @@ public class PipelineCluster extends JedisCluster {
     public Map<byte[], byte[]> hgetAllBytes(final String key) {
         final byte[] keyByte = SafeEncoder.encode(key);
         return new JedisClusterCommand<Map<byte[], byte[]>>(connectionHandler, maxRedirections) {
+            @Override
             public Map<byte[], byte[]> execute(Jedis connection) {
                 return connection.hgetAll(keyByte);
             }
@@ -204,6 +220,7 @@ public class PipelineCluster extends JedisCluster {
     public Long rpush(final String key, final byte[]... string) {
         final byte[] keyByte = SafeEncoder.encode(key);
         return new JedisClusterCommand<Long>(connectionHandler, maxRedirections) {
+            @Override
             public Long execute(Jedis connection) {
                 return connection.rpush(keyByte, string);
             }
@@ -213,6 +230,7 @@ public class PipelineCluster extends JedisCluster {
     public Long lpush(final String key, final byte[]... string) {
         final byte[] keyByte = SafeEncoder.encode(key);
         return new JedisClusterCommand<Long>(connectionHandler, maxRedirections) {
+            @Override
             public Long execute(Jedis connection) {
                 return connection.lpush(keyByte, string);
             }
@@ -222,6 +240,7 @@ public class PipelineCluster extends JedisCluster {
     public List<byte[]> lrangeBytes(final String key, final long start, final long end) {
         final byte[] keyByte = SafeEncoder.encode(key);
         return new JedisClusterCommand<List<byte[]>>(connectionHandler, maxRedirections) {
+            @Override
             public List<byte[]> execute(Jedis connection) {
                 return connection.lrange(keyByte, start, end);
             }
@@ -231,6 +250,7 @@ public class PipelineCluster extends JedisCluster {
     public byte[] lindexBytes(final String key, final long index) {
         final byte[] keyByte = SafeEncoder.encode(key);
         return new JedisClusterCommand<byte[]>(connectionHandler, maxRedirections) {
+            @Override
             public byte[] execute(Jedis connection) {
                 return connection.lindex(keyByte, index);
             }
@@ -240,6 +260,7 @@ public class PipelineCluster extends JedisCluster {
     public String lset(final String key, final long index, final byte[] value) {
         final byte[] keyByte = SafeEncoder.encode(key);
         return new JedisClusterCommand<String>(connectionHandler, maxRedirections) {
+            @Override
             public String execute(Jedis connection) {
                 return connection.lset(keyByte, index, value);
             }
@@ -249,6 +270,7 @@ public class PipelineCluster extends JedisCluster {
     public Long lrem(final String key, final long count, final byte[] value) {
         final byte[] keyByte = SafeEncoder.encode(key);
         return new JedisClusterCommand<Long>(connectionHandler, maxRedirections) {
+            @Override
             public Long execute(Jedis connection) {
                 return connection.lrem(keyByte, count, value);
             }
@@ -258,6 +280,7 @@ public class PipelineCluster extends JedisCluster {
     public byte[] lpopBytes(final String key) {
         final byte[] keyByte = SafeEncoder.encode(key);
         return new JedisClusterCommand<byte[]>(connectionHandler, maxRedirections) {
+            @Override
             public byte[] execute(Jedis connection) {
                 return connection.lpop(keyByte);
             }
@@ -267,6 +290,7 @@ public class PipelineCluster extends JedisCluster {
     public byte[] rpopBytes(final String key) {
         final byte[] keyByte = SafeEncoder.encode(key);
         return new JedisClusterCommand<byte[]>(connectionHandler, maxRedirections) {
+            @Override
             public byte[] execute(Jedis connection) {
                 return connection.rpop(keyByte);
             }
@@ -276,6 +300,7 @@ public class PipelineCluster extends JedisCluster {
     public Long sadd(final String key, final byte[]... member) {
         final byte[] keyByte = SafeEncoder.encode(key);
         return new JedisClusterCommand<Long>(connectionHandler, maxRedirections) {
+            @Override
             public Long execute(Jedis connection) {
                 return connection.sadd(keyByte, member);
             }
@@ -285,6 +310,7 @@ public class PipelineCluster extends JedisCluster {
     public Set<byte[]> smembersBytes(final String key) {
         final byte[] keyByte = SafeEncoder.encode(key);
         return new JedisClusterCommand<Set<byte[]>>(connectionHandler, maxRedirections) {
+            @Override
             public Set<byte[]> execute(Jedis connection) {
                 return connection.smembers(keyByte);
             }
@@ -294,6 +320,7 @@ public class PipelineCluster extends JedisCluster {
     public Long srem(final String key, final byte[]... member) {
         final byte[] keyByte = SafeEncoder.encode(key);
         return new JedisClusterCommand<Long>(connectionHandler, maxRedirections) {
+            @Override
             public Long execute(Jedis connection) {
                 return connection.srem(keyByte, member);
             }
@@ -303,6 +330,7 @@ public class PipelineCluster extends JedisCluster {
     public byte[] spopBytes(final String key) {
         final byte[] keyByte = SafeEncoder.encode(key);
         return new JedisClusterCommand<byte[]>(connectionHandler, maxRedirections) {
+            @Override
             public byte[] execute(Jedis connection) {
                 return connection.spop(keyByte);
             }
@@ -312,6 +340,7 @@ public class PipelineCluster extends JedisCluster {
     public Boolean sismember(final String key, final byte[] member) {
         final byte[] keyByte = SafeEncoder.encode(key);
         return new JedisClusterCommand<Boolean>(connectionHandler, maxRedirections) {
+            @Override
             public Boolean execute(Jedis connection) {
                 return connection.sismember(keyByte, member);
             }
@@ -321,6 +350,7 @@ public class PipelineCluster extends JedisCluster {
     public byte[] srandmemberBytes(final String key) {
         final byte[] keyByte = SafeEncoder.encode(key);
         return new JedisClusterCommand<byte[]>(connectionHandler, maxRedirections) {
+            @Override
             public byte[] execute(Jedis connection) {
                 return connection.srandmember(keyByte);
             }
@@ -330,6 +360,7 @@ public class PipelineCluster extends JedisCluster {
     public Long zadd(final String key, final double score, final byte[] member) {
         final byte[] keyByte = SafeEncoder.encode(key);
         return new JedisClusterCommand<Long>(connectionHandler, maxRedirections) {
+            @Override
             public Long execute(Jedis connection) {
                 return connection.zadd(keyByte, score, member);
             }
@@ -339,6 +370,7 @@ public class PipelineCluster extends JedisCluster {
     public Set<byte[]> zrangeBytes(final String key, final long start, final long end) {
         final byte[] keyByte = SafeEncoder.encode(key);
         return new JedisClusterCommand<Set<byte[]>>(connectionHandler, maxRedirections) {
+            @Override
             public Set<byte[]> execute(Jedis connection) {
                 return connection.zrange(keyByte, start, end);
             }
@@ -348,6 +380,7 @@ public class PipelineCluster extends JedisCluster {
     public Long zrem(final String key, final byte[]... member) {
         final byte[] keyByte = SafeEncoder.encode(key);
         return new JedisClusterCommand<Long>(connectionHandler, maxRedirections) {
+            @Override
             public Long execute(Jedis connection) {
                 return connection.zrem(keyByte, member);
             }
@@ -358,6 +391,7 @@ public class PipelineCluster extends JedisCluster {
                           final byte[] member) {
         final byte[] keyByte = SafeEncoder.encode(key);
         return new JedisClusterCommand<Double>(connectionHandler, maxRedirections) {
+            @Override
             public Double execute(Jedis connection) {
                 return connection.zincrby(keyByte, score, member);
             }
@@ -367,6 +401,7 @@ public class PipelineCluster extends JedisCluster {
     public Long zrank(final String key, final byte[] member) {
         final byte[] keyByte = SafeEncoder.encode(key);
         return new JedisClusterCommand<Long>(connectionHandler, maxRedirections) {
+            @Override
             public Long execute(Jedis connection) {
                 return connection.zrank(keyByte, member);
             }
@@ -376,6 +411,7 @@ public class PipelineCluster extends JedisCluster {
     public Long zrevrank(final String key, final byte[] member) {
         final byte[] keyByte = SafeEncoder.encode(key);
         return new JedisClusterCommand<Long>(connectionHandler, maxRedirections) {
+            @Override
             public Long execute(Jedis connection) {
                 return connection.zrevrank(keyByte, member);
             }
@@ -386,6 +422,7 @@ public class PipelineCluster extends JedisCluster {
                                       final long end) {
         final byte[] keyByte = SafeEncoder.encode(key);
         return new JedisClusterCommand<Set<byte[]>>(connectionHandler, maxRedirections) {
+            @Override
             public Set<byte[]> execute(Jedis connection) {
                 return connection.zrevrange(keyByte, start, end);
             }
@@ -415,6 +452,7 @@ public class PipelineCluster extends JedisCluster {
     public Double zscore(final String key, final byte[] member) {
         final byte[] keyByte = SafeEncoder.encode(key);
         return new JedisClusterCommand<Double>(connectionHandler, maxRedirections) {
+            @Override
             public Double execute(Jedis connection) {
                 return connection.zscore(keyByte, member);
             }
@@ -424,6 +462,7 @@ public class PipelineCluster extends JedisCluster {
     public List<byte[]> sortBytes(final String key) {
         final byte[] keyByte = SafeEncoder.encode(key);
         return new JedisClusterCommand<List<byte[]>>(connectionHandler, maxRedirections) {
+            @Override
             public List<byte[]> execute(Jedis connection) {
                 return connection.sort(keyByte);
             }
@@ -434,6 +473,7 @@ public class PipelineCluster extends JedisCluster {
         final byte[] keyByte = SafeEncoder.encode(key);
         return new JedisClusterCommand<List<byte[]>>(connectionHandler, maxRedirections) {
 
+            @Override
             public List<byte[]> execute(Jedis connection) {
                 return connection.sort(keyByte, sortingParameters);
             }
@@ -444,6 +484,7 @@ public class PipelineCluster extends JedisCluster {
         final byte[] keyByte = SafeEncoder.encode(key);
         return new JedisClusterCommand<Set<byte[]>>(connectionHandler, maxRedirections) {
 
+            @Override
             public Set<byte[]> execute(Jedis connection) {
                 return connection.zrangeByScore(keyByte, min, max);
             }
@@ -454,6 +495,7 @@ public class PipelineCluster extends JedisCluster {
         final byte[] keyByte = SafeEncoder.encode(key);
         return new JedisClusterCommand<Set<byte[]>>(connectionHandler, maxRedirections) {
 
+            @Override
             public Set<byte[]> execute(Jedis connection) {
                 return connection.zrangeByScore(keyByte, SafeEncoder.encode(min), SafeEncoder.encode(max));
             }
@@ -463,6 +505,7 @@ public class PipelineCluster extends JedisCluster {
     public Set<byte[]> zrevrangeByScoreBytes(final String key, final double max, final double min) {
         final byte[] keyByte = SafeEncoder.encode(key);
         return new JedisClusterCommand<Set<byte[]>>(connectionHandler, maxRedirections) {
+            @Override
             public Set<byte[]> execute(Jedis connection) {
                 return connection.zrevrangeByScore(SafeEncoder.encode(key), max, min);
             }
@@ -473,6 +516,7 @@ public class PipelineCluster extends JedisCluster {
                                           final double max, final int offset, final int count) {
         final byte[] keyByte = SafeEncoder.encode(key);
         return new JedisClusterCommand<Set<byte[]>>(connectionHandler, maxRedirections) {
+            @Override
             public Set<byte[]> execute(Jedis connection) {
                 return connection.zrangeByScore(keyByte, min, max, offset, count);
             }
@@ -482,6 +526,7 @@ public class PipelineCluster extends JedisCluster {
     public Set<byte[]> zrevrangeByScoreBytes(final String key, final String max, final String min) {
         final byte[] keyByte = SafeEncoder.encode(key);
         return new JedisClusterCommand<Set<byte[]>>(connectionHandler, maxRedirections) {
+            @Override
             public Set<byte[]> execute(Jedis connection) {
                 return connection.zrevrangeByScore(keyByte,
                         SafeEncoder.encode(max), SafeEncoder.encode(min));
@@ -494,6 +539,7 @@ public class PipelineCluster extends JedisCluster {
         final byte[] keyByte = SafeEncoder.encode(key);
         return new JedisClusterCommand<Set<byte[]>>(connectionHandler, maxRedirections) {
 
+            @Override
             public Set<byte[]> execute(Jedis connection) {
                 return connection.zrangeByScore(keyByte,
                         SafeEncoder.encode(min), SafeEncoder.encode(max), offset, count);
@@ -505,6 +551,7 @@ public class PipelineCluster extends JedisCluster {
                                              final double min, final int offset, final int count) {
         final byte[] keyByte = SafeEncoder.encode(key);
         return new JedisClusterCommand<Set<byte[]>>(connectionHandler, maxRedirections) {
+            @Override
             public Set<byte[]> execute(Jedis connection) {
                 return connection.zrevrangeByScore(keyByte, max, min, offset, count);
             }
@@ -515,6 +562,7 @@ public class PipelineCluster extends JedisCluster {
                                              final String min, final int offset, final int count) {
         final byte[] keyByte = SafeEncoder.encode(key);
         return new JedisClusterCommand<Set<byte[]>>(connectionHandler, maxRedirections) {
+            @Override
             public Set<byte[]> execute(Jedis connection) {
                 return connection.zrevrangeByScore(keyByte,
                         SafeEncoder.encode(max), SafeEncoder.encode(min), offset, count);
@@ -526,6 +574,7 @@ public class PipelineCluster extends JedisCluster {
                         final byte[] pivot, final byte[] value) {
         final byte[] keyByte = SafeEncoder.encode(key);
         return new JedisClusterCommand<Long>(connectionHandler, maxRedirections) {
+            @Override
             public Long execute(Jedis connection) {
                 return connection.linsert(keyByte, where, pivot, value);
             }
@@ -535,6 +584,7 @@ public class PipelineCluster extends JedisCluster {
     public Long lpushx(final String key, final byte[]... string) {
         final byte[] keyByte = SafeEncoder.encode(key);
         return new JedisClusterCommand<Long>(connectionHandler, maxRedirections) {
+            @Override
             public Long execute(Jedis connection) {
                 return connection.lpushx(keyByte, string);
             }
@@ -544,6 +594,7 @@ public class PipelineCluster extends JedisCluster {
     public Long rpushx(final String key, final byte[]... string) {
         final byte[] keyByte = SafeEncoder.encode(key);
         return new JedisClusterCommand<Long>(connectionHandler, maxRedirections) {
+            @Override
             public Long execute(Jedis connection) {
                 return connection.rpushx(keyByte, string);
             }
@@ -553,6 +604,7 @@ public class PipelineCluster extends JedisCluster {
     public List<byte[]> blpopBytes(final String arg) {
         final byte[] keyByte = SafeEncoder.encode(arg);
         return new JedisClusterCommand<List<byte[]>>(connectionHandler, maxRedirections) {
+            @Override
             public List<byte[]> execute(Jedis connection) {
                 return connection.blpop(keyByte);
             }
@@ -562,6 +614,7 @@ public class PipelineCluster extends JedisCluster {
     public List<byte[]> brpopBytes(final String arg) {
         final byte[] keyByte = SafeEncoder.encode(arg);
         return new JedisClusterCommand<List<byte[]>>(connectionHandler, maxRedirections) {
+            @Override
             public List<byte[]> execute(Jedis connection) {
                 return connection.brpop(keyByte);
             }
@@ -1162,6 +1215,7 @@ public class PipelineCluster extends JedisCluster {
      * @param message
      * @return
      */
+    @Override
     public Long publish(final String channel, final String message) {
         SubPubClusterCommand subPubClusterCommand = new SubPubClusterCommand(this, connectionHandler, maxRedirections);
         Jedis jedis = subPubClusterCommand.getJedis(channel);
@@ -1245,6 +1299,7 @@ public class PipelineCluster extends JedisCluster {
      * @param key
      * @return
      */
+    @Override
     public Object evalsha(String sha, String key) {
         return evalsha(sha, key, null);
     }
@@ -1277,6 +1332,7 @@ public class PipelineCluster extends JedisCluster {
      * @param key
      * @return
      */
+    @Override
     public Object eval(String sha, String key) {
         return eval(sha, key, null);
     }

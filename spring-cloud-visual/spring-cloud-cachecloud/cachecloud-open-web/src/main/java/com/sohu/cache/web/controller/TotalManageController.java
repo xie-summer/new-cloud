@@ -68,8 +68,8 @@ public class TotalManageController extends BaseController {
         long totalFreeMachineMem = 0;
         List<MachineStats> allMachineStats = machineCenter.getAllMachineStats();
         for (MachineStats machineStats : allMachineStats) {
-            totalMachineMem += NumberUtils.toLong(machineStats.getMemoryTotal(), 0l);
-            totalFreeMachineMem += NumberUtils.toLong(machineStats.getMemoryFree(), 0l);
+            totalMachineMem += NumberUtils.toLong(machineStats.getMemoryTotal(), 0L);
+            totalFreeMachineMem += NumberUtils.toLong(machineStats.getMemoryFree(), 0L);
         }
 
         long totalInstanceMem = 0;

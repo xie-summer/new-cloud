@@ -66,23 +66,30 @@ public class ExceptionModel{
 
 	@Override
 	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
+		if (this == obj) {
+            return true;
+        }
+		if (obj == null) {
+            return false;
+        }
+		if (getClass() != obj.getClass()) {
+            return false;
+        }
 		ExceptionModel other = (ExceptionModel) obj;
 		if (exceptionClass == null) {
-			if (other.exceptionClass != null)
-				return false;
-		} else if (!exceptionClass.equals(other.exceptionClass))
-			return false;
+			if (other.exceptionClass != null) {
+                return false;
+            }
+		} else if (!exceptionClass.equals(other.exceptionClass)) {
+            return false;
+        }
 		if (hostPort == null) {
-			if (other.hostPort != null)
-				return false;
-		} else if (!hostPort.equals(other.hostPort))
-			return false;
+			if (other.hostPort != null) {
+                return false;
+            }
+		} else if (!hostPort.equals(other.hostPort)) {
+            return false;
+        }
 		return true;
 	}
 

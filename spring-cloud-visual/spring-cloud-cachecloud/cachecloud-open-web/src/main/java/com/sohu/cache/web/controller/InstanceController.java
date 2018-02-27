@@ -214,12 +214,12 @@ public class InstanceController {
                 if (cmdStatsFirst.containsKey(startDateParam + s)) {
                     data1.add(cmdStatsFirst.get(startDateParam + s).getCommandCount());
                 } else {
-                    data1.add(0l);
+                    data1.add(0L);
                 }
                 if (cmdStatsSecond.containsKey(endDateParam + s)) {
                     data2.add(cmdStatsSecond.get(endDateParam + s).getCommandCount());
                 } else {
-                    data2.add(0l);
+                    data2.add(0L);
                 }
 
                 x.add(s);
@@ -304,12 +304,12 @@ public class InstanceController {
                 if (cmdStatsFirst.containsKey(startDateParam + s)) {
                     data1.add(cmdStatsFirst.get(startDateParam + s).getCommandCount());
                 } else {
-                    data1.add(0l);
+                    data1.add(0L);
                 }
                 if (cmdStatsSecond.containsKey(endDateParam + s)) {
                     data2.add(cmdStatsSecond.get(endDateParam + s).getCommandCount());
                 } else {
-                    data2.add(0l);
+                    data2.add(0L);
                 }
 
                 x.add(s);

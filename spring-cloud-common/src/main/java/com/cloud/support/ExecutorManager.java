@@ -3,6 +3,7 @@ package com.cloud.support;
 import com.cloud.util.TLogger;
 import com.cloud.util.HttpUtils;
 import com.cloud.util.LoggerUtils;
+import com.google.common.collect.Maps;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -11,13 +12,13 @@ import java.util.concurrent.ThreadPoolExecutor;
  * @author summer
  */
 public abstract class ExecutorManager {
-	private static final transient TLogger DB_LOGGER = LoggerUtils.getLogger(HttpUtils.class);
+	private static final transient TLogger DB_LOGGER = LoggerUtils.getLogger(ExecutorManager.class);
 	/**
 	 * 注册的线程池，当系统重新启动时，先等待线程池中的任务完成，最大30s
 	 * @param executor
 	 * @param maxWaitSecondsBeforeDomainRestart
 	 */
-	private static Map<String, ThreadPoolExecutor> executorMap = new HashMap<String, ThreadPoolExecutor>();
+	private static Map<String, ThreadPoolExecutor> executorMap = Maps.newConcurrentMap();
 	public static void registerExecutor(String name, ThreadPoolExecutor executor){
 		executorMap.put(name, executor);
 	}

@@ -124,7 +124,8 @@ public class NMONService {
 	private OSInfo getOSInfo(String ip, SSHSession session) {
 		final OSInfo osInfo = new OSInfo();
 		session.executeCommand(OS_INFO_CMD, new DefaultLineProcessor() {
-			public void process(String line, int lineNum) throws Exception {
+			@Override
+            public void process(String line, int lineNum) throws Exception {
 				switch(lineNum) {
 				case 1:
 					osInfo.setUname(line);

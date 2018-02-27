@@ -325,7 +325,7 @@ public class InstanceAlertConfigServiceImpl implements InstanceAlertConfigServic
         // 检测周期转换为毫秒
         long checkCycleMillionTime = finalInstanceConfig.getCheckCycleMillionTime();
         // 当前距离上一次检测过去的毫秒
-        long betweenTime = new Date().getTime() - finalInstanceConfig.getLastCheckTime().getTime();
+        long betweenTime = System.currentTimeMillis() - finalInstanceConfig.getLastCheckTime().getTime();
         // 超过说明需要进行再测检测了
         if (betweenTime >= checkCycleMillionTime) {
             return true;

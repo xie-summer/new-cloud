@@ -141,6 +141,7 @@ public class BinaryJedis implements BasicCommands, BinaryJedisCommands, MultiKey
    * @param params
    * @return Status code reply
    */
+  @Override
   public String set(final byte[] key, final byte[] value, final SetParams params) {
     checkIsInMultiOrPipeline();
     client.set(key, value, params);
@@ -182,6 +183,7 @@ public class BinaryJedis implements BasicCommands, BinaryJedisCommands, MultiKey
    * @return Integer reply, specifically: an integer greater than 0 if one or more keys existed 0 if
    *         none of the specified keys existed
    */
+  @Override
   public Long exists(final byte[]... keys) {
     checkIsInMultiOrPipeline();
     client.exists(keys);
@@ -1598,7 +1600,9 @@ public class BinaryJedis implements BasicCommands, BinaryJedisCommands, MultiKey
     String newscore = client.getBulkReply();
 
     // with nx / xx options it could return null now
-    if (newscore == null) return null;
+    if (newscore == null) {
+        return null;
+    }
 
     return Double.valueOf(newscore);
   }
@@ -3094,11 +3098,13 @@ public class BinaryJedis implements BasicCommands, BinaryJedisCommands, MultiKey
     final int argCount = args.size();
     byte[][] params = new byte[keyCount + argCount][];
 
-    for (int i = 0; i < keyCount; i++)
-      params[i] = keys.get(i);
+    for (int i = 0; i < keyCount; i++) {
+        params[i] = keys.get(i);
+    }
 
-    for (int i = 0; i < argCount; i++)
-      params[keyCount + i] = args.get(i);
+    for (int i = 0; i < argCount; i++) {
+        params[keyCount + i] = args.get(i);
+    }
 
     return params;
   }
@@ -3580,14 +3586,17 @@ public class BinaryJedis implements BasicCommands, BinaryJedisCommands, MultiKey
       return list.toArray(a);
     }
 
+    @Override
     public String toString() {
       return list.toString();
     }
 
+    @Override
     public int hashCode() {
       return list.hashCode();
     }
 
+    @Override
     public boolean equals(Object o) {
       if (o == this) {
         return true;

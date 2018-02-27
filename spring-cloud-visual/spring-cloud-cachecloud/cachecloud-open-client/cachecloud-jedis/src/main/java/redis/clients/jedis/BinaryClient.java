@@ -972,7 +972,9 @@ public class BinaryClient extends Connection {
   }
 
   public void resetState() {
-    if (isInWatch()) unwatch();
+    if (isInWatch()) {
+        unwatch();
+    }
   }
 
   private void sendEvalCommand(Command command, byte[] script, byte[] keyCount, byte[][] params) {
@@ -982,8 +984,9 @@ public class BinaryClient extends Connection {
     allArgs[0] = script;
     allArgs[1] = keyCount;
 
-    for (int i = 0; i < params.length; i++)
-      allArgs[i + 2] = params[i];
+    for (int i = 0; i < params.length; i++) {
+        allArgs[i + 2] = params[i];
+    }
 
     sendCommand(command, allArgs);
   }
@@ -1011,8 +1014,9 @@ public class BinaryClient extends Connection {
   public void scriptExists(byte[]... sha1) {
     byte[][] args = new byte[sha1.length + 1][];
     args[0] = Keyword.EXISTS.raw;
-    for (int i = 0; i < sha1.length; i++)
-      args[i + 1] = sha1[i];
+    for (int i = 0; i < sha1.length; i++) {
+        args[i + 1] = sha1[i];
+    }
 
     sendCommand(SCRIPT, args);
   }

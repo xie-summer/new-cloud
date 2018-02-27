@@ -471,8 +471,9 @@ public class RedisDeployCenterImpl implements RedisDeployCenter {
             logger.error(e.getMessage(), e);
             return false;
         } finally {
-            if (slave != null)
+            if (slave != null) {
                 slave.close();
+            }
         }
 
         return true;
@@ -648,8 +649,9 @@ public class RedisDeployCenterImpl implements RedisDeployCenter {
             logger.error(e.getMessage(), e);
             return false;
         } finally {
-            if (jedis != null)
+            if (jedis != null) {
                 jedis.close();
+            }
         }
     }
 

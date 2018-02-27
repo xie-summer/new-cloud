@@ -1,4 +1,5 @@
 package com.cloud.util;
+import com.cloud.exception.CheckedException;
 import org.apache.commons.lang.StringUtils;
 
 import javax.validation.ConstraintViolation;

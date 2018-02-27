@@ -18,6 +18,7 @@ public class AliasesResourceSqlSessionFactoryBean extends SqlSessionFactoryBean 
 
     private String packages;
 
+    @Override
     public void setTypeAliasesPackage(String packages) {
         this.packages = packages;
     }

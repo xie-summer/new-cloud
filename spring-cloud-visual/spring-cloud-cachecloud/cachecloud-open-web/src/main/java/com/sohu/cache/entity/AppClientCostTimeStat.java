@@ -248,20 +248,26 @@ public class AppClientCostTimeStat {
 
     @Override
     public boolean equals(Object obj) {
-        if (this == obj)
+        if (this == obj) {
             return true;
-        if (obj == null)
+        }
+        if (obj == null) {
             return false;
-        if (getClass() != obj.getClass())
+        }
+        if (getClass() != obj.getClass()) {
             return false;
+        }
         AppClientCostTimeStat other = (AppClientCostTimeStat) obj;
         if (clientIp == null) {
-            if (other.clientIp != null)
+            if (other.clientIp != null) {
                 return false;
-        } else if (!clientIp.equals(other.clientIp))
+            }
+        } else if (!clientIp.equals(other.clientIp)) {
             return false;
-        if (instanceId != other.instanceId)
+        }
+        if (instanceId != other.instanceId) {
             return false;
+        }
         return true;
     }
 

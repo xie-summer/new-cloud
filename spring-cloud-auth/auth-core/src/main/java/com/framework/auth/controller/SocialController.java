@@ -3,7 +3,6 @@ package com.framework.auth.controller;
 import com.auth.common.util.R;
 import com.framework.auth.component.social.SocialUserInfo;
 import com.framework.auth.component.social.qq.connect.QQOAuth2Template;
-import lombok.extern.slf4j.Slf4j;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;

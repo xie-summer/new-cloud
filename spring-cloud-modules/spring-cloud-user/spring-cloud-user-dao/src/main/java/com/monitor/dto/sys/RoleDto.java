@@ -1,6 +1,7 @@
 package com.monitor.dto.sys;
 
-import com.github.pig.admin.model.entity.SysRole;
+
+import com.monitor.entity.SysRole;
 
 /**
  * @author lengleng

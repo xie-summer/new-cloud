@@ -1,6 +1,5 @@
 package com.monitor.dto.dataverification;
 
-import lombok.Data;
 
 import java.io.Serializable;
 
@@ -9,7 +8,6 @@ import java.io.Serializable;
  * @author gang
  *
  */
-@Data
 public class PanoramicDataVerificationDto implements Serializable{
 
 	private static final long serialVersionUID = 1L;

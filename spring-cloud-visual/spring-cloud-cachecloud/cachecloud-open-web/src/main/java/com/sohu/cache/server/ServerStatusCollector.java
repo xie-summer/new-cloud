@@ -47,6 +47,7 @@ public class ServerStatusCollector {
 	public void asyncFetchServerStatus(final String ip) {
 		String key = "collect-server-"+ip;
 		asyncService.submitFuture(AsyncThreadPoolFactory.MACHINE_POOL, new KeyCallable<Boolean>(key) {
+            @Override
             public Boolean execute() {
                 try {
                 	fetchServerStatus(ip);
@@ -66,7 +67,8 @@ public class ServerStatusCollector {
 	public void fetchServerStatus(final String ip) {
 		try {
 			sshTemplate.execute(ip, new SSHCallback() {
-				public Result call(SSHSession session) {
+				@Override
+                public Result call(SSHSession session) {
 					//尝试收集服务器运行状况
 					collectServerStatus(ip, session);
 					//启动nmon收集服务器运行状况
@@ -89,7 +91,8 @@ public class ServerStatusCollector {
 		final Server server = new Server();
 		server.setIp(ip);
 		Result result = session.executeCommand(COLLECT_SERVER_STATUS, new DefaultLineProcessor() {
-			public void process(String line, int lineNum) throws Exception {
+			@Override
+            public void process(String line, int lineNum) throws Exception {
 				server.parse(line, null);
 			}
 		});

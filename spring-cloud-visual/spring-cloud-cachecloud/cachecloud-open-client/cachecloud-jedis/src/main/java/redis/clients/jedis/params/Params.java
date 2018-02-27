@@ -13,7 +13,9 @@ public abstract class Params {
 
   @SuppressWarnings("unchecked")
   public <T> T getParam(String name) {
-    if (params == null) return null;
+    if (params == null) {
+        return null;
+    }
 
     return (T) params.get(name);
   }
@@ -32,7 +34,9 @@ public abstract class Params {
   }
 
   public boolean contains(String name) {
-    if (params == null) return false;
+    if (params == null) {
+        return false;
+    }
 
     return params.containsKey(name);
   }

@@ -20,6 +20,7 @@ public class BuilderFactory {
       return asString == null ? null : Double.valueOf(asString);
     }
 
+    @Override
     public String toString() {
       return "double";
     }
@@ -30,6 +31,7 @@ public class BuilderFactory {
       return ((Long) data) == 1;
     }
 
+    @Override
     public String toString() {
       return "boolean";
     }
@@ -40,6 +42,7 @@ public class BuilderFactory {
       return ((byte[]) data); // deleted == 1
     }
 
+    @Override
     public String toString() {
       return "byte[]";
     }
@@ -51,6 +54,7 @@ public class BuilderFactory {
       return (Long) data;
     }
 
+    @Override
     public String toString() {
       return "long";
     }
@@ -62,6 +66,7 @@ public class BuilderFactory {
       return data == null ? null : SafeEncoder.encode((byte[]) data);
     }
 
+    @Override
     public String toString() {
       return "string";
     }
@@ -86,6 +91,7 @@ public class BuilderFactory {
       return result;
     }
 
+    @Override
     public String toString() {
       return "List<String>";
     }
@@ -105,6 +111,7 @@ public class BuilderFactory {
       return hash;
     }
 
+    @Override
     public String toString() {
       return "Map<String, String>";
     }
@@ -126,6 +133,7 @@ public class BuilderFactory {
       return hash;
     }
 
+    @Override
     public String toString() {
       return "PUBSUB_NUMSUB_MAP<String, String>";
     }
@@ -151,6 +159,7 @@ public class BuilderFactory {
       return result;
     }
 
+    @Override
     public String toString() {
       return "Set<String>";
     }
@@ -169,6 +178,7 @@ public class BuilderFactory {
       return l;
     }
 
+    @Override
     public String toString() {
       return "List<byte[]>";
     }
@@ -193,6 +203,7 @@ public class BuilderFactory {
       return result;
     }
 
+    @Override
     public String toString() {
       return "ZSet<byte[]>";
     }
@@ -211,6 +222,7 @@ public class BuilderFactory {
       return hash;
     }
 
+    @Override
     public String toString() {
       return "Map<byte[], byte[]>";
     }
@@ -236,6 +248,7 @@ public class BuilderFactory {
       return result;
     }
 
+    @Override
     public String toString() {
       return "ZSet<String>";
     }
@@ -259,6 +272,7 @@ public class BuilderFactory {
       return result;
     }
 
+    @Override
     public String toString() {
       return "ZSet<Tuple>";
     }
@@ -283,6 +297,7 @@ public class BuilderFactory {
 
     }
 
+    @Override
     public String toString() {
       return "ZSet<Tuple>";
     }
@@ -295,12 +310,15 @@ public class BuilderFactory {
       return evalResult(data);
     }
 
+    @Override
     public String toString() {
       return "Eval<Object>";
     }
 
     private Object evalResult(Object result) {
-      if (result instanceof byte[]) return SafeEncoder.encode((byte[]) result);
+      if (result instanceof byte[]) {
+          return SafeEncoder.encode((byte[]) result);
+      }
 
       if (result instanceof List<?>) {
         List<?> list = (List<?>) result;
@@ -324,6 +342,7 @@ public class BuilderFactory {
       return evalResult(data);
     }
 
+    @Override
     public String toString() {
       return "Eval<Object>";
     }
@@ -353,6 +372,7 @@ public class BuilderFactory {
       return interpretGeoposResult((List<Object>) data);
     }
 
+    @Override
     public String toString() {
       return "List<GeoCoordinate>";
     }
@@ -427,6 +447,7 @@ public class BuilderFactory {
       return Double.valueOf(SafeEncoder.encode((byte[]) obj));
     }
 
+    @Override
     public String toString() {
       return "GeoRadiusWithParamsResult";
     }

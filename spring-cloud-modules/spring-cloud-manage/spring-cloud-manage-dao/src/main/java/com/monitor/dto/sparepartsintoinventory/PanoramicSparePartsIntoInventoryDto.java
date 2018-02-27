@@ -1,7 +1,6 @@
 package com.monitor.dto.sparepartsintoinventory;
 
 import com.cloud.model.BaseObject;
-import lombok.Data;
 
 import java.io.Serializable;
 

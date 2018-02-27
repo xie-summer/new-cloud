@@ -23,7 +23,8 @@ public class CPU implements LineParser{
 	 * CPU002,T0001,3.6,1.8,0.0,94.6
 	 * CPU_ALL,T0001,2.1,1.3,0.6,95.9,,16
 	 */
-	public void parse(String line, String timeKey) throws Exception{
+	@Override
+    public void parse(String line, String timeKey) throws Exception{
 		if(line.startsWith(FLAG)) {
 			String[] items = line.split(",", 6);
 			if(items.length != 6) {
@@ -79,7 +80,8 @@ public class CPU implements LineParser{
 		}
 		return sb.toString();
 	}
-	public String toString() {
+	@Override
+    public String toString() {
 		return "CPU [cpuList=" + cpuList + "]";
 	}
 

@@ -379,8 +379,9 @@ public class RedisCenterImpl implements RedisCenter {
                         logger.warn("{}:{}, redis-getInfoStats errorMsg:{}", host, port, e.getMessage());
                         return false;
                     } finally {
-                        if (jedis != null)
+                        if (jedis != null) {
                             jedis.close();
+                        }
                     }
                 }
             }.run();
@@ -436,8 +437,9 @@ public class RedisCenterImpl implements RedisCenter {
                         logger.warn("{}:{}, redis-getInfoStats errorMsg:{}", host, port, e.getMessage());
                         return false;
                     } finally {
-                        if (jedis != null)
+                        if (jedis != null) {
                             jedis.close();
+                        }
                     }
                 }
             }.run();
@@ -770,6 +772,7 @@ public class RedisCenterImpl implements RedisCenter {
      * @param port port
      * @return 主返回true，从返回false；
      */
+    @Override
     public Boolean hasSlaves(long appId, String ip, int port) {
         Jedis jedis = getJedis(appId, ip, port, REDIS_DEFAULT_TIME, REDIS_DEFAULT_TIME);
         try {
@@ -806,8 +809,9 @@ public class RedisCenterImpl implements RedisCenter {
             logger.error("{}:{} getMaster failed {}", ip, port, e.getMessage(), e);
             return null;
         } finally {
-            if (jedis != null)
+            if (jedis != null) {
                 jedis.close();
+            }
         }
     }
     
@@ -1020,7 +1024,9 @@ public class RedisCenterImpl implements RedisCenter {
                 logger.error(e.getMessage(), e);
                 return "运行出错:" + e.getMessage();
             } finally {
-                if (jedis != null) jedis.close();
+                if (jedis != null) {
+                    jedis.close();
+                }
                 jedisSentinelPool.destroy();
             }
         } else if (type == ConstUtils.CACHE_REDIS_STANDALONE) {
@@ -1435,6 +1441,7 @@ public class RedisCenterImpl implements RedisCenter {
      * @param appId
      * @return
      */
+    @Override
     public InstanceInfo getHealthyInstanceInfo(long appId) {
         InstanceInfo sourceMasterInstance = null;
         List<InstanceInfo> appInstanceInfoList = instanceDao.getInstListByAppId(appId);
@@ -1474,6 +1481,7 @@ public class RedisCenterImpl implements RedisCenter {
      * @param appId
      * @return 应用对应master节点列表
      */
+    @Override
     public List<InstanceInfo> getAllHealthyInstanceInfo(long appId) {
         // return instances
         List<InstanceInfo> allInstance = new ArrayList<InstanceInfo>();
@@ -1762,8 +1770,9 @@ public class RedisCenterImpl implements RedisCenter {
 		} catch (Exception e) {
 			logger.error(e.getMessage(), e);
 		} finally {
-			if (jedis != null)
-				jedis.close();
+			if (jedis != null) {
+                jedis.close();
+            }
 		}
 		if (clusterSlotList == null || clusterSlotList.size() == 0) {
 			return Collections.emptyMap();
@@ -1883,8 +1892,9 @@ public class RedisCenterImpl implements RedisCenter {
         } catch (Exception e) {
             logger.error(e.getMessage(), e);
         } finally {
-            if (jedis != null)
+            if (jedis != null) {
                 jedis.close();
+            }
         }
         return null;
     }

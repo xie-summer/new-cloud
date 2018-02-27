@@ -102,7 +102,9 @@ public class JedisClusterInfoCache {
     w.lock();
     try {
       String nodeKey = getNodeKey(node);
-      if (nodes.containsKey(nodeKey)) return;
+      if (nodes.containsKey(nodeKey)) {
+          return;
+      }
 
       JedisPool nodePool = new JedisPool(poolConfig, node.getHost(), node.getPort(),
           connectionTimeout, soTimeout, null, 0, null);

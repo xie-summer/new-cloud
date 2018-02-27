@@ -73,28 +73,37 @@ public class CostTimeDetailStatKey {
 
     @Override
     public boolean equals(Object obj) {
-        if (this == obj)
+        if (this == obj) {
             return true;
-        if (obj == null)
+        }
+        if (obj == null) {
             return false;
-        if (getClass() != obj.getClass())
+        }
+        if (getClass() != obj.getClass()) {
             return false;
+        }
         CostTimeDetailStatKey other = (CostTimeDetailStatKey) obj;
         if (command == null) {
-            if (other.command != null)
+            if (other.command != null) {
                 return false;
-        } else if (!command.equals(other.command))
+            }
+        } else if (!command.equals(other.command)) {
             return false;
+        }
         if (currentMinute == null) {
-            if (other.currentMinute != null)
+            if (other.currentMinute != null) {
                 return false;
-        } else if (!currentMinute.equals(other.currentMinute))
+            }
+        } else if (!currentMinute.equals(other.currentMinute)) {
             return false;
+        }
         if (hostPort == null) {
-            if (other.hostPort != null)
+            if (other.hostPort != null) {
                 return false;
-        } else if (!hostPort.equals(other.hostPort))
+            }
+        } else if (!hostPort.equals(other.hostPort)) {
             return false;
+        }
         return true;
     }
 

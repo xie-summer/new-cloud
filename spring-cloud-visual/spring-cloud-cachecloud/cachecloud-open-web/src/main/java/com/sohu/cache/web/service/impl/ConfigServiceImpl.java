@@ -36,6 +36,7 @@ public class ConfigServiceImpl implements ConfigService {
     /**
      * 加载配置
      */
+    @Override
     public void reloadSystemConfig() {
         logger.info("===========ConfigServiceImpl reload config start============");
         // 加载配置

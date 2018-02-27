@@ -20,13 +20,11 @@
 		<module>./spring-cloud-discovery-eureka</module>
 		<module>./spring-cloud-test</module>
 		<module>./spring-cloud-config-server</module>
-		<module>./spring-cloud-config-client</module>
 		<module>./spring-cloud-auth</module>
 		<module>./spring-cloud-doc</module>
 		<module>./spring-cloud-gateway-zuul</module>
 		<module>./spring-cloud-visual</module>
 		<module>./spring-cloud-modules</module>
-		<module>./spring-boot-starters-parent</module>
 
 	</modules>
 

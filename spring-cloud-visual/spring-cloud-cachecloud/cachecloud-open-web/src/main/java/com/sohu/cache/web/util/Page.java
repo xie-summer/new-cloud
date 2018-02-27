@@ -35,10 +35,11 @@ public class Page implements java.io.Serializable {
      * 取总页数
      */
     public int getTotalPages() {
-        if (totalCount % pageSize == 0)
+        if (totalCount % pageSize == 0) {
             return totalCount / pageSize;
-        else
+        } else {
             return totalCount / pageSize + 1;
+        }
     }
 
     /**

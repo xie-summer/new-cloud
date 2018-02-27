@@ -32,6 +32,7 @@ public class CustomerAccessTokenConverter extends DefaultAccessTokenConverter {
     private class CustomerUserAuthenticationConverter extends DefaultUserAuthenticationConverter {
 
 
+        @Override
         public Authentication extractAuthentication(Map<String, ?> map) {
             Collection authorities = this.getAuthorities(map);
             return new UsernamePasswordAuthenticationToken(map, "N/A", authorities);

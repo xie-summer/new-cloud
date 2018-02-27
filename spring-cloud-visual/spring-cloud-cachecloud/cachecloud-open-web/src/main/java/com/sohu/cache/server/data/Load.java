@@ -22,7 +22,8 @@ public class Load implements LineParser{
 	 * line format:
 	 * BBBP,585,uptime," 09:35:00 up 567 days, 15:07,  0 users,  load average: 0.60, 0.63, 0.67"
 	 */
-	public void parse(String line, String timeKey) throws Exception{
+	@Override
+    public void parse(String line, String timeKey) throws Exception{
 		Matcher matcher = PATTERN.matcher(line);
 		if(matcher.find()) {
 			load1 = NumberUtils.toFloat(matcher.group(1));

@@ -19,12 +19,18 @@ public class GeoCoordinate {
 
   @Override
   public boolean equals(Object o) {
-    if (this == o) return true;
-    if (!(o instanceof GeoCoordinate)) return false;
+    if (this == o) {
+        return true;
+    }
+    if (!(o instanceof GeoCoordinate)) {
+        return false;
+    }
 
     GeoCoordinate that = (GeoCoordinate) o;
 
-    if (Double.compare(that.longitude, longitude) != 0) return false;
+    if (Double.compare(that.longitude, longitude) != 0) {
+        return false;
+    }
     return Double.compare(that.latitude, latitude) == 0;
   }
 

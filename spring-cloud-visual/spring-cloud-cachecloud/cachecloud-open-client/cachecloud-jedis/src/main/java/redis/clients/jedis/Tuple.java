@@ -8,6 +8,7 @@ public class Tuple implements Comparable<Tuple> {
   private byte[] element;
   private Double score;
 
+  @Override
   public int hashCode() {
     final int prime = 31;
     int result = 1;
@@ -23,20 +24,35 @@ public class Tuple implements Comparable<Tuple> {
     return result;
   }
 
+  @Override
   public boolean equals(Object obj) {
-    if (this == obj) return true;
-    if (obj == null) return false;
-    if (getClass() != obj.getClass()) return false;
+    if (this == obj) {
+        return true;
+    }
+    if (obj == null) {
+        return false;
+    }
+    if (getClass() != obj.getClass()) {
+        return false;
+    }
     Tuple other = (Tuple) obj;
     if (element == null) {
-      if (other.element != null) return false;
-    } else if (!Arrays.equals(element, other.element)) return false;
+      if (other.element != null) {
+          return false;
+      }
+    } else if (!Arrays.equals(element, other.element)) {
+        return false;
+    }
     return true;
   }
 
+  @Override
   public int compareTo(Tuple other) {
-    if (this.score == other.getScore() || Arrays.equals(this.element, other.element)) return 0;
-    else return this.score < other.getScore() ? -1 : 1;
+    if (this.score == other.getScore() || Arrays.equals(this.element, other.element)) {
+        return 0;
+    } else {
+        return this.score < other.getScore() ? -1 : 1;
+    }
   }
 
   public Tuple(String element, Double score) {
@@ -67,6 +83,7 @@ public class Tuple implements Comparable<Tuple> {
     return score;
   }
 
+  @Override
   public String toString() {
     return '[' + Arrays.toString(element) + ',' + score + ']';
   }

@@ -4,7 +4,6 @@ import com.baomidou.mybatisplus.plugins.SqlParserHandler;
 import com.baomidou.mybatisplus.toolkit.PluginUtils;
 import com.auth.common.util.UserUtils;
 import com.xiaoleilu.hutool.util.CollectionUtil;
-import lombok.extern.slf4j.Slf4j;
 import org.apache.ibatis.executor.statement.StatementHandler;
 import org.apache.ibatis.mapping.BoundSql;
 import org.apache.ibatis.mapping.MappedStatement;
@@ -23,7 +22,6 @@ import java.util.Properties;
  * @date 2018/1/19
  * 数据权限插件，参考PaginationInterceptor
  */
-@Slf4j
 @Intercepts({@Signature(type = StatementHandler.class, method = "prepare", args = {Connection.class, Integer.class})})
 public class DataScopeInterceptor extends SqlParserHandler implements Interceptor {
     private static final String DATA_SCOPE = "DataScope";

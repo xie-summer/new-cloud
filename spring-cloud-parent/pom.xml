@@ -593,19 +593,20 @@
                 <!-- optional=true,依赖不会传递，该项目依赖devtools；之后依赖boot项目的项目如果想要使用devtools，需要重新引入 -->
                 <optional>true</optional>
             </dependency>
+            <dependency>
+                <groupId>org.projectlombok</groupId>
+                <artifactId>lombok</artifactId>
+                <version>${lombok.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>junit</groupId>
+                <artifactId>junit</artifactId>
+                <version>4.12</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
     <dependencies>
-        <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
-            <version>${lombok.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <version>4.12</version>
-        </dependency>
+
     </dependencies>
 
     <build>
@@ -660,7 +661,9 @@
                         </goals>
                         <configuration>
                             <image>${docker.registry.name}/${project.artifactId}:${project.version}</image>
-                            <newName>${docker.repostory}/${docker.registry.name}/${project.artifactId}:${project.version}</newName>
+                            <newName>
+                                ${docker.repostory}/${docker.registry.name}/${project.artifactId}:${project.version}
+                            </newName>
                         </configuration>
                     </execution>
                     <execution>
@@ -670,7 +673,9 @@
                             <goal>push</goal>
                         </goals>
                         <configuration>
-                            <imageName>${docker.repostory}/${docker.registry.name}/${project.artifactId}:${project.version}</imageName>
+                            <imageName>
+                                ${docker.repostory}/${docker.registry.name}/${project.artifactId}:${project.version}
+                            </imageName>
                         </configuration>
                     </execution>
                 </executions>

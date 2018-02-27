@@ -53,11 +53,14 @@ public class Sharded<R, S extends ShardInfo<R>> {
 
     for (int i = 0; i != shards.size(); ++i) {
       final S shardInfo = shards.get(i);
-      if (shardInfo.getName() == null) for (int n = 0; n < 160 * shardInfo.getWeight(); n++) {
-        nodes.put(this.algo.hash("SHARD-" + i + "-NODE-" + n), shardInfo);
-      }
-      else for (int n = 0; n < 160 * shardInfo.getWeight(); n++) {
-        nodes.put(this.algo.hash(shardInfo.getName() + "*" + shardInfo.getWeight() + n), shardInfo);
+      if (shardInfo.getName() == null) {
+          for (int n = 0; n < 160 * shardInfo.getWeight(); n++) {
+            nodes.put(this.algo.hash("SHARD-" + i + "-NODE-" + n), shardInfo);
+          }
+      } else {
+          for (int n = 0; n < 160 * shardInfo.getWeight(); n++) {
+            nodes.put(this.algo.hash(shardInfo.getName() + "*" + shardInfo.getWeight() + n), shardInfo);
+          }
       }
       resources.put(shardInfo, shardInfo.createResource());
     }
@@ -93,7 +96,9 @@ public class Sharded<R, S extends ShardInfo<R>> {
   public String getKeyTag(String key) {
     if (tagPattern != null) {
       Matcher m = tagPattern.matcher(key);
-      if (m.find()) return m.group(1);
+      if (m.find()) {
+          return m.group(1);
+      }
     }
     return key;
   }

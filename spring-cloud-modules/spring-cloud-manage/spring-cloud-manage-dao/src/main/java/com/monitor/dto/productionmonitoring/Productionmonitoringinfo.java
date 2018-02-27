@@ -1,11 +1,9 @@
 package com.monitor.dto.productionmonitoring;
 
-import lombok.Data;
 
 /**
  * @author gang
  */
-@Data
 public class Productionmonitoringinfo {
 
     /**

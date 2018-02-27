@@ -60,8 +60,9 @@ public abstract class PipelineClusterCommand<T> {
             } catch (Exception e) {
                 logger.error(e.getMessage(), e);
             } finally {
-                if (pipeline != null)
+                if (pipeline != null) {
                     pipeline.clean();
+                }
                 //释放jedis对象
                 if (jedis != null) {
                     jedis.close();
