@@ -18,7 +18,7 @@ import java.util.Map;
  * <p>
  * 自定义了下这个方法，加入了额外的信息
  * <p>
- * Created by xw on 2017/3/20.
+ * @author  summer
  * 2017-03-20 9:54
  */
 public class CustomerAccessTokenConverter extends DefaultAccessTokenConverter {

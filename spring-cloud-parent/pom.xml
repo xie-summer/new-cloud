@@ -1,8 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>1.5.9.RELEASE</version>
+    </parent>
     <modelVersion>4.0.0</modelVersion>
-
     <groupId>com.github.xie-summer</groupId>
     <artifactId>spring-cloud-parent</artifactId>
     <packaging>pom</packaging>
@@ -11,16 +15,13 @@
 
     <properties>
         <dependency.container>provided</dependency.container>
-        <dependency.common>provided</dependency.common>
-        <spring-boot.version>1.5.9.RELEASE</spring-boot.version>
         <mapstruct.version>1.1.0.Final</mapstruct.version>
         <java.version>1.8</java.version>
         <encoding.version>UTF-8</encoding.version>
 
         <spring.boot.version>1.5.9.RELEASE</spring.boot.version>
-        <spring-cloud-dependencies.version>Edgware.RELEASE</spring-cloud-dependencies.version>
+        <spring-cloud-dependencies.version>Edgware.SR2</spring-cloud-dependencies.version>
 
-        <jackson2-version>2.6.5</jackson2-version>
         <apache.httpcomponents.client.version>4.3.6</apache.httpcomponents.client.version>
         <!-- need changed the well version if need -->
         <apache.httpcomponents.core.version>4.3.3</apache.httpcomponents.core.version>
@@ -37,20 +38,16 @@
         <commons-digester.version>1.8.1</commons-digester.version>
         <commons-io.version>2.4</commons-io.version>
         <commons-logging.version>1.1.3</commons-logging.version>
-        <commons-pool.version>1.6</commons-pool.version>
         <commons-validator.version>1.3.1</commons-validator.version>
         <commons-httpclient.version>3.1</commons-httpclient.version>
         <commons-codec.version>1.10</commons-codec.version>
         <commons-discovery.version>0.2</commons-discovery.version>
-        <commons-dbcp.version>1.4</commons-dbcp.version>
         <commons-net.version>3.3</commons-net.version>
 
         <commons-spymemcached.version>2.11.7</commons-spymemcached.version>
         <commons-ehcache.version>2.6.9</commons-ehcache.version>
 
-        <lombok.version>1.16.16</lombok.version>
         <!-- Log libs -->
-        <slf4j.version>1.7.25</slf4j.version><!-- 1.7.9 -->
         <log4j.version>1.2.17</log4j.version><!-- 1.2.17 -->
         <hutool-all.version>3.2.0</hutool-all.version>
         <jjwt.version>0.7.0</jjwt.version>
@@ -61,7 +58,6 @@
         <fastjson.version>1.2.29</fastjson.version>
         <druid-spring-boot-starter.version>1.1.0</druid-spring-boot-starter.version>
         <swagger.version>2.7.0</swagger.version>
-        <mysql.version>5.1.42</mysql.version>
         <druid.version>1.1.5</druid.version>
         <mybatis-plus-boot-starter.version>2.1.9</mybatis-plus-boot-starter.version>
         <kaptcha.version>0.0.9</kaptcha.version>
@@ -77,6 +73,13 @@
 
     <dependencyManagement>
         <dependencies>
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>${spring-cloud-dependencies.version}</version> <!--此处不能使用SR3,会出现jar版本异常 -->
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
             <dependency>
                 <groupId>com.github.axet</groupId>
                 <artifactId>kaptcha</artifactId>
@@ -104,20 +107,7 @@
                 <artifactId>jjwt</artifactId>
                 <version>${jjwt.version}</version>
             </dependency>
-            <dependency>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-dependencies</artifactId>
-                <version>${spring.boot.version}</version>
-                <type>pom</type>
-                <scope>import</scope>
-            </dependency>
-            <dependency>
-                <groupId>org.springframework.cloud</groupId>
-                <artifactId>spring-cloud-dependencies</artifactId>
-                <version>${spring-cloud-dependencies.version}</version> <!--此处不能使用SR3,会出现jar版本异常 -->
-                <type>pom</type>
-                <scope>import</scope>
-            </dependency>
+
             <!-- swagger2  聚合API -->
             <dependency>
                 <groupId>io.springfox</groupId>
@@ -147,11 +137,6 @@
             </dependency>
 
             <!--MyBatis 及 插件依赖 start -->
-            <dependency>
-                <groupId>mysql</groupId>
-                <artifactId>mysql-connector-java</artifactId>
-                <version>${mysql.version}</version>
-            </dependency>
             <dependency>
                 <groupId>org.mybatis</groupId>
                 <artifactId>mybatis-spring</artifactId>
@@ -189,13 +174,11 @@
                 <groupId>net.sf.ehcache</groupId>
                 <artifactId>ehcache-core</artifactId>
                 <version>${commons-ehcache.version}</version>
-                <scope>${dependency.common}</scope>
             </dependency>
             <dependency>
                 <groupId>net.spy</groupId>
                 <artifactId>spymemcached</artifactId>
                 <version>${commons-spymemcached.version}</version>
-                <scope>${dependency.common}</scope>
             </dependency>
             <!-- 缓存 end -->
             <!-- hessian 远程调用 -->
@@ -206,87 +189,17 @@
             </dependency>
             <!-- jackson序列化包 start -->
             <dependency>
-                <groupId>com.fasterxml.jackson.core</groupId>
-                <artifactId>jackson-core</artifactId>
-                <version>${jackson2-version}</version>
-                <scope>${dependency.common}</scope>
-            </dependency>
-            <dependency>
-                <groupId>com.fasterxml.jackson.core</groupId>
-                <artifactId>jackson-databind</artifactId>
-                <version>${jackson2-version}</version>
-                <scope>${dependency.common}</scope>
-            </dependency>
-            <dependency>
-                <groupId>com.fasterxml.jackson.core</groupId>
-                <artifactId>jackson-annotations</artifactId>
-                <version>${jackson2-version}</version>
-                <scope>${dependency.common}</scope>
-            </dependency>
-            <dependency>
                 <groupId>org.codehaus.jackson</groupId>
                 <artifactId>jackson-mapper-asl</artifactId>
                 <version>1.9.4</version>
-            </dependency>
-            <dependency>
-                <groupId>com.fasterxml.jackson.jaxrs</groupId>
-                <artifactId>jackson-jaxrs-base</artifactId>
-                <version>${jackson2-version}</version>
-                <scope>${dependency.common}</scope>
-            </dependency>
-            <dependency>
-                <groupId>com.fasterxml.jackson.jaxrs</groupId>
-                <artifactId>jackson-jaxrs-json-provider</artifactId>
-                <version>${jackson2-version}</version>
-                <scope>${dependency.common}</scope>
-            </dependency>
-            <dependency>
-                <groupId>com.fasterxml.jackson.dataformat</groupId>
-                <artifactId>jackson-dataformat-smile</artifactId>
-                <version>${jackson2-version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.fasterxml.jackson.dataformat</groupId>
-                <artifactId>jackson-dataformat-cbor</artifactId>
-                <version>${jackson2-version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.fasterxml.jackson.dataformat</groupId>
-                <artifactId>jackson-dataformat-yaml</artifactId>
-                <version>${jackson2-version}</version>
             </dependency>
             <!-- jackson序列化包 end -->
 
             <!-- httpclient start -->
             <dependency>
-                <groupId>org.apache.httpcomponents</groupId>
-                <artifactId>httpclient</artifactId>
-                <version>${apache.httpcomponents.client.version}</version>
-                <scope>${dependency.common}</scope>
-            </dependency>
-            <dependency>
-                <groupId>org.apache.httpcomponents</groupId>
-                <artifactId>httpcore</artifactId>
-                <version>${apache.httpcomponents.core.version}</version> <!--4.2.5 -->
-                <scope>${dependency.common}</scope>
-            </dependency>
-            <dependency>
-                <groupId>org.apache.httpcomponents</groupId>
-                <artifactId>httpmime</artifactId>
-                <version>${apache.httpcomponents.client.version}</version>
-                <scope>${dependency.common}</scope>
-            </dependency>
-            <dependency>
                 <groupId>commons-httpclient</groupId>
                 <artifactId>commons-httpclient</artifactId>
                 <version>${commons-httpclient.version}</version>
-                <scope>${dependency.common}</scope>
-            </dependency>
-            <dependency>
-                <groupId>commons-codec</groupId>
-                <artifactId>commons-codec</artifactId>
-                <version>${commons-codec.version}</version>
-                <scope>${dependency.common}</scope>
             </dependency>
             <dependency>
                 <groupId>org.jsoup</groupId>
@@ -322,50 +235,17 @@
 
             <!-- 基础依赖 start -->
             <dependency>
-                <groupId>org.javassist</groupId>
-                <artifactId>javassist</artifactId>
-                <version>3.20.0-GA</version>
-            </dependency>
-
-            <dependency>
                 <groupId>com.google.guava</groupId>
                 <artifactId>guava</artifactId>
                 <version>18.0.1</version>
                 <scope>${dependency.container}</scope>
             </dependency>
             <!-- 基础依赖 end -->
-            <!-- log 依赖包 start -->
-            <!--<dependency>-->
-                <!--<groupId>log4j</groupId>-->
-                <!--<artifactId>log4j</artifactId>-->
-                <!--<version>${log4j.version}</version>-->
-                <!--<scope>${dependency.common}</scope>-->
-            <!--</dependency>-->
-            <!--<dependency>-->
-                <!--<groupId>org.slf4j</groupId>-->
-                <!--<artifactId>slf4j-api</artifactId>-->
-                <!--<version>${slf4j.version}</version>-->
-                <!--<scope>${dependency.common}</scope>-->
-            <!--</dependency>-->
-            <!--<dependency>-->
-                <!--<groupId>org.slf4j</groupId>-->
-                <!--<artifactId>slf4j-ext</artifactId>-->
-                <!--<version>${slf4j.version}</version>-->
-                <!--<scope>${dependency.common}</scope>-->
-            <!--</dependency>-->
-            <!--<dependency>-->
-                <!--<groupId>org.slf4j</groupId>-->
-                <!--<artifactId>slf4j-log4j12</artifactId>-->
-                <!--<version>${slf4j.version}</version>-->
-                <!--<scope>${dependency.common}</scope>-->
-            <!--</dependency>-->
-            <!-- log 依赖 end -->
             <!-- xml 依赖 start -->
             <dependency>
                 <groupId>org.apache.xmlbeans</groupId>
                 <artifactId>xmlbeans</artifactId>
                 <version>2.6.0</version>
-                <scope>${dependency.common}</scope>
                 <exclusions>
                     <exclusion>
                         <groupId>stax</groupId>
@@ -377,25 +257,21 @@
                 <groupId>xml</groupId>
                 <artifactId>resolver</artifactId>
                 <version>1.2</version>
-                <scope>${dependency.common}</scope>
             </dependency>
             <dependency>
                 <groupId>org.apache.ws.commons.schema</groupId>
                 <artifactId>XmlSchema</artifactId>
                 <version>1.4.7</version>
-                <scope>${dependency.common}</scope>
             </dependency>
             <dependency>
                 <groupId>xmlsec</groupId>
                 <artifactId>xmlsec</artifactId>
                 <version>1.4.6</version>
-                <scope>${dependency.common}</scope>
             </dependency>
             <dependency>
                 <groupId>com.thoughtworks.xstream</groupId>
                 <artifactId>xstream</artifactId>
                 <version>1.4.7</version>
-                <scope>${dependency.common}</scope>
                 <exclusions>
                     <exclusion>
                         <groupId>xpp3</groupId>
@@ -444,81 +320,40 @@
                 <version>${commons-fileupload.version}</version>
             </dependency>
             <dependency>
-                <groupId>commons-beanutils</groupId>
-                <artifactId>commons-beanutils</artifactId>
-                <version>${commons-beanutils.version}</version>
-            </dependency>
-            <dependency>
                 <groupId>commons-lang</groupId>
                 <artifactId>commons-lang</artifactId>
                 <version>${commons-lang.version}</version>
             </dependency>
             <dependency>
-                <groupId>org.projectlombok</groupId>
-                <artifactId>lombok</artifactId>
-                <version>${lombok.version}</version>
-            </dependency>
-
-            <dependency>
                 <groupId>commons-betwixt</groupId>
                 <artifactId>commons-betwixt</artifactId>
                 <version>${commons-betwixt.version}</version>
-                <scope>${dependency.common}</scope>
-            </dependency>
-            <dependency>
-                <groupId>commons-collections</groupId>
-                <artifactId>commons-collections</artifactId>
-                <version>${commons-collections.version}</version>
-                <scope>${dependency.common}</scope>
             </dependency>
             <dependency>
                 <groupId>commons-configuration</groupId>
                 <artifactId>commons-configuration</artifactId>
                 <version>${commons-configuration.version}</version>
-                <scope>${dependency.common}</scope>
-            </dependency>
-            <dependency>
-                <groupId>commons-digester</groupId>
-                <artifactId>commons-digester</artifactId>
-                <version>${commons-digester.version}</version>
-                <scope>${dependency.common}</scope>
-                <exclusions>
-                    <exclusion>
-                        <groupId>commons-beanutils</groupId>
-                        <artifactId>commons-beanutils</artifactId>
-                    </exclusion>
-                </exclusions>
             </dependency>
             <dependency>
                 <groupId>org.apache.commons</groupId>
                 <artifactId>commons-exec</artifactId>
                 <version>1.3</version>
-                <scope>${dependency.common}</scope>
             </dependency>
             <dependency>
                 <groupId>commons-io</groupId>
                 <artifactId>commons-io</artifactId>
                 <version>${commons-io.version}</version>
-                <scope>${dependency.common}</scope>
             </dependency>
 
             <dependency>
                 <groupId>commons-logging</groupId>
                 <artifactId>commons-logging</artifactId>
                 <version>${commons-logging.version}</version>
-                <scope>${dependency.common}</scope>
-            </dependency>
-            <dependency>
-                <groupId>commons-pool</groupId>
-                <artifactId>commons-pool</artifactId>
-                <version>${commons-pool.version}</version>
-                <scope>${dependency.common}</scope>
             </dependency>
             <dependency>
                 <groupId>commons-validator</groupId>
                 <artifactId>commons-validator</artifactId>
                 <version>${commons-validator.version}</version>
-                <scope>${dependency.common}</scope>
                 <exclusions>
                     <exclusion>
                         <groupId>commons-beanutils</groupId>
@@ -527,32 +362,12 @@
                 </exclusions>
             </dependency>
             <dependency>
-                <groupId>dom4j</groupId>
-                <artifactId>dom4j</artifactId>
-                <version>1.6.1</version>
-                <scope>${dependency.common}</scope>
-                <exclusions>
-                    <exclusion>
-                        <artifactId>xml-apis</artifactId>
-                        <groupId>xml-apis</groupId>
-                    </exclusion>
-                </exclusions>
-            </dependency>
-
-
-            <dependency>
                 <groupId>org.im4java</groupId>
                 <artifactId>im4java</artifactId>
                 <version>1.4.0</version>
-                <scope>${dependency.common}</scope>
             </dependency>
             <!-- commons依赖 end -->
             <!-- javaEE 依赖支持 start -->
-            <dependency>
-                <groupId>javax.servlet</groupId>
-                <artifactId>javax.servlet-api</artifactId>
-                <version>3.0.1</version>
-            </dependency>
             <dependency>
                 <groupId>javax.servlet</groupId>
                 <artifactId>servlet-api</artifactId>
@@ -569,11 +384,6 @@
                 <groupId>org.quartz-scheduler</groupId>
                 <artifactId>quartz-jobs</artifactId>
                 <version>2.3.0</version>
-            </dependency>
-            <dependency>
-                <groupId>junit</groupId>
-                <artifactId>junit</artifactId>
-                <version>4.12</version>
             </dependency>
 
             <dependency>
@@ -594,21 +404,12 @@
                 <optional>true</optional>
             </dependency>
             <dependency>
-                <groupId>org.projectlombok</groupId>
-                <artifactId>lombok</artifactId>
-                <version>${lombok.version}</version>
-            </dependency>
-            <dependency>
                 <groupId>junit</groupId>
                 <artifactId>junit</artifactId>
                 <version>4.12</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
-    <dependencies>
-
-    </dependencies>
-
     <build>
         <finalName>${project.artifactId}</finalName>
         <resources><!-- 使用@@站位符，输出Dockerfile至docker文件夹 -->

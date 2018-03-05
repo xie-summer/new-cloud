@@ -3,15 +3,15 @@ spring:
     name: cloud-discovery-eureka
   profiles:
     active: dev
-  cloud:
-    config:
-      fail-fast: true
-      discovery:
-        service-id: cloud-config-server
-        enabled: true
-      profile: ${spring.profiles.active}
-      label: ${spring.profiles.active}
---
+#  cloud:
+#    config:
+#      fail-fast: true
+#      discovery:
+#        service-id: cloud-config-server
+#        enabled: true
+#      profile: ${spring.profiles.active}
+#      label: ${spring.profiles.active}
+---
 spring:
   profiles: dev
 security:
@@ -34,7 +34,7 @@ eureka:
     serviceUrl:
       defaultZone: http://user:user@${eureka.instance.hostname}:8761/eureka/
 
---
+---
 spring:
   profiles: test
 security:
@@ -57,7 +57,7 @@ eureka:
     serviceUrl:
       defaultZone: http://user:user@${eureka.instance.hostname}:8761/eureka/
 
---
+---
 spring:
   profiles: prd
 security:
