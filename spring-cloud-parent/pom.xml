@@ -243,84 +243,82 @@
                         </execution>
                     </executions>
                 </plugin>
-
+                <plugin>
+                    <groupId>com.spotify</groupId>
+                    <artifactId>docker-maven-plugin</artifactId>
+                    <version>0.4.12</version>
+                    <executions>
+                        <execution>
+                            <phase>package</phase>
+                            <goals>
+                                <goal>build</goal>
+                            </goals>
+                        </execution>
+                        <execution>
+                            <id>tag-image</id>
+                            <phase>package</phase>
+                            <goals>
+                                <goal>tag</goal>
+                            </goals>
+                            <configuration>
+                                <image>${docker.registry.name}/${project.artifactId}:${project.version}</image>
+                                <newName>
+                                    ${docker.repostory}/${docker.registry.name}/${project.artifactId}:${project.version}
+                                </newName>
+                            </configuration>
+                        </execution>
+                        <execution>
+                            <id>push-image</id>
+                            <phase>deploy</phase>
+                            <goals>
+                                <goal>push</goal>
+                            </goals>
+                            <configuration>
+                                <imageName>
+                                    ${docker.repostory}/${docker.registry.name}/${project.artifactId}:${project.version}
+                                </imageName>
+                            </configuration>
+                        </execution>
+                    </executions>
+                    <configuration>
+                        <!-- 私有仓库配置，需要settings.xml文件配合serverId对应的服务地址 -->
+                        <serverId>docker-aliyun</serverId>
+                        <registryUrl>registry.cn-hangzhou.aliyuncs.com</registryUrl>
+                        <!-- <forceTags>true</forceTags> -->
+                        <!--install阶段也上传，否则只有deploy阶段上传-->
+                        <pushImage>true</pushImage>
+                        <dockerDirectory>target/docker</dockerDirectory>
+                        <imageName>
+                            ${docker.repostory}/${docker.registry.name}/${project.artifactId}:${project.version}
+                        </imageName>
+                        <imageTags>
+                            <!--docker的tag为项目版本号、latest-->
+                            <!--<imageTag>${git.commit.id.abbrev}</imageTag>-->
+                            <imageTag>latest</imageTag>
+                        </imageTags>
+                        <resources>
+                            <rescource><!-- 将打包文件放入dockerDirectory指定的位置 -->
+                                <targetPath>/</targetPath>
+                                <directory>${project.build.directory}</directory>
+                                <include>${project.build.finalName}.jar</include>
+                            </rescource>
+                            <!-- 输出Dockerfile至docker文件夹,如果不使用占位符,可使用以下配置 -->
+                            <!--
+                            <resource>
+                                   <directory>src/main/docker</directory>
+                                   <filtering>true</filtering>
+                                   <includes>
+                                       <include>**/Dockerfile</include>
+                                   </includes>
+                                   <targetPath>../docker</targetPath>
+                               </resource>
+                               -->
+                        </resources>
+                    </configuration>
+                </plugin>
             </plugins>
         </pluginManagement>
         <plugins>
-            <plugin>
-                <groupId>com.spotify</groupId>
-                <artifactId>docker-maven-plugin</artifactId>
-                <version>0.4.12</version>
-                <executions>
-                    <execution>
-                        <phase>package</phase>
-                        <goals>
-                            <goal>build</goal>
-                        </goals>
-                    </execution>
-                    <execution>
-                        <id>tag-image</id>
-                        <phase>package</phase>
-                        <goals>
-                            <goal>tag</goal>
-                        </goals>
-                        <configuration>
-                            <image>${docker.registry.name}/${project.artifactId}:${project.version}</image>
-                            <newName>
-                                ${docker.repostory}/${docker.registry.name}/${project.artifactId}:${project.version}
-                            </newName>
-                        </configuration>
-                    </execution>
-                    <execution>
-                        <id>push-image</id>
-                        <phase>deploy</phase>
-                        <goals>
-                            <goal>push</goal>
-                        </goals>
-                        <configuration>
-                            <imageName>
-                                ${docker.repostory}/${docker.registry.name}/${project.artifactId}:${project.version}
-                            </imageName>
-                        </configuration>
-                    </execution>
-                </executions>
-                <configuration>
-                    <!-- 私有仓库配置，需要settings.xml文件配合serverId对应的服务地址 -->
-                    <serverId>docker-aliyun</serverId>
-                    <registryUrl>registry.cn-hangzhou.aliyuncs.com</registryUrl>
-                    <!-- <forceTags>true</forceTags> -->
-                    <!--install阶段也上传，否则只有deploy阶段上传-->
-                    <pushImage>true</pushImage>
-                    <dockerDirectory>target/docker</dockerDirectory>
-                    <imageName>
-                        ${docker.repostory}/${docker.registry.name}/${project.artifactId}:${project.version}
-                    </imageName>
-                    <imageTags>
-                        <!--docker的tag为项目版本号、latest-->
-                        <!--<imageTag>${git.commit.id.abbrev}</imageTag>-->
-                        <imageTag>latest</imageTag>
-                    </imageTags>
-                    <resources>
-                        <rescource><!-- 将打包文件放入dockerDirectory指定的位置 -->
-                            <targetPath>/</targetPath>
-                            <directory>${project.build.directory}</directory>
-                            <include>${project.build.finalName}.jar</include>
-                        </rescource>
-                        <!-- 输出Dockerfile至docker文件夹,如果不使用占位符,可使用以下配置 -->
-                        <!--
-                        <resource>
-                               <directory>src/main/docker</directory>
-                               <filtering>true</filtering>
-                               <includes>
-                                   <include>**/Dockerfile</include>
-                               </includes>
-                               <targetPath>../docker</targetPath>
-                           </resource>
-                           -->
-                    </resources>
-                </configuration>
-            </plugin>
-
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>

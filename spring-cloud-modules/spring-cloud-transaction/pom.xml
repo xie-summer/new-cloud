@@ -11,17 +11,17 @@
 	<artifactId>spring-cloud-transaction</artifactId>
 	<packaging>pom</packaging>
 	<modules>
-		<module>spring-cloud-transaction-pay-common</module>
-		<module>spring-cloud-transaction-pay-message</module>
-		<module>spring-cloud-transaction-pay-account</module>
-		<module>spring-cloud-transaction-pay-accounting</module>
-		<module>spring-cloud-transaction-pay-app-message</module>
-		<module>spring-cloud-transaction-pay-app-notify</module>
-		<module>spring-cloud-transaction-pay-app-queue</module>
-		<module>spring-cloud-transaction-pay-notify</module>
-		<module>spring-cloud-transaction-pay-point</module>
-		<module>spring-cloud-transaction-pay-trade</module>
-		<module>spring-cloud-transaction-pay-user</module>
+		<!--<module>spring-cloud-transaction-pay-common</module>-->
+		<!--<module>spring-cloud-transaction-pay-message</module>-->
+		<!--<module>spring-cloud-transaction-pay-account</module>-->
+		<!--<module>spring-cloud-transaction-pay-accounting</module>-->
+		<!--<module>spring-cloud-transaction-pay-app-message</module>-->
+		<!--<module>spring-cloud-transaction-pay-app-notify</module>-->
+		<!--<module>spring-cloud-transaction-pay-app-queue</module>-->
+		<!--<module>spring-cloud-transaction-pay-notify</module>-->
+		<!--<module>spring-cloud-transaction-pay-point</module>-->
+		<!--<module>spring-cloud-transaction-pay-trade</module>-->
+		<!--<module>spring-cloud-transaction-pay-user</module>-->
 	</modules>
 	<properties>
 		<java.version>1.8</java.version>
