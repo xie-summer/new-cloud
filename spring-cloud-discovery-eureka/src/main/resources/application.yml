@@ -1,6 +1,6 @@
 spring:
   application:
-    name: cloud-discovery-eureka
+    name: cloud-eureka-server
   profiles:
     active: dev
 #  cloud:
@@ -14,6 +14,8 @@ spring:
 ---
 spring:
   profiles: dev
+server:
+  port: 8761
 security:
   user:
     name: user
@@ -22,21 +24,23 @@ eureka:
   instance:
     lease-expiration-duration-in-seconds: 30
     lease-renewal-interval-in-seconds: 10
-    hostname: discovery    # 指定该Eureka实例的主机名
+    hostname: eureka-server    # 指定该Eureka实例的主机名
   server:
     enable-self-preservation: false			# 设为false，关闭自我保护
     eviction-interval-timer-in-ms: 4000    # 清理间隔（单位毫秒，默认是60*1000）
   client:
     healthcheck:
           enabled: true
-    registerWithEureka: true
-    fetchRegistry: true
+    registerWithEureka: false
+    fetchRegistry: false
     serviceUrl:
-      defaultZone: http://user:user@${eureka.instance.hostname}:8761/eureka/
+      defaultZone: http://user:user@eureka-server:8761/eureka/
 
 ---
 spring:
   profiles: test
+server:
+  port: 8761
 security:
   user:
     name: user
@@ -45,21 +49,23 @@ eureka:
   instance:
     lease-expiration-duration-in-seconds: 30
     lease-renewal-interval-in-seconds: 10
-    hostname: discovery    # 指定该Eureka实例的主机名
+    hostname: eureka-server    # 指定该Eureka实例的主机名
   server:
     enable-self-preservation: false			# 设为false，关闭自我保护
     eviction-interval-timer-in-ms: 4000    # 清理间隔（单位毫秒，默认是60*1000）
   client:
     healthcheck:
           enabled: true
-    registerWithEureka: true
-    fetchRegistry: true
+    registerWithEureka: false
+    fetchRegistry: false
     serviceUrl:
-      defaultZone: http://user:user@${eureka.instance.hostname}:8761/eureka/
+      defaultZone: http://user:user@eureka-server:8761/eureka/
 
 ---
 spring:
   profiles: prd
+server:
+  port: 8761
 security:
   user:
     name: user
@@ -68,14 +74,14 @@ eureka:
   instance:
     lease-expiration-duration-in-seconds: 30
     lease-renewal-interval-in-seconds: 10
-    hostname: discovery    # 指定该Eureka实例的主机名
+    hostname: eureka-server    # 指定该Eureka实例的主机名
   server:
     enable-self-preservation: false			# 设为false，关闭自我保护
     eviction-interval-timer-in-ms: 4000    # 清理间隔（单位毫秒，默认是60*1000）
   client:
     healthcheck:
           enabled: true
-    registerWithEureka: true
-    fetchRegistry: true
+    registerWithEureka: false
+    fetchRegistry: false
     serviceUrl:
-      defaultZone: http://user:user@${eureka.instance.hostname}:8761/eureka/
+      defaultZone: http://user:user@eureka-server:8761/eureka/
