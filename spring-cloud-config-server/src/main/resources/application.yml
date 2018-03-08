@@ -1,22 +1,28 @@
 server:
-  port: 4001
-
+  port: 1000
+  
 spring:
   application:
     name: cloud-config-server
   profiles:
     active: dev
+    
   cloud:
     config:
       server:
         git:
-          search-paths: config-repo
-          uri: https://github.com/xie-summer/new-cloud-config/
+          search-paths: spring-cloud-config-repo/config-repo
+          uri: https://github.com/xie-summer/new-cloud/
           username: xie-summer                                          # git仓库的账号
-          password: xxx
+          password: www.5201314.qq.n
 ---
 spring:
   profiles: dev
+  rabbitmq:
+        host: localhost
+        port: 5672
+        username: guest
+        password: guest
 eureka:
   instance:
     prefer-ip-address: true
@@ -29,6 +35,11 @@ eureka:
 ---
 spring:
   profiles: prd
+  rabbitmq:
+        host: localhost
+        port: 5672
+        username: guest
+        password: guest
 eureka:
   instance:
     prefer-ip-address: true

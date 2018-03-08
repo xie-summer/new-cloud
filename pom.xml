@@ -22,6 +22,7 @@
 		<module>./spring-cloud-config-server</module>
 		<module>./spring-cloud-auth</module>
 		<module>./spring-cloud-doc</module>
+		<module>./spring-cloud-config-repo</module>
 		<module>./spring-cloud-gateway-zuul</module>
 		<module>./spring-cloud-visual</module>
 		<module>./spring-cloud-modules</module>

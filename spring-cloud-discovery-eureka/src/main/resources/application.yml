@@ -1,21 +1,8 @@
+server:
+  port: 8761
 spring:
   application:
-    name: cloud-eureka-server
-  profiles:
-    active: dev
-#  cloud:
-#    config:
-#      fail-fast: true
-#      discovery:
-#        service-id: cloud-config-server
-#        enabled: true
-#      profile: ${spring.profiles.active}
-#      label: ${spring.profiles.active}
----
-spring:
-  profiles: dev
-server:
-  port: 8761
+    name: cloud-eureka-server    # 项目名称尽量用小写
 security:
   user:
     name: user
@@ -26,62 +13,12 @@ eureka:
     lease-renewal-interval-in-seconds: 10
     hostname: eureka-server    # 指定该Eureka实例的主机名
   server:
-    enable-self-preservation: false			# 设为false，关闭自我保护
+    enable-self-preservation: false     # 设为false，关闭自我保护
     eviction-interval-timer-in-ms: 4000    # 清理间隔（单位毫秒，默认是60*1000）
   client:
     healthcheck:
           enabled: true
-    registerWithEureka: false
-    fetchRegistry: false
+    registerWithEureka: true
+    fetchRegistry: true
     serviceUrl:
-      defaultZone: http://user:user@eureka-server:8761/eureka/
-
----
-spring:
-  profiles: test
-server:
-  port: 8761
-security:
-  user:
-    name: user
-    password: user
-eureka:
-  instance:
-    lease-expiration-duration-in-seconds: 30
-    lease-renewal-interval-in-seconds: 10
-    hostname: eureka-server    # 指定该Eureka实例的主机名
-  server:
-    enable-self-preservation: false			# 设为false，关闭自我保护
-    eviction-interval-timer-in-ms: 4000    # 清理间隔（单位毫秒，默认是60*1000）
-  client:
-    healthcheck:
-          enabled: true
-    registerWithEureka: false
-    fetchRegistry: false
-    serviceUrl:
-      defaultZone: http://user:user@eureka-server:8761/eureka/
-
----
-spring:
-  profiles: prd
-server:
-  port: 8761
-security:
-  user:
-    name: user
-    password: user
-eureka:
-  instance:
-    lease-expiration-duration-in-seconds: 30
-    lease-renewal-interval-in-seconds: 10
-    hostname: eureka-server    # 指定该Eureka实例的主机名
-  server:
-    enable-self-preservation: false			# 设为false，关闭自我保护
-    eviction-interval-timer-in-ms: 4000    # 清理间隔（单位毫秒，默认是60*1000）
-  client:
-    healthcheck:
-          enabled: true
-    registerWithEureka: false
-    fetchRegistry: false
-    serviceUrl:
-      defaultZone: http://user:user@eureka-server:8761/eureka/
+      defaultZone: http://user:user@${eureka.instance.hostname}:8761/eureka/
