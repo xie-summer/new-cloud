@@ -44,11 +44,9 @@ import java.util.List;
 public class WebMvcConfigurer extends WebMvcConfigurerAdapter {
 
     private final Logger logger = LoggerFactory.getLogger(WebMvcConfigurer.class);
-    //当前激活的配置文件
     @Value("${spring.profiles.active}")
     private String env;
 
-    //使用阿里 FastJson 作为JSON MessageConverter
     @Override
     public void configureMessageConverters(List<HttpMessageConverter<?>> converters) {
         FastJsonHttpMessageConverter4 converter = new FastJsonHttpMessageConverter4();
@@ -66,7 +64,6 @@ public class WebMvcConfigurer extends WebMvcConfigurerAdapter {
     }
 
 
-    //统一异常处理
     @Override
     public void configureHandlerExceptionResolvers(List<HandlerExceptionResolver> exceptionResolvers) {
         exceptionResolvers.add(new HandlerExceptionResolver() {
@@ -104,12 +101,6 @@ public class WebMvcConfigurer extends WebMvcConfigurerAdapter {
         });
     }
 
-    //解决跨域问题
-    @Override
-    public void addCorsMappings(CorsRegistry registry) {
-        //registry.addMapping("/**");
-    }
-
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
         registry.addResourceHandler("/img/**").addResourceLocations("classpath:/static/img/");
@@ -118,46 +109,9 @@ public class WebMvcConfigurer extends WebMvcConfigurerAdapter {
         super.addResourceHandlers(registry);
     }
 
-    //测试
-    public class LoginInterceptor extends HandlerInterceptorAdapter {
-
-        @Override
-        public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
-                throws Exception {
-            
-            response.setHeader("Access-Control-Allow-Headers", "X-Requested-With, accept, content-type, xxxx");
-            response.setHeader("Access-Control-Allow-Methods", "GET, HEAD, POST, PUT, DELETE, TRACE, OPTIONS, PATCH");
-            response.setHeader("Access-Control-Allow-Origin", "*");  
-           
-            
-            return true;
-        }
-    }
-    
-    //添加拦截器
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
-        //接口签名认证拦截器，该签名认证比较简单，实际项目中建议使用Json Web Token代替。
-        //开发环境忽略签名认证
-        if (!StringUtils.contains(env, ProfilesConstant.PROFILES_DEV)) {
-            registry.addInterceptor(new HandlerInterceptorAdapter() {
-                @Override
-                public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
-                    String sign = request.getParameter("sign");
-
-                    //验证签名
-                    if (StringUtils.isNotEmpty(sign) && validateSign(request, sign)) {
-                        return true;
-                    } else {
-                        logger.warn("签名认证失败，请求接口：{}，请求IP：{}，请求参数：{}" +
-                                request.getRequestURI(), getIpAddress(request), JSON.toJSONString(request.getParameterMap()));
-                        ResultCode result = ResultCode.getFailure(ResultCode.UNAUTHORIZED, "签名认证失败");
-                        responseResult(response, result);
-                        return false;
-                    }
-                }
-            });
-        }
+     super.addInterceptors(registry);
     }
 
     private void responseResult(HttpServletResponse response, ResultCode result) {
@@ -170,38 +124,6 @@ public class WebMvcConfigurer extends WebMvcConfigurerAdapter {
             logger.error(ex.getMessage());
         }
     }
-
-    /**
-     * 一个简单的签名认证，规则：请求参数按ASCII码排序后，拼接为a=value&b=value...这样的字符串后进行MD5
-     *
-     * @param request
-     * @param requestSign
-     * @return
-     */
-    private boolean validateSign(HttpServletRequest request, String requestSign) {
-        List<String> keys = new ArrayList<String>(request.getParameterMap().keySet());
-        Collections.sort(keys);
-
-        String linkString = "";
-
-        for (String key : keys) {
-            if (!"sign".equals(key)) {
-                linkString += key + "=" + request.getParameter(key) + "&";
-            }
-        }
-        if (StringUtils.isEmpty(linkString)) {
-            return false;
-        }
-
-        linkString = linkString.substring(0, linkString.length() - 1);
-        //自己修改
-        String key = "Potato";
-        String sign = DigestUtils.md5Hex(linkString + key);
-
-        return StringUtils.equals(sign, requestSign);
-
-    }
-
     private String getIpAddress(HttpServletRequest request) {
         String ip = request.getHeader("x-forwarded-for");
         if (ip == null || ip.length() == 0 || IpTypeConstants.UNKNOWN.equalsIgnoreCase(ip)) {

@@ -48,7 +48,6 @@ public class WebMvcConfigurer extends WebMvcConfigurerAdapter {
     @Value("${spring.profiles.active}")
     private String env;
 
-    // 使用阿里 FastJson 作为JSON MessageConverter
     @Override
     public void configureMessageConverters(List<HttpMessageConverter<?>> converters) {
         FastJsonHttpMessageConverter4 converter = new FastJsonHttpMessageConverter4();
@@ -73,7 +72,6 @@ public class WebMvcConfigurer extends WebMvcConfigurerAdapter {
         return characterEncodingFilter;
     }
 
-    // 统一异常处理
     @Override
     public void configureHandlerExceptionResolvers(List<HandlerExceptionResolver> exceptionResolvers) {
         exceptionResolvers.add(new HandlerExceptionResolver() {
@@ -112,15 +110,6 @@ public class WebMvcConfigurer extends WebMvcConfigurerAdapter {
         });
     }
 
-    // 解决跨域问题
-    @Override
-    public void addCorsMappings(CorsRegistry registry) {
-        registry.addMapping("/**").allowedOrigins("*").allowedMethods("GET", "POST", "OPTIONS", "PUT")
-                .allowedHeaders("Content-Type", "X-Requested-With", "accept", "Origin", "Access-Control-Request-Method",
-                        "Access-Control-Request-Headers")
-                .allowCredentials(true).maxAge(3600);
-    }
-
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
         registry.addResourceHandler("/img/**").addResourceLocations("classpath:/static/img/");
@@ -131,36 +120,8 @@ public class WebMvcConfigurer extends WebMvcConfigurerAdapter {
         super.addResourceHandlers(registry);
     }
 
-    // 添加拦截器
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
-        // 接口签名认证拦截器，该签名认证比较简单，实际项目中建议使用Json Web Token代替。
-        // 开发环境忽略签名认证
-//        if (!StringUtils.contains(env, ProfilesConstant.PROFILES_DEV)) {
-//            registry.addInterceptor(new HandlerInterceptorAdapter() {
-//                @Override
-//                public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
-//                        throws Exception {
-//                    String sign = request.getParameter("sign");
-//                    // 验证签名
-//                    if (StringUtils.isNotEmpty(sign) && validateSign(request, sign)) {
-//                        return true;
-//                    } else {
-//                        logger.warn("签名认证失败，请求接口：{}，请求IP：{}，请求参数：{}" + request.getRequestURI(), WebUtils.getIpAddress(request),
-//                                JSON.toJSONString(request.getParameterMap()));
-//                        ResultCode result = ResultCode.getFailure(ResultCode.UNAUTHORIZED, "签名认证失败");
-//                        responseResult(response, result);
-//                        return false;
-//                    }
-//                }
-//            });
-//        }
-        registry.addInterceptor(new GateWayAuthenticationInterceptor()).addPathPatterns("/**")
-                .excludePathPatterns("/configuration/**").excludePathPatterns("/v2/api-docs/**")
-                .excludePathPatterns("/webjars/**").excludePathPatterns("/swagger-ui/**")
-                .excludePathPatterns("/swagger-resources/**")
-                //测试模拟请求，生成sign，暂时不拦截，不需要验签
-                .excludePathPatterns("/gateway/sign/**");
         super.addInterceptors(registry);
     }
 
@@ -174,36 +135,4 @@ public class WebMvcConfigurer extends WebMvcConfigurerAdapter {
             logger.error(ex.getMessage());
         }
     }
-
-    /**
-     * 一个简单的签名认证，规则：请求参数按ASCII码排序后，拼接为a=value&b=value...这样的字符串后进行MD5
-     *
-     * @param request
-     * @param requestSign
-     * @return
-     */
-    private boolean validateSign(HttpServletRequest request, String requestSign) {
-        List<String> keys = new ArrayList<String>(request.getParameterMap().keySet());
-        Collections.sort(keys);
-
-        String linkString = "";
-
-        for (String key : keys) {
-            if (!"sign".equals(key)) {
-                linkString += key + "=" + request.getParameter(key) + "&";
-            }
-        }
-        if (StringUtils.isEmpty(linkString)) {
-            return false;
-        }
-
-        linkString = linkString.substring(0, linkString.length() - 1);
-        String key = "Potato";
-        String sign = DigestUtils.md5Hex(linkString + key);
-
-        return StringUtils.equals(sign, requestSign);
-
-    }
-
-
 }

@@ -5,12 +5,12 @@ spring:
     active: dev
   cloud:
     config:
-      fail-fast: true
+      fail-fast: false
       discovery:
         service-id: cloud-config-server
         enabled: true
       profile: ${spring.profiles.active}
-      label: ${spring.profiles.active}
+#      label: ${spring.profiles.active}
 ---
 spring:
   profiles: dev

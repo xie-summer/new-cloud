@@ -20,58 +20,58 @@ import java.sql.SQLException;
 public class DruidDbConfig {
     private Logger logger = LoggerFactory.getLogger(DruidDbConfig.class);
 
-    @Value("${dev.spring.datasource.url}")
+    @Value("${spring.datasource.url}")
     private String dbUrl;
 
-    @Value("${dev.spring.datasource.username}")
+    @Value("${spring.datasource.username}")
     private String username;
 
-    @Value("${dev.spring.datasource.password}")
+    @Value("${spring.datasource.password}")
     private String password;
 
-    @Value("${dev.spring.datasource.driverClassName}")
+    @Value("${spring.datasource.driverClassName}")
     private String driverClassName;
 
-    @Value("${dev.spring.datasource.initialSize}")
+    @Value("${spring.datasource.initialSize}")
     private int initialSize;
 
-    @Value("${dev.spring.datasource.minIdle}")
+    @Value("${spring.datasource.minIdle}")
     private int minIdle;
 
-    @Value("${dev.spring.datasource.maxActive}")
+    @Value("${spring.datasource.maxActive}")
     private int maxActive;
 
-    @Value("${dev.spring.datasource.maxWait}")
+    @Value("${spring.datasource.maxWait}")
     private int maxWait;
 
-    @Value("${dev.spring.datasource.timeBetweenEvictionRunsMillis}")
+    @Value("${spring.datasource.timeBetweenEvictionRunsMillis}")
     private int timeBetweenEvictionRunsMillis;
 
-    @Value("${dev.spring.datasource.minEvictableIdleTimeMillis}")
+    @Value("${spring.datasource.minEvictableIdleTimeMillis}")
     private int minEvictableIdleTimeMillis;
 
-    @Value("${dev.spring.datasource.validationQuery}")
+    @Value("${spring.datasource.validationQuery}")
     private String validationQuery;
 
-    @Value("${dev.spring.datasource.testWhileIdle}")
+    @Value("${spring.datasource.testWhileIdle}")
     private boolean testWhileIdle;
 
-    @Value("${dev.spring.datasource.testOnBorrow}")
+    @Value("${spring.datasource.testOnBorrow}")
     private boolean testOnBorrow;
 
-    @Value("${dev.spring.datasource.testOnReturn}")
+    @Value("${spring.datasource.testOnReturn}")
     private boolean testOnReturn;
 
-    @Value("${dev.spring.datasource.poolPreparedStatements}")
+    @Value("${spring.datasource.poolPreparedStatements}")
     private boolean poolPreparedStatements;
 
-    @Value("${dev.spring.datasource.maxPoolPreparedStatementPerConnectionSize}")
+    @Value("${spring.datasource.maxPoolPreparedStatementPerConnectionSize}")
     private int maxPoolPreparedStatementPerConnectionSize;
 
-    @Value("${dev.spring.datasource.filters}")
+    @Value("${spring.datasource.filters}")
     private String filters;
 
-    @Value("{dev.spring.datasource.connectionProperties}")
+    @Value("{spring.datasource.connectionProperties}")
     private String connectionProperties;
 
     /**

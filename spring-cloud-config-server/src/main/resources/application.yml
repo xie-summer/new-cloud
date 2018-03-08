@@ -1,5 +1,16 @@
 server:
   port: 2000
+
+#g关闭验证
+management:
+  security:
+    enabled: false
+security:
+  user:
+    name: user
+    password: user
+  basic:
+    enabled: false
 spring:
   application:
     name: cloud-config-server
