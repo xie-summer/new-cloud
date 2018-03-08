@@ -20,10 +20,10 @@ spring:
           password: guest
   datasource:
     platform: mysql
-    masterurl: jdbc:mysql://eureka-server:3306/panoramic?useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true
-    slaveurl: jdbc:mysql://eureka-server:3306/panoramic?useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true
-    username: root
-    password: root
+    masterurl: jdbc:mysql://rm-bp1d2s03ka9b803602o.mysql.rds.aliyuncs.com:3306/panoramic?useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true
+    slaveurl: jdbc:mysql://rm-bp1d2s03ka9b803602o.mysql.rds.aliyuncs.com:3306/panoramic?useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true
+    username: panoramicroot
+    password: Newgrading@2018
     driverClassName: com.mysql.jdbc.Driver
      # 参数
     initialSize: 5
