@@ -2,6 +2,10 @@ server:
   port: 3000
   servlet-path: /
 quartzConfig: dev-quartz.properties
+
+management:
+  security:
+    enabled: false
 security:
   user:
     name: user
