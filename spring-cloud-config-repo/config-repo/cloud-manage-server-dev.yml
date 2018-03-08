@@ -16,8 +16,8 @@ spring:
           password: guest
   datasource:
     platform: mysql
-    masterurl: jdbc:mysql://eureka-server:8066/panoramic?useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true
-    slaveurl: jdbc:mysql://eureka-server:8066/panoramic?useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true
+    masterurl: jdbc:mysql://eureka-server:3306/panoramic?useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true
+    slaveurl: jdbc:mysql://eureka-server:3306/panoramic?useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true
     username: root
     password: root
     driverClassName: com.mysql.jdbc.Driver
