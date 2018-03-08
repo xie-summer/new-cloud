@@ -53,6 +53,7 @@ logging:
     org.hibernate.type.descriptor.sql.BasicBinder: TRACE
     org.hibernate.type.descriptor.sql.BasicExtractor: TRACE
     com.itmuch.youran.persistence: ERROR
+  config:
 
 # 热发布插件
 

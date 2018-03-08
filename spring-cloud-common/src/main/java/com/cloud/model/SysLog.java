@@ -1,7 +1,5 @@
 package com.cloud.model;
 
-import com.baomidou.mybatisplus.annotations.TableId;
-import com.baomidou.mybatisplus.enums.IdType;
 
 import java.io.Serializable;
 import java.util.Date;
@@ -21,7 +19,6 @@ public class SysLog implements Serializable {
     /**
      * 编号
      */
-    @TableId(type = IdType.ID_WORKER)
     private Long id;
     /**
      * 日志类型

@@ -1,20 +1,18 @@
 server:
-  port: 1000
-  
+  port: 2000
 spring:
   application:
     name: cloud-config-server
   profiles:
     active: dev
-    
   cloud:
     config:
       server:
         git:
           search-paths: spring-cloud-config-repo/config-repo
           uri: https://github.com/xie-summer/new-cloud/
-          username: xie-summer                                          # git仓库的账号
-          password: www.5201314.qq.n
+          username: xieshengrong@live.com                                       # git仓库的账号
+          password: www.5201314.qq
 ---
 spring:
   profiles: dev
@@ -46,3 +44,4 @@ eureka:
   client:
     serviceUrl:
       defaultZone: http://user:user@eureka-server:8761/eureka
+---

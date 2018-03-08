@@ -1,7 +1,7 @@
 package com.cloud.framework.config;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import com.cloud.util.LoggerUtils;
+import com.cloud.util.TLogger;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
@@ -19,12 +19,12 @@ import org.springframework.cloud.config.server.EnableConfigServer;
 @EnableConfigServer
 @SpringBootApplication
 public class ConfigApplication {
-    private static final transient Logger DB_LOGGER = LoggerFactory.getLogger(ConfigApplication.class);
-
     public static void main(String[] args) {
         SpringApplication.run(ConfigApplication.class, args);
         DB_LOGGER.warn("ConfigApplication started successfully");
     }
+
+    private static final transient TLogger DB_LOGGER = LoggerUtils.getLogger(ConfigApplication.class);
 
 
 }

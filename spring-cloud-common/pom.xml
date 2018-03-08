@@ -14,6 +14,10 @@
         <encoding.version>UTF-8</encoding.version>
     </properties>
    <dependencies>
+	   <dependency>
+		   <groupId>org.springframework.cloud</groupId>
+		   <artifactId>spring-cloud-commons</artifactId>
+	   </dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-aop</artifactId>
@@ -65,6 +69,10 @@
 			<groupId>tk.mybatis</groupId>
 			<artifactId>mapper</artifactId>
 		</dependency>
+	   <dependency>
+		   <groupId>com.github.pagehelper</groupId>
+		   <artifactId>pagehelper</artifactId>
+	   </dependency>
 		<!-- MyBatis 及 插件依赖 end -->
 		<!-- httpclient start -->
 		<dependency>
@@ -164,11 +172,6 @@
 		   <groupId>javax.servlet</groupId>
 		   <artifactId>servlet-api</artifactId>
 		   <scope>provided</scope>
-	   </dependency>
-	   <dependency>
-		   <groupId>com.baomidou</groupId>
-		   <artifactId>mybatis-plus-boot-starter</artifactId>
-		   <version>2.1.9</version>
 	   </dependency>
 	</dependencies>
 </project>

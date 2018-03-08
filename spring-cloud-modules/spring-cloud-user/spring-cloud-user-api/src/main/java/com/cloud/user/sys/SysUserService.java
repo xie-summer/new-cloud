@@ -1,9 +1,8 @@
 package com.cloud.user.sys;
 
-import com.baomidou.mybatisplus.plugins.Page;
-import com.baomidou.mybatisplus.service.IService;
+import com.cloud.core.Service;
 import com.cloud.model.vo.UserVo;
-import com.cloud.support.Query;
+import com.github.pagehelper.Page;
 import com.monitor.dto.sys.UserDto;
 import com.monitor.dto.sys.UserInfo;
 import com.monitor.entity.SysUser;
@@ -11,7 +10,7 @@ import com.monitor.entity.SysUser;
 /**
  * @author summer
  */
-public interface SysUserService extends IService<SysUser> {
+public interface SysUserService extends Service<SysUser> {
     /**
      * 根据用户名查询用户角色信息
      *
@@ -26,7 +25,7 @@ public interface SysUserService extends IService<SysUser> {
      * @param query 查询条件
      * @return
      */
-    Page selectWithRolePage(Query query);
+    Page selectWithRolePage(String query);
 
     /**
      * 查询用户信息
