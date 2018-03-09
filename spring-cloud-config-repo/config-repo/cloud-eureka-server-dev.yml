@@ -1,0 +1,34 @@
+server:
+  port: 8761
+spring:
+  application:
+    name: cloud-eureka-server    # 项目名称尽量用小写
+  rabbitmq:
+            host: localhost
+            port: 5672
+            username: guest
+            password: guest
+management:
+  security:
+    enabled: false
+security:
+  user:
+    name: user
+    password: user
+eureka:
+  instance:
+    lease-expiration-duration-in-seconds: 30
+    lease-renewal-interval-in-seconds: 10
+    hostname: eureka-server    # 指定该Eureka实例的主机名
+  server:
+    enable-self-preservation: false     # 设为false，关闭自我保护
+    eviction-interval-timer-in-ms: 4000    # 清理间隔（单位毫秒，默认是60*1000）
+  client:
+    healthcheck:
+          enabled: true
+    registerWithEureka: true
+    fetchRegistry: true
+    serviceUrl:
+      defaultZone: http://user:user@${eureka.instance.hostname}:8761/eureka/
+logging:
+  config: classpath:logback.xml
