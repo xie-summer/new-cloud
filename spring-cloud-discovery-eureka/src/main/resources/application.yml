@@ -3,18 +3,9 @@ server:
 spring:
   application:
     name: cloud-eureka-server    # 项目名称尽量用小写
-  rabbitmq:
-            host: localhost
-            port: 5672
-            username: guest
-            password: guest
 management:
   security:
     enabled: false
-security:
-  user:
-    name: user
-    password: user
 eureka:
   instance:
     lease-expiration-duration-in-seconds: 30
