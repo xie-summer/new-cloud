@@ -1,11 +1,12 @@
 package com.monitor.entity;
 
-import java.io.Serializable;
+import com.cloud.model.BaseObject;
 
-import com.baomidou.mybatisplus.annotations.TableId;
-import com.baomidou.mybatisplus.activerecord.Model;
-import com.baomidou.mybatisplus.annotations.TableName;
-import com.baomidou.mybatisplus.enums.IdType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import java.io.Serializable;
 
 /**
  * <p>
@@ -15,20 +16,20 @@ import com.baomidou.mybatisplus.enums.IdType;
  * @author lengleng
  * @since 2017-10-29
  */
-@TableName("sys_user_role")
-public class SysUserRole extends Model<SysUserRole> {
+@Table(name="sys_user_role")
+public class SysUserRole extends BaseObject {
 
     private static final long serialVersionUID = 1L;
 
     /**
      * 用户ID
      */
-    @TableId(type = IdType.INPUT)
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer userId;
     /**
      * 角色ID
      */
-	@TableId(type = IdType.INPUT)
 	private Integer roleId;
 
 
@@ -48,10 +49,6 @@ public class SysUserRole extends Model<SysUserRole> {
 		this.roleId = roleId;
 	}
 
-	@Override
-	protected Serializable pkVal() {
-		return this.userId;
-	}
 
 	@Override
 	public String toString() {
@@ -59,5 +56,10 @@ public class SysUserRole extends Model<SysUserRole> {
 			", userId=" + userId +
 			", roleId=" + roleId +
 			"}";
+	}
+
+	@Override
+	public Serializable realId() {
+		return null;
 	}
 }

@@ -1,11 +1,11 @@
 package com.cloud.web.controller.kaptcha;
 
-import com.baomidou.mybatisplus.toolkit.IOUtils;
 import com.cloud.constant.SecurityConstants;
 import com.cloud.support.ErrorCode;
 import com.cloud.user.sys.SysUserService;
 import com.cloud.util.Assert;
 import com.google.code.kaptcha.Producer;
+import org.apache.commons.io.IOUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -20,7 +20,7 @@ import java.awt.image.BufferedImage;
  */
 @RestController
 @RequestMapping("/kaptcha")
-public class KaptchaController  {
+public class KaptchaController {
     @Autowired
     private Producer producer;
     @Autowired

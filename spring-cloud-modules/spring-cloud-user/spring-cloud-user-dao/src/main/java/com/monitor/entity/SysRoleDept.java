@@ -1,12 +1,9 @@
 package com.monitor.entity;
 
-import java.io.Serializable;
+import com.cloud.model.BaseObject;
 
-import com.baomidou.mybatisplus.enums.IdType;
-import com.baomidou.mybatisplus.annotations.TableId;
-import com.baomidou.mybatisplus.annotations.TableField;
-import com.baomidou.mybatisplus.activerecord.Model;
-import com.baomidou.mybatisplus.annotations.TableName;
+import javax.persistence.*;
+import java.io.Serializable;
 
 /**
  * <p>
@@ -16,60 +13,60 @@ import com.baomidou.mybatisplus.annotations.TableName;
  * @author lengleng
  * @since 2018-01-20
  */
-@TableName("sys_role_dept")
-public class SysRoleDept extends Model<SysRoleDept> {
+@Table(name = "sys_role_dept")
+public class SysRoleDept extends BaseObject {
 
     private static final long serialVersionUID = 1L;
-
-	@TableId(value="id", type= IdType.AUTO)
-	private Integer id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
     /**
      * 角色ID
      */
-	@TableField("role_id")
-	private Integer roleId;
+    @Column(name = "role_id")
+    private Integer roleId;
     /**
      * 部门ID
      */
-	@TableField("dept_id")
-	private Integer deptId;
+    @Column(name = "dept_id")
+    private Integer deptId;
+
+    @Override
+    public Serializable realId() {
+        return null;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public Integer getRoleId() {
+        return roleId;
+    }
+
+    public void setRoleId(Integer roleId) {
+        this.roleId = roleId;
+    }
+
+    public Integer getDeptId() {
+        return deptId;
+    }
+
+    public void setDeptId(Integer deptId) {
+        this.deptId = deptId;
+    }
 
 
-	public Integer getId() {
-		return id;
-	}
-
-	public void setId(Integer id) {
-		this.id = id;
-	}
-
-	public Integer getRoleId() {
-		return roleId;
-	}
-
-	public void setRoleId(Integer roleId) {
-		this.roleId = roleId;
-	}
-
-	public Integer getDeptId() {
-		return deptId;
-	}
-
-	public void setDeptId(Integer deptId) {
-		this.deptId = deptId;
-	}
-
-	@Override
-	protected Serializable pkVal() {
-		return this.id;
-	}
-
-	@Override
-	public String toString() {
-		return "SysRoleDept{" +
-			", id=" + id +
-			", roleId=" + roleId +
-			", deptId=" + deptId +
-			"}";
-	}
+    @Override
+    public String toString() {
+        return "SysRoleDept{" +
+                ", id=" + id +
+                ", roleId=" + roleId +
+                ", deptId=" + deptId +
+                "}";
+    }
 }

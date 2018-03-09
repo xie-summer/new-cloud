@@ -1,11 +1,9 @@
 package com.monitor.entity;
 
-import com.baomidou.mybatisplus.activerecord.Model;
-import com.baomidou.mybatisplus.annotations.TableField;
-import com.baomidou.mybatisplus.annotations.TableId;
-import com.baomidou.mybatisplus.annotations.TableName;
-import com.baomidou.mybatisplus.enums.IdType;
 
+import com.cloud.model.BaseObject;
+
+import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
 
@@ -17,15 +15,16 @@ import java.util.Date;
  * @author lengleng
  * @since 2017-10-29
  */
-@TableName("sys_user")
-public class SysUser extends Model<SysUser> {
+@Table(name="sys_user")
+public class SysUser extends BaseObject {
 
     private static final long serialVersionUID = 1L;
 
     /**
      * 主键ID
      */
-    @TableId(value = "user_id", type = IdType.AUTO)
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer userId;
     /**
      * 用户名
@@ -40,17 +39,17 @@ public class SysUser extends Model<SysUser> {
     /**
      * 创建时间
      */
-    @TableField("create_time")
+    @Column(name = "create_time")
     private Date createTime;
     /**
      * 修改时间
      */
-    @TableField("update_time")
+    @Column(name = "update_time")
     private Date updateTime;
     /**
      * 0-正常，1-删除
      */
-    @TableField("del_flag")
+    @Column(name = "del_flag")
     private String delFlag;
 
     /**
@@ -65,7 +64,7 @@ public class SysUser extends Model<SysUser> {
     /**
      * 部门ID
      */
-    @TableField("dept_id")
+    @Column(name = "dept_id")
     private Integer deptId;
 
 
@@ -125,11 +124,6 @@ public class SysUser extends Model<SysUser> {
         this.delFlag = delFlag;
     }
 
-    @Override
-    protected Serializable pkVal() {
-        return this.userId;
-    }
-
     public String getIntroduction() {
         return introduction;
     }
@@ -168,5 +162,10 @@ public class SysUser extends Model<SysUser> {
                 ", avatar='" + avatar + '\'' +
                 ", deptId=" + deptId +
                 '}';
+    }
+
+    @Override
+    public Serializable realId() {
+        return null;
     }
 }

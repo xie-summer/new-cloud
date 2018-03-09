@@ -1,11 +1,12 @@
 package com.monitor.entity;
 
-import java.io.Serializable;
+import com.cloud.model.BaseObject;
 
-import com.baomidou.mybatisplus.annotations.TableId;
-import com.baomidou.mybatisplus.activerecord.Model;
-import com.baomidou.mybatisplus.annotations.TableName;
-import com.baomidou.mybatisplus.enums.IdType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import java.io.Serializable;
 
 /**
  * <p>
@@ -15,49 +16,48 @@ import com.baomidou.mybatisplus.enums.IdType;
  * @author lengleng
  * @since 2017-10-29
  */
-@TableName("sys_role_menu")
-public class SysRoleMenu extends Model<SysRoleMenu> {
+@Table(name = "sys_role_menu")
+public class SysRoleMenu extends BaseObject {
 
     private static final long serialVersionUID = 1L;
-
     /**
      * 角色ID
      */
-    @TableId(type = IdType.INPUT)
-	private Integer roleId;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer roleId;
     /**
      * 菜单ID
      */
-	@TableId(type = IdType.INPUT)
-	private Integer menuId;
+    private Integer menuId;
+
+    @Override
+    public Serializable realId() {
+        return null;
+    }
+
+    public Integer getRoleId() {
+        return roleId;
+    }
+
+    public void setRoleId(Integer roleId) {
+        this.roleId = roleId;
+    }
+
+    public Integer getMenuId() {
+        return menuId;
+    }
+
+    public void setMenuId(Integer menuId) {
+        this.menuId = menuId;
+    }
 
 
-	public Integer getRoleId() {
-		return roleId;
-	}
-
-	public void setRoleId(Integer roleId) {
-		this.roleId = roleId;
-	}
-
-	public Integer getMenuId() {
-		return menuId;
-	}
-
-	public void setMenuId(Integer menuId) {
-		this.menuId = menuId;
-	}
-
-	@Override
-	protected Serializable pkVal() {
-		return this.roleId;
-	}
-
-	@Override
-	public String toString() {
-		return "SysRoleMenu{" +
-			", roleId=" + roleId +
-			", menuId=" + menuId +
-			"}";
-	}
+    @Override
+    public String toString() {
+        return "SysRoleMenu{" +
+                ", roleId=" + roleId +
+                ", menuId=" + menuId +
+                "}";
+    }
 }

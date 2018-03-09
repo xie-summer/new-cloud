@@ -1,6 +1,4 @@
 spring:
-  application:
-    name: cloud-manage-server
   profiles:
     active: dev
   cloud:
@@ -14,6 +12,13 @@ spring:
 ---
 spring:
   profiles: dev
+  application:
+    name: local-eureka-server
+  rabbitmq:
+            host: localhost
+            port: 5672
+            username: guest
+            password: guest
 eureka:
   instance:
     prefer-ip-address: true
@@ -26,9 +31,16 @@ eureka:
 ---
 spring:
   profiles: prd
+  application:
+    name: local-eureka-server
+  rabbitmq:
+            host: localhost
+            port: 5672
+            username: guest
+            password: guest
 eureka:
   instance:
     prefer-ip-address: true
   client:
     serviceUrl:
-      defaultZone: http://user:user@eureka-server:8761/eureka/,http://user:user@eureka-server:8762/eureka/
+      defaultZone: http://user:user@eureka-server:8761/eureka/

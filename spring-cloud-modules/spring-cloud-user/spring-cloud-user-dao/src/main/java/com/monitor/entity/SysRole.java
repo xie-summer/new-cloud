@@ -1,14 +1,10 @@
 package com.monitor.entity;
 
+import com.cloud.model.BaseObject;
+
+import javax.persistence.*;
 import java.io.Serializable;
-
 import java.util.Date;
-
-import com.baomidou.mybatisplus.annotations.TableId;
-import com.baomidou.mybatisplus.annotations.TableField;
-import com.baomidou.mybatisplus.activerecord.Model;
-import com.baomidou.mybatisplus.annotations.TableName;
-import com.baomidou.mybatisplus.enums.IdType;
 
 /**
  * <p>
@@ -18,29 +14,33 @@ import com.baomidou.mybatisplus.enums.IdType;
  * @author lengleng
  * @since 2017-10-29
  */
-@TableName("sys_role")
-public class SysRole extends Model<SysRole> {
+@Table(name = "sys_role")
+public class SysRole extends BaseObject {
 
     private static final long serialVersionUID = 1L;
-
-    @TableId(value = "role_id", type = IdType.AUTO)
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer roleId;
-    @TableField("role_name")
+    @Column(name = "role_name")
     private String roleName;
-    @TableField("role_code")
+    @Column(name = "role_code")
     private String roleCode;
-    @TableField("role_desc")
+    @Column(name = "role_desc")
     private String roleDesc;
-    @TableField("create_time")
+    @Column(name = "create_time")
     private Date createTime;
-    @TableField("update_time")
+    @Column(name = "update_time")
     private Date updateTime;
     /**
      * 删除标识（0-正常,1-删除）
      */
-    @TableField("del_flag")
+    @Column(name = "del_flag")
     private String delFlag;
 
+    @Override
+    public Serializable realId() {
+        return null;
+    }
 
     public Integer getRoleId() {
         return roleId;
@@ -98,10 +98,6 @@ public class SysRole extends Model<SysRole> {
         this.delFlag = delFlag;
     }
 
-    @Override
-    protected Serializable pkVal() {
-        return this.roleId;
-    }
 
     @Override
     public String toString() {

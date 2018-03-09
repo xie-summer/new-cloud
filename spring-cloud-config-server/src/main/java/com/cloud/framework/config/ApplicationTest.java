@@ -15,6 +15,6 @@ public class ApplicationTest {
 
     @Test
     public void testEnvironmentProperties() {
-        System.out.println(stringEncryptor.encrypt("lengleng"));
+        System.out.println(stringEncryptor.encrypt("guest"));
     }
 }
