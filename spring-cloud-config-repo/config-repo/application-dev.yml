@@ -30,6 +30,8 @@ ribbon:
     enable: true
   ReadTimeout: 30000
   ConnectTimeout: 30000
+  eager-load:
+        enabled: true
 
 feign:
   hystrix:
