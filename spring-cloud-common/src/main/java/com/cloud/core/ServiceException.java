@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
  *
  * @author summer
  */
-@Service
+
 public class ServiceException extends RuntimeException {
     public ServiceException() {
     }

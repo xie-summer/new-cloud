@@ -77,16 +77,6 @@
 				<version>1.16</version>
 			</dependency>
 			<dependency>
-				<groupId>com.baomidou</groupId>
-				<artifactId>mybatis-plus-boot-starter</artifactId>
-				<version>2.1.9</version>
-			</dependency>
-			<dependency>
-				<groupId>com.baomidou</groupId>
-				<artifactId>mybatis-plus</artifactId>
-				<version>2.1.9</version>
-			</dependency>
-			<dependency>
 				<groupId>org.mybatis</groupId>
 				<artifactId>mybatis</artifactId>
 				<version>3.2.8</version>
@@ -94,7 +84,7 @@
 			<dependency>
 				<groupId>tk.mybatis</groupId>
 				<artifactId>mapper</artifactId>
-				<version>3.3.9</version>
+				<version>3.5.3</version>
 			</dependency>
 			<dependency>
 				<groupId>org.mybatis</groupId>

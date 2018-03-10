@@ -51,11 +51,6 @@
             <groupId>com.github.ulisesbocchio</groupId>
             <artifactId>jasypt-spring-boot-starter</artifactId>
         </dependency>
-        <!--mybatis-plus-->
-        <dependency>
-            <groupId>com.baomidou</groupId>
-            <artifactId>mybatis-plus</artifactId>
-        </dependency>
         <!--切面增强AOP-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
