@@ -20,7 +20,6 @@ import org.springframework.context.annotation.ComponentScan;
 @EnableDiscoveryClient
 @EnableConfigServer
 @SpringBootApplication
-@ComponentScan()
 public class ConfigApplication {
     public static void main(String[] args) {
         SpringApplication.run(ConfigApplication.class, args);

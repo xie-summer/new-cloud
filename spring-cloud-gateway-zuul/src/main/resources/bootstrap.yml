@@ -10,7 +10,7 @@ spring:
         service-id: cloud-config-server
         enabled: true
       profile: ${spring.profiles.active}
-      label: ${spring.profiles.active}
+#      label: ${spring.profiles.active}
 ---
 spring:
   profiles: dev
@@ -21,7 +21,7 @@ eureka:
     lease-expiration-duration-in-seconds: 20
   client:
     serviceUrl:
-      defaultZone: http://user:user@eureka-server:8761/eureka/,http://user:user@eureka-server:8762/eureka/
+      defaultZone: http://user:user@eureka-server:8761/eureka/
 
 ---
 spring:
@@ -31,4 +31,4 @@ eureka:
     prefer-ip-address: true
   client:
     serviceUrl:
-      defaultZone: http://user:user@eureka-server:8761/eureka/,http://user:user@eureka-server:8762/eureka/
+      defaultZone: http://user:user@eureka-server:8761/eureka/
