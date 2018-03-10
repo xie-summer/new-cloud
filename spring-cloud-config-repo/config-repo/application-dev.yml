@@ -61,6 +61,12 @@ hystrix:
 management:
   security:
     enabled: false
+security:
+  user:
+    name: user
+    password: user
+  basic:
+    enabled: false
 endpoints:
   actuator:
     enabled: true

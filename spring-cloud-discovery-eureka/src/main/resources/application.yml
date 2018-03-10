@@ -6,6 +6,10 @@ spring:
 management:
   security:
     enabled: false
+security:
+  user:
+    name: user
+    password: user
 eureka:
   instance:
     lease-expiration-duration-in-seconds: 30
