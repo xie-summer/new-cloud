@@ -2,11 +2,11 @@ package com.monitor.mapper.sparepartsintoinventory;
 
 import java.util.List;
 
+import com.cloud.core.IMapper;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 import org.springframework.stereotype.Repository;
 
-import com.cloud.core.Mapper;
 import com.monitor.dto.sparepartsintoinventory.PanoramicSparePartsIntoInventoryDto;
 import com.monitor.model.sparepartsintoinventory.PanoramicSparePartsIntoInventory;
 
@@ -16,7 +16,7 @@ import com.monitor.model.sparepartsintoinventory.PanoramicSparePartsIntoInventor
  *
  */
 @Repository("sparePartsIntoInventoryMapper")
-public interface PanoramicSparePartsIntoInventoryMapper extends Mapper<PanoramicSparePartsIntoInventory> {
+public interface PanoramicSparePartsIntoInventoryMapper extends IMapper<PanoramicSparePartsIntoInventory> {
 	
 	/**
 	 * 指定时间获取本周的备件出入库统计值内容

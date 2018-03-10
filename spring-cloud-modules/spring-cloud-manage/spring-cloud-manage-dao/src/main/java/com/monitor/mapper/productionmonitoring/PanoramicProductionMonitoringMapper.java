@@ -1,6 +1,6 @@
 package com.monitor.mapper.productionmonitoring;
 
-import com.cloud.core.Mapper;
+import com.cloud.core.IMapper;
 import com.monitor.dto.productionmonitoring.Productionmonitoringinfo;
 import com.monitor.model.productionmonitoring.PanoramicProductionMonitoring;
 import org.apache.ibatis.annotations.Param;
@@ -11,7 +11,7 @@ import org.springframework.stereotype.Repository;
  * @author summer
  */
 @Repository("productionMonitoringMapper")
-public interface PanoramicProductionMonitoringMapper extends Mapper<PanoramicProductionMonitoring> {
+public interface PanoramicProductionMonitoringMapper extends IMapper<PanoramicProductionMonitoring> {
 	
     /**
      * 指定时间获取生产监控内容

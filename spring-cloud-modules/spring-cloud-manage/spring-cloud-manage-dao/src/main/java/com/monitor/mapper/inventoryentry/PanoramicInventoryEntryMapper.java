@@ -1,6 +1,6 @@
 package com.monitor.mapper.inventoryentry;
 
-import com.cloud.core.Mapper;
+import com.cloud.core.IMapper;
 import com.monitor.model.inventoryentry.PanoramicInventoryEntry;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
@@ -13,7 +13,7 @@ import java.util.List;
  * @author summer
  */
 @Repository("inventoryEntryMapper")
-public interface PanoramicInventoryEntryMapper extends Mapper<PanoramicInventoryEntry> {
+public interface PanoramicInventoryEntryMapper extends IMapper<PanoramicInventoryEntry> {
 
     /**
      * 根据code,date,classno查询录入记录

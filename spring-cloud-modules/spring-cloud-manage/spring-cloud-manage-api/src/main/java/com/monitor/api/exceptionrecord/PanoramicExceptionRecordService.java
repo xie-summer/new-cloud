@@ -1,6 +1,6 @@
 package com.monitor.api.exceptionrecord;
 
-import com.cloud.core.Service;
+import com.cloud.core.IService;
 import com.monitor.model.exceptionrecord.PanoramicExceptionRecord;
 
 import java.util.List;
@@ -12,7 +12,7 @@ import java.util.List;
  * @author summer
  * 2017/11/21.
  */
-public interface PanoramicExceptionRecordService extends Service<PanoramicExceptionRecord> {
+public interface PanoramicExceptionRecordService extends IService<PanoramicExceptionRecord> {
 
     /**
      * 根据category和时间 查询异常信息

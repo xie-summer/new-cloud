@@ -1,6 +1,6 @@
 package com.monitor.api.rawmaterials;
 
-import com.cloud.core.Service;
+import com.cloud.core.IService;
 import com.monitor.model.rawmaterials.PanoramicRawMaterials;
 
 import java.util.List;
@@ -10,7 +10,7 @@ import java.util.List;
  * @author summer
  * 2017/11/21.
  */
-public interface PanoramicRawMaterialsService extends Service<PanoramicRawMaterials> {
+public interface PanoramicRawMaterialsService extends IService<PanoramicRawMaterials> {
 
     /**
      * 库存预计可使用天数

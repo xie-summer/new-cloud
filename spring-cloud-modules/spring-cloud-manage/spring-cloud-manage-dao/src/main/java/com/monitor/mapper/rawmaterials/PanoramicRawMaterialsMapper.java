@@ -1,6 +1,6 @@
 package com.monitor.mapper.rawmaterials;
 
-import com.cloud.core.Mapper;
+import com.cloud.core.IMapper;
 import com.monitor.model.rawmaterials.PanoramicRawMaterials;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
@@ -12,7 +12,7 @@ import java.util.List;
  * @author summer
  */
 @Repository("rawMaterialsMapper")
-public interface PanoramicRawMaterialsMapper extends Mapper<PanoramicRawMaterials> {
+public interface PanoramicRawMaterialsMapper extends IMapper<PanoramicRawMaterials> {
     /**
      * 根据时间和code统计进出库总值（进库-出库）
      *

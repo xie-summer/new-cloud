@@ -1,6 +1,6 @@
 package com.monitor.mapper.productionefficiency;
 
-import com.cloud.core.Mapper;
+import com.cloud.core.IMapper;
 import com.monitor.model.productionefficiency.PanoramicProductionEfficiency;
 import org.springframework.stereotype.Repository;
 
@@ -8,5 +8,5 @@ import org.springframework.stereotype.Repository;
  * @author summer
  */
 @Repository("productionEfficiencyMapper")
-public interface PanoramicProductionEfficiencyMapper extends Mapper<PanoramicProductionEfficiency> {
+public interface PanoramicProductionEfficiencyMapper extends IMapper<PanoramicProductionEfficiency> {
 }

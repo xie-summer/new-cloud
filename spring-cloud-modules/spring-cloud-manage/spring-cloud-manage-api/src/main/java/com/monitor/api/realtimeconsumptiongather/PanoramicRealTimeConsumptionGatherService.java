@@ -1,19 +1,17 @@
 package com.monitor.api.realtimeconsumptiongather;
 
-import com.cloud.core.Service;
+import com.cloud.core.IService;
 import com.monitor.dto.realtimeconsumptiongather.PanoramicRealTimeConsumptionGatherDto;
 import com.monitor.model.realtimeconsumptiongather.PanoramicRealTimeConsumptionGather;
 
 import java.util.List;
-
-import org.apache.ibatis.annotations.Param;
 
 
 /**
  * @author summer
  * 2017/11/21.
  */
-public interface PanoramicRealTimeConsumptionGatherService extends Service<PanoramicRealTimeConsumptionGather> {
+public interface PanoramicRealTimeConsumptionGatherService extends IService<PanoramicRealTimeConsumptionGather> {
 
     /**
      * 根据时间和code查询实时消耗汇总数据

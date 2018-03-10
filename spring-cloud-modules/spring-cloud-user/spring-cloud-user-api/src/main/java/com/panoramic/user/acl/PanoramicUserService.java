@@ -1,14 +1,14 @@
 package com.panoramic.user.acl;
 
 
-import com.cloud.core.Service;
+import com.cloud.core.IService;
 import com.monitor.dto.user.PanoramicUserInfo;
 import com.monitor.model.user.PanoramicUser;
 
 /**
  * Created by @author xuegang on 2017/12/22.
  */
-public interface PanoramicUserService extends Service<PanoramicUser> {
+public interface PanoramicUserService extends IService<PanoramicUser> {
 
 	/**
 	 * 用户基本信息获取

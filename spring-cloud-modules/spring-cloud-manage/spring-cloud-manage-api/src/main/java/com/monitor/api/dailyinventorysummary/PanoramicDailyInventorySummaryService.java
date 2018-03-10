@@ -1,6 +1,6 @@
 package com.monitor.api.dailyinventorysummary;
 
-import com.cloud.core.Service;
+import com.cloud.core.IService;
 import com.monitor.model.dailyinventorysummary.PanoramicDailyInventorySummary;
 
 import java.util.List;
@@ -13,7 +13,7 @@ import java.util.Map;
  * @author summer
  * 2017/11/21.
  */
-public interface PanoramicDailyInventorySummaryService extends Service<PanoramicDailyInventorySummary> {
+public interface PanoramicDailyInventorySummaryService extends IService<PanoramicDailyInventorySummary> {
 
     /**
      * 根据日期和物料编码查询库存（每种物料每天只有一条库存记录）

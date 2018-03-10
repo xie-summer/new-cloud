@@ -6,7 +6,7 @@ import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 import org.springframework.stereotype.Repository;
 
-import com.cloud.core.Mapper;
+import com.cloud.core.IMapper;
 import com.monitor.model.materialintoinventory.PanoramicMaterialIntoInventory;
 
 /**
@@ -15,7 +15,7 @@ import com.monitor.model.materialintoinventory.PanoramicMaterialIntoInventory;
  *
  */
 @Repository("materialIntoInventoryMapper")
-public interface PanoramicMaterialIntoInventoryMapper extends Mapper<PanoramicMaterialIntoInventory> {
+public interface PanoramicMaterialIntoInventoryMapper extends IMapper<PanoramicMaterialIntoInventory> {
 	
 	/**
 	 * 本月累计产品出库量

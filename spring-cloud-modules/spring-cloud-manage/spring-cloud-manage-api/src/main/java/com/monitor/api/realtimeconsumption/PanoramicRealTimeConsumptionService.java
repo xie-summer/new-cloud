@@ -1,19 +1,16 @@
 package com.monitor.api.realtimeconsumption;
 
-import com.cloud.core.Service;
-import com.monitor.dto.realtimeconsumption.PanoramicRealTimeConsumptionDto;
+import com.cloud.core.IService;
 import com.monitor.model.realtimeconsumption.PanoramicRealTimeConsumption;
 
 import java.util.List;
-
-import org.apache.ibatis.annotations.Param;
 
 
 /**
  * @author summer
  * 2017/11/21.
  */
-public interface PanoramicRealTimeConsumptionService extends Service<PanoramicRealTimeConsumption> {
+public interface PanoramicRealTimeConsumptionService extends IService<PanoramicRealTimeConsumption> {
 
     /**
      * 汇总指定code和date的消耗数据到汇总表中(定时任务)

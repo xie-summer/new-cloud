@@ -1,7 +1,7 @@
 package com.cloud.configure;
 
 import com.cloud.constant.MybatisConstant;
-import com.cloud.core.Mapper;
+import com.cloud.core.IMapper;
 import com.github.pagehelper.PageHelper;
 import org.apache.ibatis.plugin.Interceptor;
 import org.apache.ibatis.session.SqlSessionFactory;
@@ -18,7 +18,7 @@ import javax.sql.DataSource;
 import java.util.Properties;
 
 /**
- * @author summer Mybatis & Mapper & PageHelper 配置
+ * @author summer Mybatis & IMapper & PageHelper 配置
  */
 @Configuration
 public class MybatisConfigurer {
@@ -55,7 +55,7 @@ public class MybatisConfigurer {
             mapperScannerConfigurer.setSqlSessionFactoryBeanName("sqlSessionFactoryBean");
             mapperScannerConfigurer.setBasePackage(MybatisConstant.MAPPER_PACKAGE);
             Properties properties = new Properties();
-            properties.setProperty("mappers", Mapper.class.getName());
+            properties.setProperty("mappers", IMapper.class.getName());
             properties.setProperty("notEmpty", "false");
             properties.setProperty("IDENTITY", "MYSQL");
             mapperScannerConfigurer.setProperties(properties);

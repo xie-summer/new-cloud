@@ -1,6 +1,6 @@
 package com.cloud.user.sys;
 
-import com.cloud.core.Service;
+import com.cloud.core.IService;
 import com.cloud.model.vo.UserVo;
 import com.github.pagehelper.Page;
 import com.monitor.dto.sys.UserDto;
@@ -10,7 +10,7 @@ import com.monitor.entity.SysUser;
 /**
  * @author summer
  */
-public interface SysUserService extends Service<SysUser> {
+public interface SysUserService extends IService<SysUser> {
     /**
      * 根据用户名查询用户角色信息
      *

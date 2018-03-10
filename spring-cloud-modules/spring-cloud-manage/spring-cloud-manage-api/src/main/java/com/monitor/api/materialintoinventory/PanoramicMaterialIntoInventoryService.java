@@ -1,10 +1,9 @@
 package com.monitor.api.materialintoinventory;
 
+import com.cloud.core.IService;
 import com.monitor.model.materialintoinventory.PanoramicMaterialIntoInventory;
 
 import java.util.List;
-
-import com.cloud.core.Service;
 
 
 /**
@@ -12,7 +11,7 @@ import com.cloud.core.Service;
 * @author xuegang
 * 2017/12/27.
 */
-public interface PanoramicMaterialIntoInventoryService extends Service<PanoramicMaterialIntoInventory> {
+public interface PanoramicMaterialIntoInventoryService extends IService<PanoramicMaterialIntoInventory> {
 
 	/**
 	 * 指定编码，时间和出入库种类查询入出库信息

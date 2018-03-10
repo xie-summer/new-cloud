@@ -1,6 +1,6 @@
 package com.risk.warning.mapper;
 
-import com.cloud.core.Mapper;
+import com.cloud.core.IMapper;
 import com.risk.warning.model.PanoramicSystemWarningSourceData;
 
 import java.util.Date;
@@ -15,7 +15,7 @@ import org.springframework.stereotype.Repository;
  * @author summer
  */
 @Repository("PanormicSystemWarningSourceDataMapper")
-public interface PanoramicSystemWarningSourceDataMapper extends Mapper<PanoramicSystemWarningSourceData> {
+public interface PanoramicSystemWarningSourceDataMapper extends IMapper<PanoramicSystemWarningSourceData> {
 
     @Select(" ${strquery} ")
     List<PanoramicSystemWarningSourceData> GetSourceData(@Param("strquery") String strquery);

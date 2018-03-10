@@ -1,7 +1,7 @@
 package com.monitor.api.dataverification;
 import com.monitor.dto.dataverification.PanoramicDataVerificationDto;
 import com.monitor.model.dataverification.PanoramicDataVerification;
-import com.cloud.core.Service;
+import com.cloud.core.IService;
 
 
 /**
@@ -9,7 +9,7 @@ import com.cloud.core.Service;
 * @author xuegang
 * 2017/12/27.
 */
-public interface PanoramicDataVerificationService extends Service<PanoramicDataVerification> {
+public interface PanoramicDataVerificationService extends IService<PanoramicDataVerification> {
 
 	/**
 	 * 指定时间查询本月度偏差值

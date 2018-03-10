@@ -1,6 +1,6 @@
 package com.monitor.api.materialthresholdconfiguration;
 
-import com.cloud.core.Service;
+import com.cloud.core.IService;
 import com.monitor.model.materialthresholdconfiguration.PanoramicMaterialThresholdConfiguration;
 
 
@@ -10,7 +10,7 @@ import com.monitor.model.materialthresholdconfiguration.PanoramicMaterialThresho
  * @author summer
  * 2017/11/27
  */
-public interface PanoramicMaterialThresholdConfigurationService extends Service<PanoramicMaterialThresholdConfiguration> {
+public interface PanoramicMaterialThresholdConfigurationService extends IService<PanoramicMaterialThresholdConfiguration> {
 
     /**
      * 物料上下线内容取得

@@ -1,9 +1,9 @@
 package com.monitor.mapper.dataverification;
 
+import com.cloud.core.IMapper;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 import org.springframework.stereotype.Repository;
-import com.cloud.core.Mapper;
 import com.monitor.dto.dataverification.PanoramicDataVerificationDto;
 import com.monitor.model.dataverification.PanoramicDataVerification;
 
@@ -13,7 +13,7 @@ import com.monitor.model.dataverification.PanoramicDataVerification;
  *
  */
 @Repository("dataVerificationMapper")
-public interface PanoramicDataVerificationMapper extends Mapper<PanoramicDataVerification> {
+public interface PanoramicDataVerificationMapper extends IMapper<PanoramicDataVerification> {
 	
 	/**
 	 * 本月累计消耗量

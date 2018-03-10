@@ -1,7 +1,7 @@
 package com.panoramic.user.acl;
 
 
-import com.cloud.core.Service;
+import com.cloud.core.IService;
 import com.monitor.model.permission.PanoramicPermission;
 
 /**
@@ -9,6 +9,6 @@ import com.monitor.model.permission.PanoramicPermission;
  * 2017/11/08.
  */
 
-public interface PanoramicPermissionService extends Service<PanoramicPermission> {
+public interface PanoramicPermissionService extends IService<PanoramicPermission> {
 
 }

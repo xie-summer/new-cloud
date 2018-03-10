@@ -1,6 +1,6 @@
 package com.monitor.mapper.exceptionrecord;
 
-import com.cloud.core.Mapper;
+import com.cloud.core.IMapper;
 import com.monitor.model.exceptionrecord.PanoramicExceptionRecord;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
@@ -12,7 +12,7 @@ import java.util.List;
  * @author summer
  */
 @Repository("exceptionRecordMapper")
-public interface PanoramicExceptionRecordMapper extends Mapper<PanoramicExceptionRecord> {
+public interface PanoramicExceptionRecordMapper extends IMapper<PanoramicExceptionRecord> {
 
     /** 查询
      * @param category

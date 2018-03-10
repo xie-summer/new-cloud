@@ -1,7 +1,7 @@
 package com.cloud.configure;
 
 import com.cloud.constant.MybatisConstant;
-import com.cloud.core.Mapper;
+import com.cloud.core.IMapper;
 import com.github.pagehelper.PageHelper;
 import org.apache.ibatis.plugin.Interceptor;
 import org.apache.ibatis.session.SqlSessionFactory;
@@ -14,12 +14,11 @@ import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
 import org.springframework.core.io.support.ResourcePatternResolver;
 import tk.mybatis.spring.mapper.MapperScannerConfigurer;
 
-import javax.annotation.Resource;
 import javax.sql.DataSource;
 import java.util.Properties;
 
 /**
- * Mybatis & Mapper & PageHelper 配置
+ * Mybatis & IMapper & PageHelper 配置
  * @author summer
  */
 @Configuration
@@ -46,7 +45,7 @@ public class MybatisConfigurer {
 //        /**--主键自增回写方法,默认值MYSQL,详细说明请看文档 -->*/
 //        props.setProperty("IDENTITY","MYSQL");
 //        /**<!--通用Mapper接口，多个通用接口用逗号隔开 -->*/
-//        props.setProperty("mappers", "com.github.abel533.mapper.Mapper");
+//        props.setProperty("mappers", "com.github.abel533.mapper.IMapper");
 //        mapperInterceptor.setProperties(props);
         //添加插件
         bean.setPlugins(new Interceptor[]{pageHelper});
@@ -70,7 +69,7 @@ public class MybatisConfigurer {
             mapperScannerConfigurer.setBasePackage(MybatisConstant.MAPPER_PACKAGE);
             //配置通用mappers(tk通用mapper)
             Properties properties = new Properties();
-            properties.setProperty("mappers", Mapper.class.getName());
+            properties.setProperty("mappers", IMapper.class.getName());
 //            properties.setProperty("mappers", ProjectConstant.MAPPER_BASE_PACKAGE);
             properties.setProperty("notEmpty", "false");
             properties.setProperty("IDENTITY", "MYSQL");

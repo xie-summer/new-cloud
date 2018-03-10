@@ -1,7 +1,7 @@
 package com.monitor.mapper.permission;
 
 
-import com.cloud.core.Mapper;
+import com.cloud.core.IMapper;
 import com.monitor.model.permission.PanoramicPermission;
 
 import org.springframework.stereotype.Repository;
@@ -10,5 +10,5 @@ import org.springframework.stereotype.Repository;
  * @author summer
  */
 @Repository("permissionMapper")
-public interface PanoramicPermissionMapper extends Mapper<PanoramicPermission> {
+public interface PanoramicPermissionMapper extends IMapper<PanoramicPermission> {
 }

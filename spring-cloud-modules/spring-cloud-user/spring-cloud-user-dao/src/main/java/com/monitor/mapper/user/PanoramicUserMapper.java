@@ -1,7 +1,7 @@
 package com.monitor.mapper.user;
 
 
-import com.cloud.core.Mapper;
+import com.cloud.core.IMapper;
 import com.monitor.dto.user.PanoramicUserInfo;
 import com.monitor.model.user.PanoramicUser;
 
@@ -13,7 +13,7 @@ import org.springframework.stereotype.Repository;
  * @author summer
  */
 @Repository("userMapper")
-public interface PanoramicUserMapper extends Mapper<PanoramicUser> {
+public interface PanoramicUserMapper extends IMapper<PanoramicUser> {
 
     /** 根据用户名查询用户
      * @param login_name

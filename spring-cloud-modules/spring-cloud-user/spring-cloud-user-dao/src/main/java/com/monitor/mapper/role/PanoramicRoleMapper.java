@@ -1,7 +1,7 @@
 package com.monitor.mapper.role;
 
 
-import com.cloud.core.Mapper;
+import com.cloud.core.IMapper;
 import com.monitor.model.role.PanoramicRole;
 
 import org.springframework.stereotype.Repository;
@@ -10,5 +10,5 @@ import org.springframework.stereotype.Repository;
  * @author summer
  */
 @Repository("roleMapper")
-public interface PanoramicRoleMapper extends Mapper<PanoramicRole> {
+public interface PanoramicRoleMapper extends IMapper<PanoramicRole> {
 }

@@ -12,7 +12,7 @@ import java.util.Set;
 /**
  * @author summer
  * @date 2017/10/31
- * why add @Service when i up version ?
+ * why add @IService when i up version ?
  * https://github.com/spring-cloud/spring-cloud-netflix/issues/762
  */
 public class MenuServiceFallbackImpl implements MenuServiceClient {

@@ -1,6 +1,6 @@
 package com.monitor.api.intothefactoryrecords;
 
-import com.cloud.core.Service;
+import com.cloud.core.IService;
 import com.monitor.model.intothefactoryrecords.PanoramicIntoTheFactoryRecords;
 
 import java.util.List;
@@ -11,7 +11,7 @@ import java.util.List;
  * 2017/11/29
  */
 
-public interface PanoramicIntoTheFactoryRecordsService extends Service<PanoramicIntoTheFactoryRecords> {
+public interface PanoramicIntoTheFactoryRecordsService extends IService<PanoramicIntoTheFactoryRecords> {
 
     /**
      * 根据时间查询进出厂信息

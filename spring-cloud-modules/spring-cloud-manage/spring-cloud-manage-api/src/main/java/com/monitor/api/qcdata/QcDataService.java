@@ -1,6 +1,6 @@
 package com.monitor.api.qcdata;
 
-import com.cloud.core.Service;
+import com.cloud.core.IService;
 import com.monitor.model.qcdata.QcData;
 
 import java.util.List;
@@ -10,7 +10,7 @@ import java.util.List;
  * @author summer
  * 2017/11/27
  */
-public interface QcDataService extends Service<QcData> {
+public interface QcDataService extends IService<QcData> {
 
     /**根据时间和类型指定查询质检数据
      * @param date

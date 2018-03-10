@@ -2,13 +2,10 @@ package com.monitor.mapper.productofflinemeasurement;
 
 import java.util.List;
 
-import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 import org.springframework.stereotype.Repository;
 
-import com.cloud.core.Mapper;
-import com.monitor.dto.productmaterials.PanoramicProductMaterialsDto;
-import com.monitor.dto.realtimeconsumption.PanoramicRealTimeConsumptionDto;
+import com.cloud.core.IMapper;
 import com.monitor.model.productofflinemeasurement.PanoramicProductOfflineMeasurement;
 
 /**
@@ -17,7 +14,7 @@ import com.monitor.model.productofflinemeasurement.PanoramicProductOfflineMeasur
  *
  */
 @Repository("productOfflineMeasurementMapper")
-public interface PanoramicProductOfflineMeasurementMapper extends Mapper<PanoramicProductOfflineMeasurement> {
+public interface PanoramicProductOfflineMeasurementMapper extends IMapper<PanoramicProductOfflineMeasurement> {
 	
 
     /**

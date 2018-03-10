@@ -1,6 +1,6 @@
 package com.invoke.mapper.material;
 
-import com.cloud.core.Mapper;
+import com.cloud.core.IMapper;
 import com.invoke.model.dto.MaterialConsumptionDto;
 import com.invoke.model.material.MaterialConsumption;
 import org.apache.ibatis.annotations.Param;
@@ -14,7 +14,7 @@ import java.util.List;
  * @author sunmer
  */
 @Repository("materialConsumptionMapper")
-public interface MaterialConsumptionMapper extends Mapper<MaterialConsumption> {
+public interface MaterialConsumptionMapper extends IMapper<MaterialConsumption> {
     /**
      * 根据code和time查询
      *

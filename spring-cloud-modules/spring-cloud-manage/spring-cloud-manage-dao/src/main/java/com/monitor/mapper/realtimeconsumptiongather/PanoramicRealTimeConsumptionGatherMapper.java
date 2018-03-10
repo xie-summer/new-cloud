@@ -1,6 +1,6 @@
 package com.monitor.mapper.realtimeconsumptiongather;
 
-import com.cloud.core.Mapper;
+import com.cloud.core.IMapper;
 import com.monitor.model.realtimeconsumptiongather.PanoramicRealTimeConsumptionGather;
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
@@ -11,7 +11,7 @@ import org.springframework.stereotype.Repository;
  * @author summer
  */
 @Repository("realTimeConsumptionGatherMapper")
-public interface PanoramicRealTimeConsumptionGatherMapper extends Mapper<PanoramicRealTimeConsumptionGather> {
+public interface PanoramicRealTimeConsumptionGatherMapper extends IMapper<PanoramicRealTimeConsumptionGather> {
 
     /**
      * 根据汇总时间和code查询汇总记录

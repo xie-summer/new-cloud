@@ -14,10 +14,10 @@ import java.util.List;
  *
  * @author summer
  */
-public abstract class AbstractService<T> implements Service<T> {
+public abstract class AbstractService<T> implements IService<T> {
 
     @Autowired(required = false)
-    protected Mapper<T> mapper;
+    protected IMapper<T> mapper;
 
     /**
      * 当前泛型真实类型的Class

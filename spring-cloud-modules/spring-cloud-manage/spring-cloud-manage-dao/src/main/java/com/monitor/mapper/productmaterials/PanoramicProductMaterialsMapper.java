@@ -1,8 +1,6 @@
 package com.monitor.mapper.productmaterials;
 
-import com.cloud.core.Mapper;
-import com.monitor.dto.productmaterials.PanoramicProductMaterialsDto;
-import com.monitor.dto.realtimeconsumption.PanoramicRealTimeConsumptionDto;
+import com.cloud.core.IMapper;
 import com.monitor.model.productmaterials.PanoramicProductMaterials;
 
 import org.apache.ibatis.annotations.Param;
@@ -15,7 +13,7 @@ import java.util.List;
  * @author summer
  */
 @Repository("productMaterialsMapper")
-public interface PanoramicProductMaterialsMapper extends Mapper<PanoramicProductMaterials> {
+public interface PanoramicProductMaterialsMapper extends IMapper<PanoramicProductMaterials> {
     /**
      * 查询产品分类
      * @return

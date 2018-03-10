@@ -1,18 +1,17 @@
 package com.monitor.api.sparepartsintoinventory;
 
+import com.cloud.core.IService;
 import com.monitor.dto.sparepartsintoinventory.PanoramicSparePartsIntoInventoryDto;
 import com.monitor.model.sparepartsintoinventory.PanoramicSparePartsIntoInventory;
 
 import java.util.List;
-
-import com.cloud.core.Service;
 
 
 /**
 * @author xuegang
 * 2017/12/26.
 */
-public interface PanoramicSparePartsIntoInventoryService extends Service<PanoramicSparePartsIntoInventory> {
+public interface PanoramicSparePartsIntoInventoryService extends IService<PanoramicSparePartsIntoInventory> {
 	
 	/**
 	 * 周单位获取入库产品货值

@@ -1,6 +1,6 @@
 package com.monitor.mapper.dailyinventorysummary;
 
-import com.cloud.core.Mapper;
+import com.cloud.core.IMapper;
 import com.monitor.model.dailyinventorysummary.PanoramicDailyInventorySummary;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
@@ -12,7 +12,7 @@ import java.util.List;
  * @author summer
  */
 @Repository("dailyInventorySummaryMapper")
-public interface PanoramicDailyInventorySummaryMapper extends Mapper<PanoramicDailyInventorySummary> {
+public interface PanoramicDailyInventorySummaryMapper extends IMapper<PanoramicDailyInventorySummary> {
     /**
      * 查询7天数据
      *

@@ -1,6 +1,6 @@
 package com.monitor.api.inventoryentry;
 
-import com.cloud.core.Service;
+import com.cloud.core.IService;
 import com.monitor.model.exceptionrecord.PanoramicExceptionRecord;
 import com.monitor.model.inventoryentry.PanoramicInventoryEntry;
 
@@ -11,7 +11,7 @@ import java.util.List;
  * @author summer
  * 2017/11/30
  */
-public interface PanoramicInventoryEntryService extends Service<PanoramicInventoryEntry> {
+public interface PanoramicInventoryEntryService extends IService<PanoramicInventoryEntry> {
 
     /**
      * 上传数据

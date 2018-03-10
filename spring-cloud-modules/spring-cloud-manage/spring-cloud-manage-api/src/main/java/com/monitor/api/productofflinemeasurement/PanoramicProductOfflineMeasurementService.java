@@ -1,7 +1,7 @@
 package com.monitor.api.productofflinemeasurement;
 
 
-import com.cloud.core.Service;
+import com.cloud.core.IService;
 import com.monitor.model.productofflinemeasurement.PanoramicProductOfflineMeasurement;
 
 
@@ -9,7 +9,7 @@ import com.monitor.model.productofflinemeasurement.PanoramicProductOfflineMeasur
 * @author xuegang
 * 2017/12/29.
 */
-public interface PanoramicProductOfflineMeasurementService extends Service<PanoramicProductOfflineMeasurement> {
+public interface PanoramicProductOfflineMeasurementService extends IService<PanoramicProductOfflineMeasurement> {
 		    
     /**
      * 产品下线数据定时任务汇总

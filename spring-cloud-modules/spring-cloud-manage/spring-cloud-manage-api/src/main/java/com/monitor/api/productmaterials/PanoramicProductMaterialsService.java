@@ -1,7 +1,6 @@
 package com.monitor.api.productmaterials;
 
-import com.cloud.core.Service;
-import com.monitor.dto.productmaterials.PanoramicProductMaterialsDto;
+import com.cloud.core.IService;
 import com.monitor.model.productmaterials.PanoramicProductMaterials;
 
 import java.util.List;
@@ -11,7 +10,7 @@ import java.util.List;
  * @author summer
  * 2017/11/21.
  */
-public interface PanoramicProductMaterialsService extends Service<PanoramicProductMaterials> {
+public interface PanoramicProductMaterialsService extends IService<PanoramicProductMaterials> {
 
 
     /**

@@ -1,6 +1,6 @@
 package com.monitor.mapper.qcdata;
 
-import com.cloud.core.Mapper;
+import com.cloud.core.IMapper;
 import com.monitor.model.qcdata.QcData;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
@@ -12,7 +12,7 @@ import java.util.List;
  * @author summer
  */
 @Repository("qcDataMapper")
-public interface QcDataMapper extends Mapper<QcData> {
+public interface QcDataMapper extends IMapper<QcData> {
     /**
      * 根据时间查询
      *
