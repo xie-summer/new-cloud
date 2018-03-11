@@ -5,6 +5,11 @@ security:
     name: user
     password: user
 spring:
+  rabbitmq:
+          host: localhost
+          port: 5672
+          username: guest
+          password: guest
   application:
     name: cloud-gateway-zuul    # 项目名称尽量用小写
 zuul:
@@ -37,9 +42,9 @@ zuul:
 eureka:
   client:
     serviceUrl:
-      defaultZone: http://user:user@eureka-server:8761/eureka/,http://user:user@eureka-server:8762/eureka/   # 指定注册中心的地址
+      defaultZone: http://user:user@eureka-server:8761/eureka/
   instance:
     preferIpAddress: true
 #    hostname : discovery   # 指定主机名时候通过主机名访问,否则通过ip地址
 logging:
-  config: classpath:logback.xml
+  config: classpath:logback-spring.xml

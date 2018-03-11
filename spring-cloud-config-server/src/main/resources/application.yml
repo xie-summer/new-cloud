@@ -1,6 +1,3 @@
-server:
-  port: 2000
-
 #g关闭验证
 management:
   security:
@@ -12,8 +9,6 @@ security:
   basic:
     enabled: false
 spring:
-  application:
-    name: cloud-config-server
   profiles:
     active: dev
   cloud:
@@ -40,7 +35,8 @@ eureka:
   client:
     serviceUrl:
       defaultZone: http://user:user@eureka-server:8761/eureka
-
+logging:
+  config: classpath:logback-spring.xml
 ---
 spring:
   profiles: prd
@@ -55,4 +51,6 @@ eureka:
   client:
     serviceUrl:
       defaultZone: http://user:user@eureka-server:8761/eureka
+logging:
+  config: classpath:logback-spring.xml
 ---

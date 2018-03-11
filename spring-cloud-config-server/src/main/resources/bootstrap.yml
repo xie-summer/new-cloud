@@ -1,0 +1,5 @@
+server:
+  port: 2000
+spring:
+  application:
+    name: cloud-config-server

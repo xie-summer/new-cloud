@@ -1,14 +1,20 @@
 server:
   port: 3000
-  
 # datasoure默认使用JDBC
 spring:
+  rabbitmq:
+          host: localhost
+          port: 5672
+          username: guest
+          password: guest
+#  zipkin:
+#    base-url: http://localhost:9411
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
     username: root
     password: ENC(gc16brBHPNq27HsjaULgKGq00Rz6ZUji)
     url: jdbc:mysql://106.14.69.75:3309/pig?characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&useSSL=false
-      
+
 cloud:
   auth:
     clientId: ENC(Ho5VxMWMMIzfIEE8/WxVzA==)

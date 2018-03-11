@@ -13,6 +13,7 @@
     <artifactId>spring-cloud-visual</artifactId>
 <modules>
     <module>spring-cloud-cachecloud</module>
+    <module>spring-cloud-zipkin</module>
 </modules>
 
 </project>

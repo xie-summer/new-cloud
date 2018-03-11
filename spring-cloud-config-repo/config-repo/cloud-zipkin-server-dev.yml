@@ -1,8 +1,5 @@
 server:
-  port: 3000
-  servlet-path: /
-quartzConfig: quartz.properties
-
+  port: 9411
 management:
   security:
     enabled: false

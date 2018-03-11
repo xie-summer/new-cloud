@@ -10,7 +10,7 @@ spring:
         service-id: cloud-config-server
         enabled: true
       profile: ${spring.profiles.active}
-      label: ${spring.profiles.active}
+#      label: ${spring.profiles.active}
 ---
 spring:
   profiles: dev

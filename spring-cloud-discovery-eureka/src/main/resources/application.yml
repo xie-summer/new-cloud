@@ -1,8 +1,4 @@
-server:
-  port: 8761
-spring:
-  application:
-    name: cloud-eureka-server    # 项目名称尽量用小写
+   # 项目名称尽量用小写
 management:
   security:
     enabled: false
@@ -26,4 +22,4 @@ eureka:
     serviceUrl:
       defaultZone: http://user:user@${eureka.instance.hostname}:8761/eureka/
 logging:
-  config: classpath:logback.xml
+  config: classpath:logback-spring.xml
