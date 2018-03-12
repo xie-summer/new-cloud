@@ -23,7 +23,7 @@ spring:
           search-paths: spring-cloud-config-repo/config-repo
           uri: https://github.com/xie-summer/new-cloud/
           username: xieshengrong@live.com                                       # git仓库的账号
-          password: www.5201314.qq
+          password: password
 ---
 spring:
   profiles: dev
