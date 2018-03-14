@@ -13,7 +13,7 @@ import java.util.Set;
  * @author summer
  * @date 2017/10/31
  */
-@FeignClient(name = "monitor-manage", fallback = MenuServiceFallbackImpl.class)
+@FeignClient(name = "cloud-manage-server", fallback = MenuServiceFallbackImpl.class)
 @Service
 public interface MenuServiceClient extends MenuService {
     /**

@@ -1,5 +1,5 @@
-server:
-  port: 1000         # 指定该zuul实例的端口
+#server:
+#  port: 1000         # 指定该zuul实例的端口
 security:
   user:
     name: user
