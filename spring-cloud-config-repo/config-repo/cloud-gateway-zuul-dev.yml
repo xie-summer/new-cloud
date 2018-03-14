@@ -14,6 +14,10 @@ spring:
     name: cloud-gateway-zuul    # 项目名称尽量用小写
 zuul:
   add-host-header: true
+  ignored-services: *
+  ribbon:
+    eager-load:
+      enabled: true
   routes:
     config-servers:
         path: /config-servers/**
