@@ -16,11 +16,11 @@
 	</properties>
 
 
+	<dependencies>
 	<dependency>
 		<groupId>com.github.ulisesbocchio</groupId>
 		<artifactId>jasypt-spring-boot-starter</artifactId>
 	</dependency>
-	<dependencies>
 		<!--Spring Boot依赖 -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>

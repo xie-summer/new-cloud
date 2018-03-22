@@ -12,9 +12,13 @@ spring:
           password: guest
   application:
     name: cloud-gateway-zuul    # 项目名称尽量用小写
+ribbon:
+  MaxAutoRetries: 3 #同一个Server重试的次数(除去首次)
+  MaxAutoRetriesNextServer: 0 #切换相同Server的次数
 zuul:
   add-host-header: true
   ignored-services: *
+  retryable: true #是否开启重试功能
   ribbon:
     eager-load:
       enabled: true
