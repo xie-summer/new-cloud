@@ -15,6 +15,7 @@ spring:
     config:
       server:
         git:
+          basedir: spring-cloud-config-repo/config-repo
           search-paths: spring-cloud-config-repo/config-repo
           uri: https://github.com/xie-summer/new-cloud/
           username: xieshengrong@live.com                                       # git仓库的账号

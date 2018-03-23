@@ -2,10 +2,15 @@ package com.cloud.feign;
 
 import com.cloud.common.vo.UserVo;
 import com.cloud.feign.fallback.UserServiceFallbackImpl;
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixCollapser;
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixProperty;
 import org.springframework.cloud.netflix.feign.FeignClient;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+
+import java.util.List;
 
 /**
  * @author summer
@@ -22,4 +27,21 @@ public interface UserServiceClient extends UserService {
      */
     @GetMapping("/user/findUserByUsername/{username}")
     UserVo findUserByUsername(@PathVariable("username") String username);
+
+    /**
+     * @param id
+     * @return
+     */
+    @HystrixCollapser(batchMethod = "findAll", collapserProperties = {
+            @HystrixProperty(name="timerDelayInMilliseconds", value = "100")
+    })
+    public UserVo find(Long id) ;
+
+    /**
+     * @param ids
+     * @return
+     */
+    @HystrixCommand
+    @GetMapping("/user/{ids}")
+     List<UserVo> findAll(List<Long> ids) ;
 }

@@ -13,8 +13,9 @@ import java.util.Map;
  */
 public class ErrorCode<T> implements Serializable {
     private static final long serialVersionUID = 4418416282894231647L;
-    private static final String CODE_SUCCESS = "0000";
-    private static final String CODE_UNKNOWN_ERROR = "9999";
+    public static final String CODE_SUCCESS = "0000";
+    public static final String CODE_UNKNOWN_ERROR = "9999";
+    public static final String CODE_KNOWN_ERROR = "10000";
     public static ErrorCode SUCCESS = new ErrorCode(CODE_SUCCESS, "操作成功！", null);
     /**
      * 返回状态码 code
