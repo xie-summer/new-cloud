@@ -2,7 +2,7 @@ package com.cloud.componet.filter;
 
 import com.cloud.constant.CommonConstant;
 import com.cloud.constant.SecurityConstants;
-import com.cloud.support.ErrorCode;
+import com.cloud.api.vo.ResultCode;
 import com.cloud.support.exception.ValidateCodeException;
 import com.cloud.util.JsonUtils;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -52,7 +52,7 @@ public class ValidateCodeFilter extends OncePerRequestFilter {
                 response.setCharacterEncoding(CommonConstant.UTF8);
                 response.setContentType(CommonConstant.CONTENT_TYPE);
 //                R<String> result = new R<>(e);//
-                ErrorCode result= ErrorCode.getSuccessMap();
+                ResultCode result= ResultCode.getSuccessMap();
                 response.setStatus(478);
                 printWriter = response.getWriter();
                 printWriter.append(JsonUtils.writeObjectToJson(result));

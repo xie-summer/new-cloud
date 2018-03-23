@@ -7,6 +7,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 /**
  * @author summer
  * @date 2017/10/31
@@ -18,6 +20,24 @@ public class UserServiceFallbackImpl implements UserServiceClient {
     @Override
     public UserVo findUserByUsername(String username) {
         logger.error("调用{}异常:{}", "findUserByUsername", username);
+        return null;
+    }
+
+    /**
+     * @param id
+     * @return
+     */
+    @Override
+    public UserVo find(Long id) {
+        return null;
+    }
+
+    /**
+     * @param ids
+     * @return
+     */
+    @Override
+    public List<UserVo> findAll(List<Long> ids) {
         return null;
     }
 }

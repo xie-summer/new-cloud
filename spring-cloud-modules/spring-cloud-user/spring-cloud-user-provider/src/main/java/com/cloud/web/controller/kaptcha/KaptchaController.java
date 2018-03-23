@@ -1,7 +1,7 @@
 package com.cloud.web.controller.kaptcha;
 
 import com.cloud.constant.SecurityConstants;
-import com.cloud.support.ErrorCode;
+import com.cloud.api.vo.ResultCode;
 import com.cloud.user.sys.SysUserService;
 import com.cloud.util.Assert;
 import com.google.code.kaptcha.Producer;
@@ -57,8 +57,8 @@ public class KaptchaController {
      */
     @ResponseBody
     @GetMapping(SecurityConstants.MOBILE_VALIDATE_CODE_URL_PREFIX + "/{mobile}")
-    public ErrorCode<Boolean> createCode(@PathVariable String mobile) {
+    public ResultCode<Boolean> createCode(@PathVariable String mobile) {
         Assert.isBlank(mobile, "手机号不能为空");
-        return ErrorCode.getSuccessReturn(userService.sendSmsCode(mobile));
+        return ResultCode.getSuccessReturn(userService.sendSmsCode(mobile));
     }
 }

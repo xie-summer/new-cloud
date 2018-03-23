@@ -1,7 +1,7 @@
 package com.cloud.componet.handler;
 
 import com.cloud.constant.CommonConstant;
-import com.cloud.support.ErrorCode;
+import com.cloud.api.vo.ResultCode;
 import com.cloud.support.exception.PigDeniedException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.apache.http.HttpStatus;
@@ -44,7 +44,7 @@ public class AccessDeniedHandler extends OAuth2AccessDeniedHandler {
         logger.info("授权失败，禁止访问");
         response.setCharacterEncoding(CommonConstant.UTF8);
         response.setContentType(CommonConstant.CONTENT_TYPE);
-        ErrorCode<PigDeniedException> result = ErrorCode.getSuccessReturn(new PigDeniedException("授权失败，禁止访问"));
+        ResultCode<PigDeniedException> result = ResultCode.getSuccessReturn(new PigDeniedException("授权失败，禁止访问"));
         response.setStatus(HttpStatus.SC_FORBIDDEN);
         PrintWriter printWriter = response.getWriter();
         printWriter.append(objectMapper.writeValueAsString(result));

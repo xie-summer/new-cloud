@@ -1,7 +1,7 @@
 package com.monitor.web.filter;
 
 import com.cloud.constant.api.ApiConstant;
-import com.cloud.support.ErrorCode;
+import com.cloud.api.vo.ResultCode;
 import com.monitor.api.acl.ApiSecureService;
 import com.monitor.model.api.ApiUser;
 import com.monitor.web.controller.api.ApiAuth;
@@ -43,7 +43,7 @@ public class ApiAuthenticationFilter extends GenericFilterBean {
 //		if(StringUtils.isNotBlank(urlRoles)){
         String key = request.getParameter("key");
 //			ApiUser apiUser = daoService.getObjectByUkey(ApiUser.class, "partnerkey", key, true);
-//			ErrorCode result = checkRights(apiUser, request);
+//			ResultCode result = checkRights(apiUser, request);
 //			if(result.isSuccess()){
 //				ApiAuthLocal.set(new ApiAuth(apiUser));
 //			}else{
@@ -72,17 +72,17 @@ public class ApiAuthenticationFilter extends GenericFilterBean {
 //		apiFilterHelper = new ApiFilterHelper(monitorService);
     }
 
-    public ErrorCode checkRights(ApiUser apiUser, HttpServletRequest request) {
+    public ResultCode checkRights(ApiUser apiUser, HttpServletRequest request) {
         if (apiUser == null) {
-            return ErrorCode.getFailure(ApiConstant.CODE_PARTNER_NOT_EXISTS, "用户不存在或没权限");
+            return ResultCode.getFailure(ApiConstant.CODE_PARTNER_NOT_EXISTS, "用户不存在或没权限");
         }
         if (!apiUser.isEnabled()) {
-            return ErrorCode.getFailure(ApiConstant.CODE_PARTNER_NORIGHTS, "没有权限");
+            return ResultCode.getFailure(ApiConstant.CODE_PARTNER_NORIGHTS, "没有权限");
         }
 //		boolean hasRights = helper.hasRights(apiUser.getRoles(), request);
 //		if(!hasRights){
-//			return ErrorCode.getFailure(ApiConstant.CODE_PARTNER_NORIGHTS, "没有权限");
+//			return ResultCode.getFailure(ApiConstant.CODE_PARTNER_NORIGHTS, "没有权限");
 //		}
-        return ErrorCode.SUCCESS;
+        return ResultCode.SUCCESS;
     }
 }

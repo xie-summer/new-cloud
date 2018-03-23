@@ -1,6 +1,6 @@
 package com.cloud.util;
 
-import com.cloud.support.ErrorCode;
+import com.cloud.api.vo.ResultCode;
 import org.apache.commons.io.IOUtils;
 import org.apache.commons.lang.StringUtils;
 
@@ -55,20 +55,20 @@ public class ValidateUtil implements Util4Script {
 	public static boolean isIDCard(String number){
 		return StringUtil.regMatch(number, "^(\\d{15}|\\d{17}[0-9xX]{1})$", false);
 	}
-	public static ErrorCode validatePassword(String pass1, String pass2){
+	public static ResultCode validatePassword(String pass1, String pass2){
 		if(StringUtils.isBlank(pass1) || StringUtils.isBlank(pass2)){
-			return  ErrorCode.getFailure("密码必须!");
+			return  ResultCode.getFailure("密码必须!");
 		}
 		if(!StringUtils.equals(pass1, pass2)){
-			return  ErrorCode.getFailure("两次输入的密码不一致!");
+			return  ResultCode.getFailure("两次输入的密码不一致!");
 		}
 		if(!ValidateUtil.isPassword(pass1)){
-			return  ErrorCode.getFailure("密码格式不正确,只能是字母，数字，英文标点，长度6—14位！");
+			return  ResultCode.getFailure("密码格式不正确,只能是字母，数字，英文标点，长度6—14位！");
 		}
 		if(ValidateUtil.isSimplePass(pass1)){
-			return ErrorCode.getFailure("密码过于简单，请重新输入！");
+			return ResultCode.getFailure("密码过于简单，请重新输入！");
 		}
-		return ErrorCode.SUCCESS;
+		return ResultCode.SUCCESS;
 
 	}
 	private static boolean isSimplePass(String plainPass){

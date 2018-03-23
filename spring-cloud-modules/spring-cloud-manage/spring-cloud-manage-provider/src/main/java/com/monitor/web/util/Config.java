@@ -1,6 +1,6 @@
 package com.monitor.web.util;
 
-import com.cloud.support.ErrorCode;
+import com.cloud.api.vo.ResultCode;
 import com.cloud.support.TraceErrorException;
 import com.cloud.util.DateUtil;
 import com.cloud.util.IpConfig;
@@ -149,11 +149,11 @@ public class Config implements InitializingBean {
         pageTools = UnmodifiableMap.decorate(tmp);
     }
 
-    public ErrorCode replacePageTool(String property, Object value) {
+    public ResultCode replacePageTool(String property, Object value) {
         Object old = pageTools.get(property);
         if (value != null && old != null) {
             if (!value.getClass().equals(old.getClass())) {
-                return ErrorCode.getFailure("参数类型不兼容");
+                return ResultCode.getFailure("参数类型不兼容");
             } else {
                 Map tmp = new HashMap(pageTools);
                 tmp.put(property, value);
@@ -162,10 +162,10 @@ public class Config implements InitializingBean {
                     this.pageMap.put(property, value);
                 }
 
-                return ErrorCode.SUCCESS;
+                return ResultCode.SUCCESS;
             }
         } else {
-            return ErrorCode.getFailure("参数错误:old 或 new 为空");
+            return ResultCode.getFailure("参数错误:old 或 new 为空");
         }
     }
 

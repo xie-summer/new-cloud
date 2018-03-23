@@ -22,6 +22,7 @@ public class ResultCode<T> implements Serializable {
      * 未知错误
      */
     public static final String CODE_UNKNOWN_ERROR = "9999";
+    public static final String CODE_KNOWN_ERROR = "10000";
     /**
      * 数据异常
      */
@@ -82,7 +83,7 @@ public class ResultCode<T> implements Serializable {
         return new ResultCode(CODE_UNKNOWN_ERROR, msg, retval);
     }
 
-    public static ResultCode getFullErrorCode(String code, String msg, Object retval) {
+    public static ResultCode getFullResultCode(String code, String msg, Object retval) {
         return new ResultCode(code, msg, retval);
     }
 

@@ -1,7 +1,7 @@
 package com.cloud.support.controller.aop;
 
 import com.cloud.core.ServiceException;
-import com.cloud.support.ErrorCode;
+import com.cloud.api.vo.ResultCode;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.slf4j.Logger;
@@ -18,13 +18,13 @@ import java.time.Clock;
 public class ControllerAop {
     private static final Logger logger = LoggerFactory.getLogger(ControllerAop.class);
 
-    @Around("execution(* com.*.*.*ErrorCode *(..))")
+    @Around("execution(* com.*.*.*ResultCode *(..))")
     public Object handlerControllerMethod(ProceedingJoinPoint pjp) {
         long startTime = Clock.systemDefaultZone().millis();
-        ErrorCode<?> result;
+        ResultCode<?> result;
         try {
-            result = (ErrorCode<?>) pjp.proceed();
-            logger.info(pjp.getSignature() + "use time:" + (System.currentTimeMillis() - startTime));
+            result = (ResultCode<?>) pjp.proceed();
+            logger.info(pjp.getSignature() + "use time:" + (Clock.systemDefaultZone().millis() - startTime));
         } catch (Throwable e) {
             result = handlerException(pjp, e);
         }finally {
@@ -35,22 +35,16 @@ public class ControllerAop {
 private void after(){
 
 }
-    private ErrorCode<?> handlerException(ProceedingJoinPoint pjp, Throwable e) {
-        ErrorCode<?> result = new ErrorCode();
-
+    private ResultCode<?> handlerException(ProceedingJoinPoint pjp, Throwable e) {
+        ResultCode<?> result ;
         // 已知异常
         if (e instanceof ServiceException) {
-            result.setMsg(e.getLocalizedMessage());
-            result.setErrcode(ErrorCode.CODE_KNOWN_ERROR);
+            result = ResultCode.getFailure(ResultCode.CODE_KNOWN_ERROR, e.getLocalizedMessage());
         } else {
             logger.error(pjp.getSignature() + " error ", e);
-
-            result.setMsg(e.toString());
-            result.setErrcode(ErrorCode.CODE_UNKNOWN_ERROR);
-
+            result = ResultCode.getFailure(ResultCode.CODE_UNKNOWN_ERROR, e.getLocalizedMessage());
             // 未知异常是应该重点关注的，这里可以做其他操作，如通知邮件，单独写到某个文件等等。
         }
-
         return result;
     }
 }
