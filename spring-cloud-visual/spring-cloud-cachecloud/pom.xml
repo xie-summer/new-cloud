@@ -36,7 +36,7 @@
         <maven.clean.plugin>2.5</maven.clean.plugin>
         <ganymed.ssh.version>build210</ganymed.ssh.version>
         <commons.collections.version>3.2.1</commons.collections.version>
-        <guava.version>15.0</guava.version>
+        <guava.version>18.0</guava.version>
         <commons-lang.version>2.3</commons-lang.version>
         <json-lib.version>2.2.1</json-lib.version>
         <slf4j.version>1.7.25</slf4j.version>

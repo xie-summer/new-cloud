@@ -15,7 +15,7 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.Objects;
 
 /**
- * Created by @author xuegang on 2017/12/20.
+ * Created by @author summer on 2017/12/20.
  */
 @Service("userService")
 @Transactional(readOnly = true, rollbackFor = ServiceException.class)

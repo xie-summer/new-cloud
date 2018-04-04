@@ -7,7 +7,7 @@ import java.io.Serializable;
 /**
  * 备件出入库表
  *
- * @author xuegang
+ * @author summer
  */
 public class PanoramicSparePartsIntoInventoryDto extends BaseObject {
 

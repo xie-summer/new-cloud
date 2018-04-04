@@ -6,7 +6,7 @@ import com.cloud.core.IService;
 
 /**
 * 数据校验查询
-* @author xuegang
+* @author summer
 * 2017/12/27.
 */
 public interface PanoramicDataVerificationService extends IService<PanoramicDataVerification> {

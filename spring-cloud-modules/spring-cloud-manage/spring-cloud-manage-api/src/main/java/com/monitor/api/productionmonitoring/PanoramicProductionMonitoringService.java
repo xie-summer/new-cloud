@@ -6,7 +6,7 @@ import com.monitor.model.productionmonitoring.PanoramicProductionMonitoring;
 
 
 /**
-* @author xuegang
+* @author summer
 * 2017/12/20.
 */
 public interface PanoramicProductionMonitoringService extends IService<PanoramicProductionMonitoring> {

@@ -8,7 +8,7 @@ import java.util.List;
 
 /**
 * 物料出入库表
-* @author xuegang
+* @author summer
 * 2017/12/27.
 */
 public interface PanoramicMaterialIntoInventoryService extends IService<PanoramicMaterialIntoInventory> {

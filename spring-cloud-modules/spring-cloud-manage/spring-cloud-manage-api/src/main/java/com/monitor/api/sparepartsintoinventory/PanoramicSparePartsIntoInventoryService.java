@@ -8,7 +8,7 @@ import java.util.List;
 
 
 /**
-* @author xuegang
+* @author summer
 * 2017/12/26.
 */
 public interface PanoramicSparePartsIntoInventoryService extends IService<PanoramicSparePartsIntoInventory> {

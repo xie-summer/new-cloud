@@ -6,7 +6,7 @@ import com.monitor.dto.user.PanoramicUserInfo;
 import com.monitor.model.user.PanoramicUser;
 
 /**
- * Created by @author xuegang on 2017/12/22.
+ * Created by @author summer on 2017/12/22.
  */
 public interface PanoramicUserService extends IService<PanoramicUser> {
 

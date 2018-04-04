@@ -6,7 +6,7 @@ import com.monitor.model.productofflinemeasurement.PanoramicProductOfflineMeasur
 
 
 /**
-* @author xuegang
+* @author summer
 * 2017/12/29.
 */
 public interface PanoramicProductOfflineMeasurementService extends IService<PanoramicProductOfflineMeasurement> {
