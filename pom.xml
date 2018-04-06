@@ -9,15 +9,9 @@
 	<version>1.0-SNAPSHOT</version>
 
 	<modules>
-		<module>./spring-cloud-common</module>
-		<module>./spring-cloud-discovery-eureka</module>
 		<module>./spring-cloud-test</module>
+		<module>./spring-cloud-base-servers</module>
 		<module>./spring-cloud-template</module>
-		<module>./spring-cloud-config-server</module>
-		<module>./spring-cloud-auth</module>
-		<module>./spring-cloud-doc</module>
-		<module>./spring-cloud-config-repo</module>
-		<module>./spring-cloud-gateway-zuul</module>
 		<module>./spring-cloud-visual</module>
 		<module>./spring-cloud-modules</module>
 
