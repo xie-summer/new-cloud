@@ -1,0 +1,45 @@
+server:
+  port: 9411
+management:
+  security:
+    enabled: false
+security:
+  user:
+    name: user
+    password: user
+  basic:
+    enabled: false
+spring:
+  rabbitmq:
+          host: localhost
+          port: 5672
+          username: guest
+          password: guest
+  datasource:
+    platform: mysql
+    masterurl: jdbc:mysql://rm-bp1d2s03ka9b803602o.mysql.rds.aliyuncs.com:3306/panoramic?useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true
+    slaveurl: jdbc:mysql://rm-bp1d2s03ka9b803602o.mysql.rds.aliyuncs.com:3306/panoramic?useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true
+    username: panoramicroot
+    password: Newgrading@2018
+    driverClassName: com.mysql.jdbc.Driver
+     # 参数
+    initialSize: 5
+    minIdle: 5
+    maxActive: 20
+    maxWait: 60000
+    timeBetweenEvictionRunsMillis: 60000
+    minEvictableIdleTimeMillis: 300000
+    validationQuery: SELECT 1 FROM DUAL
+    testWhileIdle: true
+    testOnBorrow: false
+    testOnReturn: false
+    poolPreparedStatements: true
+    maxPoolPreparedStatementPerConnectionSize: 20
+    filters: stat,log4j
+    connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=5000
+# 日志配置
+logging:
+  config: classpath:logback-spring.xml
+
+
+

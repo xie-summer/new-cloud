@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>spring-cloud-parent</artifactId>
+        <groupId>com.github.xie-summer</groupId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.github.xie-summer</groupId>
+    <artifactId>spring-cloud-base-servers</artifactId>
+    <modules>
+        <module>./spring-cloud-admin</module>
+        <module>./spring-cloud-auth</module>
+        <module>./spring-cloud-common</module>
+        <module>./spring-cloud-config-repo</module>
+        <module>./spring-cloud-config-server</module>
+        <module>./spring-cloud-discovery-eureka</module>
+        <module>./spring-cloud-doc</module>
+        <module>./spring-cloud-sleuth</module>
+        <module>./spring-cloud-zipkin</module>
+        <module>./spring-cloud-turbine</module>
+        <module>./spring-cloud-gateway-zuul</module>
+        <module>./spring-cloud-hystrix-dashboard</module>
+    </modules>
+
+</project>
