@@ -3,7 +3,7 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
-        <artifactId>spring-cloud-parent</artifactId>
+        <artifactId>spring-cloud-modules</artifactId>
         <groupId>com.github.xie-summer</groupId>
         <version>1.0-SNAPSHOT</version>
     </parent>
@@ -12,8 +12,8 @@
         <java.version>1.8</java.version>
         <encoding.version>UTF-8</encoding.version>
     </properties>
-    <groupId>com.github.xie-summer</groupId>
     <artifactId>spring-cloud-manage</artifactId>
+    <version>1.0-SNAPSHOT</version>
     <packaging>pom</packaging>
     <modules>
         <module>./spring-cloud-manage-dao</module>

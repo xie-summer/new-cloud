@@ -46,6 +46,9 @@ public class RedisRateLimitZuulFilter extends ZuulFilter {
             if(!redisTemplate.hasKey(TIME_KEY)) {
 
                 redisTemplate.opsForValue().set(TIME_KEY, 0, 1, TimeUnit.SECONDS);
+                redisTemplate.opsForHash().put("lock",TIME_KEY,0);
+                redisTemplate.opsForHash().put("lock",COUNTER_KEY,0);
+                redisTemplate.expire("lock", 1, TimeUnit.SECONDS);
             }
             if(redisTemplate.hasKey(TIME_KEY) && redisTemplate.opsForValue().increment(COUNTER_KEY, 1) > 400) {
                 HttpStatus httpStatus = HttpStatus.TOO_MANY_REQUESTS;

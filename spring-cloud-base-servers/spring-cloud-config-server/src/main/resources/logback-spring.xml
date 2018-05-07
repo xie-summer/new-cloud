@@ -62,7 +62,7 @@
         </encoder>
     </appender>
     <appender name="logstash" class="net.logstash.logback.appender.LogstashTcpSocketAppender">
-        <destination>127.0.0.1:9250</destination>
+        <destination>127.0.0.1:5044</destination>
         <!-- 日志输出编码 -->
         <encoder
                 class="net.logstash.logback.encoder.LoggingEventCompositeJsonEncoder">

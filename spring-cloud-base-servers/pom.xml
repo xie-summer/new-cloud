@@ -8,10 +8,11 @@
         <version>1.0-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
-
-    <groupId>com.github.xie-summer</groupId>
+    <packaging>pom</packaging>
+    <version>1.0-SNAPSHOT</version>
     <artifactId>spring-cloud-base-servers</artifactId>
     <modules>
+        <module>./spring-cloud-ui</module>
         <module>./spring-cloud-admin</module>
         <module>./spring-cloud-auth</module>
         <module>./spring-cloud-common</module>
