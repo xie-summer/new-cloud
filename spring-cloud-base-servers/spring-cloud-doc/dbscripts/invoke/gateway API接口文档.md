@@ -7,7 +7,7 @@
 
 环境 | HTTPS请求地址
 ---|---
-正式环境| https://invoke.neweplatform.com/gateway(目前待定，预留的上线使用的二级域名)
+正式环境| https://invoke.***/gateway
 
 #### 公共请求参数
 
@@ -64,7 +64,7 @@ eq:
 id|String|必选|32|物料的id|1
 ##### 具体查询方法文档(具体数据查询对应的需求参数和响应结果)
 
-    https://invoke.neweplatform.com/swagger-ui.html#!
+    https://doc.***.com/swagger-ui.html#!
 
 ### 请求示例（RESTFUL API）
 ###### HTTP请求源码（GET方式sign需要URL编码2次以上，POST无需）
