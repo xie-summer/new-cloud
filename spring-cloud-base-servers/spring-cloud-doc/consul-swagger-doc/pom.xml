@@ -3,26 +3,25 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
-        <artifactId>spring-cloud-base-servers</artifactId>
+        <artifactId>spring-cloud-doc</artifactId>
         <groupId>com.github.xie-summer</groupId>
         <version>1.0-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>spring-cloud-doc</artifactId>
-    <packaging>pom</packaging>
-    <name>cloud-swagger-doc</name>
-    <description>Api Document Management</description>
-    <modules>
-        <module>./swagger-butler-core</module>
-        <module>./eureka-swagger-doc</module>
-        <module>./consul-swagger-doc</module>
-    </modules>
-
-    <properties>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <java.version>1.8</java.version>
-    </properties>
+    <artifactId>consul-swagger-doc</artifactId>
+    <dependencies>
+        <dependency>
+            <groupId>com.github.xie-summer</groupId>
+            <artifactId>swagger-butler-core</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-consul-discovery</artifactId>
+            <version>1.3.3.RELEASE</version>
+        </dependency>
+    </dependencies>
 
     <build>
         <plugins>
@@ -32,6 +31,4 @@
             </plugin>
         </plugins>
     </build>
-
-
 </project>

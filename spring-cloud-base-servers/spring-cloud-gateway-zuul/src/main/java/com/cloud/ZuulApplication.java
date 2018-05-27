@@ -2,6 +2,7 @@ package com.cloud;
 
 import com.cloud.util.LoggerUtils;
 import com.cloud.util.TLogger;
+import com.spring4all.swagger.EnableSwagger2Doc;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
@@ -19,6 +20,7 @@ import org.springframework.web.filter.CorsFilter;
  *
  * @author summer
  */
+@EnableSwagger2Doc
 @SpringBootApplication
 @EnableZuulProxy
 @EnableDiscoveryClient
