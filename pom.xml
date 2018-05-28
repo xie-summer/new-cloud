@@ -169,6 +169,11 @@
 				<version>2.7.0</version>
 			</dependency>
 			<dependency>
+				<groupId>io.springfox</groupId>
+				<artifactId>springfox-bean-validators</artifactId>
+				<version>2.7.0</version>
+			</dependency>
+			<dependency>
 				<groupId>org.quartz-scheduler</groupId>
 				<artifactId>quartz</artifactId>
 				<version>2.3.0</version>
@@ -354,6 +359,10 @@
 			<id>aliyun</id>
 			<name>aliyun</name>
 			<url>http://maven.aliyun.com/nexus/content/groups/public</url>
+		</repository>
+		<repository>
+			<id>internal.repo</id>
+			<url>https://raw.github.com/ctripcorp/apollo/mvn-repo/</url>
 		</repository>
 	</repositories>
 </project>

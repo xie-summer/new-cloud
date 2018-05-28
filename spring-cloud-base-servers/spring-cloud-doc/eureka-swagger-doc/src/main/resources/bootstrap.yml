@@ -1,15 +1,20 @@
+server:
+  port: 1000
+  tomcat:
+    max-threads: 500 # Maximum amount of worker threads.
+    min-spare-threads: 50 # Minimum amount of worker threads
 spring:
   application:
     name: cloud-swagger-doc
   profiles:
     active: dev
-  cloud:
-    config:
-      fail-fast: true
-      discovery:
-        service-id: cloud-config-server
-        enabled: true
-      profile: ${spring.profiles.active}
+#  cloud:
+#    config:
+#      fail-fast: true
+#      discovery:
+#        service-id: cloud-config-server
+#        enabled: true
+#      profile: ${spring.profiles.active}
 #      label: ${spring.profiles.active}
 ---
 spring:
@@ -21,7 +26,7 @@ eureka:
     lease-expiration-duration-in-seconds: 20
   client:
     serviceUrl:
-      defaultZone: http://user:user@eureka-server:8761/eureka/
+      defaultZone: http://eureka.didispace.com/eureka/
 
 ---
 spring:
@@ -31,4 +36,4 @@ eureka:
     prefer-ip-address: true
   client:
     serviceUrl:
-      defaultZone: http://user:user@eureka-server:8761/eureka/
+      defaultZone: http://eureka.didispace.com/eureka/
