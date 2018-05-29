@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+业务对象配置（用注解）
+-->
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans.xsd
+           http://www.springframework.org/schema/context
+           http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
+
+    <!--基础配置-->
+    <bean id="postmanSoaMcc" class="com.weimob.mcc.MccConfigurationManager">
+        <property name="applicationName" value="mengdian.postman-service"/>
+        <property name="projectMasterConfig" value="true"/>
+    </bean>
+
+    <import resource="classpath:META-INF/spring/applicationContext-mengdian-soa-utils.xml"/>
+
+    <!--kafka生产者配置-->
+    <bean id="kafkaServer" class="com.weimob.mengdian.soa.kafka.producer.KafkaProducerInitialization">
+        <property name="kafkaProducerConfig" ref="kafkaProducerConfig"/>
+        <property name="packageNames">
+            <list>
+                <value>com.weimob.mengdian.soa.kafka.test.producer</value>
+            </list>
+        </property>
+    </bean>
+
+    <util:properties id="kafkaProducerConfig">
+        <prop key="bootstrap.servers">${kafka.bootstrap.servers}</prop>
+    </util:properties>
+
+    <!-- 扫描包 -->
+    <context:component-scan base-package="com.weimob.mengdian.soa.kafka.test.producer"/>
+
+
+</beans>
