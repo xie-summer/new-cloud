@@ -1,4 +1,4 @@
-package com.monitor.domain.dto.sys;
+package com.cloud.user.dao.domain.dto.sys;
 
 /**
  * @author lengleng

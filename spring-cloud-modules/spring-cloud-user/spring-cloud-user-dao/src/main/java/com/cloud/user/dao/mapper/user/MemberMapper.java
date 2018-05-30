@@ -1,7 +1,8 @@
-package com.monitor.mapper.user;
+package com.cloud.user.dao.mapper.user;
 
 
 import com.cloud.core.IMapper;
+import com.cloud.user.dao.model.user.Member;
 import com.monitor.domain.dto.user.PanoramicUserInfo;
 import com.monitor.model.user.Member;
 

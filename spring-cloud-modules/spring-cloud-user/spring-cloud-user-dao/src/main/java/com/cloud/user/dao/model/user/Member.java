@@ -1,4 +1,4 @@
-package com.monitor.model.user;
+package com.cloud.user.dao.model.user;
 
 import javax.persistence.*;
 import java.util.Date;

@@ -1,4 +1,4 @@
-package com.monitor.domain.dto.user;
+package com.cloud.user.dao.domain.dto.user;
 
 /**
  * @author summer

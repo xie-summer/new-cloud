@@ -1,4 +1,4 @@
-package com.monitor.domain;
+package com.cloud.user.dao.domain;
 
 
 import com.cloud.model.BaseObject;
