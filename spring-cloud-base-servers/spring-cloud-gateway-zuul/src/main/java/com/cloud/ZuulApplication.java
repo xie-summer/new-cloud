@@ -20,7 +20,6 @@ import org.springframework.web.filter.CorsFilter;
  *
  * @author summer
  */
-@EnableSwagger2Doc
 @SpringBootApplication
 @EnableZuulProxy
 @EnableDiscoveryClient

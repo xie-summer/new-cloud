@@ -26,7 +26,7 @@ eureka:
     lease-expiration-duration-in-seconds: 20
   client:
     serviceUrl:
-      defaultZone: http://eureka.didispace.com/eureka/
+      defaultZone: http://cloud-eureka-server/eureka/
 
 ---
 spring:
@@ -36,4 +36,4 @@ eureka:
     prefer-ip-address: true
   client:
     serviceUrl:
-      defaultZone: http://eureka.didispace.com/eureka/
+      defaultZone: http://cloud-eureka-server/eureka/

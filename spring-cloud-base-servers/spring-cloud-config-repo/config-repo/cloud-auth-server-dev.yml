@@ -33,6 +33,6 @@ urls:
     - /signup
     - /mobile/token
 
-logging:
-  config: classpath:logback-spring.xml
+#logging:
+#  config: classpath:logback-spring.xml
 

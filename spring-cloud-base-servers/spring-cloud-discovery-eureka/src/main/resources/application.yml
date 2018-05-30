@@ -18,7 +18,7 @@ eureka:
   client:
     healthcheck:
           enabled: true
-    registerWithEureka: true
-    fetchRegistry: true
+    registerWithEureka: false
+    fetchRegistry: false
     serviceUrl:
       defaultZone: http://user:user@${eureka.instance.hostname}:8761/eureka/
