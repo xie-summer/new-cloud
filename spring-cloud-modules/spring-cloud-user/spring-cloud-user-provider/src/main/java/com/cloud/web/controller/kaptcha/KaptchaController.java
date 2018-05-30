@@ -2,7 +2,7 @@ package com.cloud.web.controller.kaptcha;
 
 import com.cloud.constant.SecurityConstants;
 import com.cloud.api.vo.ResultCode;
-import com.cloud.user.sys.SysUserService;
+import com.cloud.user.api.sys.SysUserService;
 import com.cloud.util.Assert;
 import com.google.code.kaptcha.Producer;
 import org.apache.commons.io.IOUtils;

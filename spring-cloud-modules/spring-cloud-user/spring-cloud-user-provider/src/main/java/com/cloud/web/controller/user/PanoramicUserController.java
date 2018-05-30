@@ -1,10 +1,10 @@
 package com.cloud.web.controller.user;
 
 import com.cloud.api.vo.ResultCode;
+import com.cloud.user.api.member.MemberService;
 import com.cloud.web.util.WebUtils;
-import com.monitor.dto.user.PanoramicUserInfo;
-import com.monitor.model.user.PanoramicUser;
-import com.panoramic.user.acl.PanoramicUserService;
+import com.monitor.domain.dto.user.PanoramicUserInfo;
+import com.monitor.model.user.Member;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -21,36 +21,36 @@ import javax.servlet.http.HttpServletResponse;
 public class PanoramicUserController {
     @Autowired
     @Qualifier("userService")
-    private PanoramicUserService panoramicUserService;
+    private MemberService memberService;
 
     @PostMapping
-    public ResultCode<PanoramicUser> add(PanoramicUser panoramicUser) {
-        panoramicUserService.save(panoramicUser);
-        return ResultCode.getSuccessReturn(panoramicUser);
+    public ResultCode<Member> add(Member member) {
+        memberService.save(member);
+        return ResultCode.getSuccessReturn(member);
     }
 
     @DeleteMapping("/{id}")
-    public ResultCode<PanoramicUser> delete(@PathVariable Integer id) {
-        panoramicUserService.deleteById(id);
+    public ResultCode<Member> delete(@PathVariable Integer id) {
+        memberService.deleteById(id);
         return ResultCode.getSuccessMap();
     }
 
     @PutMapping
-    public ResultCode<PanoramicUser> update(PanoramicUser panoramicUser) {
-        panoramicUserService.update(panoramicUser);
-        return ResultCode.getSuccessReturn(panoramicUser);
+    public ResultCode<Member> update(Member member) {
+        memberService.update(member);
+        return ResultCode.getSuccessReturn(member);
     }
 
 //    @GetMapping("/{id}")
-//    public ResultCode<PanoramicUser> detail(@PathVariable Integer id) {
-//        PanoramicUser panoramicUser = panoramicUserService.findById(id);
+//    public ResultCode<Member> detail(@PathVariable Integer id) {
+//        Member panoramicUser = memberService.findById(id);
 //        return ResultCode.getSuccessReturn(panoramicUser);
 //    }
 
 //    @GetMapping
 //    public ResultCode<PageInfo> list(Integer page, Integer size) {
 //        PageHelper.startPage(page, size);
-//        List<PanoramicUser> list = panoramicUserService.findAll();
+//        List<Member> list = memberService.findAll();
 //        PageInfo pageInfo = new PageInfo(list);
 //        return ResultCode.getSuccessReturn(pageInfo);
 //    }
@@ -58,7 +58,7 @@ public class PanoramicUserController {
     @ApiOperation(value = "登录接口", notes = "根据输入用户密码获取用户基本信息")
     @PostMapping(value = "/login")
     public ResultCode<PanoramicUserInfo> login(@RequestParam("username") String username, @RequestParam("password") String password) {
-        PanoramicUserInfo panoramicUserMobile = panoramicUserService.getUserInfo(username, password);
+        PanoramicUserInfo panoramicUserMobile = memberService.getUserInfo(username, password);
         return ResultCode.getSuccessReturn(panoramicUserMobile);
     }
 
@@ -66,7 +66,7 @@ public class PanoramicUserController {
     @PostMapping(value = "/weblogin")
     public ResultCode<PanoramicUserInfo> weblogin(@RequestParam("username") String username, @RequestParam("password") String password,
                                                   HttpServletResponse response, HttpServletRequest request) {
-        PanoramicUserInfo panoramicUserWeb = panoramicUserService.loginWeb(username, password);
+        PanoramicUserInfo panoramicUserWeb = memberService.loginWeb(username, password);
         if (panoramicUserWeb != null) {
             WebUtils.setLoginMemberKey(request, response);
         }

@@ -5,7 +5,7 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.panoramic.user.acl.PanoramicPermissionService;
+import com.cloud.user.api.PanoramicPermissionService;
 
 /**
  * @author summer 2017/11/08.
