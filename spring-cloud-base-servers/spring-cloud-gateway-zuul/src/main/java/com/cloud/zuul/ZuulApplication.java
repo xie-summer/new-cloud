@@ -27,10 +27,6 @@ public class ZuulApplication {
         DB_LOGGER.warn("ZuulApplication started successfully");
 
         // @Bean
-        // public AccessFilter accessFilter() {
-        // return new AccessFilter();
-        // }
-        // @Bean
         // public PatternServiceRouteMapper serviceRouteMapper() {
         // return new PatternServiceRouteMapper(
         // "(?<name>^.+)-(?<version>v.+$)",

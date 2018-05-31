@@ -1,0 +1,36 @@
+zuul:
+  add-host-header: true
+#  ignored-services:
+  retryable: true #是否开启重试功能
+  ribbon:
+    eager-load:
+      enabled: true
+  routes:
+     doc-servers:
+        path: /cloud-swagger-doc/**
+        serviceId: cloud-swagger-doc
+        sensitive-headers: Cookie,Set-Cookie
+     user-servers:
+            path: /cloud-user-server/**
+            serviceId: cloud-user-server
+            sensitive-headers: Cookie,Set-Cookie
+#    manages:
+#      path: /manage/**
+#      serviceId: cloud-manage-server
+#      sensitive-headers: Cookie,Set-Cookie
+#    invokes:
+#      path: /invoke/**
+#      serviceId: cloud-invoke-server
+#      sensitive-headers: Cookie,Set-Cookie
+#    users:
+#      path: /users/**
+#      serviceId: cloud-users-server
+#      sensitive-headers: Cookie,Set-Cookie
+#    tasks:
+#      path: /scheduled-task/**
+#      serviceId: cloud-scheduled-task-server
+#      sensitive-headers: Cookie,Set-Cookie
+#    risks:
+#      path: /risk-warning/**
+#      serviceId: cloud-risk-warning-server
+#      sensitive-headers: Cookie,Set-Cookie
