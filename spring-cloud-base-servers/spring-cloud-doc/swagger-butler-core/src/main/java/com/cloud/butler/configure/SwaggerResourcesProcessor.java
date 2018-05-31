@@ -36,6 +36,7 @@ public class SwaggerResourcesProcessor implements SwaggerResourcesProvider {
             }
             ServiceInstance instance = instances.get(0);
             resources.add(swaggerResource(serviceName, "/" + serviceName + swaggerButlerConfig.getApiDocsPath(), "2.0"));
+            resources.add(swaggerResource(serviceName, "/" + serviceName + swaggerButlerConfig.getApiDocsHtmlPath(), "2.0"));
         }
         return resources;
     }

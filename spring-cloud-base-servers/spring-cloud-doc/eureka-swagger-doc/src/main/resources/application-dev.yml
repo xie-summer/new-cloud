@@ -4,7 +4,7 @@ jasypt:
     password: summer
 
 server:
-  port: 1000
+  port: 2000
   tomcat:
     max-threads: 500 # Maximum amount of worker threads.
     min-spare-threads: 50 # Minimum amount of worker threads

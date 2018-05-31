@@ -28,5 +28,6 @@ public class SwaggerButlerProperties {
      * Swagger返回JSON文档的接口路径
      */
     private String apiDocsPath = "/v2/api-docs";
+    private String apiDocsHtmlPath = "/swagger-ui.html";
 
 }
