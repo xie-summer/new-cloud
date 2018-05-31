@@ -1,11 +1,8 @@
 package com.cloud.user.dao.domain;
 
-import com.cloud.model.BaseObject;
 import lombok.Data;
-import lombok.EqualsAndHashCode;
 
 import javax.persistence.Table;
-import java.io.Serializable;
 
 /**
  * @author summer
