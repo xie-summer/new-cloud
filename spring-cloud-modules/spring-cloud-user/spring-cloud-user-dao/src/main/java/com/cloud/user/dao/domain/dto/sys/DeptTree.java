@@ -8,8 +8,8 @@ import lombok.EqualsAndHashCode;
  * @date 2018/1/20
  * 部门树
  */
-@EqualsAndHashCode(callSuper = true)
 @Data
+@EqualsAndHashCode(callSuper = false)
 public class DeptTree extends TreeNode {
     private String name;
 

@@ -8,9 +8,9 @@ import lombok.EqualsAndHashCode;
  * @author summer
  * @date 2017年11月9日23:33:27
  */
-@EqualsAndHashCode(callSuper = true)
 @AllArgsConstructor
 @Data
+@EqualsAndHashCode(callSuper = false)
 public class MenuTree extends TreeNode {
   private String icon;
   private String name;

@@ -1,8 +1,6 @@
 package com.cloud.user.dao.domain;
 
-import com.cloud.model.BaseObject;
 import lombok.Data;
-import lombok.EqualsAndHashCode;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -14,10 +12,9 @@ import java.util.Date;
  * @author summer
  * @since 2017-11-08
  */
-@EqualsAndHashCode(callSuper = true)
 @Table(name = "sys_menu")
 @Data
-public class SysMenu extends BaseObject {
+public class SysMenu {
 
   private static final long serialVersionUID = 1L;
   /** 菜单ID */
@@ -54,11 +51,6 @@ public class SysMenu extends BaseObject {
   private String delFlag;
   /** 前端URL */
   private String path;
-
-  @Override
-  public Serializable realId() {
-    return null;
-  }
 
   @Override
   public String toString() {

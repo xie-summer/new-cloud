@@ -15,10 +15,9 @@ import java.util.Date;
  * @author summer
  * @since 2017-11-19
  */
-@EqualsAndHashCode(callSuper = true)
 @Table(name = "sys_dict")
 @Data
-public class SysDict extends BaseObject {
+public class SysDict {
 
   private static final long serialVersionUID = 1L;
   /** 编号 */
@@ -46,11 +45,6 @@ public class SysDict extends BaseObject {
   /** 删除标记 */
   @Column(name = "del_flag")
   private String delFlag;
-
-  @Override
-  public Serializable realId() {
-    return null;
-  }
 
   @Override
   public String toString() {

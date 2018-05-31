@@ -12,7 +12,7 @@ import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 /** Created by @author summer on 2017/12/20. */
-@Service("userService")
+@Service
 @Transactional(readOnly = true, rollbackFor = ServiceException.class)
 public class MemberServiceImpl extends AbstractService<Member> implements MemberService {
 

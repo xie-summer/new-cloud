@@ -1,21 +1,17 @@
 package com.cloud.user.dao.domain;
 
-import com.cloud.model.BaseObject;
 import lombok.Data;
-import lombok.EqualsAndHashCode;
 
 import javax.persistence.*;
-import java.io.Serializable;
 import java.util.Date;
 
 /**
  * @author summer
  * @since 2017-10-29
  */
-@EqualsAndHashCode(callSuper = true)
 @Table(name = "sys_role")
 @Data
-public class SysRole extends BaseObject {
+public class SysRole {
 
   private static final long serialVersionUID = 1L;
 
@@ -40,11 +36,6 @@ public class SysRole extends BaseObject {
   /** 删除标识（0-正常,1-删除） */
   @Column(name = "del_flag")
   private String delFlag;
-
-  @Override
-  public Serializable realId() {
-    return null;
-  }
 
   @Override
   public String toString() {

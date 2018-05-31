@@ -1,6 +1,5 @@
 package com.cloud.user.dao.domain;
 
-import com.cloud.model.BaseObject;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -15,7 +14,7 @@ import java.util.Date;
  */
 @Table(name = "sys_dept")
 @Data
-public class SysDept extends BaseObject {
+public class SysDept {
 
   private static final long serialVersionUID = 1L;
 
@@ -39,11 +38,6 @@ public class SysDept extends BaseObject {
 
   @Column(name = "parent_id")
   private Integer parentId;
-
-  @Override
-  public Serializable realId() {
-    return null;
-  }
 
   @Override
   public String toString() {

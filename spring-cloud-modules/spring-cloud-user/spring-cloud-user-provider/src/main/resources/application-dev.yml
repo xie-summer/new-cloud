@@ -1,22 +1,13 @@
+jasypt:
+  encryptor:
+    password: summer
+
 server:
-  port: 7000
-  servlet-path: /
-security:
-  user:
-    name: user
-    password: user
-  basic:
-    enabled: false
-eureka:
-  client:
-    serviceUrl:
-      defaultZone: http://user:user@eureka-server:8761/eureka/   # 指定注册中心的地址
-  instance:
-    preferIpAddress: true
-#    hostname : discovery   # 指定主机名时候通过主机名访问,否则通过ip地址
-spring:
-  application:
-    name: monitor-user-service    # 项目名称尽量用小写
+  port: ${random.int[10000,19999]}
+  tomcat:
+    max-threads: 500 # Maximum amount of worker threads.
+    min-spare-threads: 50 # Minimum amount of worker threads
+
 spring:
   datasource:
     url: jdbc:mysql://eureka-server:3306/user-server-db?useUnicode=true&characterEncoding=utf-8
@@ -40,9 +31,9 @@ spring:
     maxOpenPreparedStatements: 20
 
 mybatis:
-  mapper-locations: classpath:mapping/*.xml
-  type-aliases-package: com.monitor.model
-  configLocation: classpath:mybatis/mybatis-config.xml
+#  mapperLocations: classpath:/mapper/*.xml
+#  typeAliasesPackage: com.cloud.user.dao.model.user.*
+  configLocation: classpath:/mybatis/mybatis-config.xml
 
 #pagehelper分页插件
 pagehelper:
@@ -50,3 +41,96 @@ pagehelper:
     reasonable: true
     supportMethodsArguments: true
     params: count=countSql
+cache:
+  redis:
+    expiration: 3601
+
+ribbon:
+  Httpclient:
+    enable: false
+  OkHttp:
+    enable: true
+  MaxAutoRetries: 3 #同一个Server重试的次数(除去首次)
+  MaxAutoRetriesNextServer: 0 #切换相同Server的次数
+  ReadTimeout: 30000
+  ConnectTimeout: 30000
+  eager-load:
+        enabled: true
+
+feign:
+  hystrix:
+    enabled: true
+  okhttp:
+    enable: true
+  httpclient:
+    enable: false
+  client:
+    config:
+      feignName:
+        connectTimeout: 30000
+        readTimeout: 30000
+
+hystrix:
+  threadpool:
+    default:
+      coreSize: 500
+      maxQueueSize: 1000
+      queueSizeRejectionThreshold: 800
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 60000
+
+#监控短点配置
+management:
+  security:
+    enabled: false
+security:
+  user:
+    name: user
+    password: user
+  basic:
+    enabled: false
+endpoints:
+  actuator:
+    enabled: true
+  shutdown:
+    enabled: false
+
+logging:
+  config: classpath:logback.xml
+
+mybatis-plus:
+  mapper-locations: classpath:/mapper/*.xml
+  #实体扫描，多个package用逗号或者分号分隔
+  typeAliasesPackage: com.cloud.user.dao.model.user.*
+#  typeEnumsPackage: com.baomidou.springboot.entity.enums
+  global-config:
+    #主键类型  0:"数据库ID自增", 1:"用户输入ID",2:"全局唯一ID (数字类型唯一ID)", 3:"全局唯一ID UUID";
+    id-type: 2
+    #字段策略 0:"忽略判断",1:"非 NULL 判断"),2:"非空判断"
+    field-strategy: 2
+    #驼峰下划线转换
+    db-column-underline: true
+    #刷新mapper 调试神器
+    refresh-mapper: true
+    #数据库大写下划线转换
+    #capital-mode: true
+    #序列接口实现类配置,不在推荐使用此方式进行配置,请使用自定义bean注入
+    key-generator: com.baomidou.mybatisplus.incrementer.H2KeyGenerator
+    #逻辑删除配置（下面3个配置）
+    logic-delete-value: 0
+    logic-not-delete-value: 1
+    #自定义sql注入器,不在推荐使用此方式进行配置,请使用自定义bean注入
+    sql-injector: com.baomidou.mybatisplus.mapper.LogicSqlInjector
+    #自定义填充策略接口实现,不在推荐使用此方式进行配置,请使用自定义bean注入
+    meta-object-handler: com.baomidou.springboot.MyMetaObjectHandler
+    #自定义SQL注入器
+    #sql-injector: com.baomidou.springboot.xxx
+    # SQL 解析缓存，开启后多租户 @SqlParser 注解生效
+    sql-parser-cache: true
+  configuration:
+    map-underscore-to-camel-case: true
+    cache-enabled: false

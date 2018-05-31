@@ -1,11 +1,8 @@
 package com.cloud.user.dao.domain;
 
-import com.cloud.model.BaseObject;
 import lombok.Data;
-import lombok.EqualsAndHashCode;
 
 import javax.persistence.*;
-import java.io.Serializable;
 import java.util.Date;
 
 /**
@@ -14,10 +11,9 @@ import java.util.Date;
  * @author lengleng
  * @since 2017-10-29
  */
-@EqualsAndHashCode(callSuper = true)
 @Table(name = "sys_user")
 @Data
-public class SysUser extends BaseObject {
+public class SysUser {
 
   private static final long serialVersionUID = 1L;
 
@@ -80,10 +76,5 @@ public class SysUser extends BaseObject {
         + ", deptId="
         + deptId
         + '}';
-  }
-
-  @Override
-  public Serializable realId() {
-    return null;
   }
 }

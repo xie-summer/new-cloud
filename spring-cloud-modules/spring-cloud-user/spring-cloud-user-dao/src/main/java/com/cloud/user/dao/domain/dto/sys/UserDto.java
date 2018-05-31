@@ -8,7 +8,7 @@ import lombok.EqualsAndHashCode;
  * @author summer
  * @date 2017/11/5
  */
-@EqualsAndHashCode(callSuper = true)
+@EqualsAndHashCode(callSuper = false)
 @Data
 public class UserDto extends SysUser {
   /** 角色ID */
