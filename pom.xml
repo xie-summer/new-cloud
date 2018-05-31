@@ -10,10 +10,10 @@
 
     <modules>
         <!--<module>./spring-cloud-test</module>-->
-        <module>./spring-cloud-base-servers</module>
-        <module>./spring-cloud-template</module>
-        <module>./spring-cloud-visual</module>
-        <module>./spring-cloud-modules</module>
+        <module>spring-cloud-base-servers</module>
+        <module>spring-cloud-template</module>
+        <module>spring-cloud-visual</module>
+        <module>spring-cloud-modules</module>
 
     </modules>
     <properties>
@@ -33,7 +33,20 @@
         <docker.registry.name>cloud</docker.registry.name>
 
     </properties>
-
+    <dependencies>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.16.20</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.12</version>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
     <dependencyManagement>
         <dependencies>
             <dependency>
@@ -332,13 +345,25 @@
                         </resources>
                     </configuration>
                 </plugin>
+                <!-- mybatis generator 自动生成代码插件 -->
+                <plugin>
+                    <groupId>org.mybatis.generator</groupId>
+                    <artifactId>mybatis-generator-maven-plugin</artifactId>
+                    <version>1.3.6</version>
+                    <configuration>
+                        <configurationFile>${basedir}/src/main/resources/generator/generatorConfig.xml
+                        </configurationFile>
+                        <overwrite>true</overwrite>
+                        <verbose>true</verbose>
+                    </configuration>
+                </plugin>
             </plugins>
         </pluginManagement>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.2</version>
+                <version>3.7.0</version>
                 <configuration>
                     <source>${java.version}</source>
                     <target>${java.version}</target>
