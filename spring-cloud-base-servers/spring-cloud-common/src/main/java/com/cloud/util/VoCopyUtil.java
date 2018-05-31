@@ -1,8 +1,6 @@
 package com.cloud.util;
 
-import com.cloud.api.vo.BaseVo;
 import com.cloud.api.vo.ResultCode;
-import com.cloud.api.vo.VoMap;
 import com.cloud.dubbo.bytecode.Wrapper;
 import org.apache.commons.beanutils.PropertyUtils;
 import org.apache.commons.collections.CollectionUtils;
@@ -11,30 +9,28 @@ import org.apache.commons.collections.list.UnmodifiableList;
 import org.apache.commons.lang.ArrayUtils;
 
 import java.beans.PropertyDescriptor;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
+
 /**
  * @author summer
  */
 public class VoCopyUtil {
 	private static final transient TLogger DB_LOGGER = LoggerUtils.getLogger(VoCopyUtil.class);
 	public static Map<String/*srcClass+dstClass*/, List<String>> copyPropsMap = new FastHashMap();
-	public static <K, V> VoMap<K, V> toVoMap(Map<K, V> map){
-		VoMap result = new VoMap(map.size());
+	public static <K, V> Map<K, V> toVoMap(Map<K, V> map){
+		Map result = new HashMap(map.size());
 		result.putAll(map);
 		return result;
 	}
-	public static <K, V> List<VoMap<K, V>> toVoMapList(List<Map<K, V>> mapList){
-		List<VoMap<K, V>> result = new ArrayList<>(mapList.size());
+	public static <K, V> List<Map<K, V>> toVoMapList(List<Map<K, V>> mapList){
+		List<Map<K, V>> result = new ArrayList<>(mapList.size());
 		for(Map<K, V> map: mapList){
 			result.add(toVoMap(map));
 		}
 		return result;
 	}
 
-	public static <S extends BaseVo, T> ResultCode<List<S>> copyListProperties(Class<S> clazz, List<T> itemList) {
+	public static <S , T> ResultCode<List<S>> copyListProperties(Class<S> clazz, List<T> itemList) {
 		List<S> voItemList = new ArrayList<S>();
 		if (CollectionUtils.isEmpty(itemList)){
 			return ResultCode.getSuccessReturn(voItemList);
@@ -58,7 +54,7 @@ public class VoCopyUtil {
 		return ResultCode.getSuccessReturn(voItemList);
 	}
 
-	public static <S extends BaseVo, T> ResultCode<S> copyProperties(Class<S> clazz, T item) {
+	public static <S , T> ResultCode<S> copyProperties(Class<S> clazz, T item) {
 		if (item == null) {
             return ResultCode.getFailure(ResultCode.CODE_DATA_ERROR, "数据不存在！");
         }

@@ -1,6 +1,5 @@
 package com.cloud.support.controller.aop;
 
-import com.cloud.core.ServiceException;
 import com.cloud.api.vo.ResultCode;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
@@ -38,7 +37,7 @@ private void after(){
     private ResultCode<?> handlerException(ProceedingJoinPoint pjp, Throwable e) {
         ResultCode<?> result ;
         // 已知异常
-        if (e instanceof ServiceException) {
+        if (e instanceof Exception) {
             result = ResultCode.getFailure(ResultCode.CODE_KNOWN_ERROR, e.getLocalizedMessage());
         } else {
             logger.error(pjp.getSignature() + " error ", e);

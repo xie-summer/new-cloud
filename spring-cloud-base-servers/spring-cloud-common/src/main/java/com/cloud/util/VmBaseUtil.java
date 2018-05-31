@@ -2,6 +2,7 @@ package com.cloud.util;
 
 import com.cloud.commons.sign.Sign;
 import org.apache.commons.lang.StringUtils;
+import org.springframework.web.util.HtmlUtils;
 
 import java.io.UnsupportedEncodingException;
 import java.lang.reflect.Array;
@@ -47,32 +48,6 @@ public class VmBaseUtil extends StringUtils implements Util4Script {
         // 与htmlabbr的区别是不经过去除html标签处理
         String result = StringUtil.enabbr(str, length);
         return HtmlUtils.htmlEscape(result);
-    }
-
-    /**
-     * 将html中的文本提出出来，再截取length个，再将所有的HTML符号如:<, >, 等替换为 &gt, &lt
-     *
-     * @param html
-     * @param length
-     * @return
-     */
-    public final static String htmlabbr(String html, int length) {
-        return StringUtil.getEscapeText(html, length);
-    }
-
-    public final static String getText(String html) {
-        return StringUtil.getEscapeText(html);
-    }
-
-    public final static String subLastText(String temp, String text) {
-        if (StringUtils.isBlank(temp) || StringUtils.isBlank(text)) {
-            return "";
-        }
-        return StringUtils.substring(text, StringUtils.lastIndexOf(text, temp) + 1);
-    }
-
-    public final static String getHtmlText(String html, int length) {
-        return StringUtil.getHtmlText(html, length);
     }
 
     public final static String encodeStr(String str, String encoding) {
