@@ -1,16 +1,8 @@
 spring:
   application:
-    name: cloud-gateway-zuul
+    name: cloud-gateway-server
   profiles:
     active: dev
-  cloud:
-    config:
-      fail-fast: true
-      discovery:
-        service-id: cloud-config-server
-        enabled: true
-      profile: ${spring.profiles.active}
-#      label: ${spring.profiles.active}
 ---
 spring:
   profiles: dev
