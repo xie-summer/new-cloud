@@ -1,43 +1,37 @@
 package com.cloud.user.dao.domain.dto.sys;
 
-import java.util.ArrayList;
+import com.google.common.collect.Lists;
+import lombok.Data;
+
 import java.util.List;
 
 /**
- * @author lengleng
+ * @author summer
  * @date 2017年11月9日23:33:45
  */
+@Data
 public class TreeNode {
-    protected int id;
-    protected int parentId;
+  public int id;
+  public int parentId;
+  public List<TreeNode> children = Lists.newArrayList();
 
-    public List<TreeNode> getChildren() {
-        return children;
-    }
+  public void add(TreeNode node) {
+    children.add(node);
+  }
 
-    public void setChildren(List<TreeNode> children) {
-        this.children = children;
-    }
+  public int getId() {
+    return id;
+  }
 
-    List<TreeNode> children = new ArrayList<TreeNode>();
+  public void setId(int id) {
+    this.id = id;
+  }
 
-    public int getId() {
-        return id;
-    }
+  public int getParentId() {
+    return parentId;
+  }
 
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public int getParentId() {
-        return parentId;
-    }
-
-    public void setParentId(int parentId) {
-        this.parentId = parentId;
-    }
-
-    public void add(TreeNode node) {
-        children.add(node);
-    }
+  public void setParentId(int parentId) {
+    this.parentId = parentId;
+  }
 }

@@ -1,18 +1,16 @@
 package com.cloud.user.dao.domain.dto.sys;
 
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+
 /**
- * @author lengleng
+ * @author summer
  * @date 2018/1/20
  * 部门树
  */
+@EqualsAndHashCode(callSuper = true)
+@Data
 public class DeptTree extends TreeNode {
     private String name;
 
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
 }

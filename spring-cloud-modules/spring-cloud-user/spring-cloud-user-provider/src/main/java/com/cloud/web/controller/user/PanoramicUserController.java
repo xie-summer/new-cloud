@@ -2,9 +2,9 @@ package com.cloud.web.controller.user;
 
 import com.cloud.api.vo.ResultCode;
 import com.cloud.user.api.member.MemberService;
+import com.cloud.user.dao.domain.dto.user.PanoramicUserInfo;
+import com.cloud.user.dao.model.user.Member;
 import com.cloud.web.util.WebUtils;
-import com.monitor.domain.dto.user.PanoramicUserInfo;
-import com.monitor.model.user.Member;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;

@@ -5,7 +5,6 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.cloud.user.api.PanoramicPermissionService;
 
 /**
  * @author summer 2017/11/08.
@@ -13,9 +12,9 @@ import com.cloud.user.api.PanoramicPermissionService;
 @RestController
 @RequestMapping("/permission")
 public class PanoramicPermissionController {
-	@Autowired
-	@Qualifier("permissionService")
-	private PanoramicPermissionService permissionService;
+//	@Autowired
+//	@Qualifier("permissionService")
+//	private PanoramicPermissionService permissionService;
 
 	// @PostMapping
 	// public ResultCode<PanoramicPermission> add(PanoramicPermission

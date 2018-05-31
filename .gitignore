@@ -38,7 +38,7 @@ proguard/
 # Others  
 *.ocx_setup.exe
 .idea/  
-*.iml  
+#*.iml
 *.svn
 *.class
 *.target
@@ -46,17 +46,3 @@ proguard/
 target
 /.metadata/
 /.gitignore
-spring-cloud-base-servers/spring-cloud-admin/logs/
-spring-cloud-base-servers/spring-cloud-admin/src/
-spring-cloud-base-servers/spring-cloud-auth/auth-common/src/main/java/com/auth/common/bean/aop/
-spring-cloud-base-servers/spring-cloud-auth/auth-common/src/main/java/com/auth/common/bean/interceptor/
-spring-cloud-base-servers/spring-cloud-config-server/logs/
-spring-cloud-base-servers/spring-cloud-config-server/src/test/
-spring-cloud-base-servers/spring-cloud-discovery-eureka/logs/
-spring-cloud-base-servers/spring-cloud-hystrix-dashboard/logs/
-spring-cloud-base-servers/spring-cloud-hystrix-dashboard/src/
-spring-cloud-base-servers/spring-cloud-sleuth/src/java/
-spring-cloud-base-servers/spring-cloud-turbine/logs/
-spring-cloud-base-servers/spring-cloud-turbine/src/
-spring-cloud-base-servers/spring-cloud-ui/
-spring-cloud-base-servers/spring-cloud-zipkin/src/test/

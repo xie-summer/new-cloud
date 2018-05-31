@@ -1,13 +1,15 @@
 package com.cloud.user.dao.domain.dto.sys;
 
 
-import com.monitor.domain.SysRole;
+import com.cloud.user.dao.domain.SysRole;
+import lombok.Data;
 
 /**
- * @author lengleng
+ * @author summer
  * @date 2018/1/20
  * 角色Dto
  */
+@Data
 public class RoleDto extends SysRole {
     /**
      * 角色部门Id
@@ -19,19 +21,4 @@ public class RoleDto extends SysRole {
      */
     private String deptName;
 
-    public Integer getRoleDeptId() {
-        return roleDeptId;
-    }
-
-    public void setRoleDeptId(Integer roleDeptId) {
-        this.roleDeptId = roleDeptId;
-    }
-
-    public String getDeptName() {
-        return deptName;
-    }
-
-    public void setDeptName(String deptName) {
-        this.deptName = deptName;
-    }
 }

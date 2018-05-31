@@ -2,8 +2,8 @@ package com.cloud.user.api.member;
 
 
 import com.cloud.core.IService;
-import com.monitor.domain.dto.user.PanoramicUserInfo;
-import com.monitor.model.user.Member;
+import com.cloud.user.dao.domain.dto.user.PanoramicUserInfo;
+import com.cloud.user.dao.model.user.Member;
 
 /**
  * Created by @author summer on 2017/12/22.
@@ -16,7 +16,7 @@ public interface MemberService extends IService<Member> {
 	 * @param password
 	 * @return
 	 */
-	PanoramicUserInfo getUserInfo(String userName,String password);
+	PanoramicUserInfo getUserInfo(String userName, String password);
 
 	/**
 	 * 系统登入

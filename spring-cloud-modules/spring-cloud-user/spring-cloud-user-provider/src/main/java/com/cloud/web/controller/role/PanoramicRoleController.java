@@ -5,7 +5,6 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.cloud.user.api.PanoramicRoleService;
 
 /**
  * @author sunmer on 2017/11/06.
@@ -13,9 +12,9 @@ import com.cloud.user.api.PanoramicRoleService;
 @RestController
 @RequestMapping("/role")
 public class PanoramicRoleController {
-	@Autowired
-	@Qualifier("roleService")
-	private PanoramicRoleService roleService;
+//	@Autowired
+//	@Qualifier("roleService")
+//	private PanoramicRoleService roleService;
 
 	// @PostMapping
 	// public ResultCode<PanoramicRole> add(PanoramicRole panoramicRole) {

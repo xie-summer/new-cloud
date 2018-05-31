@@ -3,15 +3,13 @@ package com.cloud.user.service.member;
 import com.cloud.core.AbstractService;
 import com.cloud.core.ServiceException;
 import com.cloud.user.api.member.MemberService;
-import com.monitor.domain.dto.user.PanoramicUserInfo;
-import com.monitor.mapper.user.MemberMapper;
-import com.monitor.model.user.Member;
+import com.cloud.user.dao.domain.dto.user.PanoramicUserInfo;
+import com.cloud.user.dao.mapper.user.MemberMapper;
+import com.cloud.user.dao.model.user.Member;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
-
-import java.util.Objects;
 
 /** Created by @author summer on 2017/12/20. */
 @Service("userService")
@@ -26,12 +24,6 @@ public class MemberServiceImpl extends AbstractService<Member> implements Member
     // 用户数据查询
     PanoramicUserInfo result = new PanoramicUserInfo();
 
-    if (null == result) {
-      return null;
-    }
-    if (!Objects.equals(password, result.getPassword())) {
-      return null;
-    }
     return result;
   }
 
@@ -41,9 +33,6 @@ public class MemberServiceImpl extends AbstractService<Member> implements Member
 
     PanoramicUserInfo result = getUserInfo(userName, password);
 
-    if (null != result) {
-      return result;
-    }
     return null;
   }
 

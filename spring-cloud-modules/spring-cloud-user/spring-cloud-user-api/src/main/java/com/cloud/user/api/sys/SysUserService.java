@@ -2,10 +2,10 @@ package com.cloud.user.api.sys;
 
 import com.cloud.core.IService;
 import com.cloud.model.vo.UserVo;
+import com.cloud.user.dao.domain.SysUser;
+import com.cloud.user.dao.domain.dto.sys.UserDto;
+import com.cloud.user.dao.domain.dto.sys.UserInfo;
 import com.github.pagehelper.Page;
-import com.monitor.domain.dto.sys.UserDto;
-import com.monitor.domain.dto.sys.UserInfo;
-import com.monitor.domain.SysUser;
 
 /**
  * @author summer
