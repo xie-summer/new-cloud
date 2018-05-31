@@ -5,6 +5,8 @@ import com.cloud.api.vo.ResultCode;
 import com.cloud.user.api.sys.SysUserService;
 import com.cloud.user.util.Assert;
 import com.google.code.kaptcha.Producer;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import org.apache.commons.io.IOUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -18,6 +20,7 @@ import java.awt.image.BufferedImage;
 /**
  * @author summer
  */
+@Api("验证码接口")
 @RestController
 @RequestMapping("/kaptcha")
 public class KaptchaController {
@@ -33,6 +36,7 @@ public class KaptchaController {
      * @throws Exception
      */
     @GetMapping(SecurityConstants.DEFAULT_VALIDATE_CODE_URL_PREFIX + "/{randomStr}")
+    @ApiOperation(value = "创建验证码", notes = "创建验证码")
     public void createCode(@PathVariable String randomStr, HttpServletRequest request, HttpServletResponse response)
             throws Exception {
         Assert.isBlank(randomStr, "机器码不能为空");

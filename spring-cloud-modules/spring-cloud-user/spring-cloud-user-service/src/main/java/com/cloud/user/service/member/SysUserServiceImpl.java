@@ -1,6 +1,5 @@
 package com.cloud.user.service.member;
 
-import com.cloud.core.AbstractService;
 import com.cloud.model.vo.UserVo;
 import com.cloud.user.api.sys.SysUserService;
 import com.cloud.user.dao.domain.SysUser;
@@ -14,7 +13,7 @@ import org.springframework.stereotype.Service;
  * 2018/5/31
  */
 @Service
-public class SysUserServiceImpl  extends AbstractService<SysUser> implements SysUserService {
+public class SysUserServiceImpl  implements SysUserService {
     @Override
     public UserVo findUserByUsername(String username) {
         return null;

@@ -1,11 +1,8 @@
 package com.cloud.user.service.member;
 
-import com.cloud.core.AbstractService;
-import com.cloud.core.ServiceException;
 import com.cloud.user.api.member.MemberService;
 import com.cloud.user.dao.domain.dto.user.PanoramicUserInfo;
 import com.cloud.user.dao.mapper.user.MemberMapper;
-import com.cloud.user.dao.model.user.Member;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
@@ -13,8 +10,8 @@ import org.springframework.transaction.annotation.Transactional;
 
 /** Created by @author summer on 2017/12/20. */
 @Service
-@Transactional(readOnly = true, rollbackFor = ServiceException.class)
-public class MemberServiceImpl extends AbstractService<Member> implements MemberService {
+@Transactional(readOnly = true, rollbackFor = Exception.class)
+public class MemberServiceImpl implements MemberService {
 
   @Autowired private MemberMapper memberMapper;
 

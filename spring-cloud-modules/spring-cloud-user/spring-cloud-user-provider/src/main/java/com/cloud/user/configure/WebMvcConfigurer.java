@@ -7,7 +7,6 @@ import com.alibaba.fastjson.support.spring.FastJsonHttpMessageConverter4;
 import com.cloud.api.vo.ResultCode;
 import com.cloud.user.constant.IpTypeConstants;
 import com.cloud.user.constant.MarkConstant;
-import com.cloud.core.ServiceException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.annotation.Configuration;
@@ -63,7 +62,7 @@ public class WebMvcConfigurer extends WebMvcConfigurerAdapter {
             if (handler instanceof HandlerMethod) {
               HandlerMethod handlerMethod = (HandlerMethod) handler;
 
-              if (e instanceof ServiceException) {
+              if (e instanceof Exception) {
                 // 业务失败的异常，如“账号或密码错误”
                 result = ResultCode.getFailure(ResultCode.CODE_UNKNOWN_ERROR, e.getMessage());
                 logger.info(e.getMessage());

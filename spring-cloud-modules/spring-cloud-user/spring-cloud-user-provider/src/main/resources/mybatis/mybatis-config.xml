@@ -2,6 +2,17 @@
 <!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD SQL Map Config 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
+    <settings>
+        <!-- 这个配置使全局的映射器启用或禁用缓存 -->
+        <setting name="cacheEnabled" value="true"/>
+        <!-- 全局启用或禁用延迟加载。当禁用时，所有关联对象都会即时加载 -->
+        <setting name="lazyLoadingEnabled" value="true"/>
+        <setting name="multipleResultSetsEnabled" value="true"/>
+        <setting name="useColumnLabel" value="true"/>
+        <setting name="defaultExecutorType" value="REUSE"/>
+        <setting name="defaultStatementTimeout" value="25000"/>
+        <setting name="mapUnderscoreToCamelCase" value="true"/>
+    </settings>
     <typeAliases>
         <typeAlias alias="Integer" type="java.lang.Integer"/>
         <typeAlias alias="Long" type="java.lang.Long"/>
@@ -11,11 +22,11 @@
         <typeAlias alias="LinkedList" type="java.util.LinkedList"/>
     </typeAliases>
     <!-- 配置mybatis的分页插件PageHelper -->
-    <plugins>
-        <!-- com.github.pagehelper为PageHelper类所在包名 -->
-        <plugin interceptor="com.github.pagehelper.PageHelper">
-            <!-- 设置数据库类型Oracle,Mysql,MariaDB,SQLite,Hsqldb,PostgreSQL六种数据库 -->
-            <property name="dialect" value="mysql"/>
-        </plugin>
-    </plugins>
+    <!--<plugins>-->
+        <!--&lt;!&ndash; com.github.pagehelper为PageHelper类所在包名 &ndash;&gt;-->
+        <!--<plugin interceptor="com.github.pagehelper.PageHelper">-->
+            <!--&lt;!&ndash; 设置数据库类型Oracle,Mysql,MariaDB,SQLite,Hsqldb,PostgreSQL六种数据库 &ndash;&gt;-->
+            <!--<property name="dialect" value="mysql"/>-->
+        <!--</plugin>-->
+    <!--</plugins>-->
 </configuration>
