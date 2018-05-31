@@ -10,7 +10,7 @@ import org.springframework.context.annotation.ComponentScan;
 @EnableDiscoveryClient
 @EnableSwaggerButler
 @SpringBootApplication
-@ComponentScan(basePackages = {"com.cloud.butler"})
+@ComponentScan(basePackages = {"com.cloud.butler.configure"})
 public class EurekaSwaggerDocApplication {
 
     public static void main(String[] args) {

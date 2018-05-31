@@ -14,9 +14,9 @@
     <name>cloud-swagger-doc</name>
     <description>Api Document Management</description>
     <modules>
-        <module>./swagger-butler-core</module>
-        <module>./eureka-swagger-doc</module>
-        <module>./consul-swagger-doc</module>
+        <module>swagger-butler-core</module>
+        <module>eureka-swagger-doc</module>
+        <module>consul-swagger-doc</module>
     </modules>
 
     <properties>
