@@ -1,4 +1,4 @@
-package com.cloud;
+package com.cloud.eureka;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
