@@ -62,6 +62,17 @@
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
+            <dependency>
+                <groupId>io.zipkin.java</groupId>
+                <artifactId>zipkin-autoconfigure-storage-elasticsearch-http</artifactId>
+                <version>2.3.1</version>
+            </dependency>
+            <!-- 使用消息的方式收集数据（使用rabbitmq） -->
+            <dependency>
+                <groupId>io.zipkin.java</groupId>
+                <artifactId>zipkin-autoconfigure-collector-rabbitmq</artifactId>
+                <version>2.3.1</version>
+            </dependency>
             <!-- mybatis-plus begin -->
             <dependency>
                 <groupId>com.baomidou</groupId>
@@ -197,7 +208,21 @@
                 <artifactId>servlet-api</artifactId>
                 <version>2.5</version>
             </dependency>
-
+            <dependency>
+                <groupId>org.apache.curator</groupId>
+                <artifactId>curator-test</artifactId>
+                <version>2.10.0</version>
+            </dependency>
+            <dependency>
+                <groupId>com.dangdang</groupId>
+                <artifactId>elastic-job-lite-core</artifactId>
+                <version>2.1.5</version>
+            </dependency>
+            <dependency>
+                <groupId>com.dangdang</groupId>
+                <artifactId>elastic-job-lite-spring</artifactId>
+                <version>2.1.5</version>
+            </dependency>
 
             <!--异步httpclient start-->
             <dependency>

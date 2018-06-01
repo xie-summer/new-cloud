@@ -24,6 +24,7 @@
         <module>spring-cloud-turbine</module>
         <module>spring-cloud-gateway-zuul</module>
         <module>spring-cloud-hystrix-dashboard</module>
+        <module>spring-cloud-elk</module>
     </modules>
 
 </project>

@@ -38,7 +38,7 @@ proguard/
 # Others  
 *.ocx_setup.exe
 .idea/  
-#*.iml
+*.iml
 *.svn
 *.class
 *.target

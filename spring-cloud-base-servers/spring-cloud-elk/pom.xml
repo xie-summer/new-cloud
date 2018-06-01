@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>spring-cloud-base-servers</artifactId>
+        <groupId>com.github.xie-summer</groupId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>spring-cloud-elk</artifactId>
+
+<dependencies>
+    <dependency>
+        <groupId>com.github.xie-summer</groupId>
+        <artifactId>spring-cloud-common</artifactId>
+        <version>1.0-SNAPSHOT</version>
+    </dependency>
+    <!--zipkin-->
+    <dependency>
+        <groupId>io.zipkin.java</groupId>
+        <artifactId>zipkin-autoconfigure-storage-elasticsearch-http</artifactId>
+    </dependency>
+    <!-- 使用消息的方式收集数据（使用rabbitmq） -->
+    <dependency>
+        <groupId>io.zipkin.java</groupId>
+        <artifactId>zipkin-autoconfigure-collector-rabbitmq</artifactId>
+    </dependency>
+    <dependency>
+        <groupId>io.zipkin.java</groupId>
+        <artifactId>zipkin-autoconfigure-ui</artifactId>
+    </dependency>
+    <dependency>
+        <groupId>io.zipkin.java</groupId>
+        <artifactId>zipkin-server</artifactId>
+    </dependency>
+</dependencies>
+</project>

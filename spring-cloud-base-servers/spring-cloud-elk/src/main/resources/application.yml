@@ -1,0 +1,17 @@
+zipkin:
+  collector:
+      rabbitmq:
+        host: localhost
+        port: 5672
+        username: guest
+        password: guest
+        queue: zipkin
+  storage:
+    type: elasticsearch
+    elasticsearch:
+      hosts: 127.0.0.1:9200
+      cluster: elasticsearch
+      index: zipkin
+      max-requests: 64
+      index-shards: 5
+      index-replicas: 1

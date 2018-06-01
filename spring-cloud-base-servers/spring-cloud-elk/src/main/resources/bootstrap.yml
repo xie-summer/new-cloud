@@ -1,17 +1,12 @@
-
+#加密配置
 jasypt:
   encryptor:
     password: summer
-
 server:
   port: ${random.int[10000,19999]}
   tomcat:
     max-threads: 500 # Maximum amount of worker threads.
     min-spare-threads: 50 # Minimum amount of worker threads
-
-spring:
-  application:
-    name: cloud-scheduled-server
 eureka:
   instance:
     prefer-ip-address: true
@@ -19,7 +14,20 @@ eureka:
     lease-expiration-duration-in-seconds: 20
   client:
     serviceUrl:
-      defaultZone: http://user:user@cloud-eureka-server:8761/eureka/
+      defaultZone: http://user:user@eureka-server:8761/eureka/
+spring:
+  application:
+    name: cloud-elk-server
+  redis:
+    remote: false        #cachecloud 获取
+    host: localhost
+    port: 6379
+    password:
+  http:
+    multipart:
+      max-file-size: 1000MB
+      max-request-size: 1000MB
+
 cache:
   redis:
     expiration: 3601

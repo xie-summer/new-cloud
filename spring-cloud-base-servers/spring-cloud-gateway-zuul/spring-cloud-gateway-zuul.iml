@@ -7,10 +7,6 @@
     <facet type="web" name="Web">
       <configuration>
         <webroots />
-        <sourceRoots>
-          <root url="file://$MODULE_DIR$/src/main/docker" />
-          <root url="file://$MODULE_DIR$/src/main/java" />
-        </sourceRoots>
       </configuration>
     </facet>
   </component>

@@ -9,11 +9,18 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.github.xie-summer</groupId>
     <artifactId>spring-cloud-scheduled-task</artifactId>
     <properties>
         <java.version>1.8</java.version>
         <encoding.version>UTF-8</encoding.version>
+        <curator.version>2.10.0</curator.version>
+        <springframework.version>4.3.4.RELEASE</springframework.version>
+        <slf4j.version>1.7.7</slf4j.version>
+        <logback.version>1.1.2</logback.version>
+        <commons-dbcp.version>1.4</commons-dbcp.version>
+        <h2.version>1.4.184</h2.version>
+        <mysql.version>5.1.30</mysql.version>
+        <maven-compiler-plugin.version>3.3</maven-compiler-plugin.version>
     </properties>
     <dependencies>
         <dependency>
@@ -26,10 +33,31 @@
             <artifactId>javax.servlet-api</artifactId>
             <scope>provided</scope>
         </dependency>
+        <!--elastic-job-->
         <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-config</artifactId>
+            <groupId>org.apache.curator</groupId>
+            <artifactId>curator-test</artifactId>
         </dependency>
+        <dependency>
+            <groupId>com.dangdang</groupId>
+            <artifactId>elastic-job-lite-core</artifactId>
+            <exclusions>
+                <exclusion>
+                    <artifactId>curator-client</artifactId>
+                    <groupId>org.apache.curator</groupId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
+            <artifactId>curator-client</artifactId>
+            <groupId>org.apache.curator</groupId>
+            <version>2.10.0</version>
+        </dependency>
+        <dependency>
+            <groupId>com.dangdang</groupId>
+            <artifactId>elastic-job-lite-spring</artifactId>
+        </dependency>
+        <!--elastic-job-->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-eureka</artifactId>
@@ -77,24 +105,23 @@
             <artifactId>springfox-swagger-ui</artifactId>
         </dependency>
         <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-jpa</artifactId>
+        </dependency>
+        <!-- mybatis-plus begin -->
+        <dependency>
+            <groupId>com.baomidou</groupId>
+            <artifactId>mybatis-plus-boot-starter</artifactId>
+            <exclusions>
+                <exclusion>
+                    <artifactId>tomcat-jdbc</artifactId>
+                    <groupId>org.apache.tomcat</groupId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>fastjson</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.mybatis</groupId>
-            <artifactId>mybatis-spring</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.mybatis</groupId>
-            <artifactId>mybatis</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>tk.mybatis</groupId>
-            <artifactId>mapper</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>com.github.pagehelper</groupId>
-            <artifactId>pagehelper</artifactId>
         </dependency>
         <dependency>
             <groupId>com.alibaba</groupId>
@@ -112,15 +139,6 @@
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
             <scope>runtime</scope>
-        </dependency>
-        <!-- quartz 模块 -->
-        <dependency>
-            <groupId>org.quartz-scheduler</groupId>
-            <artifactId>quartz</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.quartz-scheduler</groupId>
-            <artifactId>quartz-jobs</artifactId>
         </dependency>
         <dependency>
             <groupId>commons-beanutils</groupId>

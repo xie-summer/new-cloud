@@ -7,7 +7,6 @@ import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.cloud.netflix.feign.EnableFeignClients;
 import org.springframework.context.annotation.ComponentScan;
 
-import com.cloud.service.feign.manage.ManageFeignHystrixClient.HystrixClientFallback;
 import com.cloud.util.LoggerUtils;
 import com.cloud.util.TLogger;
 
