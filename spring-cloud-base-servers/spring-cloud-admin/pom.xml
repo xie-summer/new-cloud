@@ -20,13 +20,13 @@
             <version>1.0-SNAPSHOT</version>
         </dependency>
         <dependency>
-			<groupId>org.springframework.cloud</groupId>
-			<artifactId>spring-cloud-starter-eureka-server</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-security</artifactId>
-		</dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-eureka-server</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-security</artifactId>
+        </dependency>
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-sleuth-stream</artifactId>
@@ -36,17 +36,17 @@
             <artifactId>spring-cloud-starter-stream-rabbit</artifactId>
         </dependency>
         <!--<dependency>-->
-            <!--<groupId>org.springframework.cloud</groupId>-->
-            <!--<artifactId>spring-cloud-sleuth-zipkin</artifactId>-->
+        <!--<groupId>org.springframework.cloud</groupId>-->
+        <!--<artifactId>spring-cloud-sleuth-zipkin</artifactId>-->
         <!--</dependency>-->
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-configuration-processor</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.cloud</groupId>
-			<artifactId>spring-cloud-starter-config</artifactId>
-		</dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-configuration-processor</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-config</artifactId>
+        </dependency>
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-bus-amqp</artifactId>
@@ -55,13 +55,25 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-actuator</artifactId>
         </dependency>
-		<dependency>
-			<groupId>org.springframework.cloud</groupId>
-			<artifactId>spring-cloud-starter-eureka</artifactId>
-		</dependency>
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-eureka</artifactId>
+        </dependency>
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-sleuth</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-swagger2</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-swagger-ui</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-bean-validators</artifactId>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
