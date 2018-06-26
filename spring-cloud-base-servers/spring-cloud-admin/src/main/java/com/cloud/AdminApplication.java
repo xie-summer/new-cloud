@@ -10,19 +10,17 @@ import org.springframework.context.annotation.ComponentScan;
 import com.cloud.util.LoggerUtils;
 import com.cloud.util.TLogger;
 
-/**
- * @author sunmer
- * 启动类
- */
+/** @author sunmer 启动类 */
 @SpringBootApplication
 @EnableDiscoveryClient
-@EnableCircuitBreaker
+// @EnableCircuitBreaker
 @EnableFeignClients
-@ComponentScan(basePackages = {"com.cloud"})
+@ComponentScan
 public class AdminApplication {
-	private static final transient TLogger DB_LOGGER = LoggerUtils.getLogger(AdminApplication.class);
-    public static void main(String[] args) {
-        SpringApplication.run(AdminApplication.class, args);
-        DB_LOGGER.warn("ScheduledTaskApplication started successfully");
-    }
+  private static final transient TLogger DB_LOGGER = LoggerUtils.getLogger(AdminApplication.class);
+
+  public static void main(String[] args) {
+    SpringApplication.run(AdminApplication.class, args);
+    DB_LOGGER.warn("AdminApplication started successfully");
+  }
 }

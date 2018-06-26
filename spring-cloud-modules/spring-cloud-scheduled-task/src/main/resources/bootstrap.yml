@@ -66,17 +66,18 @@ hystrix:
 management:
   security:
     enabled: false
+  endpoints:
+    actuator:
+      enabled: true
+    shutdown:
+      enabled: false
 security:
   user:
     name: user
     password: user
   basic:
     enabled: false
-endpoints:
-  actuator:
-    enabled: true
-  shutdown:
-    enabled: false
+
 
 logging:
   config: classpath:logback.xml
